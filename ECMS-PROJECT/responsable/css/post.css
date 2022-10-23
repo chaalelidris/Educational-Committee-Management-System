@@ -1,0 +1,27 @@
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn_post {
+  float: left;
+  width: 75%;
+}
+
+/* Fake image */
+.fakeimg_post {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card_post {
+  background-color: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row_post:after {
+  content: "";
+  display: table;
+  clear: both;
+}

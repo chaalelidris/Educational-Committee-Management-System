@@ -1,0 +1,289 @@
+.main {
+  margin-top: 60px;
+  margin-left: 260px;
+}
+
+.footer-margin {
+  margin-top: 30px;
+}
+
+@media (max-width:992px) {
+  .sidebar.collapse {
+    display: none
+  }
+
+  .main {
+    margin-left: 0px !important;
+    margin-right: 0 !important
+  }
+
+  .auto {
+    max-width: 100%
+  }
+}
+
+.pntr:hover {
+  cursor: pointer;
+}
+
+.acc_stl {
+  background-color: rgba(25, 25, 34, 0.8);
+  color: #f0f0f0;
+}
+
+/*                                                      Modal */
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=email], .select {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* Add a background color when the inputs get focus */
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for all buttons */
+.btn_btn {
+  border: none;
+  color: white;
+  padding: 10px 28px;
+  margin-top:14px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.success_btn {
+  background-color: #4CAF50;
+}
+
+/* Green */
+.success_btn:hover {
+  background-color: #46a049;
+}
+
+.mdl {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.mdl:hover {
+  opacity: 1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn-d, .deletebtn-d, .cancelbtn-form, .signupbtn-form {
+  float: left;
+  width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn-d {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Add a color to the delete button */
+.deletebtn-d {
+  background-color: #f44336;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn-form {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Add padding and center-align text to the container */
+.container-d {
+  position: relative;
+  padding: 16px;
+  text-align: center;
+}
+
+/* Add padding to container elements */
+.container-form {
+  position: relative;
+  padding: 16px;
+}
+
+/* The Modal (background) */
+.modal-d, .modal-form {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 3;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+
+  /* Enable scroll if needed */
+  background-color: rgba(71, 78, 93, 0.5);
+  padding-top: 50px;
+
+  /* Add the blur effect */
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+}
+
+/* Modal Content/Box */
+.modal-content-d, .modal-content-form {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto;
+  /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 50%;
+  /* Could be more or less, depending on screen size */
+}
+
+.modal-content-form {
+  width: 70%;
+}
+
+/* Style the horizontal ruler */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* The Modal Close Button (x) */
+.close-d, .close-form {
+  position: absolute;
+  right: 25px;
+  top: 0px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #404040;
+}
+
+.close-d:hover,
+.close-d:focus, .close-form:hover,
+.close-form:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix-d::after, .clearfix-form::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 700px) {
+  .modal-content-d {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .cancelbtn-d, .deletebtn-d, .cancelbtn-form, .signupbtn-form {
+    width: 100%;
+  }
+}
+
+/* sidebar-dropdown */
+.sidebar-dropdown {
+  margin-left: 25px;
+}
+
+.greenn {
+  color: #f6f6f6 !important;
+  background-color: rgba(25, 25, 34, 0.52) !important;
+}
+
+/*                             breadcrumb */
+ul.breadcrumb {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
+</style>
+
+/*                                  divider */
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+hr.rounded {
+  border-top: 8px solid #bbb;
+  border-radius: 5px;
+}
+
+.selected {
+  color: #fff;
+  background-color: #000;
+}
+
+/* supprimer et modifier */
+.mod_bg {
+  color: #ededed;
+  background-color: rgb(61, 168, 255);
+  text-decoration: none;
+}
+
+.sup_bg {
+  color: #ededed;
+  background-color: rgb(255, 87, 87);
+  text-decoration: none;
+}
+
+.sup_bg:hover {
+  background-color: rgb(255, 41, 41);
+}
+
+.mod_bg:hover {
+  background-color: rgb(0, 141, 255);
+}
+
+.mod_bg a:hover {
+  color: #ededed;
+  text-decoration: none;
+}
+
+.sup_bg a:hover {
+  color: #ededed;
+  text-decoration: none;
+}

@@ -1,0 +1,69 @@
+#regForm_form_ms {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 70%;
+  min-width: 400px;
+}
+
+.h1_form_ms {
+  text-align: center;
+}
+
+.input_form_ms {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Raleway;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+.input_form_ms.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab_form_ms {
+  display: none;
+}
+
+.button_form_ms {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 17px;
+  font-family: Raleway;
+  cursor: pointer;
+}
+
+.button_form_ms:hover {
+  opacity: 0.8;
+}
+
+#prevBtn_form_ms {
+  background-color: #bbbbbb;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step_form_ms {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step_form_ms.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step_form_ms.finish {
+  background-color: #4CAF50;
+}
