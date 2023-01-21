@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-include("../control/config/dbcon.php");
+include("control/config/dbcon.php");
 // date_default_timezone_set('');
 $date=date('Y-m-d h:i:s');
 extract($_SESSION);

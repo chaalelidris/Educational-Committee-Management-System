@@ -5,7 +5,7 @@ $user = "root"; /* User */
 $password = ""; /* Password */
 $dbname = "gcp"; /* Database name */
 
-$con = mysqli_connect($host, $user, $password,$dbname);
+$con = mysqli_connect($host, $user, $password, $dbname);
 // Check connection
 if (!$con) {
  die("Connection failed: " . mysqli_connect_error());
