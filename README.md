@@ -6,7 +6,7 @@ and control the members who play a role in carrying out various educational acti
 invitations, etc. On the other hand, it allows the actors (course leaders, teachers, and students) to follow the
 educational activities within the department.
 # Work plan
-1. Study of needs
+1. Analyse 
 2. System design
 3. Implementation
 4. Testing
