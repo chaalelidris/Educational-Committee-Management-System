@@ -15,7 +15,7 @@ there are four main actors interacting with this system:
 - Administrator.
 - Course Leaders.
 - Teachers.
--Delegate.
+- Delegate.
 
 so the overall architecture of this system is divided into four platforms for use.
 # Project features
