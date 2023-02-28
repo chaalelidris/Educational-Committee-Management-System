@@ -1,11 +1,11 @@
 # EDUCATIONAL COMMITTEE MANAGEMENT SYSTEM
-# Introduction
+# Introduction 🪧
 The project consists of studying, designing and creating a platform for managing the educational committees of
 departments within the University of Guelma. It allows, on the one hand, for the administration to effectively manage
 and control the members who play a role in carrying out various educational actions, setting meeting dates, sending
 invitations, etc. On the other hand, it allows the actors (course leaders, teachers, and students) to follow the
 educational activities within the department.
-# Work plan
+# Work plan 📑
 1. Analyse 
 2. System design
 3. Implementation
@@ -18,7 +18,7 @@ there are four main actors interacting with this system:
 - Delegate.
 
 so the overall architecture of this system is divided into four platforms for use.
-# Project features
+# Project features 💡
 - Authentication
 - Accounts management (CRUD operations)
 - record of proceedings management
@@ -40,7 +40,7 @@ so the overall architecture of this system is divided into four platforms for us
 <img src="https://user-images.githubusercontent.com/71793123/213866080-b7153939-348f-4100-8d47-de7ee4c49f1d.png"
     width="800">
 
-# Technologies
+# Technologies 💻
 This project was built using the following technologies:
 
 - **PHP**: The server-side scripting language used to build the - back-end of the system.
@@ -54,7 +54,7 @@ This project was built using the following technologies:
 - **Atom**: A text editor used to write and edit the code.
 - **Astah UML**: A software used to create UML diagrams for the system design.
 
-# Installation
+# Installation 🔌
 1. Install XAMPP on your system.
 2. Clone the repository or download the files to the htdocs folder
 inside the XAMPP folder.
@@ -64,14 +64,14 @@ inside the XAMPP folder.
 6. Open the file config.php inside the includes folder and change the database connection details to match your setup.
 7. Open your browser and go to http://localhost/{your-folder-name} to access the system.
 
-# Usage
+# Usage ☑️
 1. Log in to the system using the administrator account provided in the database file.
 2. Add and manage users, courses, and committees.
 3. Schedule meetings and send invitations.
 4. View the progress of courses and committees.
 Generate reports and procès-verbaux.
 
-# Screenshots
+# Screenshots 📷
 Here are some screenshots of the system in action:
 <img src="screenshots/login.png" alt="Login">
 <center> The login page where users can enter their credentials.</center>
