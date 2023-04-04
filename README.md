@@ -1,10 +1,6 @@
 # EDUCATIONAL COMMITTEE MANAGEMENT SYSTEM
 # Introduction 🪧
-The project consists of studying, designing and creating a platform for managing the educational committees of
-departments within the University of Guelma. It allows, on the one hand, for the administration to effectively manage
-and control the members who play a role in carrying out various educational actions, setting meeting dates, sending
-invitations, etc. On the other hand, it allows the actors (course leaders, teachers, and students) to follow the
-educational activities within the department.
+The project consists of studying, designing and creating a a dynamic platform that streamlines the management of educational committees for various departments within the University of Guelma. This powerful system empowers administrators to effectively oversee the committee members and course leaders, while also tracking the progress of educational activities within each department. By collecting important information from teachers and student delegates, this system ensures that each committee is running efficiently and effectively. Overall, the Educational Committee Management System is a valuable tool for optimizing academic performance and supporting the continued success of the University of Guelma.
 # Work plan 📑
 1. Analyse 
 2. System design
