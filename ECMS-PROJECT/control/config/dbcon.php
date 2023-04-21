@@ -3,7 +3,7 @@
 $host = "localhost"; /* Host name */
 $user = "root"; /* User */
 $password = ""; /* Password */
-$dbname = "gcp"; /* Database name */
+$dbname = "gcp-2"; /* Database name */
 
 $con = mysqli_connect($host, $user, $password, $dbname);
 // Check connection

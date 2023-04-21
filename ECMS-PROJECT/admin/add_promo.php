@@ -4,7 +4,7 @@ session_start();
 include("../control/config/dbcon.php");
 
 
-if (isset($_POST['Ajouter_promotion'])){
+if (isset($_POST['add_promotion'])){
   extract($_POST);
   $name = mysqli_real_escape_string($con,$name);
   $respid = mysqli_real_escape_string($con,$respid);
@@ -22,7 +22,7 @@ if (isset($_POST['Ajouter_promotion'])){
     $_SESSION["show_modal_promo"]="show";
 
     if ($_SESSION["current_session"] == "admin") {
-      header('location: ../admin/admin.php?class=show');
+      header('location: ../admin/dashboard.php?class=show');
     }elseif ($_SESSION["current_session"] == "delegue") {
       header('location: ../admin/gst_delegue.php?class=show');
     }elseif ($_SESSION["current_session"] == "enseignant") {
@@ -47,7 +47,7 @@ if (isset($_POST['Ajouter_promotion'])){
       $_SESSION["show_modal_promo"]="show";
 
       if ($_SESSION["current_session"] == "admin") {
-        header('location: ../admin/admin.php?class=show');
+        header('location: ../admin/dashboard.php?class=show');
       }elseif ($_SESSION["current_session"] == "delegue") {
         header('location: ../admin/gst_delegue.php?class=show');
       }elseif ($_SESSION["current_session"] == "enseignant") {

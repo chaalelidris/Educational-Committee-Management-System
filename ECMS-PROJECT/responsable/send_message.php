@@ -1,6 +1,6 @@
 
 <?php
-  include("head.php");
+  include("includes/head.php");
 
   if (isset($_SESSION["current_session"])) {
     unset($_SESSION["current_session"]);
@@ -9,8 +9,8 @@
     $_SESSION["current_session"] = "responsable";
   }
 
-  include("navbar.php");
-  include("sidebar.php");
+  include("includes/navbar.php");
+  include("includes/sidebar.php");
  ?>
 
 
@@ -26,7 +26,7 @@
 <div class="main ">
   <!--                                                    breadcrumb                                                       -->
   <ul class="breadcrumb">
-    <li><a href="admin.php">accueil</a></li>
+    <li><a href="dashboard.php">accueil</a></li>
     <li> <a href="messagerie.php">Messagerie</a> </li>
     <li>envoyer message</li>
   </ul>
@@ -201,7 +201,7 @@
 <?php include("../modal_send_message.php"); ?>
 <?php include("modal_change_pass.php"); ?>
 <?php include("../modal_deconnexion.php"); ?>
-<?php include("scripts.php"); ?>
+<?php include("includes/scripts.php"); ?>
 
 
 <script type="text/javascript">

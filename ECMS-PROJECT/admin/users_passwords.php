@@ -1,6 +1,6 @@
 
 <?php
-  include("../head.php");
+  include("includes/head.php");
 
   if (isset($_SESSION["current_session"])) {
     unset($_SESSION["current_session"]);
@@ -9,8 +9,8 @@
     $_SESSION["current_session"] = "admin";
   }
 
-  include("../navbar.php");
-  include("../sidebar.php");
+  include("includes/navbar.php");
+  include("includes/sidebar.php");
  ?>
 
 
@@ -26,7 +26,7 @@
   <div class="main " >
     <!--                                                    breadcrumb                                                       -->
     <ul class="breadcrumb" >
-      <li><a href="admin.php">accueil</a></li>
+      <li><a href="dashboard.php">accueil</a></li>
       <li>Mot de passes des utilisateurs</li>
     </ul>
     <hr class="rounded">
@@ -88,6 +88,8 @@
               echo'<td>délégué</td>';
             }elseif ($row['user_type'] == 'admin') {
               echo'<td>Administrateur</td>';
+            }elseif ($row['user_type'] == 'super_admin') {
+              echo'<td>Super Administrateur</td>';
             }
 
             // $pass = mysqli_real_escape_string($con, $row['user_pass']);
@@ -106,14 +108,14 @@
 
   </div>
 
-  <?php include("../modal_change_pass.php"); ?>
-  <?php include("../modal_ajouter_promo.php"); ?>
-  <?php include("../modal_ajouter_module.php"); ?>
-  <?php include("../modal_ajouterutilisateur.php"); ?>
-  <?php include("../modal_delete_user.php") ?>
+  <?php include("includes/modals/modal_change_pass.php"); ?>
+  <?php include("includes/modals/modal_add_promotion.php"); ?>
+  <?php include("includes/modals/modal_add_module.php"); ?>
+  <?php include("includes/modals/modal_add_user.php"); ?>
+  <?php include("includes/modals/modal_delete_user.php") ?>
   <?php include("../modal_deconnexion.php"); ?>
 
-  <?php include("scripts.php"); ?>
+  <?php include("includes/scripts.php"); ?>
 
 
   <?php

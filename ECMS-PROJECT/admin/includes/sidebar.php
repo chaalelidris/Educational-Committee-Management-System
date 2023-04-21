@@ -8,7 +8,7 @@
     <i class="fa fa-remove"></i>
   </a>
   <h4 class="bar-item"><b>Menu</b></h4>
-  <a href="admin.php" class="bar-item button hover-black">Accueil</a>
+  <a href="dashboard.php" class="bar-item button hover-black">Accueil</a>
 
      <?php if (isset($_GET["class"])):?>
   <a id="sideacc" class="bar-item button hover-black greenn" href="#"><i class="fa fa-users" aria-hidden="true"></i> Gestion des utilisateurs <span class="tag red round right"></span></a>

@@ -20,7 +20,7 @@ if (isset($_POST['Ajouter_utilisateur'])){
     $_SESSION["show_modal"]="show";
 
     if ($_SESSION["current_session"] == "admin") {
-      header('location: ../admin/admin.php?class=show');
+      header('location: ../admin/dashboard.php?class=show');
     }elseif ($_SESSION["current_session"] == "delegue") {
       header('location: ../admin/gst_delegue.php?class=show');
     }elseif ($_SESSION["current_session"] == "enseignant") {
@@ -42,7 +42,7 @@ if (isset($_POST['Ajouter_utilisateur'])){
     $_SESSION["show_modal"]="show";
 
     if ($_SESSION["current_session"] == "admin") {
-      header('location: ../admin/admin.php?class=show');
+      header('location: ../admin/dashboard.php?class=show');
     }elseif ($_SESSION["current_session"] == "delegue") {
       header('location: ../admin/gst_delegue.php?class=show');
     }elseif ($_SESSION["current_session"] == "enseignant") {
@@ -103,7 +103,7 @@ if (isset($_POST['Ajouter_utilisateur_del'])){
     $_SESSION["show_modal"]="show";
 
     if ($_SESSION["current_session"] == "admin") {
-      header('location: ../admin/admin.php?class=show');
+      header('location: ../admin/dashboard.php?class=show');
     }elseif ($_SESSION["current_session"] == "delegue") {
       header('location: ../admin/gst_delegue.php?class=show');
     }elseif ($_SESSION["current_session"] == "enseignant") {
@@ -128,7 +128,7 @@ if (isset($_POST['Ajouter_utilisateur_del'])){
       $_SESSION["show_modal"]="show";
 
       if ($_SESSION["current_session"] == "admin") {
-        header('location: ../admin/admin.php?class=show');
+        header('location: ../admin/dashboard.php?class=show');
       }elseif ($_SESSION["current_session"] == "delegue") {
         header('location: ../admin/gst_delegue.php?class=show');
       }elseif ($_SESSION["current_session"] == "enseignant") {

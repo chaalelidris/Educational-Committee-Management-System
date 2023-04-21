@@ -1,12 +1,10 @@
 
 
 
-<!-- ==================================      modal déconnection      ========================================-->
-
-
+<!-- ==================================      modal disconnect      ========================================-->
 
 <div id="id01" class="modal-d ">
-  <form class="modal-content-d" action="../logout.php">
+  <form class="modal-content-d" action="../control/logout.php">
     <div class="container-d">
       <span onclick="document.getElementById('id01').style.display='none'" class="close-d" title="Close Modal">&times;</span>
       <h1>Déconnection</h1>
@@ -19,6 +17,3 @@
     </div>
   </form>
 </div>
-
-
-<!--                                  scripts -->

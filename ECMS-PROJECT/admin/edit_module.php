@@ -19,7 +19,7 @@
 
 
         if ($_SESSION["current_session"] == "admin") {
-          header('location: ../admin/admin.php?class=show');
+          header('location: ../admin/dashboard.php?class=show');
         }elseif ($_SESSION["current_session"] == "delegue") {
           header('location: ../admin/gst_delegue.php?class=show');
         }elseif ($_SESSION["current_session"] == "enseignant") {
@@ -66,7 +66,7 @@
         $_SESSION["show_modal_edit_module"]="show";
 
         if ($_SESSION["current_session"] == "admin") {
-          header('location: ../admin/admin.php?class=show');
+          header('location: ../admin/dashboard.php?class=show');
         }elseif ($_SESSION["current_session"] == "delegue") {
           header('location: ../admin/gst_delegue.php?class=show');
         }elseif ($_SESSION["current_session"] == "enseignant") {

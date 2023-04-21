@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-include("control/config/dbcon.php");
+include("config/dbcon.php");
 // date_default_timezone_set('');
 $date=date('Y-m-d h:i:s');
 extract($_SESSION);
@@ -13,5 +13,5 @@ $user_id=$srow['user_id'];
 $details=$srow['user_name']." est déconnecté.";
 
 session_destroy();
-header('location:index.php');
+header('location:../index.php');
 ?>

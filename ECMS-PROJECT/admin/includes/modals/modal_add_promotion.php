@@ -39,7 +39,7 @@
 
         <div class="clearfix-form">
           <button id="bttn5" type="button"  class="mdl cancelbtn-form">Cancel</button>
-          <button type="submit" name="Ajouter_promotion" class="mdl signupbtn-form">Ajouter</button>
+          <button type="submit" name="add_promotion" class="mdl signupbtn-form">Ajouter</button>
         </div>
       </div>
     </form>

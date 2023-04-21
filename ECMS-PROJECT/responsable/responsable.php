@@ -1,6 +1,6 @@
 
 <?php
-  include("head.php");
+  include("includes/head.php");
 
   if (isset($_SESSION["current_session"])) {
     unset($_SESSION["current_session"]);
@@ -9,8 +9,8 @@
     $_SESSION["current_session"] = "responsable";
   }
 
-  include("navbar.php");
-  include("sidebar.php");
+  include("includes/navbar.php");
+  include("includes/sidebar.php");
  ?>
 
 
@@ -83,7 +83,7 @@
 
   <?php include("modal_change_pass.php"); ?>
   <?php include("../modal_deconnexion.php"); ?>
-  <?php include("scripts.php"); ?>
+  <?php include("includes/scripts.php"); ?>
 
   <?php include("snakebar.php"); ?>
 

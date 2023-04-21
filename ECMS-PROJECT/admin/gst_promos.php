@@ -1,5 +1,5 @@
 <?php
-  include("../head.php");
+  include("includes/head.php");
 
   if (isset($_SESSION["current_session"])) {
     unset($_SESSION["current_session"]);
@@ -8,8 +8,8 @@
     $_SESSION["current_session"] = "promotion";
   }
 
-  include("../navbar.php");
-  include("../sidebar.php");
+  include("includes/navbar.php");
+  include("includes/sidebar.php");
  ?>
 
 
@@ -18,7 +18,7 @@
   <!-- begin main -->
 
   <ul class="breadcrumb" >
-    <li><a href="admin.php">accueil</a></li>
+    <li><a href="dashboard.php">accueil</a></li>
     <li>Gestion des promotions</li>
   </ul>
   <hr class="rounded">
@@ -75,14 +75,14 @@
   <!-- END MAIN -->
 </div>
 
-  <?php include("../modal_edit_promo.php"); ?>
-  <?php include("../modal_delete_promo.php"); ?>
+  <?php include("includes/modals/modal_edit_promo.php"); ?>
+  <?php include("includes/modals/modal_delete_promo.php"); ?>
 
-  <?php include("../modal_ajouterutilisateur.php"); ?>
-  <?php include("../modal_ajouter_promo.php"); ?>
-  <?php include("../modal_ajouter_module.php"); ?>
+  <?php include("includes/modals/modal_add_user.php"); ?>
+  <?php include("includes/modals/modal_add_promotion.php"); ?>
+  <?php include("includes/modals/modal_add_module.php"); ?>
   <?php include("../modal_deconnexion.php"); ?>
-  <?php include("scripts.php"); ?>
+  <?php include("includes/scripts.php"); ?>
 
   <?php
     if (isset($_SESSION['message'])) {

@@ -13,18 +13,9 @@ if (empty($_SESSION['admin_user_id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SYSTEM | <?php echo $title;?></title>
 
-
-  <!-- <link rel="stylesheet" href="../style/css/normalize.css">
-  <link rel="stylesheet" href="../style/css/themify-icons.css">
-  <link rel="stylesheet" href="../style/css/flag-icon.min.css">
-  <link rel="stylesheet" href="../style/css/cs-skin-elastic.css">
-  <link rel="stylesheet" href="../style/css/lib/datatable/dataTables.bootstrap.min.css">
-  <link rel="stylesheet" href="../style/css/lib/chosen/chosen.min.css"> -->
-  <!-- <link rel="stylesheet" href="../style/scss/style.css"> -->
-
   <!-- =======================                   Style                        ======================= -->
-  <link rel="stylesheet" href="../style/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../style/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../../style/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../style/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="css/ws.css">
   <link rel="stylesheet" href="css/w3t.css">

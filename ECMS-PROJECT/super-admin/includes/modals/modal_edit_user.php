@@ -22,13 +22,18 @@
         <label for="email"><b>Email</b></label>
         <input type="email" value="<?php echo $_SESSION['email_edit']; ?>" placeholder="Entrer l'email" name="email" id="email" title="veuillez remplir ce champ" >
 
-        <label for="option"><b>sélectionner le type d'utilisateur</b></label>
-        <select  class="select border" name="option" title="veuillez sélectionner" style="background-color:#f1f1f1; padding:15px 10px;" required>
-          <option value="<?php echo $_SESSION['option_edit']; ?>" selected>utilisateur actuel par défaut ( <?php echo $_SESSION['option_edit']; ?> )</option>
-          <option value="1">1- Résponsable de parcours</option>
-          <option value="2">2- Enseignant</option>
-          <option value="3">3- Délégué</option>
-        </select> <br> <br>
+        
+        <label for="option"><b>Choisir le type d'utilisateur</b></label>
+        <select class="select border" name="option" title="Veuillez sélectionner" style="background-color:#f1f1f1; padding:15px 10px;" required>
+          <?php if ($_SESSION['option_edit'] == "admin"): ?>
+            <option value="admin" selected>Admin </option>
+          <?php else: ?>
+            <option value="admin" selected>Admin</option>
+          <?php endif; ?>
+        </select>
+        
+        <br><br>
+
 
 
         <div class="clearfix-form">

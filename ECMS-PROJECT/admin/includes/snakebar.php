@@ -1,12 +1,8 @@
-<!--                                              open the snackbar -->
-
-
-
+<!--open the snackbar -->
 <div id="snackbar">ESPACE ADMINISTRATEUR</div>
 
 
-
-<!--                                                    snackbar -->
+<!-- snackbar -->
 
 <script type="text/javascript">
   function myFunction() {

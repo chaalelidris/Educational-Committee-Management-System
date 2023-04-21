@@ -6,7 +6,7 @@ if (isset($_POST['user_submit'])) {
     extract($_POST);
 
     if (empty($username) & empty($password)) {
-        header('location:../index.php?username='.$username.'&erroru=Nom utilisateur obligatoire & errorm=Mot de passe obligatoire');
+        header('location:../index.php?username='.$username.'& erroru=Nom utilisateur obligatoire & errorm=Mot de passe obligatoire');
     } elseif (empty($password)) {
         header('location:../index.php?username='.$username.'& errorm=Mot de passe obligatoire');
     } elseif (empty($username)) {
@@ -26,13 +26,21 @@ if (isset($_POST['user_submit'])) {
 
             if ($row['user_pass']==$password) {
                 session_start();
-                if ($row['user_type']=="admin") {
+                if ($row['user_type']=="super_admin") {
+                    //$details=$row['user_fulname']." s'est connecté au systèm ";
+                    //mysqli_query("INSERT into tbl_history values('','$row[user_id]','$details','$date')");
+
+                    $_SESSION['super_admin_user_id']=$row['user_id'];
+                    $_SESSION['super_admin_user_name']=$row['user_name'];
+                    $_SESSION['super_admin_user_fullname']=$row['user_fullname'];
+                    header('location:../super-admin/dashboard.php');
+                } elseif ($row['user_type']=="admin") {
                     //$details=$row['user_fulname']." s'est connecté au systèm ";
                     //mysqli_query("INSERT into tbl_history values('','$row[user_id]','$details','$date')");
                     $_SESSION['admin_user_id']=$row['user_id'];
                     $_SESSION['admin_user_name']=$row['user_name'];
                     $_SESSION['admin_user_fullname']=$row['user_fullname'];
-                    header('location:../admin/admin.php');
+                    header('location:../admin/dashboard.php');
                 } elseif ($row['user_type']=="1") {
                     //$details=$row['user_fulname']." s'est connecté au systèm ";
                     //mysqli_query("INSERT into tbl_history values('','$row[user_id]','$details','$date')");

@@ -1,5 +1,5 @@
 <?php
-  include("../head.php");
+  include("includes/head.php");
 
   if (isset($_SESSION["current_session"])) {
     unset($_SESSION["current_session"]);
@@ -8,29 +8,27 @@
     $_SESSION["current_session"] = "responsable";
   }
 
-  include("../navbar.php");
-  include("../sidebar.php");
+  include("includes/navbar.php");
+  include("includes/sidebar.php");
  ?>
 
 
 
 
 
-  <!-- =====================================                  contenus               ======================================= -->
-
-
+  <!-- ===================================== CONTENT ======================================= -->
 
   <!--                                  Main content: shift it to the right by 310 pixels                                    -->
   <div class="main">
     <ul class="breadcrumb" >
-      <li><a href="admin.php">accueil</a></li>
+      <li><a href="dashboard.php">accueil</a></li>
       <li>Gestion des Responsables de parcours</li>
     </ul>
     <hr class="rounded">
 
 
 
-    <!--                                                        Tableau -->
+    <!--  TABLE -->
     <div class="container">
       <h2>Table des utilisateurs résponsables de parcours</h2>
       <p>Cliquez sur les en-têtes pour trier le tableau.</p>
@@ -81,14 +79,14 @@
 
     <!-- END MAIN -->
   </div>
-  <?php include("../modal_edituser.php"); ?>
-  <?php include("../modal_delete_user.php") ?>
+  <?php include("includes/modals/modal_edit_user.php"); ?>
+  <?php include("includes/modals/modal_delete_user.php") ?>
 
-  <?php include("../modal_ajouter_promo.php"); ?>
-  <?php include("../modal_ajouter_module.php"); ?>
-  <?php include("../modal_ajouterutilisateur.php"); ?>
+  <?php include("includes/modals/modal_add_promotion.php"); ?>
+  <?php include("includes/modals/modal_add_module.php"); ?>
+  <?php include("includes/modals/modal_add_user.php"); ?>
   <?php include("../modal_deconnexion.php"); ?>
-  <?php include("scripts.php"); ?>
+  <?php include("includes/scripts.php"); ?>
 
   <?php
     if (isset($_SESSION['message'])) {
