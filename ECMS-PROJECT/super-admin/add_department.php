@@ -16,10 +16,16 @@ if (isset($_POST['add_department'])){
   $num = mysqli_num_rows($result);
 
   if ($num > 0) {
-    $_SESSION["message"] = "Ce département existe déjà";
+    // Store form values in session variables
+    $_SESSION['department_name'] = $name;
+    $_SESSION['department_abbr'] = $abbr;
+    $_SESSION['department_description'] = $description;
+    $_SESSION['admin_id'] = $admin_id;
+
+    $_SESSION["message"] = "département avec ce nom existe déjà";
     $_SESSION["message_type"] = "red";
     $_SESSION["show"] = "show";
-    $_SESSION["show_modal_department"] = "show";
+    $_SESSION["show_modal_add_department"] = "show";
 
     header('location: manage_departments.php');
     
@@ -32,8 +38,8 @@ if (isset($_POST['add_department'])){
     $_SESSION['message_type'] = "green";
     $_SESSION["show"] = "show";
 
-    if (isset($_SESSION["show_modal_department"])) {
-      unset($_SESSION["show_modal_department"]);
+    if (isset($_SESSION["show_modal_add_department"])) {
+      unset($_SESSION["show_modal_add_department"]);
     }
 
     header('location: manage_departments.php');

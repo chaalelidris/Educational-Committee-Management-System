@@ -16,7 +16,7 @@
   var modal5 = document.getElementById('id05');
 
   // Get the modal Ajouter department
-  var modal6 = document.getElementById('id06');   //modal Ajouter promo
+  var modal6 = document.getElementById('id06');   
 
   // Get the modal supprimer department
   var modal7 = document.getElementById('id07');
@@ -146,26 +146,14 @@ $(document).ready(function(){
   // modal Ajouter department
   $("#bttn4").click(function(){
     document.getElementById('id06').className = document.getElementById('id06').className.replace(" show", " hide");
-    $.post("destroy_modal.php",
-    {
-
-    },
-    function(data,status){
+    $.post("destroy_modal.php",{},function(data,status){
     });
-
   });
 
 
   $("#bttn5").click(function(){
     document.getElementById('id06').className = document.getElementById('id06').className.replace(" show", " hide");
-
-    $.post("destroy_modal.php",
-    {
-
-    },
-    function(data,status){
-      // alert("Data: " + data + "\nStatus: " + status);
-    });
+    $.post("destroy_modal.php",{},function(data,status){});
   });
 
 
