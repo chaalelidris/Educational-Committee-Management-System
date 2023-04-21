@@ -37,7 +37,7 @@
     <div class="row_sc " style="margin: 0 auto;">
 
       <div class="column_sc">
-        <div class="card_sc">
+        <div class="card_sc round-xlarge">
           <p><i class="fa fa-user fa_sc"></i></p>
           <?php
           $sql = "SELECT * FROM tbl_users WHERE user_type= '2'";
@@ -50,7 +50,7 @@
       </div>
 
       <div class="column_sc">
-        <div class="card_sc">
+        <div class="card_sc round-xlarge">
           <p><i class="fa fa-check fa_sc"></i></p>
 
           <?php
@@ -65,7 +65,7 @@
       </div>
 
       <div class="column_sc">
-        <div class="card_sc">
+        <div class="card_sc round-xlarge">
           <p><i class="fa fa-smile-o fa_sc"></i></p>
 
           <?php

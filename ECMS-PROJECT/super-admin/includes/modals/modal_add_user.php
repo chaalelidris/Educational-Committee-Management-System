@@ -5,7 +5,7 @@
   <?php else: ?>
     <div id="id02" class="modal-form hide">
     <?php endif; ?>
-    <form class="modal-content" action="../control/saveusers.php" method="post">
+    <form class="modal-content" action="add_admin.php" method="post">
       <div class="container-form">
         <span id="bttn" class="close-d" title="Fermer le Modal">&times;</span>
         <h1 style="color:#191923;">Ajouter un utilisateur</h1>
@@ -35,8 +35,7 @@
         <label for="option"><b>sélectionner le type d'utilisateur</b></label>
         <select class="select border" name="option" title="veuillez sélectionner" style="background-color:#f1f1f1; padding:15px 10px;" required>
           <option value="" disabled selected>Choisissez votre option</option>
-          <option value="1">Résponsable de parcours</option>
-          <option value="2">Enseignant</option>
+          <option value="admin" selected>Admin</option>
         </select> <br>
 
         <label for="password"><b>Mot de passe</b></label>
@@ -49,7 +48,7 @@
 
         <div class="clearfix-form">
           <button id="bttn1" type="button"  class="mdl cancelbtn-form">Annuler</button>
-          <button type="submit" name="Ajouter_utilisateur" class="mdl signupbtn-form">Ajouter</button>
+          <button type="submit" name="add_admin" class="mdl signupbtn-form">Ajouter</button>
         </div>
       </div>
     </form>

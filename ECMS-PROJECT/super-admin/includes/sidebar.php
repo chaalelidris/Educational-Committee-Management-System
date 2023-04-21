@@ -34,7 +34,7 @@
 
         <a id="add_department" href="#" class="bar-item button hover-black acc_stl"><i class="fa fa-plus"> Ajouter
             departement</i></a>
-        <a href="gst_promos.php?class_pr=show" class="bar-item button hover-black acc_stl">Gérer les departement</i></a>
+        <a href="manage_departments.php?" class="bar-item button hover-black acc_stl">Gérer les departement</i></a>
       </div>
 
 

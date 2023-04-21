@@ -1,4 +1,3 @@
-
 <?php
   include '../root.php';
 
@@ -17,96 +16,106 @@
 
 
 <!-- ===================================== CONTENT ======================================= -->
-  <div class="main " >
+<div class="main ">
 
-    <!-- ===================================== BREADCUMBS ===================================== -->
-    <ul class="breadcrumb" >
-      <li><a href="#">accueil</a></li>
-    </ul>
-    
-    <hr class="rounded">
-    
-    <?php
+  <!-- ===================================== BREADCUMBS ===================================== -->
+  <ul class="breadcrumb">
+    <li><a href="#">accueil</a></li>
+  </ul>
+
+  <hr class="rounded">
+
+  <?php
     require_once("../control/config/dbcon.php");
     ?>
 
-    <!-- ===================================== USERS CARDS ===================================== -->
-    <div class="row_sc " style="margin: 0 auto;">
+  <!-- ===================================== USERS CARDS ===================================== -->
+  <div class="row_sc " style="margin: 0 auto;">
 
-      <div class="column_sc">
-        <div class="card_sc">
-          <p><i class="fa fa-user fa_sc"></i></p>
-          <?php
+    <div class="column_sc">
+      <div class="card_sc round-xlarge">
+        <p><i class="fa fa-user fa_sc"></i></p>
+        <?php
           $sql = "SELECT * FROM tbl_users WHERE user_type= '2'";
           $result = mysqli_query($con, $sql);
           $num1 = mysqli_num_rows($result)
           ?>
-          <h3><?php echo $num1; ?></h3>
-          <p>enseignants</p>
-        </div>
+        <h3>
+          <?php echo $num1; ?>
+        </h3>
+        <p>enseignants</p>
       </div>
+    </div>
 
-      <div class="column_sc">
-        <div class="card_sc">
-          <p><i class="fa fa-check fa_sc"></i></p>
+    <div class="column_sc">
+      <div class="card_sc round-xlarge">
+        <p><i class="fa fa-check fa_sc"></i></p>
 
-          <?php
+        <?php
           $sql = "SELECT * FROM tbl_users WHERE user_type= '1'";
           $result = mysqli_query($con, $sql);
           $num2 = mysqli_num_rows($result)
           ?>
 
-          <h3><?php echo $num2; ?></h3>
-          <p>Résponsables</p>
-        </div>
+        <h3>
+          <?php echo $num2; ?>
+        </h3>
+        <p>Résponsables</p>
       </div>
+    </div>
 
-      <div class="column_sc">
-        <div class="card_sc">
-          <p><i class="fa fa-smile-o fa_sc"></i></p>
+    <div class="column_sc">
+      <div class="card_sc round-xlarge">
+        <p><i class="fa fa-smile-o fa_sc"></i></p>
 
-          <?php
+        <?php
           $sql = "SELECT * FROM tbl_users WHERE user_type= '3'";
           $result = mysqli_query($con, $sql);
           $num3 = mysqli_num_rows($result)
           ?>
 
-          <h3><?php echo $num3; ?></h3>
-          <p>Delegues</p>
-        </div>
+        <h3>
+          <?php echo $num3; ?>
+        </h3>
+        <p>Delegues</p>
       </div>
+    </div>
 
-      <div class="column_sc">
-        <div class="card_sc">
-          <p><i class="fa fa-user-secret fa_sc"></i></p>
+    <a href="manage_admins.php" class="column_sc">
+      <div class="card_sc round-xlarge">
+        <p><i class="fa fa-user-secret fa_sc"></i></p>
 
-          <?php
+        <?php
           $sql = "SELECT * FROM tbl_users WHERE user_type= 'admin'";
           $result = mysqli_query($con, $sql);
           $num3 = mysqli_num_rows($result)
           ?>
 
-          <h3><?php echo $num3; ?></h3>
-          <p>Admins</p>
-        </div>
+        <h3>
+          <?php echo $num3; ?>
+        </h3>
+        <p>Admins</p>
       </div>
-
-    </div>
+    </a>
 
   </div>
 
-  <?php include("../modal_deconnexion.php"); ?>
-  <?php include("includes/scripts.php"); ?>
+</div>
 
-  <?php include("includes/snakebar.php"); ?>
+<?php include("includes/modals/modal_add_user.php"); ?>
+<?php include("../modal_deconnexion.php"); ?>
 
-  
-  <?php
+<?php include("includes/snakebar.php"); ?>
+
+<?php include("includes/scripts.php"); ?>
+
+<?php
     if (isset($_SESSION['message'])) {
       unset($_SESSION['message']);
     }
   ?>
-  </body>
+</body>
+
 </html>
 
 

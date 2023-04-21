@@ -84,7 +84,7 @@
   <?php include("includes/modals/modal_delete_user.php") ?>
 
   <?php include("includes/modals/modal_add_department.php"); ?>
-  <?php include("includes/modals/modal_edit_department.php"); ?>
+  
 
   <?php include("../modal_deconnexion.php"); ?>
 

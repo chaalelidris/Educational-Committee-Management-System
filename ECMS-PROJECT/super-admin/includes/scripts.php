@@ -169,7 +169,7 @@ $(document).ready(function(){
   });
 
 
-  $(".btn_cancel_modif_promo").click(function(){
+  $(".btn_cancel_modif_departement").click(function(){
     document.getElementById('id05').className = document.getElementById('id05').className.replace(" show", " hide");
     $.post("destroy_modal.php",
     {
