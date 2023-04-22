@@ -25,7 +25,7 @@ if (isset($_POST['activer_cp'])){
 
   $id = $con->insert_id;
 
-  $_SESSION['message_suc'] = "CP activé avec succès!";
+  $_SESSION['message_success'] = "CP activé avec succès!";
   $_SESSION['message_type'] = "green";
   $_SESSION["show"]="show";
 

@@ -20,12 +20,9 @@
   <!-- =====================================                  contenus               ======================================= -->
 
 
-
-
-
   <div class="main " >
     <!--                                                    breadcrumb                                                       -->
-    <ul class="breadcrumb" >
+    <ul class="breadcrumb round-large" >
       <li><a href="dashboard.php">accueil</a></li>
       <li>Mot de passes des utilisateurs</li>
     </ul>
@@ -44,22 +41,31 @@
       <br><br>
 
       <?php
-        if (isset($_SESSION['message_edit_pass_succ'])): ?>
-       <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
-         <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
-         <br>
-         <p><?php echo $_SESSION['message_edit_pass_succ']; unset($_SESSION['message_edit_pass_succ']); ?></p>
-       </div>
-       <?php endif; ?>
+      if (isset($_SESSION['message_edit_pass_succ'])):
+          $message_type = $_SESSION['message_type'];
+          $success_message = $_SESSION['message_edit_pass_succ'];
+          unset($_SESSION['message_edit_pass_succ']);
+      ?>
+          <div class="panel <?php echo $message_type; ?> display-container round-large">
+              <span class="button large display-topright" onclick="this.parentElement.style.display='none'">&times;</span>
+              <br>
+              <p><?php echo $success_message; ?></p>
+          </div>
+      <?php endif; ?>
 
       <?php
-        if (isset($_SESSION['message_edit_pass_err'])): ?>
-       <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
-         <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
-         <br>
-         <p><?php echo $_SESSION['message_edit_pass_err']; unset($_SESSION['message_edit_pass_err']); ?></p>
-       </div>
-       <?php endif; ?>
+      if (isset($_SESSION['message_edit_pass_err'])):
+          $message_type = $_SESSION['message_type'];
+          $error_message = $_SESSION['message_edit_pass_err'];
+          unset($_SESSION['message_edit_pass_err']);
+      ?>
+          <div class="panel <?php echo $message_type; ?> display-container round-large">
+              <span class="button large display-topright" onclick="this.parentElement.style.display='none'">&times;</span>
+              <br>
+              <p><?php echo $error_message; ?></p>
+          </div>
+      <?php endif; ?>
+
 
 
       <div class="responsive">
@@ -73,7 +79,16 @@
           </tr>
 
           <?php
-        $sql = "SELECT * FROM tbl_users order by user_type desc";
+        $sql = "SELECT DISTINCT u.user_id,u.user_name,u.user_type
+                FROM tbl_users u
+                JOIN tbl_user_department ud ON u.user_id = ud.user_id
+                JOIN tbl_department d ON ud.department_id = d.department_id
+                WHERE d.department_id = '{$_SESSION['admin_department_id']}' 
+                AND user_type 
+                NOT IN ('admin', 'super_admin') 
+                ORDER BY user_type 
+                DESC";
+        
         $result = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_array($result)) {
           echo'<tr>';

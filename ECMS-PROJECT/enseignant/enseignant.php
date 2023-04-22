@@ -25,7 +25,7 @@
 
   <div class="main" >
     <!--                                                    breadcrumb                                                       -->
-    <ul class="breadcrumb" >
+    <ul class="breadcrumb round-large" >
       <li><a href="enseignant.php">accueil</a></li>
     </ul>
     <hr class="rounded">
@@ -70,11 +70,11 @@
               ?>
 
 
-              <?php if (isset($_SESSION['message_suc'])): ?>
-                <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+              <?php if (isset($_SESSION['message_success'])): ?>
+                <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
                   <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
                   <br>
-                  <p><?php echo $_SESSION['message_suc']; unset($_SESSION['message_suc']);unset($_SESSION['message_type']); ?></p>
+                  <p><?php echo $_SESSION['message_success']; unset($_SESSION['message_success']);unset($_SESSION['message_type']); ?></p>
                 </div>
               <?php endif; ?>
 
@@ -136,7 +136,7 @@
                   }?>
 
           <?php else:?>
-              <div class="container light-grey" style="padding-bottom:20px;margin-bottom:20px;">
+              <div class="container light-grey card-4 round-xxlarge" style="padding-bottom:20px;margin-bottom:20px;">
                 <h1 style="color:rgba(0, 0, 0, 0.53)"> il n'y a pas de CP activé Actuellement !</h1>
               </div>
           <?php endif; ?>
@@ -148,7 +148,7 @@
 
 
         <?php if (isset($_SESSION['message_edit_pass_succ'])): ?>
-          <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+          <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
             <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
             <br>
             <p><?php echo $_SESSION['message_edit_pass_succ']; unset($_SESSION['message_edit_pass_succ']); ?></p>
@@ -157,7 +157,7 @@
 
 
         <?php if (isset($_SESSION['message_edit_pass_err'])): ?>
-          <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+          <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
             <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
             <br>
             <p><?php echo $_SESSION['message_edit_pass_err']; unset($_SESSION['message_edit_pass_err']); ?></p>
@@ -165,7 +165,7 @@
         <?php endif; ?>
 
 
-        <div class="card_prf card">
+        <div class="card_prf theme-light padding round-xxlarge">
           <h3 style="text-align:center">Utilisateur : <span style="color:rgba(0, 0, 0, 0.67)"> <?php echo $_SESSION['enseignant_user_name']; ?></span></h3>
           <h1><?php echo $_SESSION['enseignant_user_fullname']; ?></h1>
 
@@ -179,7 +179,7 @@
           <span style="color:rgba(0, 0, 0, 0.69);"><?php echo $row['modl_name'] ." | promo ".$row['prom_name']." | sem ".$row['modl_semestre'];?></span> <br>
           <?php endwhile;?>
 
-          <p><button id="ChangePass" class="button_prf">Changer mot de passe</button></p>
+          <p><button id="ChangePass" class="button_prf round-xlarge">Changer mot de passe</button></p>
         </div>
 
       </div>

@@ -20,7 +20,7 @@
 
   <!--                                  Main content: shift it to the right by 310 pixels                                    -->
   <div class="main">
-    <ul class="breadcrumb" >
+    <ul class="breadcrumb round-large" >
       <li><a href="admin.php">accueil</a></li>
       <li>Gestion des Administrateurs</li>
     </ul>
@@ -38,11 +38,11 @@
 
       <?php
         require_once("../control/config/dbcon.php");
-        if (isset($_SESSION['message_suc'])): ?>
-       <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+        if (isset($_SESSION['message_success'])): ?>
+       <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
          <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
          <br>
-         <p><?php echo $_SESSION['message_suc']; unset($_SESSION['message_suc']); ?></p>
+         <p><?php echo $_SESSION['message_success']; unset($_SESSION['message_success']); ?></p>
        </div>
        <?php endif; ?>
 

@@ -25,7 +25,7 @@
 
   <div class="main " >
     <!--                                                    breadcrumb                                                       -->
-    <ul class="breadcrumb" >
+    <ul class="breadcrumb round-large" >
       <li><a href="#">accueil</a></li>
     </ul>
     <hr class="rounded">
@@ -54,7 +54,7 @@
             while ($row = mysqli_fetch_array($result)) {
               ?>
 
-              <div class="container light-grey" style="padding-bottom:20px;margin-bottom:20px;">
+              <div class="container light-grey card-4 round-xxlarge" style="padding-bottom:20px;margin-bottom:20px;">
                 <h1><?php echo $row['cp_title']; ?> </h1>
                 <span>Programmé le <span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_datetime']; ?></span></span>
                 <p> Promotion <span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['prom_name']; ?></span></p>
@@ -85,7 +85,7 @@
         }else {
 
           ?>
-          <div class="container light-grey" style="padding-bottom:20px;margin-bottom:20px;">
+          <div class="container light-grey card-4 round-xxlarge" style="padding-bottom:20px;margin-bottom:20px;">
             <h1 style="color:rgba(0, 0, 0, 0.53)"> il n'y a pas de CP activé Actuellement !</h1>
           </div>
           <?php
@@ -102,7 +102,7 @@
 
 
         <?php if (isset($_SESSION['message_edit_pass_succ'])): ?>
-          <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+          <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
             <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
             <br>
             <p><?php echo $_SESSION['message_edit_pass_succ']; unset($_SESSION['message_edit_pass_succ']); ?></p>
@@ -111,7 +111,7 @@
 
 
         <?php if (isset($_SESSION['message_edit_pass_err'])): ?>
-          <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+          <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
             <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
             <br>
             <p><?php echo $_SESSION['message_edit_pass_err']; unset($_SESSION['message_edit_pass_err']); ?></p>
@@ -119,7 +119,7 @@
         <?php endif; ?>
 
 
-        <div class="card_prf light-grey" style="padding-top:15px;">
+        <div class="card_prf theme-light padding round-xxlarge" >
           <h2 style="text-align:center">Profile de <?php echo $_SESSION['delegue_user_name']; ?></h2>
           <h1><?php echo $_SESSION['delegue_user_fullname']; ?></h1>
 
@@ -129,7 +129,7 @@
           $rowprmid=mysqli_fetch_assoc($query); //tableau
            ?>
           <p class="title">Délégue du promotion <?php echo $rowprmid['prom_name']; ?></p>
-          <p><button id="ChangePass" class="button_prf">Changer mot de passe</button></p>
+          <p><button id="ChangePass" class="button_prf round-xlarge">Changer mot de passe</button></p>
         </div>
 
       </div>
@@ -181,11 +181,11 @@ Pagination
 <div class="center padding-32">
 <div class="bar">
 <a class="button black" href="#">1</a>
-<a class="button hover-black" href="#">2</a>
-<a class="button hover-black" href="#">3</a>
-<a class="button hover-black" href="#">4</a>
-<a class="button hover-black" href="#">5</a>
-<a class="button hover-black" href="#">»</a>
+<a class="button hover-primary" href="#">2</a>
+<a class="button hover-primary" href="#">3</a>
+<a class="button hover-primary" href="#">4</a>
+<a class="button hover-primary" href="#">5</a>
+<a class="button hover-primary" href="#">»</a>
 </div>
 </div>
 
@@ -194,7 +194,7 @@ Pagination
  <div class="container theme-l2 padding-32">
  <h4>Footer</h4>
  </div>
- <div class="container theme-l1">
+ <div class="container theme-primary">
 target="_blank"
 <p><a href="#" ></a></p>
 </div>

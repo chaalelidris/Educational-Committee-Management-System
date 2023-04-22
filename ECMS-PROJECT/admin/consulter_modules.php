@@ -35,7 +35,7 @@
 
   ?>
 
-  <ul class="breadcrumb" >
+  <ul class="breadcrumb round-large" >
     <li><a href="responsable.php">accueil</a></li>
     <li>CPs <?php echo $rowpromDataResult['prom_name'];?></li>
     <li>Consulter les donnés des modules  <?php?></li>
@@ -58,7 +58,7 @@
 
     <div class="cell-row">
       <div class="container cell">
-        <p><button id="Arrier"class="button green hover-green"> <i class="	fa fa-chevron-left"></i> Arrière</button></p>
+        <p><button id="Arrier"class="button green hover-green round-large"> <i class="	fa fa-chevron-left"></i> Arrière</button></p>
       </div>
       <div class="container  cell">
       </div>
@@ -66,7 +66,7 @@
 
 
 
-    <div class="container dark-grey" style="padding-top:15px;">
+    <div class="container dark-grey card-4 round-xxlarge" style="padding-top:15px;">
       <?php
         $promid = $_SESSION['consult_promotion_id'];
         $sql = "SELECT * FROM tbl_promo WHERE prom_id='$promid'";
@@ -89,13 +89,13 @@
 
         while ($row = mysqli_fetch_array($result)) {
       ?>
-        <div class="container light-grey" style="padding-bottom:20px;margin-bottom:20px;margin-right:5%;margin-right:5%;">
+        <div class="container light-grey card-4 round-xxlarge" style="padding-bottom:20px;margin-bottom:20px;margin-right:5%;margin-right:5%;">
 
-          <?php if (isset($_SESSION['message_suc'])): ?>
-            <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+          <?php if (isset($_SESSION['message_success'])): ?>
+            <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
               <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
               <br>
-              <p><?php echo $_SESSION['message_suc']; unset($_SESSION['message_suc']);unset($_SESSION['message_type']); ?></p>
+              <p><?php echo $_SESSION['message_success']; unset($_SESSION['message_success']);unset($_SESSION['message_type']); ?></p>
             </div>
           <?php endif; ?>
 

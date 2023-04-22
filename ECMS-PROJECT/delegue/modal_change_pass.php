@@ -1,6 +1,6 @@
 <!-- ===================================      modal Ajouter utilisateur       =================================-->
   <div id="idChPass" class="modal-d">
-    <form class="modal-content-d" action="edit_pass.php" method="post">
+    <form class="modal-content-d round-large animate-zoom" action="edit_pass.php" method="post">
       <div class="container-d">
         <span onclick="document.getElementById('idChPass').style.display='none'" class="close-d" title="Close Modal">&times;</span>
         <h1 style="color:#191923;">Changer mot de passe</h1>

@@ -25,7 +25,7 @@
 
   <div class="main " >
     <!--                                                    breadcrumb                                                       -->
-    <ul class="breadcrumb" >
+    <ul class="breadcrumb round-large" >
       <li><a href="dashboard.php">accueil</a></li>
       <li>Mot de passes des utilisateurs</li>
     </ul>
@@ -45,7 +45,7 @@
 
       <?php
         if (isset($_SESSION['message_edit_pass_succ'])): ?>
-       <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+       <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
          <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
          <br>
          <p><?php echo $_SESSION['message_edit_pass_succ']; unset($_SESSION['message_edit_pass_succ']); ?></p>
@@ -54,7 +54,7 @@
 
       <?php
         if (isset($_SESSION['message_edit_pass_err'])): ?>
-       <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+       <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
          <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
          <br>
          <p><?php echo $_SESSION['message_edit_pass_err']; unset($_SESSION['message_edit_pass_err']); ?></p>

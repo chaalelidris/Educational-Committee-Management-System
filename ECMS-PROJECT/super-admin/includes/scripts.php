@@ -22,7 +22,7 @@
   var modal7 = document.getElementById('id07');
 
   // show Ajouter utilisateur modal
-  document.querySelector('#adduser').addEventListener('click', function() {
+  $('.btn_add_user').click(function() {
     modal1.className = modal1.className.replace(" hide", " show");
   });
 

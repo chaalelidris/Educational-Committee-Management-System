@@ -49,7 +49,7 @@ if (isset($_POST['modifier_utilisateur'])) {
   }else {
     $result = mysqli_query($con, "UPDATE tbl_users SET user_fullname='$name',user_name='$username', user_email='$email',user_type='$option' WHERE user_id='$id'")or die(mysqli_error($con));
 
-    $_SESSION["message_suc"]="L'utilisateur a été Modifier avec succès";
+    $_SESSION["message_success"]="L'utilisateur a été Modifier avec succès";
     $_SESSION["message_type"]="green";
 
     if (isset($_SESSION['show_modal_edit'])) {

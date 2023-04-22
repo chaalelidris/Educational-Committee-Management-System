@@ -7,7 +7,7 @@
       $result = mysqli_query($con, "SELECT * FROM tbl_module WHERE modl_id=$id") or die (mysqli_error($con));
       $row=mysqli_fetch_array($result);
       $num=mysqli_num_rows($result);
-      if($num==1){
+      if($num>0){
 
         $_SESSION['id_edit'] = $row['modl_id'];
         $_SESSION['name_edit'] = $row['modl_name'];
@@ -29,7 +29,7 @@
         }elseif ($_SESSION["current_session"] == "promotion") {
           header('location: ../admin/gst_promos.php?class_pr=show');
         }elseif ($_SESSION["current_session"] == "module") {
-          header('location: ../admin/gst_modules.php?class_md=show');
+          header('location: ../admin/gst_modules.php');
         }
         exit();
       }
@@ -76,7 +76,7 @@
         }elseif ($_SESSION["current_session"] == "promotion") {
           header('location: ../admin/gst_promos.php?class_pr=show');
         }elseif ($_SESSION["current_session"] == "module") {
-          header('location: ../admin/gst_modules.php?class_md=show');
+          header('location: ../admin/gst_modules.php');
         }
         exit();
       }else {
@@ -87,14 +87,24 @@
           $result = mysqli_query($con, "UPDATE tbl_module SET modl_name='$name',modl_abbr='$abbr',modl_promo_id='$promid',modl_semestre='$semestre',modl_ens_id='$ensid' WHERE modl_id='$id'")or die(mysqli_error($con));
         }
 
-        $_SESSION["message_suc"]="Le module a été Modifier avec succès";
+        $_SESSION['show_modal_edit_module'] = " show";
+        $result = mysqli_query($con, "SELECT * FROM tbl_module WHERE modl_id=$id") or die (mysqli_error($con));
+        $row=mysqli_fetch_array($result);
+        $num=mysqli_num_rows($result);
+
+        $_SESSION['id_edit'] = $row['modl_id'];
+        $_SESSION['name_edit'] = $row['modl_name'];
+        $_SESSION['abbr_edit'] = $row['modl_abbr'];
+        $_SESSION['promid_edit'] = $row['modl_promo_id'];
+        $_SESSION['Semestre_edit'] = $row['modl_semestre'];
+        $_SESSION['ensid_edit'] = $row['modl_ens_id'];
+
+        $_SESSION["message_success_edid"]="Le module a été Modifier avec succès";
         $_SESSION["message_type"]="green";
 
-        if (isset($_SESSION["show_modal_edit_module"])) {
-          unset($_SESSION["show_modal_edit_module"]);
-        }
+        
 
-        header('location:gst_modules.php?class_md=show');
+        header('location:gst_modules.php');
         exit();
       }
     }

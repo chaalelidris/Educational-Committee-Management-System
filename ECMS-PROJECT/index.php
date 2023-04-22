@@ -5,32 +5,47 @@
   <?php
     session_start();
     // require_once("control/auth_login.php");
-    if (empty($_SESSION['super_admin_user_id'])) {
-      if (empty($_SESSION['admin_user_id'])) {
-          if (empty($_SESSION['responsable_user_id'])) {
-              if (empty($_SESSION['enseignant_user_id'])) {
-                  if (empty($_SESSION['delegue_user_id'])) {
-                  } else {
-                      header('location:delegue/delegue.php');
-                  }
-              } else {
-                  header('location:enseignant/enseignant.php');
-              }
-          } else {
-              header('location:responsable/responsable.php');
-          }
-      } else {
-          header('location:admin/dashboard.php');
-      }
-    }else {
-      header('location:super-admin/dashboard.php');
+    $redirect_url = "";
+    $user_id = "";
+    if (!empty($_SESSION['super_admin_user_id'])) {
+      $redirect_url = "super-admin/dashboard.php";
+      $user_id = $_SESSION['super_admin_user_id'];
+    } else if (!empty($_SESSION['admin_user_id'])) {
+      $redirect_url = "admin/dashboard.php";
+      $user_id = $_SESSION['admin_user_id'];
+    } else if (!empty($_SESSION['responsable_user_id'])) {
+      $redirect_url = "responsable/responsable.php";
+      $user_id = $_SESSION['responsable_user_id'];
+    } else if (!empty($_SESSION['enseignant_user_id'])) {
+      $redirect_url = "enseignant/enseignant.php";
+      $user_id = $_SESSION['enseignant_user_id'];
+    } else if (!empty($_SESSION['delegue_user_id'])) {
+      $redirect_url = "delegue/delegue.php";
+      $user_id = $_SESSION['delegue_user_id'];
+    }
+    
+    if (!empty($redirect_url)) {
+      header("location: " . $redirect_url);
+      exit;
     }
     ?>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>System | Connection</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>Gestion Des CPs | Université 8 Mai 1945 Guelma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="Le système de gestion de comité éducatif 
+                                    est une plateforme de gestion efficace pour les comités éducatifs des établissements 
+                                    scolaires et universitaires. Il permet de suivre les activités du comité, la planification 
+                                    des réunions, la gestion des membres et des tâches, ainsi que la communication entre les membres.
+                                    Ce système est conçu pour améliorer l'efficacité et la productivité des comités éducatifs, 
+                                    tout en offrant une expérience utilisateur conviviale et intuitive.">
+
+  <meta name="keywords" content="System, Login, Connection,Admin,Responsible,Report,Managment,Commite,Commité,Pidagogique,Délégé,Enseignant,Teacher,Delegate">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ent.univ-guelma.dz/gcp">
+  <!-- CSS -->
   <link rel="stylesheet" href="style/css/bootstrap.min.css">
   <link rel="stylesheet" href="style/css/font-awesome.min.css">
   <link rel="stylesheet" href="style/loginHome.css">
@@ -57,7 +72,7 @@
 
       <div style="background:#191923; " class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12 ">
 
-      <?php
+        <?php
       if (isset($_GET['errorm']) && isset($_GET['erroru'])) {
           echo '<div class="alert with-close alert-danger alert-dismissible fade show" style="color:#fff;background-color: #BF1363;border:0px;">';
           echo '<li>' . $_GET['erroru'] . '</li>';
@@ -107,23 +122,22 @@
         <!-- </div> -->
       </div>
     </div>
-    <div class="row mt-0">
-      <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12" style="background: #191923; padding:10px;">
-        <center style="color:#868e96;">
-          <!-- target ==> _blank -->
-          <!-- Visit <a href="#!" target="" style="color: dodgerblue" >@Chaalel.khebizi</a> -->
-          Copyright &copy;2020 Université 8 mai 1945, Département d'informatique<br>
-          EQUIPE DE DEVELOPEMENT <strong>sous Encadrement de</strong> DR Halimi khaled<br>
-          ►Chaalel idris <strong>et</strong> Khebizi hamed <br>
-          <div class="btn-group">
-            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#">Contact</button> -->
-            <button style="background-color:rgb(105, 105, 105);color:white;border-radius:0;" type="button" class="btn"
-              data-toggle="modal" data-target="#myModal"><i class="fa fa-info-circle" aria-hidden="true"></i> info
-            </button>
-          </div>
-        </center>
+    <footer class="row mt-0" style="background: #191923; padding:10px;">
+      <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 text-center" style="color:#868e96;">
+        <div>Copyright &copy;2023 Université 8 mai 1945, Département d'informatique</div>
+        <div>EQUIPE DE DEVELOPEMENT <strong>sous Encadrement de</strong> DR Halimi khaled</div>
+
+        <div>Chaalel idris (2020 - 2023)</div>
+        <div>Khebizi hamed (2020)</div>
+        <div class="btn-group">
+          <button class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
+            <i class="fa fa-info-circle" aria-hidden="true"></i> Info
+          </button>
+        </div>
+
+
       </div>
-    </div>
+    </footer>
   </div>
 
   <!-- Modal -->

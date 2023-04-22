@@ -17,16 +17,12 @@
 
 
 
-  <!-- =====================================                  contenus               ======================================= -->
-
-
-
-
+  <!-- ===================================== CONTENT ======================================= -->
 
 
   <div class="main show" >
     <!--                                                    breadcrumb                                                       -->
-    <ul class="breadcrumb" >
+    <ul class="breadcrumb round-large" >
       <li><a href="responsable.php">accueil</a></li>
       <li> <a href="#">CPs <?php echo $_SESSION['responsable_prom_name'];?></a> </li>
       <li><a href="print_cp.php">Générer un Procès-VerbalP de la promotion <?php echo $_SESSION['responsable_prom_name']; ?></a></li>
@@ -40,54 +36,54 @@
 
     <div class="cell-row">
       <div class="container cell">
-        <p><button id="print_return" class="button green hover-green"> <i class="	fa fa-chevron-left"></i> Arrière</button></p>
+        <p><button id="print_return" class="button green hover-green round-large"> <i class="	fa fa-chevron-left"></i> Arrière</button></p>
       </div>
       <div class="container  cell">
       </div>
     </div>
 
-    <div class="container responsive" style="background:#191923">
+    <div class="container responsive" >
 
 
-      <?php if (isset($_SESSION['message_suc'])): ?>
-        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+      <?php if (isset($_SESSION['message_success'])): ?>
+        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
           <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
           <br>
-          <p><?php echo $_SESSION['message_suc']; unset($_SESSION['message_suc']); ?></p>
+          <p><?php echo $_SESSION['message_success']; unset($_SESSION['message_success']); ?></p>
         </div>
       <?php endif; ?>
 
 
-      <form id="regForm_form_ms" action="edit_data.php" method="post" class="">
+      <form id="regForm_form_ms" action="edit_data.php" method="post" class="card-4 light-gray round-xxlarge">
 
         <h1 class="h1_form_ms">Modifier les champ SVP:</h1>
         <h2 for="">Module <?php echo $_SESSION['mdl_name']; ?></h2>
 
         <!-- One "tab" for each step in the form: -->
         <div class="tab_form_ms">Avancement globale:
-          <p><input value="<?php echo $_SESSION['sess_data8']; ?>" name="avancement" class="input_form_ms" placeholder="Avancement globale..." ></p>
+          <p><input value="<?php echo $_SESSION['sess_data8']; ?>" name="avancement" class="input_form_ms round-large" placeholder="Avancement globale..." ></p>
           Nombre de chapitres achevés / En cours
-          <p><input value="<?php echo $_SESSION['sess_data7']; ?>" name="nbr_chap" class="input_form_ms" placeholder="Nombre de chapitres achevés / En cours..." ></p>
+          <p><input value="<?php echo $_SESSION['sess_data7']; ?>" name="nbr_chap" class="input_form_ms round-large" placeholder="Nombre de chapitres achevés / En cours..." ></p>
         </div>
 
         <div class="tab_form_ms">Nombre de séances de cours faites:
-          <p><input value="<?php echo $_SESSION['sess_data6']; ?>" name="nbr_seances" class="input_form_ms" placeholder="Nombre de séances de cours faites..." ></p>
+          <p><input value="<?php echo $_SESSION['sess_data6']; ?>" name="nbr_seances" class="input_form_ms round-large" placeholder="Nombre de séances de cours faites..." ></p>
           Nombre de séances de TD et TP faites:
-          <p><input value="<?php echo $_SESSION['sess_data5']; ?>" name="nbr_seances_tdtp" class="input_form_ms" placeholder="Nombre de séances de TD et TP faites..." ></p>
+          <p><input value="<?php echo $_SESSION['sess_data5']; ?>" name="nbr_seances_tdtp" class="input_form_ms round-large" placeholder="Nombre de séances de TD et TP faites..." ></p>
           Nombre de séances (Cours, TD, TP) non faites:
-          <p><input value="<?php echo $_SESSION['sess_data4']; ?>" name="nbr_ceances_ctdtp_no" class="input_form_ms" placeholder="Nombre de séances (Cours, TD, TP) non faites..." ></p>
+          <p><input value="<?php echo $_SESSION['sess_data4']; ?>" name="nbr_ceances_ctdtp_no" class="input_form_ms round-large" placeholder="Nombre de séances (Cours, TD, TP) non faites..." ></p>
         </div>
 
         <div class="tab_form_ms">Exposés + Micro:
-          <p><input value="<?php echo $_SESSION['sess_data3']; ?>" name="exps_micro" class="input_form_ms" placeholder="Exposés + Micro..." ></p>
+          <p><input value="<?php echo $_SESSION['sess_data3']; ?>" name="exps_micro" class="input_form_ms round-large" placeholder="Exposés + Micro..." ></p>
           Validation de TP:
-          <p><input value="<?php echo $_SESSION['sess_data2']; ?>" name="valid_tp" class="input_form_ms" placeholder="Validation de TP..." ></p>
+          <p><input value="<?php echo $_SESSION['sess_data2']; ?>" name="valid_tp" class="input_form_ms round-large" placeholder="Validation de TP..." ></p>
           Polycopie de cours:
-          <p><input value="<?php echo $_SESSION['sess_data1']; ?>" name="Polycopie_cours" class="input_form_ms" placeholder="Polycopie de cours..." ></p>
+          <p><input value="<?php echo $_SESSION['sess_data1']; ?>" name="Polycopie_cours" class="input_form_ms round-large" placeholder="Polycopie de cours..." ></p>
         </div>
 
         <!-- <div class="tab_form_ms">Login Info:
-          <p><input class="input_form_ms" placeholder="Password..." ></p>
+          <p><input class="input_form_ms round-large" placeholder="Password..." ></p>
         </div> -->
 
         <input  type="hidden" name="cpid" value="<?php echo $_SESSION['cp_id']; ?>">
@@ -97,8 +93,8 @@
 
         <div style="overflow:auto;">
           <div style="float:right;">
-            <button class="button_form_ms" type="button" id="#prevBtn_form_ms" onclick="nextPrev(-1)">Précédent</button>
-            <button name="insert_modl_data" class="button_form_ms" type="button" id="nextBtn" onclick="nextPrev(1)">Suivant</button>
+            <button class="button_form_ms round-large" type="button" id="#prevBtn_form_ms" onclick="nextPrev(-1)">Précédent</button>
+            <button class="button_form_ms round-large" type="button" name="insert_modl_data" id="nextBtn" onclick="nextPrev(1)">Suivant</button>
           </div>
         </div>
 

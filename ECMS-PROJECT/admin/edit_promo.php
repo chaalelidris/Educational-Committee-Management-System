@@ -38,9 +38,9 @@ if (isset($_POST['modifier_promotion'])) {
   $name = mysqli_real_escape_string($con,$name);
   $respid = mysqli_real_escape_string($con,$respid);
 
-  $result = mysqli_query($con, "UPDATE tbl_promo SET prom_name='$name',prom_resp_id='$respid' WHERE prom_id='$id'")or die(mysqli_error($con));
+  $result = mysqli_query($con, "UPDATE tbl_promo SET department_id = '$department_id', prom_name='$name',prom_resp_id='$respid' WHERE prom_id='$id'")or die(mysqli_error($con));
 
-  $_SESSION["message_suc"]="La promotion a été Modifier avec succès";
+  $_SESSION["message_success"]="La promotion a été Modifier avec succès";
   $_SESSION["message_type"]="green";
 
   if (isset($_SESSION["show_modal_edit_promo"])) {

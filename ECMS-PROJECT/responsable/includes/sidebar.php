@@ -4,13 +4,13 @@
 
 <!-- animate-left -->
 <nav class="sidebar bar-block collapse large theme-l2 " id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="right xlarge padding-large hover-black hide-large" title="Fermer le menu">
+  <a href="javascript:void(0)" onclick="w3_close()" class="right xlarge padding-large hover-primary hide-large" title="Fermer le menu">
     <i class="fa fa-remove"></i>
   </a>
   <h4 class="bar-item"><b>Menu</b></h4>
-  <a href="responsable.php" class="bar-item button hover-black">Accueil</a>
-  <a href="gst_cp.php" class="bar-item button hover-black">Programmer un CP</a>
-  <a href="gnr_cp.php" class="bar-item button hover-black">Générer le rapport</a>
+  <a href="responsable.php" class="bar-item button hover-primary round-large">Accueil</a>
+  <a href="gst_cp.php" class="bar-item button hover-primary round-large">Programmer un CP</a>
+  <a href="gnr_cp.php" class="bar-item button hover-primary round-large">Générer le rapport</a>
 
 
     <!-- messagerie + notification -->
@@ -84,7 +84,7 @@
 
 
      ?>
-    <a href="messagerie.php" class="bar-item button hover-black"><i class="fa fa-envelope" aria-hidden="true"></i> Messagerie
+    <a href="messagerie.php" class="bar-item button hover-primary round-large"><i class="fa fa-envelope" aria-hidden="true"></i> Messagerie
       <?php if ($count == 0) {
       ?>
       <span class="tag blue round right"><?php echo $count; ?>
@@ -95,7 +95,7 @@
       <?php
     } ?></a>
 
-  <!-- <a class="bar-item button hover-black" href="#">Link</a> -->
+  <!-- <a class="bar-item button hover-primary round-large" href="#">Link</a> -->
 
 </nav>
 

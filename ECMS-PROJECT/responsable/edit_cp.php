@@ -43,7 +43,7 @@ if (isset($_POST['modifier_cp'])) {
 
   $result = mysqli_query($con, "UPDATE tbl_cp SET cp_title='$titre',cp_datetime='$datetime',cp_location='$lieu',cp_ordre='$ordre',cp_detail='$detail',cp_intervension='$intervension',cp_semestre='$semestre' WHERE cp_id='$idcp'")or die(mysqli_error($con));
 
-  $_SESSION["message_suc"]="CP Modifier avec succès";
+  $_SESSION["message_success"]="CP Modifier avec succès";
   $_SESSION["message_type"]="green";
 
   if (isset($_SESSION['switch_fmdcp'])) {

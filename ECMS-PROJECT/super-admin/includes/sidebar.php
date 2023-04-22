@@ -1,45 +1,51 @@
 <!-- animate-left -->
 <nav class="sidebar bar-block collapse large theme-l2 " id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="right xlarge padding-large hover-black hide-large"
+  <a href="javascript:void(0)" onclick="w3_close()" class="right xlarge padding-large hover-primary hide-large"
     title="Fermer le menu">
     <i class="fa fa-remove"></i>
   </a>
   <h4 class="bar-item"><b>Menu</b></h4>
-  <a href="dashboard.php" class="bar-item button hover-black">Accueil</a>
+  <a href="dashboard.php" class="bar-item button hover-primary round-large">Accueil</a>
 
   <?php if (isset($_GET["class"])):?>
-  <a id="sideacc" class="bar-item button hover-black greenn" href="#"><i class="fa fa-users" aria-hidden="true"></i>
+  <a id="sideacc" class="bar-item button hover-primary round-large greenn" href="#"><i class="fa fa-users"
+      aria-hidden="true"></i>
     Gestion des admins <span class="tag red round right"></span></a>
   <div id="demoAcc" class="bar-block white <?php echo $_GET['class']; ?> " style="font-size: 16px;">
     <?php else :?>
-    <a id="sideacc" class="bar-item button hover-black " href="#"><i class="fa fa-users" aria-hidden="true"></i> Gestion
+    <a id="sideacc" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-users"
+        aria-hidden="true"></i> Gestion
       des administrateurs <span class="tag red round right"></span></a>
     <div id="demoAcc" class="bar-block white hide" style="font-size: 16px;">
       <?php endif;?>
-      <a id="adduser" href="#" class="bar-item button hover-black acc_stl"><i class="fa fa-plus"> Ajouter
+      <a class="bar-item button hover-primary round-large acc_stl btn_add_user"><i class="fa fa-plus"> Ajouter
           administrateur</i></a>
-      <a href="manage_admins.php?" class="bar-item button hover-black acc_stl">Administrateurs</a>
+      <a href="manage_admins.php?" class="bar-item button hover-primary round-large acc_stl">Administrateurs</a>
     </div>
 
 
     <?php if (isset($_GET["class_pr"])):?>
-    <a id="sideacc_pr" class="bar-item button hover-black greenn" href="#"><i class="fa fa-level-up"
+    <a id="sideacc_pr" class="bar-item button hover-primary round-large greenn" href="#"><i class="fa fa-level-up"
         aria-hidden="true"></i> Gestion des departements <span class="tag red round right"></span></a>
     <div id="demoAcc_pr" class="bar-block white <?php echo $_GET['class_pr']; ?> " style="font-size: 16px;">
       <?php else :?>
-      <a id="sideacc_pr" class="bar-item button hover-black " href="#"><i class="fa fa-level-up" aria-hidden="true"></i>
+      <a id="sideacc_pr" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-level-up"
+          aria-hidden="true"></i>
         Gestion des departements <span class="tag red round right"></span></a>
       <div id="demoAcc_pr" class="bar-block white hide" style="font-size: 16px;">
         <?php endif;?>
 
-        <a id="add_department" href="#" class="bar-item button hover-black acc_stl"><i class="fa fa-plus"> Ajouter
+        <a id="add_department" href="#" class="bar-item button hover-primary round-large acc_stl"><i class="fa fa-plus">
+            Ajouter
             departement</i></a>
-        <a href="manage_departments.php?" class="bar-item button hover-black acc_stl">Gérer les departement</i></a>
+        <a href="manage_departments.php?" class="bar-item button hover-primary round-large acc_stl">Gérer les
+          departement</i></a>
       </div>
 
 
 
-      <a href="users_passwords.php" class="bar-item button hover-black"><i class="fa fa-key" aria-hidden="true"></i> Mot
+      <a href="users_passwords.php" class="bar-item button hover-primary round-large"><i class="fa fa-key"
+          aria-hidden="true"></i> Mot
         de passes</a>
       <?php
 
@@ -64,7 +70,8 @@
      }
   }
    ?>
-      <a href="messagerie.php" class="bar-item button hover-black"><i class="fa fa-envelope" aria-hidden="true"></i>
+      <a href="messagerie.php" class="bar-item button hover-primary round-large"><i class="fa fa-envelope"
+          aria-hidden="true"></i>
         Messagerie
         <?php if ($count == 0) {
     ?>
@@ -79,7 +86,7 @@
           <?php
   } ?>
       </a>
-      <!-- <a class="bar-item button hover-black" href="#">Link</a> -->
+      <!-- <a class="bar-item button hover-primary round-large" href="#">Link</a> -->
 
 </nav>
 

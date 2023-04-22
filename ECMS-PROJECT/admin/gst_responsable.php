@@ -1,15 +1,12 @@
 <?php
   include("includes/head.php");
-
-  if (isset($_SESSION["current_session"])) {
-    unset($_SESSION["current_session"]);
-    $_SESSION["current_session"] = "responsable";
-  }else {
-    $_SESSION["current_session"] = "responsable";
-  }
-
   include("includes/navbar.php");
   include("includes/sidebar.php");
+
+  $_SESSION["current_session"] = "responsable";
+  require_once("../control/config/dbcon.php");
+  
+
  ?>
 
 
@@ -20,7 +17,7 @@
 
   <!--                                  Main content: shift it to the right by 310 pixels                                    -->
   <div class="main">
-    <ul class="breadcrumb" >
+    <ul class="breadcrumb round-large" >
       <li><a href="dashboard.php">accueil</a></li>
       <li>Gestion des Responsables de parcours</li>
     </ul>
@@ -33,18 +30,23 @@
       <h2>Table des utilisateurs résponsables de parcours</h2>
       <p>Cliquez sur les en-têtes pour trier le tableau.</p>
 
-      <input style="margin-bottom:0;" id="myInput_gst_res" type="text" placeholder="Search..">
-      <br><br>
+      <div class="row-padding">
+        <div class="half">
+          <button class="btn_btn success_btn btn_add_user">Ajouter un résponsable</button>
+        </div>
+        <div class="half">
+          <input style="margin-bottom:12px;" id="myInput_gst_res" type="text" placeholder="Rechercher...">
+        </div>
+      </div>
 
-      <?php
-        require_once("../control/config/dbcon.php");
-        if (isset($_SESSION['message_suc'])): ?>
-       <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
-         <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
-         <br>
-         <p><?php echo $_SESSION['message_suc']; unset($_SESSION['message_suc']); ?></p>
-       </div>
-       <?php endif; ?>
+
+      <?php if (isset($_SESSION['message_success'])): ?>
+        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
+          <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
+          <br>
+          <p><?php echo $_SESSION['message_success']; unset($_SESSION['message_success']); ?></p>
+        </div>
+      <?php endif; ?>
 
 
       <div class="responsive">
@@ -58,7 +60,12 @@
           </tr>
 
           <?php
-        $sql = "SELECT * FROM tbl_users WHERE user_type= '1'";
+        $sql = "SELECT DISTINCT u.*
+                FROM tbl_users u
+                JOIN tbl_user_department ud ON u.user_id = ud.user_id
+                JOIN tbl_department d ON ud.department_id = d.department_id
+                WHERE d.department_id = '{$_SESSION['admin_department_id']}'
+                AND u.user_type = 1";
         $result = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_array($result)) {
           echo'<tr>';
@@ -79,12 +86,12 @@
 
     <!-- END MAIN -->
   </div>
+  <?php include("includes/modals/modal_add_user.php"); ?>
   <?php include("includes/modals/modal_edit_user.php"); ?>
   <?php include("includes/modals/modal_delete_user.php") ?>
 
   <?php include("includes/modals/modal_add_promotion.php"); ?>
   <?php include("includes/modals/modal_add_module.php"); ?>
-  <?php include("includes/modals/modal_add_user.php"); ?>
   <?php include("../modal_deconnexion.php"); ?>
   <?php include("includes/scripts.php"); ?>
 

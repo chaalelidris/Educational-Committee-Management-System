@@ -22,7 +22,7 @@
 
 
   <!-- ===================================== BREADCUMB =====================================  -->
-  <ul class="breadcrumb">
+  <ul class="breadcrumb round-large">
     <li><a href="dashboard.php">accueil</a></li>
     <li> <a href="messagerie.php">Messagerie</a> </li>
     <li>envoyer message</li>

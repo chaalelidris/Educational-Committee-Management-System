@@ -40,6 +40,20 @@
           ?>
         </select> <br><br>
 
+        <label for="department_id"><b>Département</b></label>
+        <select class="select border" name="department_id" title="Veuillez sélectionner" style="background-color:#f1f1f1; padding:15px 10px;" required>
+            <?php
+            $admin_department_id = $_SESSION['admin_department_id'];
+            $sql = "SELECT * FROM tbl_department WHERE department_id = '$admin_department_id'";
+            $result = mysqli_query($con, $sql) or die(mysqli_error($con));
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<option value="' . $row['department_id'] . '">' . $row['department_name'] . '</option>';
+                }
+            }
+            ?>
+        </select> <br>
+
         <div class="clearfix-form">
           <button type="button"  class="mdl cancelbtn-form close_modal_edit_delegue">Cancel</button>
           <button type="submit" name="modifier_delegue" class="mdl signupbtn-form">modifier</button>

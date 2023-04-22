@@ -2,7 +2,7 @@
 <!-- modal delete department -->
 
 <div id="id07" class="modal-d ">
-  <form class="modal-content-d" action="delete_promo.php" method="post">
+  <form class="modal-content-d round-large animate-zoom" action="delete_promo.php" method="post">
     <div class="container-d">
       <span onclick="document.getElementById('id07').style.display='none'" class="close-d" title="Close Modal">&times;</span>
       <h1>Supprimer la departement</h1>

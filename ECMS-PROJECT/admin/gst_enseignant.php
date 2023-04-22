@@ -15,7 +15,7 @@
 
 <div class="main">
   <!-- begin main -->
-  <ul class="breadcrumb" >
+  <ul class="breadcrumb round-large" >
     <li><a href="dashboard.php">accueil</a></li>
     <li>Gestion des enseignants</li>
   </ul>
@@ -34,11 +34,11 @@
 
      ?>
 
-    <?php if (isset($_SESSION['message_suc'])): ?>
-    <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+    <?php if (isset($_SESSION['message_success'])): ?>
+    <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
       <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
       <br>
-      <p><?php echo $_SESSION['message_suc']; unset($_SESSION['message_suc']); ?></p>
+      <p><?php echo $_SESSION['message_success']; unset($_SESSION['message_success']); ?></p>
     </div>
     <?php endif; ?>
 
@@ -53,7 +53,12 @@
         </tr>
 
       <?php
-        $sql = "SELECT * FROM tbl_users WHERE user_type= '2'";
+        $sql = "SELECT DISTINCT u.*
+                FROM tbl_users u
+                JOIN tbl_user_department ud ON u.user_id = ud.user_id
+                JOIN tbl_department d ON ud.department_id = d.department_id
+                WHERE d.department_id = '{$_SESSION['admin_department_id']}'
+                AND u.user_type = 2";
         $result = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_array($result)) {
           echo'<tr>';

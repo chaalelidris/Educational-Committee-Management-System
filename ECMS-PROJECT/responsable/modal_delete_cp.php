@@ -4,7 +4,7 @@
 
 
 <div id="iddcp" class="modal-d ">
-  <form class="modal-content-d" action="delete_cp.php" method="post">
+  <form class="modal-content-d round-large animate-zoom" action="delete_cp.php" method="post">
     <div class="container-d">
       <span onclick="document.getElementById('iddcp').style.display='none'" class="close-d" title="Close Modal">&times;</span>
       <h1>Supprimer CP</h1>

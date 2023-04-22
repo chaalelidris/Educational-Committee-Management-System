@@ -70,7 +70,7 @@ if (isset($_POST['Ajouter_module'])){
 
       $user_id = $con->insert_id;
 
-      $_SESSION['message_suc'] = "Module ajouté avec succès !";
+      $_SESSION['message_success'] = "Module ajouté avec succès !";
       $_SESSION['message_type'] = "green";
       $_SESSION["show"]="show";
 

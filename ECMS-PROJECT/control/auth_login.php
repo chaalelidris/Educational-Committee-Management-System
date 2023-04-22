@@ -30,6 +30,7 @@ if (isset($_POST['user_submit'])) {
                     //$details=$row['user_fulname']." s'est connecté au systèm ";
                     //mysqli_query("INSERT into tbl_history values('','$row[user_id]','$details','$date')");
 
+
                     $_SESSION['super_admin_user_id']=$row['user_id'];
                     $_SESSION['super_admin_user_name']=$row['user_name'];
                     $_SESSION['super_admin_user_fullname']=$row['user_fullname'];
@@ -37,9 +38,22 @@ if (isset($_POST['user_submit'])) {
                 } elseif ($row['user_type']=="admin") {
                     //$details=$row['user_fulname']." s'est connecté au systèm ";
                     //mysqli_query("INSERT into tbl_history values('','$row[user_id]','$details','$date')");
-                    $_SESSION['admin_user_id']=$row['user_id'];
+
+                    // Admin ID
+                    $admin_id = $row['user_id'];
+
+                    $_SESSION['admin_user_id']=$admin_id;
                     $_SESSION['admin_user_name']=$row['user_name'];
                     $_SESSION['admin_user_fullname']=$row['user_fullname'];
+
+
+                    // SQL query to select department ID
+                    $sql = "SELECT department_id FROM tbl_department WHERE admin_id = '$admin_id'";
+                    $result = mysqli_query($con, $sql) or die(mysqli_error($con));
+                    $row_department_id = mysqli_fetch_array($result);
+
+                    $_SESSION['admin_department_id']=$row_department_id['department_id'];
+
                     header('location:../admin/dashboard.php');
                 } elseif ($row['user_type']=="1") {
                     //$details=$row['user_fulname']." s'est connecté au systèm ";

@@ -1,87 +1,112 @@
 <?php
 session_start();
 require_once("../control/config/dbcon.php");
+
 if (isset($_GET['edit'])) {
-  $_SESSION['show_modal_edit'] = "show";
-  $id = $_GET['edit'];
-  $result = mysqli_query($con, "SELECT * FROM tbl_users WHERE user_id=$id") or die (mysqli_error($con));
-  $row=mysqli_fetch_array($result);
-  $num=mysqli_num_rows($result);
-  if($num==1){
+  $id = mysqli_real_escape_string($con, $_GET['edit']);
+
+  $result = mysqli_query($con, "SELECT * FROM tbl_users WHERE user_id='$id' LIMIT 1") or die(mysqli_error($con));
+  $row = mysqli_fetch_assoc($result);
+  
+  if (!$row) {
+    // handle error if user with given ID doesn't exist
+    $_SESSION['message_edit_error'] = "L'utilisateur avec l'ID $id n'existe pas";
+    $_SESSION['message_type'] = " red ";
+  } else {
+    $_SESSION['show_modal_edit'] = "show";
     $_SESSION['id_edit'] = $row['user_id'];
     $_SESSION['name_edit'] = $row['user_fullname'];
     $_SESSION['username_edit'] = $row['user_name'];
     $_SESSION['email_edit'] = $row['user_email'];
-    $_SESSION['option_edit'] = $row['user_type'];
+    $_SESSION['type_edit'] = $row['user_type'];
 
-    if ($_SESSION["current_session"] == "admin") {
-      header('location: ../admin/dashboard.php?class=show');
-    }elseif ($_SESSION["current_session"] == "delegue") {
-      header('location: ../admin/gst_delegue.php?class=show');
-    }elseif ($_SESSION["current_session"] == "enseignant") {
-      header('location: ../admin/gst_enseignant.php?class=show');
-    }elseif ($_SESSION["current_session"] == "responsable") {
-      header('location: ../admin/gst_responsable.php?class=show');
+    // redirect user based on their current session
+    $redirect_url = '';
+    switch ($_SESSION['current_session']) {
+      case 'admin':
+        $redirect_url = '../admin/dashboard.php';
+        break;
+      case 'delegue':
+        $redirect_url = '../admin/gst_delegue.php';
+        break;
+      case 'enseignant':
+        $redirect_url = '../admin/gst_enseignant.php';
+        break;
+      case 'responsable':
+        $redirect_url = '../admin/gst_responsable.php';
+        break;
+      default:
+        // handle error if current session is not recognized
+        $_SESSION['message_edit_error'] = "Session invalide: {$_SESSION['current_session']}";
+        $_SESSION['message_type'] = " red ";
     }
-    exit();
+
+    if ($redirect_url) {
+      header("Location: $redirect_url");
+      exit();
+    }
   }
 }
 
 
-if (isset($_POST['modifier_utilisateur'])) {
-  // code...
-  extract($_POST);
-  $id = mysqli_real_escape_string($con,$id);
-  $name = mysqli_real_escape_string($con,$name);
-  $username = mysqli_real_escape_string($con,$username);
-  $option = mysqli_real_escape_string($con,$option);
-  $email = mysqli_real_escape_string($con,$email);
 
-  $username_query = "SELECT * FROM tbl_users WHERE user_name='$username' and user_id!='$id' LIMIT 1";
-  $result=mysqli_query($con,$username_query)or die ("La connexion a échoué: 1" . mysqli_error($con));
-  $num_usrs=mysqli_num_rows($result);
+if (isset($_POST['modifier_utilisateur'])) {
+
+  // Sanitize and escape user input
+  $id = mysqli_real_escape_string($con, $_POST['id']);
+  $name = mysqli_real_escape_string($con, $_POST['name']);
+  $username = mysqli_real_escape_string($con, $_POST['username']);
+  $email = mysqli_real_escape_string($con, $_POST['email']);
+  $type = mysqli_real_escape_string($con, $_POST['type']);
+  $department_id = mysqli_real_escape_string($con, $_POST['department_id']);
+
+  // Check if the username already exists in the database
+  $username_query = "SELECT * FROM tbl_users WHERE user_name='$username' AND user_id!='$id' LIMIT 1";
+  $result = mysqli_query($con, $username_query);
+  if (!$result) {
+    die("La requête a échoué: " . mysqli_error($con));
+  }
+  $num_usrs = mysqli_num_rows($result);
+  mysqli_free_result($result);
 
   if ($num_usrs > 0) {
-    $_SESSION["message"]="Ce nom d'utilisateur existe déjà";
-    $_SESSION["message_type"]="red";
-    $_SESSION["show"]="show";
-    $_SESSION["show_modal"]="show";
+    // Set session variables for displaying error message and preserving form input
+    session_start();
+    $_SESSION['id_edit'] = $id;
+    $_SESSION['name_edit'] = $name;
+    $_SESSION['username_edit'] = $username;
+    $_SESSION['email_edit'] = $email;
+    $_SESSION['type_edit'] = $type;
+    $_SESSION['department_id_edit'] = $department_id;
 
-    if ($_SESSION["current_session"] == "admin") {
-      header('location: ../admin/dashboard.php?class=show');
-    }elseif ($_SESSION["current_session"] == "delegue") {
-      header('location: ../admin/gst_delegue.php?class=show');
-    }elseif ($_SESSION["current_session"] == "enseignant") {
-      header('location: ../admin/gst_enseignant.php?class=show');
-    }elseif ($_SESSION["current_session"] == "responsable") {
-      header('location: ../admin/gst_responsable.php?class=show');
-    }
+    $_SESSION['message_edit_error'] = "Ce nom d'utilisateur existe déjà";
+    $_SESSION['message_type'] = "red";
+    $_SESSION['show_modal_edit'] = true;
+
+    // Redirect back to the appropriate page based on the user type
+    $redirect_url = "gst_{$_SESSION['current_session']}.php";
+    header("location: ../admin/$redirect_url");
     exit();
-
-  }else {
-    $result = mysqli_query($con, "UPDATE tbl_users SET user_fullname='$name',user_name='$username', user_email='$email',user_type='$option' WHERE user_id='$id'")or die(mysqli_error($con));
-
-    $_SESSION["message_suc"]="L'utilisateur a été Modifier avec succès";
-    $_SESSION["message_type"]="green";
-
-    if (isset($_SESSION["show_modal_edit"])) {
-      unset($_SESSION["show_modal_edit"]);
+  } else {
+    // Update the user and department information in the database
+    $user_query = "UPDATE tbl_users SET user_fullname='$name', user_name='$username', user_email='$email', user_type='$type' WHERE user_id='$id'";
+    $department_query = "UPDATE tbl_user_department SET department_id='$department_id' WHERE user_id='$id'";
+    $result1 = mysqli_query($con, $user_query);
+    $result2 = mysqli_query($con, $department_query);
+    if (!$result1 || !$result2) {
+      die("La requête a échoué: " . mysqli_error($con));
     }
 
-    if ($option == 1) {
-      // code...
-      header('location:gst_responsable.php?class=show');
-      exit();
-    }elseif ($option == 2) {
-      header('location:gst_enseignant.php?class=show');
-      exit();
-    }elseif ($option == 3) {
-      header('location:gst_delegue.php?class=show');
-      exit();
-    }
+    // Set session variables for displaying success message
+    session_start();
+    $_SESSION['message_edit_success'] = "L'utilisateur a été modifié avec succès";
+    $_SESSION['message_type'] = "green";
+
+    // Redirect back to the appropriate page based on the user type
+    $redirect_url = "gst_{$_SESSION['current_session']}.php";
+    header("location: ../admin/$redirect_url");
+    exit();
   }
-
-
 }
 
  ?>

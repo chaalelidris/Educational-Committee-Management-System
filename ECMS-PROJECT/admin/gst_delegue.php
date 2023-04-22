@@ -21,7 +21,7 @@
   <!--                                  Main content: shift it to the right by 310 pixels                                    -->
   <div class="main">
     <!--                                                    breadcrumb                                                       -->
-    <ul class="breadcrumb" >
+    <ul class="breadcrumb round-large" >
       <li><a href="dashboard.php">accueil</a></li>
       <li>Gestion des délégué</li>
     </ul>
@@ -51,11 +51,11 @@
       require_once("../control/config/dbcon.php");
        ?>
 
-       <?php if (isset($_SESSION['message_suc'])): ?>
-       <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+       <?php if (isset($_SESSION['message_success'])): ?>
+       <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
          <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
          <br>
-         <p><?php echo $_SESSION['message_suc']; unset($_SESSION['message_suc']);unset($_SESSION['message_type']); ?></p>
+         <p><?php echo $_SESSION['message_success']; unset($_SESSION['message_success']);unset($_SESSION['message_type']); ?></p>
        </div>
        <?php endif; ?>
 
@@ -72,7 +72,15 @@
           </tr>
 
           <?php
-            $sql = "SELECT * FROM tbl_users INNER JOIN tbl_delegation on tbl_users.user_id = tbl_delegation.delegation_del_id INNER JOIN tbl_promo ON tbl_delegation.delegation_prom_id=tbl_promo.prom_id";
+            $sql = "SELECT DISTINCT tbl_users.* ,tbl_promo.prom_name
+                    FROM tbl_users 
+                    JOIN tbl_delegation 
+                    ON tbl_users.user_id = tbl_delegation.delegation_del_id 
+                    JOIN tbl_promo ON tbl_delegation.delegation_prom_id=tbl_promo.prom_id 
+                    JOIN tbl_user_department ON tbl_users.user_id = tbl_user_department.user_id
+                    JOIN tbl_department d ON tbl_user_department.department_id = d.department_id
+                    WHERE d.department_id = '{$_SESSION['admin_department_id']}'";
+
             $result = mysqli_query($con, $sql);
             while ($row = mysqli_fetch_array($result)) {
               echo'<tr>';

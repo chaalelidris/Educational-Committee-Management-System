@@ -17,7 +17,7 @@
 <div class="main">
   <!-- begin main -->
 
-  <ul class="breadcrumb" >
+  <ul class="breadcrumb round-large" >
     <li><a href="dashboard.php">accueil</a></li>
     <li>Gestion des promotions</li>
   </ul>
@@ -35,11 +35,11 @@
       require_once("../control/config/dbcon.php");
      ?>
 
-    <?php if (isset($_SESSION['message_suc'])): ?>
-    <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+    <?php if (isset($_SESSION['message_success'])): ?>
+    <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
       <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
       <br>
-      <p><?php echo $_SESSION['message_suc']; unset($_SESSION['message_suc']); ?></p>
+      <p><?php echo $_SESSION['message_success']; unset($_SESSION['message_success']); ?></p>
     </div>
     <?php endif; ?>
 
@@ -53,7 +53,7 @@
                       </tr>
 
                       <?php
-                        $sqll = "SELECT * FROM tbl_users RIGHT JOIN tbl_promo ON tbl_users.user_id = tbl_promo.prom_resp_id ";
+                        $sqll = "SELECT * FROM tbl_users INNER JOIN tbl_promo ON tbl_users.user_id = tbl_promo.prom_resp_id and tbl_promo.department_id='{$_SESSION['admin_department_id']}'";
                         $result = mysqli_query($con, $sqll) or die(mysqli_error($con));
                         while ($row = mysqli_fetch_array($result)) {
                           echo'<tr>';

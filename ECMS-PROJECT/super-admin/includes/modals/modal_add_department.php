@@ -12,7 +12,7 @@
 
         <!-- alert -->
         <?php if (isset($_SESSION['message'])): ?>
-        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container">
+        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large">
           <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
           <br>
           <p>
@@ -36,7 +36,7 @@
           title="veuillez remplir ce champ" required><?php echo isset($_SESSION['department_description']) ? $_SESSION['department_description'] : 'No description'; ?></textarea>
 
         <label for="admin_id"><b>Sélectionner l'administrateur du département</b></label> <br>
-        <select class="select border list_resp" name="admin_id" style="width:100%;">
+        <select class="select border list_resp" name="admin_id" style="width:100%;" >
         <?php
           $sql = "SELECT * FROM tbl_users WHERE user_type= 'admin'";
           $result = mysqli_query($con, $sql);

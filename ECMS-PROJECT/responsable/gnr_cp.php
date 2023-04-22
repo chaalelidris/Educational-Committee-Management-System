@@ -18,7 +18,7 @@
 
   <div id="idfacp" class="main show" >
     <!--                                                    breadcrumb                                                       -->
-    <ul class="breadcrumb" >
+    <ul class="breadcrumb round-large" >
       <li><a href="responsable.php">accueil</a></li>
       <li>CPs <?php echo $_SESSION['responsable_prom_name'];?></li>
     </ul>
@@ -36,7 +36,7 @@
       while ($row = mysqli_fetch_array($result)) {
         ?>
 
-        <div class="container light-grey" style="padding-bottom:20px;margin-bottom:20px;">
+        <div class="container light-grey card-4 round-xxlarge " style="padding-bottom:20px;margin-bottom:20px;">
           <h1><?php echo $row['cp_title']; ?> </h1>
           <span>Programmé le <span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_datetime']; ?></span></span>
           <p> Semestre N° <span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_semestre']; ?></span></p>
@@ -52,7 +52,7 @@
             ?><h5>Etat : <span style="color:red">disactivé</span> </h5><?php
           }
           ?>
-          <div class="container" style="background-color:rgba(142, 190, 255, 0.8);margin-bottom:15px;">
+          <div class="container card-4 round-xlarge" style="background-color:rgba(142, 190, 255, 0.8);margin-bottom:15px;">
             <h4>Consulter le formulaire des délégués  <i class="fa fa-book" aria-hidden="true"></i></h4>
             <?php
             $promid = $row['cp_prom_id'];
@@ -70,7 +70,7 @@
                 <form class="" action="get_submitted_data.php" method="post">
                   <input type="hidden" name="cpid" value="<?php echo $row['cp_id']; ?>">
                   <input type="hidden" name="delid" value="<?php echo $rowresultDelegue['user_id']; ?>">
-                  <li style="margin-bottom:10px"><?php echo $rowresultDelegue['user_name']; ?> <button class="button green padding-small" name="consulter">Consulter <i class="fa fa-eye"></i> </button></li>
+                  <li style="margin-bottom:10px"><?php echo $rowresultDelegue['user_name']; ?> <button class="button green padding-small hover-green round-large" name="consulter">Consulter <i class="fa fa-eye"></i> </button></li>
                 </form>
                 <?php
               }
@@ -86,7 +86,7 @@
           </div>
           <form  action="get_submitted_data.php" method="post">
             <input type="hidden" name="cpid" value="<?php echo $row['cp_id']; ?>">
-            <button name="btn_to_formulaire" class="button dark-grey right btn_frm" >FORMULAIRE <i class="fa fa-angle-double-right"></i> </button>
+            <button name="btn_to_formulaire" class="button green hover-amber round-large right btn_frm" >Conslter le formulaire <i class="fa fa-angle-double-right"></i> </button>
           </form>
         </div>
 

@@ -46,7 +46,7 @@
 
       $user_id = $con->insert_id;
 
-      $_SESSION['message_suc'] = "Données modifié avec succès !";
+      $_SESSION['message_success'] = "Données modifié avec succès !";
       $_SESSION['message_type'] = "green";
 
 

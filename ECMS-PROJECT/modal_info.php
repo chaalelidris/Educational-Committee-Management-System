@@ -1,5 +1,5 @@
 <div id="idinfo" class="modal-d">
-  <form class="modal-content-d" action="">
+  <form class="modal-content-d round-large animate-zoom" action="">
     <div class="container-d">
       <span onclick="document.getElementById('idinfo').style.display='none'" class="close-d" title="Close Modal">&times;</span>
       <i class="fa fa-info-circle left" style="color:rgb(26, 107, 214);font-size:300%;"></i>

@@ -14,7 +14,7 @@
         <!--                                             alert                                                     -->
 
         <?php if (isset($_SESSION['message'])): ?>
-        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
           <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
           <br>
           <p><?php echo $_SESSION['message'];?></p>
@@ -42,6 +42,20 @@
             }
           ?>
         </select> <br> <br>
+
+        <label for="department_id"><b>Département</b></label>
+        <select class="select border" name="department_id" title="Veuillez sélectionner" style="background-color:#f1f1f1; padding:15px 10px;" required>
+            <?php
+            $admin_department_id = $_SESSION['admin_department_id'];
+            $sql = "SELECT * FROM tbl_department WHERE department_id = '$admin_department_id'";
+            $result = mysqli_query($con, $sql) or die(mysqli_error($con));
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<option value="' . $row['department_id'] . '">' . $row['department_name'] . '</option>';
+                }
+            }
+            ?>
+        </select> <br>
 
         <label for="password"><b>Mot de passe</b></label>
         <input type="password" placeholder="Entrer le mot de passe" name="password" title="veuillez remplir ce champ" required>

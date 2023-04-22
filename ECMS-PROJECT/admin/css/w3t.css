@@ -23,6 +23,15 @@ theme.theme-l5 {
   background-color: #333333 !important
 }
 
+.theme-primary {
+  color: #000 !important;
+  background-color: #59d38a !important
+}
+
+.theme-primary:hover {
+  background-color: #74eda4 !important
+}
+
 .theme-d1 {
   color: #fff !important;
   background-color: #000000 !important

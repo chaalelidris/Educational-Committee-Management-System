@@ -6,7 +6,7 @@ mdl
 
 
 <div id="id03" class="modal-d ">
-  <form class="modal-content-d" action="delete_user.php" method="post">
+  <form class="modal-content-d round-large animate-zoom" action="delete_user.php" method="post">
     <div class="container-d">
       <span onclick="document.getElementById('id03').style.display='none'" class="close-d" title="Close Modal">&times;</span>
       <h1>Supprimer l'utilisateur</h1>

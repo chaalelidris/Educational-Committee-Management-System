@@ -15,7 +15,7 @@ if (isset($_POST['btn_delete'])) {
   mysqli_query($con, $sql) or die (mysqli_error($con));
 
 
-  $_SESSION["message_suc"]="L'utilisateur a été supprimé avec succès";
+  $_SESSION["message_success"]="L'utilisateur a été supprimé avec succès";
   $_SESSION["message_type"]="green";
 
   

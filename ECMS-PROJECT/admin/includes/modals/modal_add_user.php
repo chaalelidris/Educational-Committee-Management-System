@@ -12,32 +12,46 @@
         <p>Veuillez remplir ce formulaire pour créer un compte.</p>
 
         <!--                                             alert                                                     -->
-
         <?php if (isset($_SESSION['message'])): ?>
-        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
-          <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
-          <br>
-          <p><?php echo $_SESSION['message'];?></p>
+        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
+            <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
+            <br>
+            <p><?php echo $_SESSION['message'];?></p>
         </div>
         <?php endif; ?>
-
-
-        <hr>
         <label for="name"><b>nom complet</b> <span style="opacity:0.8;"> (nom.prénom)</span></label>
-        <input type="text" placeholder="Entrer le nom et prénom" name="name" title="veuillez remplir ce champ" required>
+        <input type="text" placeholder="Entrer le nom et prénom" name="name" title="veuillez remplir ce champ" value="<?php echo isset($_SESSION['name']) ? $_SESSION['name'] : ''; ?>" required>
 
         <label for="username"><b>Nom d'utilisateur</b></label>
-        <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" title="veuillez remplir ce champ" required>
+        <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" title="veuillez remplir ce champ" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>" required>
 
         <label for="email"><b>Email</b></label>
-        <input type="email" placeholder="Entrer l'email" name="email"  title="veuillez remplir ce champ" >
+        <input type="email" placeholder="Entrer l'email" name="email"  title="veuillez remplir ce champ" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>">
 
         <label for="option"><b>sélectionner le type d'utilisateur</b></label>
         <select class="select border" name="option" title="veuillez sélectionner" style="background-color:#f1f1f1; padding:15px 10px;" required>
-          <option value="" disabled selected>Choisissez votre option</option>
-          <option value="1">Résponsable de parcours</option>
-          <option value="2">Enseignant</option>
+        <option value="" disabled <?php echo !isset($_SESSION['option']) ? 'selected' : ''; ?>>Choisissez votre option</option>
+        <option value="1" <?php echo isset($_SESSION['option']) && $_SESSION['option'] == '1' ? 'selected' : ''; ?>>Résponsable de parcours</option>
+        <option value="2" <?php echo isset($_SESSION['option']) && $_SESSION['option'] == '2' ? 'selected' : ''; ?>>Enseignant</option>
         </select> <br>
+
+        <label for="department_id"><b>Département</b></label>
+        <select class="select border" name="department_id" title="Veuillez sélectionner" style="background-color:#f1f1f1; padding:15px 10px;" required>
+        <?php
+        $admin_department_id = $_SESSION['admin_department_id'];
+        $sql = "SELECT * FROM tbl_department WHERE department_id = '$admin_department_id'";
+        $result = mysqli_query($con, $sql) or die(mysqli_error($con));
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $selected = isset($_SESSION['department_id']) && $_SESSION['department_id'] == $row['department_id'] ? 'selected' : '';
+                echo '<option value="' . $row['department_id'] . '" ' . $selected . '>' . $row['department_name'] . '</option>';
+            }
+        }
+        ?>
+        </select> <br>
+
+
+        <?php unset($_SESSION['name']); unset($_SESSION['username']); unset($_SESSION['email']); unset($_SESSION['option']); unset($_SESSION['department_id']); unset($_SESSION['message']); unset($_SESSION['message_type']); ?> 
 
         <label for="password"><b>Mot de passe</b></label>
         <input type="password" placeholder="Entrer le mot de passe" name="password" title="veuillez remplir ce champ" required>
@@ -56,7 +70,3 @@
   </div>
 
 
-
-
-
-  <!-- =====================================  Modal Ajouter utilisateur scripts  ==================== -->

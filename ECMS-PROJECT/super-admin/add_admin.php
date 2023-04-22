@@ -49,7 +49,7 @@ if (isset($_POST['add_admin'])){
         // $_SESSION['user_type'] = $option;
   
         //flash Message
-        $_SESSION['message_suc'] = "utilisateur ajouté avec succès!";
+        $_SESSION['message_success'] = "utilisateur ajouté avec succès!";
         $_SESSION['message_type'] = "green";
         $_SESSION["show"]="show";
   

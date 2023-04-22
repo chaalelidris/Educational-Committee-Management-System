@@ -61,12 +61,12 @@ if (isset($_POST['add_promotion'])){
       }
       exit();
     } else {
-      $sql =  "INSERT INTO tbl_promo (prom_name, prom_resp_id) VALUES ('$name','$respid')";
+      $sql =  "INSERT INTO tbl_promo (department_id,prom_name, prom_resp_id) VALUES ('$department_id','$name','$respid')";
       $result = mysqli_query($con,$sql) or die ("La connexion a échoué: 2" . mysqli_error($con));
 
         $user_id = $con->insert_id;
 
-        $_SESSION['message_suc'] = "promotion ajouté avec succès!";
+        $_SESSION['message_success'] = "promotion ajouté avec succès!";
         $_SESSION['message_type'] = "green";
         $_SESSION["show"]="show";
 

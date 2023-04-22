@@ -26,7 +26,7 @@
 
   <div class="main show" >
     <!--                                                    breadcrumb                                                       -->
-    <ul class="breadcrumb" >
+    <ul class="breadcrumb round-large" >
       <li><a href="enseignant.php">accueil</a></li>
       <li><a href="modules.php">Liste des modules</a></li>
       <li>Remplir l'état d'avancement de module</li>
@@ -39,13 +39,13 @@
 
     <div class="cell-row">
       <div class="container cell">
-        <p><button id="back_return" class="button green hover-green"> <i class="	fa fa-chevron-left"></i> Arrière</button></p>
+        <p><button id="back_return" class="button green hover-green round-large"> <i class="	fa fa-chevron-left"></i> Arrière</button></p>
       </div>
       <div class="container  cell">
       </div>
     </div>
 
-    <div class="container responsive" style="background:#191923">
+    <div class="container responsive" >
 
       <form id="regForm_form_ms" action="insert_del_data.php" method="post" class="">
 

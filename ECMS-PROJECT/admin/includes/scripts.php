@@ -46,12 +46,12 @@
   // }
 
   // show Ajouter utilisateur modal
-  document.querySelector('#adduser').addEventListener('click', function() {
+  $('.btn_add_user').click(function() {
     modal1.className = modal1.className.replace(" hide", " show");
   });
 
   // show Ajouter promotion modal
-  document.querySelector('#addpromo').addEventListener('click', function() {
+  $('.btn_add_promo').click(function() {
     modal6.className = modal6.className.replace(" hide", " show");
   });
 

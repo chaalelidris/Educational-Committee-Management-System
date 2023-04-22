@@ -14,7 +14,7 @@ if (isset($_POST['btn_delete_module'])) {
   $sql = "DELETE FROM tbl_module WHERE modl_id=".$delete_module_id;
   mysqli_query($con, $sql) or die (mysqli_error($con));
 
-  $_SESSION["message_suc"]="Le module a été supprimé avec succès";
+  $_SESSION["message_success"]="Le module a été supprimé avec succès";
   $_SESSION["message_type"]="green";
 
 

@@ -25,7 +25,7 @@
 
   <div class="main " >
     <!--                                                    breadcrumb                                                       -->
-    <ul class="breadcrumb" >
+    <ul class="breadcrumb round-large" >
       <li><a href="delegue.php">accueil</a></li>
       <li>Liste des modules</li>
     </ul>
@@ -38,7 +38,7 @@
 
     <div class="cell-row">
       <div class="container cell">
-        <p><button id="accueil_return" class="button green hover-green"> <i class="	fa fa-chevron-left"></i> Arrière</button></p>
+        <p><button id="accueil_return" class="button green hover-green round-large"> <i class="	fa fa-chevron-left"></i> Arrière</button></p>
       </div>
       <div class="container  cell">
       </div>
@@ -51,11 +51,11 @@
       <h1><strong style="color:#191923">Liste des Modules </strong></h1>
 
 
-      <?php if (isset($_SESSION['message_suc'])): ?>
-        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container ">
+      <?php if (isset($_SESSION['message_success'])): ?>
+        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
           <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
           <br>
-          <p><?php echo $_SESSION['message_suc']; unset($_SESSION['message_suc']); ?></p>
+          <p><?php echo $_SESSION['message_success']; unset($_SESSION['message_success']); ?></p>
         </div>
       <?php endif; ?>
 
@@ -162,7 +162,7 @@
       }else {
 
         ?>
-        <div class="container light-grey" style="padding-bottom:20px;margin-bottom:20px;">
+        <div class="container light-grey card-4 round-xxlarge" style="padding-bottom:20px;margin-bottom:20px;">
           <h1 style="color:rgba(0, 0, 0, 0.53)"> aucun module !</h1>
         </div>
         <?php

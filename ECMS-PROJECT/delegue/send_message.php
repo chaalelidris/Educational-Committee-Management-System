@@ -23,7 +23,7 @@
 
 <div class="main ">
   <!--                                                    breadcrumb                                                       -->
-  <ul class="breadcrumb">
+  <ul class="breadcrumb round-large">
     <li><a href="delegue.php">accueil</a></li>
     <li> <a href="messagerie.php">Messagerie</a> </li>
     <li>envoyer message</li>

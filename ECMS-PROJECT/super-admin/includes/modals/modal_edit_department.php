@@ -10,9 +10,18 @@
         <h1 style="color:#5dd08a;">Modifier ce département</h1>
         <p>Veuillez modifier les informations de ce formulaire.</p>
 
+        <?php if (isset($_SESSION['message_err'])): ?>
+          <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
+            <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
+            <br>
+            <p><?php echo $_SESSION['message_err']; unset($_SESSION['message_err']);unset($_SESSION['message_type']); ?></p>
+          </div>
+        <?php endif; ?>
+
         <input type="hidden" name="department_id" value="<?php echo $_SESSION['department_id_edit']; ?>">
 
         <hr>
+
         <label for="name"><b>Nom du département</b></label>
         <input type="text" value="<?php echo $_SESSION['department_name_edit']; ?>" placeholder="Entrer le nom du département" name="department_name" title="Veuillez remplir ce champ" required>
 
