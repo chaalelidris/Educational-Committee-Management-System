@@ -4,7 +4,7 @@
   <?php else: ?>
     <div id="id05" class="modal-form hide">
     <?php endif; ?>
-    <form class="modal-content" action="edit_department.php" method="post">
+    <form class="modal-content animate-zoom" action="edit_department.php" method="post">
       <div class="container-form">
         <span class="close-d btn_cancel_modif_departement" title="Fermer le Modal">&times;</span>
         <h1 style="color:#5dd08a;">Modifier ce département</h1>

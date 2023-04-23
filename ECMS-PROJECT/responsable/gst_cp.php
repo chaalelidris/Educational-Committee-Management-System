@@ -14,9 +14,6 @@
  ?>
 
 
-
-
-
 <!-- =====================================                  contenus               ======================================= -->
 
 <?php if (isset($_SESSION['switch_facp'])): ?>
@@ -36,31 +33,21 @@
       <hr class="rounded">
 
 
-
-
-
       <div class="container">
         <h1>Table des Réunions programmé</h1>
         <!-- <p>Cliquez sur les en-têtes pour trier le tableau.</p> -->
 
 
         <div class="cell-row">
-
           <div class="container cell">
             <p><button id="activer_cp" class="button green hover-green round-large">Ajouter un CP <i
                   class="fa fa-calendar"></i>
               </button></p>
           </div>
-
           <div class="container  cell">
-
           </div>
-
         </div>
 
-        <?php
-      require_once("../control/config/dbcon.php");
-       ?>
 
         <?php if (isset($_SESSION['message_success'])): ?>
         <div class="panel green display-container round-large">
@@ -129,6 +116,7 @@
     <?php include("Form_activer_cp.php"); ?>
     <?php include("form_modifier_cp.php"); ?>
     <?php include("modal_delete_cp.php"); ?>
+
     <?php include("../modal_deconnexion.php"); ?>
     <?php include("includes/scripts.php"); ?>
 

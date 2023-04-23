@@ -4,7 +4,7 @@
   <?php else: ?>
     <div id="id04" class="modal-form hide">
     <?php endif; ?>
-    <form class="modal-content" action="edit_user.php" method="post">
+    <form class="modal-content animate-zoom" action="edit_user.php" method="post">
       <div class="container-form">
         <span id="bttn2" class="close-d" title="Fermer le Modal">&times;</span>
         <h1 style="color:#5dd08a;">modifier cet utilisateur</h1>
@@ -42,19 +42,19 @@
 
         <label for="type"><b>Choisir le type d'utilisateur</b></label>
         <select class="select border" name="type" title="Veuillez sélectionner" style="background-color:#f1f1f1; padding:15px 10px;" required>
-          <?php if ($_SESSION['option_edit'] == 1): ?>
-            <option value="<?php echo $_SESSION['option_edit']; ?>" selected>Résponsable de parcours (<?php echo $_SESSION['option_edit']; ?>)</option>
-          <?php elseif ($_SESSION['option_edit'] == 2): ?>
-            <option value="<?php echo $_SESSION['option_edit']; ?>" selected>Enseignant (<?php echo $_SESSION['option_edit']; ?>)</option>
-          <?php elseif ($_SESSION['option_edit'] == 3): ?>
-            <option value="<?php echo $_SESSION['option_edit']; ?>" selected>Délégué (<?php echo $_SESSION['option_edit']; ?>)</option>
-          <?php else: ?>
-            <option value="<?php echo $_SESSION['option_edit']; ?>" selected>Utilisateur actuel par défaut (<?php echo $_SESSION['option_edit']; ?>)</option>
-          <?php endif; ?>
-          <option value="1">1- Résponsable de parcours</option>
-          <option value="2">2- Enseignant</option>
-          <option value="3">3- Délégué</option>
+          <?php
+            $options = [
+              1 => "Résponsable de parcours",
+              2 => "Enseignant",
+              3 => "Délégué",
+            ];
+            foreach ($options as $value => $label) {
+              $selected = ($_SESSION['type_edit'] == $value) ? "selected" : "";
+              echo "<option value='$value' $selected>$value- $label</option>";
+            }
+          ?>
         </select>
+
 
         <label for="department_id"><b>Département</b></label>
         <select class="select border" name="department_id" title="Veuillez sélectionner" style="background-color:#f1f1f1; padding:15px 10px;" required>

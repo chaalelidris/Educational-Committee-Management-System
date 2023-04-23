@@ -92,6 +92,8 @@ if (isset($_POST['user_submit'])) {
 
 
                     header('location:../delegue/delegue.php');
+                }else{
+                    header('location:../index.php?username='.$username.'&errorlog=Utilisateur inconnu');
                 }
             }else {
               header('location:../index.php?username='.$username.'&errorlog=Mot de passe incorrect');

@@ -4,7 +4,7 @@
   <?php else: ?>
     <div id="id12" class="modal-form hide">
     <?php endif; ?>
-    <form class="modal-content" action="edit_delegue.php" method="post">
+    <form class="modal-content animate-zoom" action="edit_delegue.php" method="post">
       <div class="container-form">
         <span class="close-d close_modal_edit_delegue" title="Fermer le Modal">&times;</span>
         <h1 style="color:#5dd08a;">modifier cet utilisateur</h1>

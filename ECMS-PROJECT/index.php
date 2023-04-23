@@ -143,7 +143,6 @@
   <!-- Modal -->
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg modal-dialog-centered">
-
       <!-- Modal content-->
       <div class="modal-content" style="border-radius:0px;">
         <button type="button" class="close" data-dismiss="modal"
@@ -159,9 +158,7 @@
             à savoir : le suivi d’avancement des cours, l’achèvement des chapitres, la programmation des
             contrôles continus etc... </p>
         </div>
-
       </div>
-
     </div>
   </div>
 
