@@ -71,7 +71,6 @@ if (isset($_POST['modifier_utilisateur'])) {
 
   if ($num_usrs > 0) {
     // Set session variables for displaying error message and preserving form input
-    session_start();
     $_SESSION['id_edit'] = $id;
     $_SESSION['name_edit'] = $name;
     $_SESSION['username_edit'] = $username;
@@ -91,14 +90,21 @@ if (isset($_POST['modifier_utilisateur'])) {
     // Update the user and department information in the database
     $user_query = "UPDATE tbl_users SET user_fullname='$name', user_name='$username', user_email='$email', user_type='$type' WHERE user_id='$id'";
     $department_query = "UPDATE tbl_user_department SET department_id='$department_id' WHERE user_id='$id'";
+
     $result1 = mysqli_query($con, $user_query);
     $result2 = mysqli_query($con, $department_query);
     if (!$result1 || !$result2) {
       die("La requête a échoué: " . mysqli_error($con));
     }
 
+    $_SESSION['id_edit'] = $id;
+    $_SESSION['name_edit'] = $name;
+    $_SESSION['username_edit'] = $username;
+    $_SESSION['email_edit'] = $email;
+    $_SESSION['type_edit'] = $type;
+    $_SESSION['department_id_edit'] = $department_id;
+
     // Set session variables for displaying success message
-    session_start();
     $_SESSION['message_edit_success'] = "L'utilisateur a été modifié avec succès";
     $_SESSION['message_type'] = "green";
 

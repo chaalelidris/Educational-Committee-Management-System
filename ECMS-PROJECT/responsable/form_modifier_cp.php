@@ -1,3 +1,4 @@
+<?php require_once("../control/config/dbcon.php");?>
 <?php if (isset($_SESSION['switch_fmdcp'])): ?>
 <div id="idfmdcp" class="main show">
   <?php else: ?>
@@ -15,9 +16,6 @@
     </ul>
     <hr class="rounded">
 
-    <?php
-  require_once("../control/config/dbcon.php");
-  ?>
 
     <div class="container">
       <h2>Modifier ( CP )</h2>

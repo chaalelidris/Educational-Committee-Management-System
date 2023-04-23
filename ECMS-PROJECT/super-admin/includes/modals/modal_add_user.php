@@ -6,7 +6,7 @@
   <div id="id02" class="modal-form hide">
 <?php endif; ?>
 
-  <form class="modal-content" action="add_admin.php" method="post">
+  <form class="modal-content animate-zoom" action="add_admin.php" method="post">
     <div class="container-form">
       <span id="bttn" class="close-d" title="Fermer le Modal">&times;</span>
       <h1>Ajouter un utilisateur</h1>

@@ -5,7 +5,7 @@
   <?php else: ?>
     <div id="id06" class="modal-form hide">
     <?php endif; ?>
-    <form class="modal-content" action="add_promo.php" method="post">
+    <form class="modal-content animate-zoom" action="add_promo.php" method="post">
       <div class="container-form">
         <span id="bttn4" class="close-d" title="Fermer le Modal">&times;</span>
         <h1 style="color:#191923;">Ajouter une promotion</h1>

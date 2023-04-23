@@ -5,7 +5,7 @@
   <?php else: ?>
     <div id="id09" class="modal-form hide">
     <?php endif; ?>
-    <form class="modal-content" action="edit_module.php" method="post">
+    <form class="modal-content animate-zoom" action="edit_module.php" method="post">
       <div class="container-form">
         <span  class="close-d btn_cancel_modif_module" title="Fermer le Modal">&times;</span>
         <h1 style="color:#191923;">modifier ce module</h1>

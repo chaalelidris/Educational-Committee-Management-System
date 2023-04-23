@@ -17,11 +17,9 @@
 
 
 
-<!-- =====================================                  contenus               ======================================= -->
-
-
+<!-- content -->
 <div class="main ">
-  <!--                                                    breadcrumb                                                       -->
+  <!-- breadcrumb -->
   <ul class="breadcrumb round-large">
     <li><a href="#">accueil</a></li>
   </ul>
