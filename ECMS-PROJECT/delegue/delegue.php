@@ -72,7 +72,7 @@
                 }
                 ?>
                 <form  action="get_submitted_data.php" method="post">
-                  <input type="hidden" name="cpid" value="<?php echo $row['cp_id']; ?>">
+                  <input type="hidden" name="cp_id" value="<?php echo $row['cp_id']; ?>">
                   <button name="btn_to_modules" class="button dark-grey right btn_frm" >VOIRE LES MODULES <i class="fa fa-angle-double-right"></i> </button>
                 </form>
               </div>

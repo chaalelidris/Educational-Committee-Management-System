@@ -36,8 +36,8 @@
 
   <div class="container">
     <?php
-      $cpid = $_SESSION['cp_id'];
-      $sql = "SELECT cp_title,cp_status FROM tbl_cp WHERE cp_id='$cpid'";
+      $cp_id = $_SESSION['cp_id'];
+      $sql = "SELECT cp_title,cp_status FROM tbl_cp WHERE cp_id='$cp_id'";
       $result = mysqli_query($con, $sql);
       $rowcp_TS=mysqli_fetch_assoc($result); //tableau
       $cptitle = $rowcp_TS['cp_title'];

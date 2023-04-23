@@ -62,8 +62,8 @@
 
       <?php
       $id = $_SESSION['delegue_user_id'];
-      $cpid = $_SESSION['cp_id'];
-      $sqlCpRows = "SELECT * FROM tbl_cp INNER JOIN tbl_module on tbl_cp.cp_prom_id = tbl_module.modl_promo_id AND tbl_cp.cp_semestre = tbl_module.modl_semestre AND cp_id='$cpid'";
+      $cp_id = $_SESSION['cp_id'];
+      $sqlCpRows = "SELECT * FROM tbl_cp INNER JOIN tbl_module on tbl_cp.cp_prom_id = tbl_module.modl_promo_id AND tbl_cp.cp_semestre = tbl_module.modl_semestre AND cp_id='$cp_id'";
       $result = mysqli_query($con, $sqlCpRows);
       $countresult = mysqli_num_rows($result);
 
@@ -76,8 +76,8 @@
           <?php
           $usrid = $_SESSION['delegue_user_id'];
           $modlid = $row['modl_id'];
-          $cpid = $row['cp_id'];
-          $querydata=mysqli_query($con, "SELECT data_id,data_usr_id,data_modl_id,data_cp_id from tbl_data WHERE data_usr_id='$usrid' AND data_modl_id='$modlid' AND data_cp_id='$cpid'") or die (mysqli_error($con));
+          $cp_id = $row['cp_id'];
+          $querydata=mysqli_query($con, "SELECT data_id,data_usr_id,data_modl_id,data_cp_id from tbl_data WHERE data_usr_id='$usrid' AND data_modl_id='$modlid' AND data_cp_id='$cp_id'") or die (mysqli_error($con));
           $countrowremplis = mysqli_num_rows($querydata);
           ?>
 
@@ -120,7 +120,7 @@
               <?php
                 $rowquerydata = mysqli_fetch_array($querydata);
                ?>
-              <input type="hidden" name="cpid" value="<?php echo $row['cp_id']; ?>">
+              <input type="hidden" name="cp_id" value="<?php echo $row['cp_id']; ?>">
               <input type="hidden" name="mdlid" value="<?php echo $row['modl_id']; ?>">
               <input type="hidden" name="mdlname" value="<?php echo $row['modl_name']; ?>">
               <input type="hidden" name="dataid" value="<?php echo $rowquerydata['data_id']; ?>">

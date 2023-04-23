@@ -48,8 +48,8 @@
 
     <div class="container">
       <?php
-      $cpid = $_SESSION['cp_id'];
-      $sql = "SELECT cp_title FROM tbl_cp WHERE cp_id='$cpid'";
+      $cp_id = $_SESSION['cp_id'];
+      $sql = "SELECT cp_title FROM tbl_cp WHERE cp_id='$cp_id'";
       $result = mysqli_query($con, $sql);
       $rowcptitle=mysqli_fetch_assoc($result); //tableau
       $cptitle = $rowcptitle['cp_title'];
@@ -82,8 +82,8 @@
           $row1=mysqli_fetch_assoc($query); //tableau
           $promid=$row1['prom_id'];
 
-          $cpid = $_SESSION['cp_id'];
-          $sql = "SELECT cp_semestre FROM tbl_cp WHERE cp_id='$cpid'";
+          $cp_id = $_SESSION['cp_id'];
+          $sql = "SELECT cp_semestre FROM tbl_cp WHERE cp_id='$cp_id'";
           $result = mysqli_query($con, $sql);
           $row2=mysqli_fetch_assoc($result); //tableau
           $semestre = $row2['cp_semestre'];
@@ -123,7 +123,7 @@
             <div class="responsive">
               <?php
                 $mdlid = $row['modl_id'];
-                $sql = "SELECT * FROM tbl_data WHERE data_usr_id='$delid' AND data_modl_id='$mdlid' AND data_cp_id='$cpid'";
+                $sql = "SELECT * FROM tbl_data WHERE data_usr_id='$delid' AND data_modl_id='$mdlid' AND data_cp_id='$cp_id'";
                 $resultcount = mysqli_query($con, $sql);
                 $countdata = mysqli_num_rows($resultcount);
 

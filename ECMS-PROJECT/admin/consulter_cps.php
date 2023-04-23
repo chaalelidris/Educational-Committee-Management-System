@@ -97,7 +97,7 @@
             while ($rowresultDelegue = mysqli_fetch_array($resultDelegue)) {
               ?>
               <form class="" action="get_submitted_data.php" method="post">
-                <input type="hidden" name="cpid" value="<?php echo $row['cp_id']; ?>">
+                <input type="hidden" name="cp_id" value="<?php echo $row['cp_id']; ?>">
                 <input type="hidden" name="delid" value="<?php echo $rowresultDelegue['user_id']; ?>">
                 <li style="margin-bottom:10px"><?php echo $rowresultDelegue['user_name']; ?> <button class="button green padding-small hover-green round-large" name="consulter">Consulter <i class="fa fa-eye"></i> </button></li>
               </form>
@@ -114,7 +114,7 @@
 
         </div>
         <form  action="get_submitted_data.php" method="post">
-          <input type="hidden" name="cpid" value="<?php echo $row['cp_id']; ?>">
+          <input type="hidden" name="cp_id" value="<?php echo $row['cp_id']; ?>">
           <button name="btn_to_formulaire" class="button primary round-large right btn_frm" >Conslter le formulaire <i class="fa fa-angle-double-right"></i> </button>
         </form>
       </div>

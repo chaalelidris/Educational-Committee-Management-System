@@ -4,7 +4,7 @@ require_once("../control/config/dbcon.php");
 
 if (isset($_POST['btn_to_formulaire'])) {
   extract($_POST);
-  $_SESSION['cp_id']= $cpid;
+  $_SESSION['cp_id']= $cp_id;
   $_SESSION['mdl_id']= $mdlid;
   $_SESSION['mdl_mdlname']= $mdlname;
 

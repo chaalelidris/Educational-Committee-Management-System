@@ -15,11 +15,11 @@
       $Polycopie_cours = mysqli_real_escape_string($con,$Polycopie_cours);
       $delid = $_SESSION['delegue_user_id'];
       $mdlid = mysqli_real_escape_string($con,$mdlid);
-      $cpid = mysqli_real_escape_string($con,$cpid);
+      $cp_id = mysqli_real_escape_string($con,$cp_id);
       $dataid1 = mysqli_real_escape_string($con,$dataid);
 
       // edit whith responsable id
-      // $query=mysqli_query($con, "SELECT cp_prom_id,prom_resp_id from tbl_cp INNER JOIN tbl_promo ON tbl_cp.cp_prom_id=tbl_promo.prom_id AND cp_id=$cpid");
+      // $query=mysqli_query($con, "SELECT cp_prom_id,prom_resp_id from tbl_cp INNER JOIN tbl_promo ON tbl_cp.cp_prom_id=tbl_promo.prom_id AND cp_id=$cp_id");
       // $row=mysqli_fetch_assoc($query);
       // $respid = $row['prom_resp_id'];
 

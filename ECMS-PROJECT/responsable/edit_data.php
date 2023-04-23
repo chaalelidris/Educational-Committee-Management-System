@@ -15,7 +15,7 @@
       $Polycopie_cours = mysqli_real_escape_string($con,$Polycopie_cours);
       $respid = $_SESSION['responsable_user_id'];
       $mdlid = mysqli_real_escape_string($con,$mdlid);
-      $cpid = mysqli_real_escape_string($con,$cpid);
+      $cp_id = mysqli_real_escape_string($con,$cp_id);
       $dataid = mysqli_real_escape_string($con,$dataid);
 
 

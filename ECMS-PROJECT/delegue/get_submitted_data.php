@@ -4,7 +4,7 @@ require_once("../control/config/dbcon.php");
 
 if (isset($_POST['btn_to_modules'])) {
   extract($_POST);
-  $_SESSION['cp_id']= $cpid;
+  $_SESSION['cp_id']= $cp_id;
   ?>
     <script type="text/javascript">
     window.location.assign("modules.php");
@@ -15,7 +15,7 @@ if (isset($_POST['btn_to_modules'])) {
 
 if (isset($_POST['btn_to_addmdl_data'])) {
   extract($_POST);
-  $_SESSION['cp_id']= $cpid;
+  $_SESSION['cp_id']= $cp_id;
   $_SESSION['mdl_id']= $mdlid;
   $_SESSION['mdl_name']= $mdlname;
   ?>

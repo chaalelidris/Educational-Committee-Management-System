@@ -87,7 +87,7 @@
           <p><input class="input_form_ms" placeholder="Password..." ></p>
         </div> -->
 
-        <input  type="hidden" name="cpid" value="<?php echo $_SESSION['cp_id']; ?>">
+        <input  type="hidden" name="cp_id" value="<?php echo $_SESSION['cp_id']; ?>">
         <input  type="hidden" name="mdlid" value="<?php echo $_SESSION['mdl_id']; ?>">
         <input  type="hidden" name="dataid" value="<?php echo $_SESSION['data_id']; ?>">
 

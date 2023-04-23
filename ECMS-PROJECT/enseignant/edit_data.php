@@ -15,15 +15,15 @@
       $Polycopie_cours = mysqli_real_escape_string($con,$Polycopie_cours);
       $ensid = $_SESSION['enseignant_user_id'];
       $mdlid = mysqli_real_escape_string($con,$mdlid);
-      $cpid = mysqli_real_escape_string($con,$cpid);
+      $cp_id = mysqli_real_escape_string($con,$cp_id);
       $dataid1 = mysqli_real_escape_string($con,$dataid);
 
       // edit whith responsable id
-      $query=mysqli_query($con, "SELECT cp_prom_id,prom_resp_id from tbl_cp INNER JOIN tbl_promo ON tbl_cp.cp_prom_id=tbl_promo.prom_id AND cp_id=$cpid");
+      $query=mysqli_query($con, "SELECT cp_prom_id,prom_resp_id from tbl_cp INNER JOIN tbl_promo ON tbl_cp.cp_prom_id=tbl_promo.prom_id AND cp_id=$cp_id");
       $row=mysqli_fetch_assoc($query); //tableau
       $respid = $row['prom_resp_id'];
 
-      $query=mysqli_query($con, "SELECT data_id from tbl_data WHERE  data_usr_id='$respid' AND data_modl_id='$mdlid' AND data_cp_id='$cpid'");
+      $query=mysqli_query($con, "SELECT data_id from tbl_data WHERE  data_usr_id='$respid' AND data_modl_id='$mdlid' AND data_cp_id='$cp_id'");
       $rowData = mysqli_fetch_assoc($query);
       $dataid2 = $rowData['data_id'];
 

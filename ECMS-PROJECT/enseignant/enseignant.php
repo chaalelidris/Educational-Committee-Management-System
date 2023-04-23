@@ -64,8 +64,8 @@
               <?php
               $usrid = $_SESSION['enseignant_user_id'];
               $modlid = $row['modl_id'];
-              $cpid = $row['cp_id'];
-              $querydata=mysqli_query($con, "SELECT data_id,data_usr_id,data_modl_id,data_cp_id from tbl_data WHERE data_usr_id='$usrid' AND data_modl_id='$modlid' AND data_cp_id='$cpid'") or die (mysqli_error($con));
+              $cp_id = $row['cp_id'];
+              $querydata=mysqli_query($con, "SELECT data_id,data_usr_id,data_modl_id,data_cp_id from tbl_data WHERE data_usr_id='$usrid' AND data_modl_id='$modlid' AND data_cp_id='$cp_id'") or die (mysqli_error($con));
               $countrowremplis = mysqli_num_rows($querydata);
               ?>
 
@@ -107,7 +107,7 @@
                   <?php
                   $rowquerydata = mysqli_fetch_array($querydata);
                   ?>
-                  <input type="hidden" name="cpid" value="<?php echo $row['cp_id']; ?>">
+                  <input type="hidden" name="cp_id" value="<?php echo $row['cp_id']; ?>">
                   <input type="hidden" name="mdlid" value="<?php echo $row['modl_id']; ?>">
                   <input type="hidden" name="dataid" value="<?php echo $rowquerydata['data_id']; ?>">
                   <input type="hidden" name="mdlname" value="<?php echo $row['modl_name']; ?>">
