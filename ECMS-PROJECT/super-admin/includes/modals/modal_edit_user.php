@@ -12,6 +12,14 @@
 
         <input type="hidden" name="id" value="<?php echo $_SESSION['id_edit']; ?>">
 
+        <?php if (isset($_SESSION['message'])): ?>
+          <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large">
+            <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
+            <br>
+            <p><?php echo $_SESSION['message'];?></p>
+          </div>
+        <?php endif; ?>
+
         <hr>
         <label for="name"><b>nom complet</b> <span style="opacity:0.8;"> (nom.prénom)</span></label>
         <input type="text" value="<?php echo $_SESSION['name_edit']; ?>" placeholder="Entrer le nom et prénom" id="name" name="name" title="veuillez remplir ce champ" required>

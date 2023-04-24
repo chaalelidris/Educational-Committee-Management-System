@@ -38,11 +38,9 @@ if (isset($_POST['modifier_utilisateur'])) {
   if ($num_usrs > 0) {
     $_SESSION["message"]="Ce nom d'utilisateur existe déjà";
     $_SESSION["message_type"]="red";
-    $_SESSION["show"]="show";
-    $_SESSION["show_modal"]="show";
+    $_SESSION["show_modal_edit"]="show";
 
-    
-    header('location: dashboard.php?');
+    header('location: manage_admins.php?');
     
     exit();
 

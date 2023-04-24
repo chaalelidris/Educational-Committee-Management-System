@@ -11,15 +11,14 @@
   <a id="sideacc" class="bar-item button hover-primary round-large greenn" href="#"><i class="fa fa-users"
       aria-hidden="true"></i>
     Gestion des admins <span class="tag red round right"></span></a>
-  <div id="demoAcc" class="bar-block white <?php echo $_GET['class']; ?> " style="font-size: 16px;">
+  <div id="demoAcc" class="bar-block <?php echo $_GET['class']; ?> " style="font-size: 16px;">
     <?php else :?>
     <a id="sideacc" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-users"
         aria-hidden="true"></i> Gestion
       des administrateurs <span class="tag red round right"></span></a>
-    <div id="demoAcc" class="bar-block white hide" style="font-size: 16px;">
+    <div id="demoAcc" class="bar-block m-2 hide" style="font-size: 16px;">
       <?php endif;?>
-      <a class="bar-item button hover-primary round-large acc_stl btn_add_user"><i class="fa fa-plus"> Ajouter
-          administrateur</i></a>
+      <a class="bar-item button text-white mb-2 hover-primary round-large acc_stl btn_add_user"><i class="fa fa-plus"> Ajouter  administrateur</i></a>
       <a href="manage_admins.php?" class="bar-item button hover-primary round-large acc_stl">Administrateurs</a>
     </div>
 

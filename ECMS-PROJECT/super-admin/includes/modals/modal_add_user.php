@@ -23,13 +23,13 @@
       <hr>
 
       <label for="name"><b>Nom complet</b> <span style="opacity:0.8;"> (nom.prénom)</span></label>
-      <input type="text" placeholder="Entrer le nom et prénom" name="name" title="Veuillez remplir ce champ" required>
+      <input type="text" placeholder="Entrer le nom et prénom" name="name" title="Veuillez remplir ce champ" value="<?php echo isset($_SESSION['name']) ? $_SESSION['name'] : ''; ?>" required>
 
       <label for="username"><b>Nom d'utilisateur</b></label>
-      <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" title="Veuillez remplir ce champ" required>
+      <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" title="Veuillez remplir ce champ" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>" required>
 
       <label for="email"><b>Email</b></label>
-      <input type="email" placeholder="Entrer l'email" name="email"  title="Veuillez remplir ce champ">
+      <input type="email" placeholder="Entrer l'email" name="email"  title="Veuillez remplir ce champ" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>">
 
       <label for="option"><b>Sélectionner le type d'utilisateur</b></label>
       <select class="select border" name="option" title="Veuillez sélectionner" style="background-color:#f1f1f1; padding:15px 10px;" required>
