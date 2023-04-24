@@ -63,13 +63,27 @@ if (isset($_POST['user_submit'])) {
                     $_SESSION['responsable_user_fullname']=$row['user_fullname'];
 
                     $respid = $row['user_id'];
-                    $sql = "SELECT prom_id FROM tbl_promo WHERE prom_resp_id='$respid'";
+                    $sql = "SELECT prom_id,department_id FROM tbl_promo WHERE prom_resp_id='$respid'";
+                    
+                    
                     $result1 = mysqli_query($con, $sql) or die(mysqli_error($con));
                     if (mysqli_num_rows($result1) > 0) {
                         $rowprom = mysqli_fetch_array($result1);
                         $_SESSION['responsable_prom_id'] = $rowprom['prom_id'];
                     }else{
                         $_SESSION['responsable_prom_id'] = "";
+                    }
+
+                    
+                    $sql = "SELECT department_id
+                            FROM tbl_user_department 
+                            WHERE tbl_user_department.user_id = '$respid'";
+                    $result = mysqli_query($con, $sql) or die(mysqli_error($con));
+                    if (mysqli_num_rows($result) > 0) {
+                        $rowdep = mysqli_fetch_array($result);
+                        $_SESSION['department_id'] = $rowdep['department_id'];
+                    }else{
+                        $_SESSION['department_id'] = "";
                     }
 
                     header('location:../responsable/responsable.php');

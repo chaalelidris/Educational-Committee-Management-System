@@ -1,37 +1,29 @@
-
 <?php
+  require_once("../control/config/dbcon.php");
+
   include("includes/head.php");
+  include("includes/navbar.php");
+  include("includes/sidebar.php");
 
   if (isset($_SESSION["current_session"])) {
     unset($_SESSION["current_session"]);
-    $_SESSION["current_session"] = "responsable";
-  }else {
-    $_SESSION["current_session"] = "responsable";
   }
+  $_SESSION["current_session"] = "responsable";
 
-  include("includes/navbar.php");
-  include("includes/sidebar.php");
  ?>
 
 
 
 
-
-  <!-- =====================================                  contenus               ======================================= -->
-
-
-
 <div class="main ">
-  <!--                                                    breadcrumb                                                       -->
   <ul class="breadcrumb round-large">
     <li><a href="dashboard.php">accueil</a></li>
     <li>Messagerie</li>
   </ul>
+
   <hr class="rounded">
 
-  <?php
-    require_once("../control/config/dbcon.php");
-    ?>
+
   <link rel="stylesheet" href="../admin/css/chat2.css">
 
 
@@ -57,57 +49,61 @@
             <?php
             $respid = $_SESSION['responsable_user_id'];
             $promid = $_SESSION['responsable_prom_id'];
-            $sql = "SELECT * FROM tbl_users where user_type='admin'";
+            $depid = $_SESSION['department_id'];
+            $sql = "SELECT u.* 
+                    FROM tbl_users u
+                    JOIN tbl_department d
+                    WHERE d.department_id='$depid' and u.user_id = d.admin_id";
+                    
             $result = mysqli_query($con, $sql);
-            while ($row = mysqli_fetch_array($result)) {
-              ?>
-
-              <?php
-               ?>
+            while ($row = mysqli_fetch_array($result)) {?>
 
 
-               <!-- admin chat -->
-              <div class="chat_list">
-                <form action="get_user_data.php" method="post">
-                  <input type="hidden" name="iduser" value="<?php echo $row['user_id']; ?>">
-                </form>
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="../images/user.png" alt="user"> </div>
-                  <div class="chat_ib">
-                    <?php
+            <!-- admin chat -->
+            <div class="chat_list">
+              <form action="get_user_data.php" method="post">
+                <input type="hidden" name="iduser" value="<?php echo $row['user_id']; ?>">
+              </form>
+              <div class="chat_people">
+                <div class="chat_img"> <img src="../images/user.png" alt="user"> </div>
+                <div class="chat_ib">
+                  <?php
                     $user = $row['user_id'];
                     $sql = "SELECT msg_datetime,msg_status FROM tbl_messagerie where msg_from_id = '$respid' AND msg_to_id = '$user' OR msg_to_id = '$respid' AND msg_from_id = '$user' order by msg_datetime desc limit 1";
                     $resultMsgDate = mysqli_query($con, $sql)  or die(mysqli_error($con));
 
                       ?>
-                      <h5>
-                        <?php
+                  <h5>
+                    <?php
                         $myid = $_SESSION['responsable_user_id'];
                         $amdid = $row['user_id'];
                         $result_msg_from_to = mysqli_query($con, "SELECT * FROM tbl_messagerie where msg_from_id = '$myid' and msg_to_id = '$amdid' or msg_from_id = '$amdid' and msg_to_id = '$myid' ORDER BY msg_datetime desc LIMIT 1")  or die(mysqli_error($con));
                         $row_result_msg_from_to = mysqli_fetch_array($result_msg_from_to);
                          ?>
 
-                         <?php
+                    <?php
                          if (!empty($row_result_msg_from_to)) {
                            if ($row_result_msg_from_to['msg_to_id'] == $myid): ?>
-                           <?php if ($row_result_msg_from_to['msg_status'] == 1): ?>
-                             <span class="tag red round left">neveaux message par </span>
-                           <?php endif; ?>
-                           <?php endif;
+                    <?php if ($row_result_msg_from_to['msg_status'] == 1): ?>
+                    <span class="tag red round left">neveaux message par </span>
+                    <?php endif; ?>
+                    <?php endif;
                           }
                           ?>
 
-                        &nbsp<?php echo $row['user_name']; ?>
-                      <?php
+                    &nbsp
+                    <?php echo $row['user_name']; ?>
+                    <?php
                         if ($rowResultMsgDate = mysqli_fetch_array($resultMsgDate)) {
                           ?>
-                          <span class="chat_date"><?php echo $rowResultMsgDate['msg_datetime']; ?></span>
-                          <?php
+                    <span class="chat_date">
+                      <?php echo $rowResultMsgDate['msg_datetime']; ?>
+                    </span>
+                    <?php
                         }
                          ?>
-                      </h5>
-                      <?php
+                  </h5>
+                  <?php
 
                     if ($row['user_type'] == 1) {
                       $userid = $row['user_id'];
@@ -116,18 +112,22 @@
                       $resultPrmName = mysqli_query($con, $sql);
                       $rowPromName = mysqli_fetch_array($resultPrmName);
                       ?>
-                      <p>responsable de promotion <?php echo $rowPromName['prom_name']; ?></p>
-                      <?php
+                  <p>responsable de promotion
+                    <?php echo $rowPromName['prom_name']; ?>
+                  </p>
+                  <?php
                     }elseif ($row['user_type'] == 2) {
                       $idens = $row['user_id'];
                       $query=mysqli_query($con, "SELECT * from tbl_module INNER JOIN  tbl_promo ON tbl_module.modl_promo_id=tbl_promo.prom_id AND tbl_module.modl_ens_id='$idens'") or die(mysqli_error($con));
                       ?>
-                      <p><strong style="color:rgb(252, 87, 87);">Enseignant de(s) module(s)</strong><br></p>
-                      <?php
+                  <p><strong style="color:rgb(252, 87, 87);">Enseignant de(s) module(s)</strong><br></p>
+                  <?php
 
                       while ($row=mysqli_fetch_assoc($query)):?>
-                      <span style="color:rgba(0, 0, 0, 0.69);"><?php echo $row['modl_name'] ." | promo ".$row['prom_name']." | sem ".$row['modl_semestre'];?></span> <br>
-                      <?php
+                  <span style="color:rgba(0, 0, 0, 0.69);">
+                    <?php echo $row['modl_name'] ." | promo ".$row['prom_name']." | sem ".$row['modl_semestre'];?>
+                  </span> <br>
+                  <?php
                     endwhile;
 
                   }elseif ($row['user_type'] == 3) {
@@ -136,8 +136,10 @@
                     $resultPrmName = mysqli_query($con, $sql);
                     $rowPromName = mysqli_fetch_array($resultPrmName);
                     ?>
-                    <p>délégué de promotion <?php echo $rowPromName['prom_name']; ?></p>
-                    <?php
+                  <p>délégué de promotion
+                    <?php echo $rowPromName['prom_name']; ?>
+                  </p>
+                  <?php
                   }
                   ?>
                 </div>
@@ -160,24 +162,24 @@
             while ($row = mysqli_fetch_array($result)) {
               ?>
 
-              <?php
+            <?php
                ?>
 
-              <div class="chat_list">
-                <form action="get_user_data.php" method="post">
-                  <input type="hidden" name="iduser" value="<?php echo $row['user_id']; ?>">
-                </form>
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="../images/user.png" alt="user"> </div>
-                  <div class="chat_ib">
-                    <?php
+            <div class="chat_list">
+              <form action="get_user_data.php" method="post">
+                <input type="hidden" name="iduser" value="<?php echo $row['user_id']; ?>">
+              </form>
+              <div class="chat_people">
+                <div class="chat_img"> <img src="../images/user.png" alt="user"> </div>
+                <div class="chat_ib">
+                  <?php
                     $user = $row['user_id'];
                     $sql = "SELECT msg_datetime,msg_status FROM tbl_messagerie where msg_from_id = '$respid' AND msg_to_id = '$user' OR msg_to_id = '$respid' AND msg_from_id = '$user' order by msg_datetime desc limit 1";
                     $resultMsgDate = mysqli_query($con, $sql)  or die(mysqli_error($con));
 
                     ?>
-                    <h5>
-                      <?php
+                  <h5>
+                    <?php
                       $myid = $_SESSION['responsable_user_id'];
                       $ensid = $row['user_id'];
                       $result_msg_from_to = mysqli_query($con, "SELECT * FROM tbl_messagerie where msg_from_id = '$myid' and msg_to_id = '$ensid' or msg_from_id = '$ensid' and msg_to_id = '$myid' ORDER BY msg_datetime desc LIMIT 1")  or die(mysqli_error($con));
@@ -185,27 +187,30 @@
                        ?>
 
 
-                       <?php
+                    <?php
                        if (!empty($row_result_msg_from_to)) {
                          if ($row_result_msg_from_to['msg_to_id'] == $myid): ?>
-                         <?php if ($row_result_msg_from_to['msg_status'] == 1): ?>
-                           <span class="tag red round left">neveaux message par </span>
-                         <?php endif; ?>
-                         <?php endif;
+                    <?php if ($row_result_msg_from_to['msg_status'] == 1): ?>
+                    <span class="tag red round left">neveaux message par </span>
+                    <?php endif; ?>
+                    <?php endif;
                         }
                         ?>
 
 
-                      &nbsp<?php echo $row['user_name']; ?>
-                      <?php
+                    &nbsp
+                    <?php echo $row['user_name']; ?>
+                    <?php
                       if ($rowResultMsgDate = mysqli_fetch_array($resultMsgDate)) {
                         ?>
-                        <span class="chat_date"><?php echo $rowResultMsgDate['msg_datetime']; ?></span>
-                        <?php
+                    <span class="chat_date">
+                      <?php echo $rowResultMsgDate['msg_datetime']; ?>
+                    </span>
+                    <?php
                       }
                        ?>
-                    </h5>
-                    <?php
+                  </h5>
+                  <?php
                     if ($row['user_type'] == 1) {
                       $userid = $row['user_id'];
 
@@ -213,18 +218,22 @@
                       $resultPrmName = mysqli_query($con, $sql);
                       $rowPromName = mysqli_fetch_array($resultPrmName);
                       ?>
-                      <p>responsable de promotion <?php echo $rowPromName['prom_name']; ?></p>
-                      <?php
+                  <p>responsable de promotion
+                    <?php echo $rowPromName['prom_name']; ?>
+                  </p>
+                  <?php
                     }elseif ($row['user_type'] == 2) {
                       $idens = $row['user_id'];
                       $query=mysqli_query($con, "SELECT * from tbl_module INNER JOIN  tbl_promo ON tbl_module.modl_promo_id=tbl_promo.prom_id AND tbl_module.modl_ens_id='$idens'") or die(mysqli_error($con));
                       ?>
-                      <p><strong style="color:rgb(252, 87, 87);">Enseignant de(s) module(s)</strong><br></p>
-                      <?php
+                  <p><strong style="color:rgb(252, 87, 87);">Enseignant de(s) module(s)</strong><br></p>
+                  <?php
 
                       while ($row=mysqli_fetch_assoc($query)):?>
-                      <span style="color:rgba(0, 0, 0, 0.69);"><?php echo $row['modl_name'] ." | promo ".$row['prom_name']." | sem ".$row['modl_semestre'];?></span> <br>
-                      <?php
+                  <span style="color:rgba(0, 0, 0, 0.69);">
+                    <?php echo $row['modl_name'] ." | promo ".$row['prom_name']." | sem ".$row['modl_semestre'];?>
+                  </span> <br>
+                  <?php
                     endwhile;
 
                   }elseif ($row['user_type'] == 3) {
@@ -233,8 +242,10 @@
                     $resultPrmName = mysqli_query($con, $sql);
                     $rowPromName = mysqli_fetch_array($resultPrmName);
                     ?>
-                    <p>délégué de promotion <?php echo $rowPromName['prom_name']; ?></p>
-                    <?php
+                  <p>délégué de promotion
+                    <?php echo $rowPromName['prom_name']; ?>
+                  </p>
+                  <?php
                   }
                   ?>
                 </div>
@@ -256,21 +267,21 @@
             while ($row = mysqli_fetch_array($result)) {
               ?>
 
-              <div class="chat_list">
-                <form action="get_user_data.php" method="post">
-                  <input type="hidden" name="iduser" value="<?php echo $row['user_id']; ?>">
-                </form>
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="../images/user.png" alt="user"> </div>
-                  <div class="chat_ib">
-                    <?php
+            <div class="chat_list">
+              <form action="get_user_data.php" method="post">
+                <input type="hidden" name="iduser" value="<?php echo $row['user_id']; ?>">
+              </form>
+              <div class="chat_people">
+                <div class="chat_img"> <img src="../images/user.png" alt="user"> </div>
+                <div class="chat_ib">
+                  <?php
                     $user = $row['user_id'];
                     $sql = "SELECT msg_datetime,msg_status FROM tbl_messagerie where msg_from_id = '$respid' AND msg_to_id = '$user' OR msg_to_id = '$respid' AND msg_from_id = '$user' order by msg_datetime desc limit 1";
                     $resultMsgDate = mysqli_query($con, $sql)  or die(mysqli_error($con));
 
                     ?>
-                    <h5>
-                      <?php
+                  <h5>
+                    <?php
                       $myid = $_SESSION['responsable_user_id'];
                       $ensid = $row['user_id'];
                       $result_msg_from_to = mysqli_query($con, "SELECT * FROM tbl_messagerie where msg_from_id = '$myid' and msg_to_id = '$ensid' or msg_from_id = '$ensid' and msg_to_id = '$myid' ORDER BY msg_datetime desc LIMIT 1")  or die(mysqli_error($con));
@@ -278,27 +289,30 @@
                        ?>
 
 
-                       <?php
+                    <?php
                        if (!empty($row_result_msg_from_to)) {
                          if ($row_result_msg_from_to['msg_to_id'] == $myid): ?>
-                         <?php if ($row_result_msg_from_to['msg_status'] == 1): ?>
-                           <span class="tag red round left">neveaux message par </span>
-                         <?php endif; ?>
-                         <?php endif;
+                    <?php if ($row_result_msg_from_to['msg_status'] == 1): ?>
+                    <span class="tag red round left">neveaux message par </span>
+                    <?php endif; ?>
+                    <?php endif;
                         }
                         ?>
 
 
-                      &nbsp<?php echo $row['user_name']; ?>
-                      <?php
+                    &nbsp
+                    <?php echo $row['user_name']; ?>
+                    <?php
                       if ($rowResultMsgDate = mysqli_fetch_array($resultMsgDate)) {
                         ?>
-                        <span class="chat_date"><?php echo $rowResultMsgDate['msg_datetime']; ?></span>
-                        <?php
+                    <span class="chat_date">
+                      <?php echo $rowResultMsgDate['msg_datetime']; ?>
+                    </span>
+                    <?php
                       }
                        ?>
-                    </h5>
-                    <?php
+                  </h5>
+                  <?php
                     if ($row['user_type'] == 1) {
                       $userid = $row['user_id'];
 
@@ -306,18 +320,22 @@
                       $resultPrmName = mysqli_query($con, $sql);
                       $rowPromName = mysqli_fetch_array($resultPrmName);
                       ?>
-                      <p>responsable de promotion <?php echo $rowPromName['prom_name']; ?></p>
-                      <?php
+                  <p>responsable de promotion
+                    <?php echo $rowPromName['prom_name']; ?>
+                  </p>
+                  <?php
                     }elseif ($row['user_type'] == 2) {
                       $idens = $row['user_id'];
                       $query=mysqli_query($con, "SELECT * from tbl_module INNER JOIN  tbl_promo ON tbl_module.modl_promo_id=tbl_promo.prom_id AND tbl_module.modl_ens_id='$idens'") or die(mysqli_error($con));
                       ?>
-                      <p><strong style="color:rgb(252, 87, 87);">Enseignant de(s) module(s)</strong><br></p>
-                      <?php
+                  <p><strong style="color:rgb(252, 87, 87);">Enseignant de(s) module(s)</strong><br></p>
+                  <?php
 
                       while ($row=mysqli_fetch_assoc($query)):?>
-                      <span style="color:rgba(0, 0, 0, 0.69);"><?php echo $row['modl_name'] ." | promo ".$row['prom_name']." | sem ".$row['modl_semestre'];?></span> <br>
-                      <?php
+                  <span style="color:rgba(0, 0, 0, 0.69);">
+                    <?php echo $row['modl_name'] ." | promo ".$row['prom_name']." | sem ".$row['modl_semestre'];?>
+                  </span> <br>
+                  <?php
                     endwhile;
 
                   }elseif ($row['user_type'] == 3) {
@@ -326,8 +344,10 @@
                     $resultPrmName = mysqli_query($con, $sql);
                     $rowPromName = mysqli_fetch_array($resultPrmName);
                     ?>
-                    <p>délégué de promotion <?php echo $rowPromName['prom_name']; ?></p>
-                    <?php
+                  <p>délégué de promotion
+                    <?php echo $rowPromName['prom_name']; ?>
+                  </p>
+                  <?php
                   }
                   ?>
                 </div>
@@ -365,26 +385,27 @@
   $idcontact = "myContacts";
    ?>
 
-   <script>
+<script>
 
-     $("#myInput_search").on("keyup", function() {
-       var value = $(this).val().toLowerCase();
-       $("#myContacts .chat_list").filter(function() {
-         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-       });
-     });
+  $("#myInput_search").on("keyup", function () {
+    var value = $(this).val().toLowerCase();
+    $("#myContacts .chat_list").filter(function () {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 
 
-     $('.chat_list').click(function(){
-       $(this).children("form").submit();
-     });
+  $('.chat_list').click(function () {
+    $(this).children("form").submit();
+  });
 
-   </script>
+</script>
 
-   <?php
+<?php
    if (isset($_SESSION['message'])) {
      unset($_SESSION['message']);
    }
    ?>
- </body>
- </html>
+</body>
+
+</html>
