@@ -36,7 +36,7 @@ if (isset($_POST['user_submit'])) {
                     $_SESSION['super_admin_user_fullname']=$row['user_fullname'];
                     header('location:../super-admin/dashboard.php');
                 } elseif ($row['user_type']=="admin") {
-                    //$details=$row['user_fulname']." s'est connecté au systèm ";
+                    //$details= $row['user_fulname']." s'est connecté au systèm ";
                     //mysqli_query("INSERT into tbl_history values('','$row[user_id]','$details','$date')");
 
                     // Admin ID
@@ -65,9 +65,12 @@ if (isset($_POST['user_submit'])) {
                     $respid = $row['user_id'];
                     $sql = "SELECT prom_id FROM tbl_promo WHERE prom_resp_id='$respid'";
                     $result1 = mysqli_query($con, $sql) or die(mysqli_error($con));
-                    $rowprom = mysqli_fetch_array($result1);
-
-                    $_SESSION['responsable_prom_id']=$rowprom['prom_id'];
+                    if (mysqli_num_rows($result1) > 0) {
+                        $rowprom = mysqli_fetch_array($result1);
+                        $_SESSION['responsable_prom_id'] = $rowprom['prom_id'];
+                    }else{
+                        $_SESSION['responsable_prom_id'] = "";
+                    }
 
                     header('location:../responsable/responsable.php');
                 } elseif ($row['user_type']=="2") {

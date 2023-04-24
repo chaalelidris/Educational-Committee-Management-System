@@ -206,11 +206,11 @@
           </button>
         </form>
         <?php else: ?>
-          <form action="get_submitted_data.php" method="post">
+          <!-- <form action="get_submitted_data.php" method="post">
             <button class="button dark-grey right btn_frm round-large" style="margin-top:18px;">
               REMPLIR LE FORMULAIRE >>
             </button>
-          </form>
+          </form> -->
         <?php endif; ?>
 
       </div>

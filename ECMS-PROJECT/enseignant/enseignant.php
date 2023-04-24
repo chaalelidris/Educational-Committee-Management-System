@@ -136,7 +136,7 @@
                   }?>
 
           <?php else:?>
-              <div class="container light-grey card-4 round-xxlarge" style="padding-bottom:20px;margin-bottom:20px;">
+              <div class="container light-grey card-4 round-xxlarge" >
                 <h1 style="color:rgba(0, 0, 0, 0.53)"> il n'y a pas de CP activé Actuellement !</h1>
               </div>
           <?php endif; ?>

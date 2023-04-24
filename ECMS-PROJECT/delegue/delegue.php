@@ -54,7 +54,7 @@
             while ($row = mysqli_fetch_array($result)) {
               ?>
 
-              <div class="container light-grey card-4 round-xxlarge" style="padding-bottom:20px;margin-bottom:20px;">
+              <div class="container light-grey card-4 round-xxlarge" >
                 <h1><?php echo $row['cp_title']; ?> </h1>
                 <span>Programmé le <span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_datetime']; ?></span></span>
                 <p> Promotion <span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['prom_name']; ?></span></p>
@@ -85,7 +85,7 @@
         }else {
 
           ?>
-          <div class="container light-grey card-4 round-xxlarge" style="padding-bottom:20px;margin-bottom:20px;">
+          <div class="container light-grey card-4 round-xxlarge" >
             <h1 style="color:rgba(0, 0, 0, 0.53)"> il n'y a pas de CP activé Actuellement !</h1>
           </div>
           <?php

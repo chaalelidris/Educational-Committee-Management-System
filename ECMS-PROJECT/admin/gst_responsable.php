@@ -41,7 +41,7 @@
 
 
       <?php if (isset($_SESSION['message_success'])): ?>
-        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
+        <div class="panel green display-container round-large ">
           <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
           <br>
           <p><?php echo $_SESSION['message_success']; unset($_SESSION['message_success']); ?></p>

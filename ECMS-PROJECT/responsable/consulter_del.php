@@ -71,7 +71,7 @@
 
         while ($row = mysqli_fetch_array($result)) {
       ?>
-        <div class="container light-grey card-4 round-xxlarge" style="padding-bottom:20px;margin-bottom:20px;margin-right:5%;margin-right:5%;">
+        <div class="container light-grey card-4 round-xxlarge  margin-bottom">
 
           <?php if (isset($_SESSION['message_success'])): ?>
             <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">

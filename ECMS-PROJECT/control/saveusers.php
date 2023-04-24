@@ -10,7 +10,7 @@ if (isset($_POST['Ajouter_utilisateur'])){
   $username = mysqli_real_escape_string($con,$username);
   $email = mysqli_real_escape_string($con,$email);
   $department_id = mysqli_real_escape_string($con,$department_id);
-  $option = mysqli_real_escape_string($con,$department_id);
+  $option = mysqli_real_escape_string($con,$option);
 
   $password = mysqli_real_escape_string($con,$password);
   $password_repeat = mysqli_real_escape_string($con,$password_repeat);
@@ -67,34 +67,35 @@ if (isset($_POST['Ajouter_utilisateur'])){
       header('location: ../admin/gst_responsable.php');
     }
     exit();
-  }else{
-    $password_encrypted=md5($password);
-    $sql =  "INSERT INTO tbl_users (user_fullname, user_name, user_email, user_pass, user_type) VALUES ('$name','$username', '$email', '$password_encrypted','$option')";
-    $result = mysqli_query($con, $sql);
-    $user_id = mysqli_insert_id($con);
-
-    $sql =  "INSERT INTO tbl_user_department (user_id, department_id) VALUES ('$user_id','$department_id')";
-    $result = mysqli_query($con,$sql) or die ("La connexion a échoué: 2" . mysqli_error($con));
-
-     
-    //flash Message
-    $_SESSION['message_success'] = "utilisateur ajouté avec succès!";
-    $_SESSION['message_type'] = "green";
-    $_SESSION["show"]="show";
-
-    if (isset($_SESSION["show_modal"])) {
-      unset($_SESSION["show_modal"]);
-    }
-
-    if ($option == 3) {
-      header('location: ../admin/gst_delegue.php');
-    }elseif ($option == 2) {
-      header('location: ../admin/gst_enseignant.php');
-    }elseif ($option == 1) {
-      header('location: ../admin/gst_responsable.php');
-    }
-    exit();
   }
+
+  $password_encrypted=md5($password);
+  $sql =  "INSERT INTO tbl_users (user_fullname, user_name, user_email, user_pass, user_type) VALUES ('$name','$username', '$email', '$password_encrypted','$option')";
+  $result = mysqli_query($con, $sql);
+  $user_id = mysqli_insert_id($con);
+
+  $sql =  "INSERT INTO tbl_user_department (user_id, department_id) VALUES ('$user_id','$department_id')";
+  $result = mysqli_query($con,$sql) or die ("La connexion a échoué: 2" . mysqli_error($con));
+
+    
+  //flash Message
+  $_SESSION['message_success'] = "utilisateur ajouté avec succès!";
+  $_SESSION['message_type'] = "green";
+  $_SESSION["show"]="show";
+
+  if (isset($_SESSION["show_modal"])) {
+    unset($_SESSION["show_modal"]);
+  }
+
+  if ($option == 3) {
+    header('location: ../admin/gst_delegue.php');
+  }elseif ($option == 2) {
+    header('location: ../admin/gst_enseignant.php');
+  }elseif ($option == 1) {
+    header('location: ../admin/gst_responsable.php');
+  }
+  exit();
+  
 
 }
 

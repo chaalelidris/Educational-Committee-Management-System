@@ -37,7 +37,17 @@
         <h1>Table des Réunions programmé</h1>
         <!-- <p>Cliquez sur les en-têtes pour trier le tableau.</p> -->
 
-
+        <?php if (empty($_SESSION['responsable_prom_id'])): ?>
+        <div class="panel yellow round-large">
+          <h3>Attention!</h3>
+          <p>Si vous n'avez pas été affecté à une promotion, vous n'êtes pas autorisé à ajouter un CP. Veuillez contacter l'administrateur pour demander cette action.</p>
+        </div>
+          <p><button id="activer_cp" class="button green hover-green round-large" <?php
+              if(empty($_SESSION['responsable_prom_id'])) { ?> disabled
+              <?php } ?> >Ajouter un CP <i class="fa fa-calendar"></i>
+            </button>
+          </p>
+        <?php else: ?>
         <div class="cell-row">
           <div class="container cell">
             <p><button id="activer_cp" class="button green hover-green round-large">Ajouter un CP <i
@@ -47,6 +57,8 @@
           <div class="container  cell">
           </div>
         </div>
+        <?php endif; ?>
+
 
 
         <?php if (isset($_SESSION['message_success'])): ?>
@@ -61,7 +73,7 @@
 
 
         <div class="responsive">
-          <table class="table-all centered hoverable" id="myTable_del">
+          <table class="table-all hoverable" id="myTable_del">
             <tr>
               <th class="pntr" onclick="sortTable(0)">ID</th>
               <th class="pntr" onclick="sortTable(1)">Titre CP</th>
@@ -71,6 +83,7 @@
               <th class="pntr" onclick="sortTable(5)">Ordre du jour</th>
               <th class="pntr" onclick="sortTable(5)">Détailes</th>
               <th class="pntr" onclick="sortTable(5)">Interventions diverses.</th>
+              <th class="pntr" onclick="sortTable(5)">Etat.</th>
               <th colspan="3">opération</th>
             </tr>
 
@@ -79,32 +92,31 @@
                 $sql = "SELECT * FROM tbl_cp INNER JOIN tbl_promo ON tbl_cp.cp_prom_id = tbl_promo.prom_id AND tbl_promo.prom_resp_id = $id ORDER BY cp_datetime DESC";
                 $result = mysqli_query($con, $sql);
 
-                while ($row = mysqli_fetch_array($result)) {
-                    echo '<tr>';
-                    echo '<td>' . htmlspecialchars($row['cp_id']) . '</td>';
-                    echo '<td>' . htmlspecialchars($row['cp_title']) . '</td>';
-                    echo '<td>' . htmlspecialchars($row['cp_datetime']) . '</td>';
-                    echo '<td>' . htmlspecialchars($row['cp_location']) . '</td>';
-                    echo '<td>' . htmlspecialchars($row['cp_semestre']) . '</td>';
-                    echo '<td>' . htmlspecialchars($row['cp_ordre']) . '</td>';
-                    echo '<td>' . htmlspecialchars($row['cp_detail']) . '</td>';
-                    echo '<td>' . htmlspecialchars($row['cp_intervension']) . '</td>';
-                    echo '<td style="padding:0;">';
+                while ($row = mysqli_fetch_array($result)): ?>
 
-                    if ($row['cp_status'] == 1) {
-                      echo '<button class="btn_da_cp round-large" type="button"><a href="activer_cp.php?desactiv_cp=' . htmlspecialchars($row['cp_id']) . '">Désactiver</a></button>';
-                  } elseif ($row['cp_status'] == 0) {
-                      echo '<button class="btn_a_cp round-large" type="button"><a href="activer_cp.php?activer_cp=' . htmlspecialchars($row['cp_id']) . '">Activer</a></button>';
-                  }
-                  echo '</td>';
-                  echo '<td  style="padding:0;"><button class="btn_m_cp round-large " type="button"><a href="edit_cp.php?edit=' . htmlspecialchars($row['cp_id']) . '">modifier</a></button></td>';
-                  echo '<td  style="padding:0;"><button class="btn_d_cp btn_delet_cp round-large " type="button">supprimer</button></td>';
-                  echo '</tr>';
-                  echo '<tr><td colspan="9" style="height: 10px;"></td></tr>';
+                  <tr class="<?php echo $row['cp_status'] == '1' ? 'pale-green' : 'pale-red'; ?>">
+                    <td><?= htmlspecialchars($row['cp_id']) ?></td>
+                    <td><?= htmlspecialchars($row['cp_title']) ?></td>
+                    <td><?= htmlspecialchars($row['cp_datetime']) ?></td>
+                    <td><?= htmlspecialchars($row['cp_location']) ?></td>
+                    <td><?= htmlspecialchars($row['cp_semestre']) ?></td>
+                    <td><?= htmlspecialchars($row['cp_ordre']) ?></td>
+                    <td><?= htmlspecialchars($row['cp_detail']) ?></td>
+                    <td><?= htmlspecialchars($row['cp_intervension']) ?></td>
+                    <td><?php echo $row['cp_status'] == '1' ? '<p class="green round-xxlarge">Activé</p>' : '<p class="red round-xxlarge">Désactivé</p>'; ?></td>
+                    <td>
+                      <?php if ($row['cp_status'] == 1): ?>
+                        <a class="button yellow hover-yellow round-large margin-right" href="activer_cp.php?desactiv_cp=<?= htmlspecialchars($row['cp_id']) ?>"> Désactiver </a>
+                      <?php elseif ($row['cp_status'] == 0): ?>
+                        <a class="button blue round-large margin-right" href="activer_cp.php?activer_cp=<?= htmlspecialchars($row['cp_id']) ?>"> Activer </a>
+                      <?php endif; ?>
+                    </td>
+                    <td><a class="button green round-large" href="edit_cp.php?edit=<?= htmlspecialchars($row['cp_id']) ?>">modifier</a></td>
+                    <td><button class="button red round-large btn_delet_cp" type="button">supprimer</button></td>
+                  </tr>
                   
-                  
-                }
-            ?>
+                  <tr><td colspan="9" style="height: 10px;"></td></tr>';
+                <?php endwhile; ?>
 
           </table>
         </div>

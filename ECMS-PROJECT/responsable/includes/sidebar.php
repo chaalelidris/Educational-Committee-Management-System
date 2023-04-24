@@ -38,8 +38,7 @@
        }
     }
 
-    $respid = $_SESSION['responsable_user_id'];
-    $promid = $_SESSION['responsable_prom_id'];
+   
     $sql = "SELECT * FROM tbl_users  inner join tbl_module on tbl_users.user_id=tbl_module.modl_ens_id AND tbl_module.modl_promo_id='$promid'";
     $result = mysqli_query($con, $sql);
     while ($row = mysqli_fetch_array($result)) {

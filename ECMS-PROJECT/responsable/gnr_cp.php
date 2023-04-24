@@ -45,8 +45,17 @@
 
     <?php while ($row = mysqli_fetch_array($result)) :?>
 
-    <div class="container light-grey card-4 round-xxlarge padding-large" style="padding-bottom:20px;margin-bottom:20px;">
+    <div class="container light-grey card-4 round-xxlarge padding-large margin-bottom <?php echo $row['cp_status'] == '1' ? 'pale-green' : 'pale-red'; ?>" >
+    
+    
       <h1><strong><?php echo $row['cp_title']; ?></strong></h1>
+      
+      <?php if ($row['cp_status'] == 1): ?>
+        <p><strong>  Etat : </strong><span class="tag green round-large">activé</span></p>
+      <?php else: ?>
+        <p><strong>  Etat : </strong><span class="tag red round-large">disactivé</span></p>
+      <?php endif; ?>
+
       <p><strong>Programmé le: </strong><span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_datetime']; ?></span></p>
       <p><strong>Semestre N°: </strong><span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_semestre']; ?></span></p>
       <p><strong>Lieu: </strong><span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_location']; ?></span></p>
@@ -61,12 +70,7 @@
       </ul>
 
 
-      <!-- <button class="button dark-grey right" onclick="ReadMore()" >Lire la suite</button> -->
-      <?php if ($row['cp_status'] == 1): ?>
-        <p><strong>  Etat : </strong><span style="color:green;">activé</span></p>
-      <?php else: ?>
-        <p><strong>  Etat : </strong><span style="color:red;">disactivé</span></p>
-      <?php endif; ?>
+      
 
 
       <div class="container card-4 round-xlarge" style="background-color:rgba(142, 190, 255, 0.8);margin-bottom:15px;">

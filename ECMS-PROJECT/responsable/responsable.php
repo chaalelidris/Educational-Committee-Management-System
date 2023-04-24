@@ -66,16 +66,21 @@
         </h1>
 
         <?php
-          $idresp = $_SESSION['responsable_user_id'];
-          $query = mysqli_query($con, "SELECT prom_name FROM tbl_promo WHERE prom_resp_id = '$idresp' LIMIT 1");
+        $idresp = $_SESSION['responsable_user_id'];
+        $query = mysqli_query($con, "SELECT prom_name FROM tbl_promo WHERE prom_resp_id = '$idresp' LIMIT 1");
+        if (mysqli_num_rows($query) > 0) {
           $rowprmid = mysqli_fetch_assoc($query);
           $_SESSION['responsable_prom_name'] = $rowprmid['prom_name'];
-          ?>
+        } else {
+          $_SESSION['responsable_prom_name'] = 'No promotion'; // or a default value
+        }
+        ?>
 
-        <p class="title"><strong style="color:rgb(255, 68, 68)">Responsable de la promotion </strong> <span
+
+        <p class="title"><strong style="color:rgb(255, 68, 68)">Responsable de la promotion </strong> <p
             style="color:rgba(0, 0, 0, 0.9)">
-            <?php echo htmlspecialchars($rowprmid['prom_name'], ENT_QUOTES); ?>
-          </span></p>
+            <?php echo htmlspecialchars($_SESSION['responsable_prom_name'], ENT_QUOTES); ?>
+          </p></p>
         <p><button id="ChangePass" class="button_prf round-xlarge">Changer mot de passe</button></p>
       </div>
 
