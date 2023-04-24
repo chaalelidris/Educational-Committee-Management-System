@@ -1,8 +1,4 @@
 
-<!--                               modal supprimer promotion                              -->
-
-
-
 <div id="id07" class="modal-d ">
   <form class="modal-content-d round-large animate-zoom" action="delete_promo.php" method="post">
     <div class="container-d">
@@ -17,6 +13,3 @@
     </div>
   </form>
 </div>
-
-
-<!-- ############################################################################################################################# -->

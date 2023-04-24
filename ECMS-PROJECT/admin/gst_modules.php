@@ -70,7 +70,7 @@
 
 
 
-            echo '<td class="mod_bg modif"><a  href="edit_module.php?edit='.$row['modl_id'].'" >modifier</a></td>';
+            echo '<td class="mod_bg "><a  href="edit_module.php?edit='.$row['modl_id'].'" >modifier</a></td>';
             echo '<td class="sup_bg suppr_md"><a  href="#" >supprimer</a></td>';
           echo'</tr>';
         }

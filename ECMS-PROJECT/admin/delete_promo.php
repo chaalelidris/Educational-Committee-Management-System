@@ -13,17 +13,17 @@ if (isset($_POST['btn_delete_promo'])) {
     $_SESSION["message_success"]="La promotion ne peut pas étre supprimé";
     $_SESSION["message_type"]="red";
 
-    header('location:gst_promos.php?class=show_pr');
+    header('location:gst_promos.php');
     exit();
   }else {
-    $sql = "DELETE FROM tbl_promo WHERE prom_id=".$delete_promo_id;
+    $sql = "DELETE FROM tbl_promo WHERE prom_id='$delete_promo_id'";
     mysqli_query($con, $sql) or die (mysqli_error($con));
 
     $_SESSION["message_success"]="La promotion a été supprimé avec succès";
     $_SESSION["message_type"]="green";
 
 
-      header('location:gst_promos.php?class=show_pr');
+      header('location:gst_promos.php');
       exit();
   }
 

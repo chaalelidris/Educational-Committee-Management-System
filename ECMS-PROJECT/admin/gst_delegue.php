@@ -90,7 +90,7 @@
                 echo'<td>'.$row['prom_name'].'</td>';
                 echo'<td>'.$row['user_email'].'</td>';
 
-                echo '<td class="mod_bg modif"><a  href="edit_delegue.php?edit='.$row['user_id'].'" >modifier</a></td>';
+                echo '<td class="mod_bg "><a  href="edit_delegue.php?edit='.$row['user_id'].'" >modifier</a></td>';
                 echo '<td class="sup_bg suppr"><a  href="#" >supprimer</a></td>';
               echo'</tr>';
             }

@@ -71,7 +71,7 @@
                           echo '<td>'.$row['department_description'].'</td>';
                           echo '<td>'.$row['admin_name'].'</td>';
 
-                          echo '<td class="mod_bg modif"><a href="edit_department.php?edit='.$row['department_id'].'">modifier</a></td>';
+                          echo '<td class="mod_bg "><a href="edit_department.php?edit='.$row['department_id'].'">modifier</a></td>';
                           echo '<td class="sup_bg suppr_dp"><a href="#">supprimer</a></td>';
                           echo '</tr>';
                         }

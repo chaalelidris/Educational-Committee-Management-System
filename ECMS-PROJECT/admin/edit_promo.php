@@ -2,30 +2,21 @@
 session_start();
 require_once("../control/config/dbcon.php");
 if (isset($_GET['edit'])) {
+
   $_SESSION['show_modal_edit_promo'] = " show";
+
   $id = $_GET['edit'];
-  $result = mysqli_query($con, "SELECT * FROM tbl_promo WHERE prom_id=$id") or die (mysqli_error($con));
+  $result = mysqli_query($con, "SELECT * FROM tbl_promo WHERE prom_id='$id'") or die (mysqli_error($con));
   $row=mysqli_fetch_array($result);
   $num=mysqli_num_rows($result);
+
   if($num==1){
 
     $_SESSION['id_edit'] = $row['prom_id'];
     $_SESSION['name_edit'] = $row['prom_name'];
     $_SESSION['respid_edit'] = $row['prom_resp_id'];
   
-
-
-    if ($_SESSION["current_session"] == "admin") {
-      header('location: ../admin/dashboard.php?class=show');
-    }elseif ($_SESSION["current_session"] == "delegue") {
-      header('location: ../admin/gst_delegue.php?class=show');
-    }elseif ($_SESSION["current_session"] == "enseignant") {
-      header('location: ../admin/gst_enseignant.php?class=show');
-    }elseif ($_SESSION["current_session"] == "responsable") {
-      header('location: ../admin/gst_responsable.php?class=show');
-    }elseif ($_SESSION["current_session"] == "promotion") {
-      header('location: ../admin/gst_promos.php?class_pr=show');
-    }
+    header('location: ../admin/gst_promos.php');
     exit();
   }
 }
