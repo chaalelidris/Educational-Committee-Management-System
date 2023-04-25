@@ -31,6 +31,15 @@ if (isset($_POST['imprimer_rapport'])) {
   $all_modl_sql = "SELECT * FROM tbl_module 
                    WHERE modl_promo_id='$prom_id' AND modl_semestre='$semestre'";
   $all_modl_result = mysqli_query($con, $all_modl_sql) or die(mysqli_error($con));
+
+  // Get department
+  $department_sql = "SELECT d.* 
+                  FROM tbl_promo p
+                  JOIN tbl_department d
+                  ON p.department_id = d.department_id
+                  AND p.prom_id = '$prom_id'";
+  $department_result = mysqli_query($con, $department_sql) or die(mysqli_error($con));
+  $row_department=mysqli_fetch_array($department_result);
 }
 
 
@@ -56,10 +65,11 @@ $pdf->SetFont('Times', 'BI', 12);
 $pdf->Cell(0, 5, mb_convert_encoding('Université 08 Mai 45 - Guelma', 'ISO-8859-1', 'UTF-8'), 0, 1);
 
 // Add the faculty name to the PDF document
+
 $pdf->Cell(0, 5, mb_convert_encoding('Faculté de Mathématiques, d’Informatique et de Sciences de la Matière', 'ISO-8859-1', 'UTF-8'), 0, 1);
 
 // Add the department name to the PDF document
-$pdf->Cell(0, 5, mb_convert_encoding('Département d’informatique', 'ISO-8859-1', 'UTF-8'), 0, 1);
+$pdf->Cell(0, 5, mb_convert_encoding($row_department['department_name'], 'ISO-8859-1', 'UTF-8'), 0, 1);
 
 // Add a new line to the PDF document
 $pdf->ln();
@@ -213,9 +223,9 @@ while ($row=mysqli_fetch_array($all_modl_result)) {
     
     $row_width = "95";
     // Output the table headers for the "Cours", "TD", and "TP" columns
-    $pdf->Cell(60, 5.5, mb_convert_encoding('Cours()', "ISO-8859-1", "UTF-8"), 1, 0);
-    $pdf->Cell(60, 5.5, mb_convert_encoding('TD()', "ISO-8859-1", "UTF-8"), 1, 0);
-    $pdf->Cell(70, 5.5, mb_convert_encoding('TP()', "ISO-8859-1", "UTF-8"), 1, 1);
+    $pdf->Cell(60, 5.5, mb_convert_encoding('Cours', "ISO-8859-1", "UTF-8"), 1, 0);
+    $pdf->Cell(60, 5.5, mb_convert_encoding('TD', "ISO-8859-1", "UTF-8"), 1, 0);
+    $pdf->Cell(70, 5.5, mb_convert_encoding('TP', "ISO-8859-1", "UTF-8"), 1, 1);
 
     // Add some spacing before the next row of data
     $pdf->ln(3);
@@ -284,9 +294,9 @@ while ($row=mysqli_fetch_array($all_modl_result)) {
     $pdf->Cell(0,5.5,mb_convert_encoding($row['modl_name'],"ISO-8859-1","UTF-8"),1,1,'L',true);
     $pdf->SetTextColor(0,0,0);
     
-    $pdf->Cell(58,5.5,mb_convert_encoding('Cours()',"ISO-8859-1","UTF-8"),1,0);
-    $pdf->Cell(57,5.5,mb_convert_encoding('TD()',"ISO-8859-1","UTF-8"),1,0);
-    $pdf->Cell(45,5.5,mb_convert_encoding('TP()',"ISO-8859-1","UTF-8"),1,1);
+    $pdf->Cell(58,5.5,mb_convert_encoding('Cours',"ISO-8859-1","UTF-8"),1,0);
+    $pdf->Cell(57,5.5,mb_convert_encoding('TD',"ISO-8859-1","UTF-8"),1,0);
+    $pdf->Cell(45,5.5,mb_convert_encoding('TP',"ISO-8859-1","UTF-8"),1,1);
 
     $pdf->ln(3);
 
