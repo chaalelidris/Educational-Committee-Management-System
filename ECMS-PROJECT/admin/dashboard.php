@@ -48,8 +48,8 @@
   <div class="row_sc " style="margin: 0 auto;">
 
     <!-- Card for managing teachers -->
-    <a href="gst_enseignant.php" class="column_sc">
-      <div class="card_sc round-large">
+    <a href="gst_enseignant.php">
+      <div class="column_sc card_sc round-large margin hover-primary">
         <p><i class="fa fa-user fa_sc"></i></p>
         <h3>
           <?php echo $num1; ?>
@@ -59,9 +59,9 @@
     </a>
 
     <!-- Card for managing responsible users -->
-    <a href="gst_responsable.php" class="column_sc">
-      <div class="card_sc round-large">
-        <p><i class="fa fa-check fa_sc"></i></p>
+    <a href="gst_responsable.php">
+      <div class="column_sc card_sc round-large margin hover-primary">
+        <p><i class="fa fa-group fa_sc"></i></p>
         <h3>
           <?php echo $num2; ?>
         </h3>
@@ -70,9 +70,9 @@
     </a>
 
     <!-- Card for managing delegate users -->
-    <a href="gst_delegue.php" class="column_sc">
-      <div class="card_sc round-large">
-        <p><i class="fa fa-smile-o fa_sc"></i></p>
+    <a href="gst_delegue.php">
+      <div class="column_sc card_sc round-large margin hover-primary">
+        <p><i class="fa fa-mortar-board fa_sc"></i></p>
         <h3>
           <?php echo $num3; ?>
         </h3>
@@ -80,6 +80,43 @@
       </div>
     </a>
   </div>
+  <hr>
+  <div class="row_sc " style="margin: 0 auto;">
+
+    <!-- Card for managing teachers -->
+    <a href="gst_promos.php">
+      <div class="column_sc card_sc round-large margin hover-primary">
+        <p><i class="fa fa-cogs fa_sc"></i></p>
+        <h3>
+          <?php echo ""; ?>
+        </h3>
+        <p>Gérer les promotion</p>
+      </div>
+    </a>
+
+    <!-- Card for managing responsible users -->
+    <a href="gst_modules.php" >
+      <div class="column_sc card_sc round-large margin hover-primary">
+        <p><i class="fa fa-flask fa_sc"></i></p>
+        <h3>
+          <?php echo ""; ?>
+        </h3>
+        <p>gérer les modules</p>
+      </div>
+    </a>
+
+    <!-- Card for managing delegate users -->
+    <a href="consulter.php" >
+      <div class="column_sc card_sc round-large hover-primary margin">
+        <p><i class="fa fa-calendar fa_sc"></i></p>
+        <h3>
+          <?php echo ""; ?>
+        </h3>
+        <p>Consulter tous les les CPs Des promotion</p>
+      </div>
+    </a>
+  </div>
+
 </div>
 
 <!-- Include modal files for adding promotions, modules, users, and deleting users -->

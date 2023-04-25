@@ -58,7 +58,7 @@
 
 
       <div class="card_prf theme-light padding round-xxlarge" >
-        <h3 style="text-align:center">Utilisateur, <span style="color:rgba(0, 0, 0, 0.67)">
+        <h3 style="text-align:center">Utilisateur, <span class="text-gray">
             <?php echo htmlspecialchars($_SESSION['responsable_user_name'], ENT_QUOTES); ?>
           </span></h3>
         <h1>

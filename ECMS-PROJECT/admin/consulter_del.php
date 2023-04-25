@@ -100,7 +100,7 @@
       <div class="container light-grey card-4 round-xxlarge margin-bottom">
 
         <?php if (isset($_SESSION['message_success'])): ?>
-        <div class="panel <?php echo $_SESSION[" message_type"]; ?> display-container round-large ">
+        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
           <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
           <br>
           <p>
@@ -251,14 +251,14 @@
         <form class="" action="get_submitted_data.php" method="post">
           <input type="hidden" name="mdlname" value="<?php echo $row['modl_name'];?>">
           <input type="hidden" name="dataid" value="<?php echo $row3['data_id']; ?>">
-          <button name="btn_to_edit_data" class="button green  right btn_frm" onclick="Load()"
+          <button name="btn_to_edit_data" class="button green  right " onclick="Load()"
             style="margin-top:18px;">Modifier les donnés <i class="fa fa-pencil"></i> </button>
         </form>
         <?php
               }else {
                 ?>
         <!-- <form class="" action="get_submitted_data.php" method="post"> -->
-        <!-- <button class="button dark-grey right btn_frm" onclick="Load()" style="margin-top:18px;">REMPLIR LE FORMULAIRE >> </button> -->
+        <!-- <button class="button dark-grey right " onclick="Load()" style="margin-top:18px;">REMPLIR LE FORMULAIRE >> </button> -->
         <!-- </form> -->
         <?php
               }

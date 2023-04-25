@@ -89,7 +89,7 @@
       <div class="container light-grey card-4 round-xxlarge padding-16 margin-bottom">
 
         <?php if (isset($_SESSION['message_success'])): ?>
-        <div class="panel <?php echo $_SESSION[" message_type"]; ?> display-container round-large ">
+        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
           <span onclick="this.parentElement.style.display='none'" class="button large display-topright">&times;</span>
           <br>
           <p>
@@ -201,13 +201,13 @@
         <form action="get_submitted_data.php" method="post">
           <input type="hidden" name="mdlname" value="<?php echo $row['modl_name'];?>">
           <input type="hidden" name="dataid" value="<?php echo $row3['data_id']; ?>">
-          <button name="btn_to_edit_data" class="button green right btn_frm round-large" style="margin-top:18px;">
+          <button name="btn_to_edit_data" class="button green right  round-large" style="margin-top:18px;">
             Modifier les données <i class="fa fa-pencil"></i>
           </button>
         </form>
         <?php else: ?>
           <!-- <form action="get_submitted_data.php" method="post">
-            <button class="button dark-grey right btn_frm round-large" style="margin-top:18px;">
+            <button class="button dark-grey right  round-large" style="margin-top:18px;">
               REMPLIR LE FORMULAIRE >>
             </button>
           </form> -->
@@ -219,7 +219,7 @@
       
       <form action="pdf.php" method="post">
         <input type="hidden" name="cp_id" value="<?php echo $cp_id; ?>">
-        <button type="submit" name="imprimer_rapport" class="button right btn_frm round-large">
+        <button type="submit" name="imprimer_rapport" class="button right  round-large">
           <strong>Imprimer PV <i class="fa fa-print"></i></strong>
         </button>
       </form>

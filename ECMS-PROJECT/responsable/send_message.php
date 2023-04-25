@@ -72,7 +72,7 @@
               <?php
 
               while ($row=mysqli_fetch_assoc($query)):?>
-              <span style="color:rgba(0, 0, 0, 0.69);"><?php echo $row['modl_name'] ." | promo ".$row['prom_name']." | sem ".$row['modl_semestre'];?></span> <br>
+              <span class="text-gray"><?php echo $row['modl_name'] ." | promo ".$row['prom_name']." | sem ".$row['modl_semestre'];?></span> <br>
               <?php
             endwhile;
 

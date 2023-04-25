@@ -56,11 +56,11 @@
 
               <div class="container light-grey card-4 round-xxlarge" >
                 <h1><?php echo $row['cp_title']; ?> </h1>
-                <span>Programmé le <span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_datetime']; ?></span></span>
-                <p> Promotion <span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['prom_name']; ?></span></p>
-                <p> Semestre N° <span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_semestre']; ?></span></p>
+                <span>Programmé le <span ><?php echo $row['cp_datetime']; ?></span></span>
+                <p> Promotion <span ><?php echo $row['prom_name']; ?></span></p>
+                <p> Semestre N° <span ><?php echo $row['cp_semestre']; ?></span></p>
 
-                <p>Le lieu : <span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_location']; ?> </span> </p>
+                <p>Le lieu : <span ><?php echo $row['cp_location']; ?> </span> </p>
                 <p> <strong>Ordre du jour :</strong> <?php echo $row['cp_ordre']; ?></p>
 
                 <!-- <button class="button dark-grey right" onclick="ReadMore()" >Lire la suite</button> -->
@@ -73,7 +73,7 @@
                 ?>
                 <form  action="get_submitted_data.php" method="post">
                   <input type="hidden" name="cp_id" value="<?php echo $row['cp_id']; ?>">
-                  <button name="btn_to_modules" class="button dark-grey right btn_frm" >VOIRE LES MODULES <i class="fa fa-angle-double-right"></i> </button>
+                  <button name="btn_to_modules" class="button dark-grey right " >VOIRE LES MODULES <i class="fa fa-angle-double-right"></i> </button>
                 </form>
               </div>
 

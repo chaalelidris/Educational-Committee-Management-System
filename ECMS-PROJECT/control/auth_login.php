@@ -93,9 +93,28 @@ if (isset($_POST['user_submit'])) {
                     $_SESSION['enseignant_user_fullname']=$row['user_fullname'];
 
                     $ensid = $row['user_id'];
-                    $query=mysqli_query($con, "SELECT * from tbl_module where modl_ens_id='$ensid' LIMIT 1 ");
-                    $rowprmid=mysqli_fetch_assoc($query); //tableau
-                    $_SESSION['enseignant_promotion_id']=$rowprmid['modl_promo_id'];
+                    $sql = "SELECT * 
+                            FROM tbl_module 
+                            WHERE modl_ens_id='$ensid' 
+                            LIMIT 1 ";
+
+                    $query=mysqli_query($con, $sql);
+                    
+                    $row_promotion_id=mysqli_fetch_assoc($query); //tableau
+                    $_SESSION['enseignant_promotion_id'] = $row_promotion_id['modl_promo_id'];
+
+                    $promid = $row_promotion_id['modl_promo_id'];
+                    $sql = "SELECT p.department_id
+                            FROM tbl_promo p
+                            WHERE prom_id='$promid' 
+                            LIMIT 1 ";
+                    $query=mysqli_query($con, $sql);   
+                    
+                    $row_department_id=mysqli_fetch_assoc($query); //tableau
+                    $_SESSION['enseignant_department_id']=$row_department_id['modl_promo_id'];
+
+
+
                     header('location:../enseignant/enseignant.php');
                 } elseif ($row['user_type']=="3") {
                     $_SESSION['delegue_user_id']=$row['user_id'];

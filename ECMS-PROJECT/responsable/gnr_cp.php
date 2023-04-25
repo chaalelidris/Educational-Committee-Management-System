@@ -50,23 +50,20 @@
     
       <h1><strong><?php echo $row['cp_title']; ?></strong></h1>
       
-      <?php if ($row['cp_status'] == 1): ?>
-        <p><strong>  Etat : </strong><span class="tag green round-large">activé</span></p>
-      <?php else: ?>
-        <p><strong>  Etat : </strong><span class="tag red round-large">disactivé</span></p>
-      <?php endif; ?>
+      <p><strong>Etat :</strong><span class="tag <?php echo ($row['cp_status'] == 1) ? 'green' : 'red'; ?> round-large"><?php echo ($row['cp_status'] == 1) ? 'activé' : 'disactivé'; ?></span></p>
 
-      <p><strong>Programmé le: </strong><span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_datetime']; ?></span></p>
-      <p><strong>Semestre N°: </strong><span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_semestre']; ?></span></p>
-      <p><strong>Lieu: </strong><span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_location']; ?></span></p>
+
+      <p><strong>Programmé le: </strong><span ><?php echo $row['cp_datetime']; ?></span></p>
+      
+      <p><strong>Semestre N°: </strong><span ><?php echo $row['cp_semestre']; ?></span></p>
+
+      <p><strong>Lieu: </strong><span ><?php echo $row['cp_location']; ?></span></p>
+
       <p><strong>Ordre du jour:</strong></p>
       <ul>
-        <?php 
-          $ordre_items = explode("\n", $row['cp_ordre']);
-          foreach ($ordre_items as $item) {
-            echo "<li><strong>$item</strong></li>";
-          }
-        ?>
+        <?php foreach (explode("\n", $row['cp_ordre']) as $item): ?>
+          <li><strong><?= $item ?></strong></li>
+        <?php endforeach; ?>
       </ul>
 
 
@@ -110,7 +107,7 @@
 
       <form action="get_submitted_data.php" method="post">
         <input type="hidden" name="cp_id" value="<?php echo $row['cp_id']; ?>">
-        <button name="btn_to_formulaire" class="button green hover-amber round-large right btn_frm">Conslter le
+        <button name="btn_to_formulaire" class="button green hover-amber round-large right ">Conslter le
           formulaire <i class="fa fa-angle-double-right"></i> </button>
       </form>
 

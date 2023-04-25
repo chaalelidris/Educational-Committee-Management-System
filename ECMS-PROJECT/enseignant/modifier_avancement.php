@@ -59,7 +59,7 @@
 
       <form id="regForm_form_ms" action="edit_data.php" method="post" class="">
 
-        <h1 class="h1_form_ms">Modifier les champ SVP:</h1>
+        <h1 class="h1_form_ms">Veuillez modifier les champs s'il vous plaît.</h1>
         <h2 for="">Module <?php echo $_SESSION['mdl_mdlname']; ?></h2>
 
         <!-- One "tab" for each step in the form: -->

@@ -1,4 +1,3 @@
-
 <?php
   include("includes/head.php");
 
@@ -17,13 +16,13 @@
 
 
 
-  <!-- =====================================                  contenus               ======================================= -->
+<!-- =====================================                  contenus               ======================================= -->
 
 
 
 
 
-  <div id="idfacp" class="main" >
+<div id="idfacp" class="main">
   <!--                                                    breadcrumb                                                       -->
   <?php
   require_once("../control/config/dbcon.php");
@@ -35,16 +34,19 @@
 
   ?>
 
-  <ul class="breadcrumb round-large" >
+  <ul class="breadcrumb round-large">
     <li><a href="responsable.php">accueil</a></li>
-    <li>CPs <?php echo $rowpromDataResult['prom_name'];?></li>
+    <li>CPs
+      <?php echo $rowpromDataResult['prom_name'];?>
+    </li>
   </ul>
   <hr class="rounded">
 
 
   <div class="cell-row">
     <div class="container cell">
-      <p><button id="Arrier"class="button green hover-green round-large"> <i class="	fa fa-chevron-left"></i> Arrière</button></p>
+      <p><button id="Arrier" class="button green hover-green round-large"> <i class="	fa fa-chevron-left"></i>
+          Arrière</button></p>
     </div>
     <div class="container  cell">
     </div>
@@ -65,62 +67,74 @@
     while ($row = mysqli_fetch_array($result)) {
       ?>
 
-      <div class="container light-grey card-4 round-xxlarge margin-bottom" >
-        <h1><?php echo $row['cp_title']; ?> </h1>
-        <span>Programmé le <span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_datetime']; ?></span></span>
-        <p> Semestre N° <span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_semestre']; ?></span></p>
+    <div class="container light-grey card-4 round-xxlarge padding-large margin-bottom <?php echo $row['cp_status'] == '1' ? 'pale-green' : 'pale-red'; ?>">
 
-        <p>Le lieu : <span style="color:rgba(0, 0, 0, 0.7)"><?php echo $row['cp_location']; ?> </span> </p>
-        <p> <strong>Ordre du jour :</strong> <?php echo $row['cp_ordre']; ?></p>
+      <h1>
+        <?php echo $row['cp_title']; ?>
+      </h1>
 
-        <!-- <button class="button dark-grey right" onclick="ReadMore()" >Lire la suite</button> -->
-        <?php
-        if ($row['cp_status'] == 1) {
-          ?><h5>Etat : <span style="color:green;">activé</span> </h5><?php
-        }else {
-          ?><h5>Etat : <span style="color:red">disactivé</span> </h5><?php
-        }
+      <?php if ($row['cp_status'] == 1): ?>
+      <p><strong> Etat : </strong><span class="tag green round-large">activé</span></p>
+      <?php else: ?>
+      <p><strong> Etat : </strong><span class="tag red round-large">disactivé</span></p>
+      <?php endif; ?>
+
+      <p><strong>Programmé le: </strong><span class="text-gray"> <?php echo $row['cp_datetime']; ?></span></p>
+
+      <p><strong>Semestre N°: </strong><span ><?php echo $row['cp_semestre']; ?></span></p>
+
+      <p><strong>Lieu: </strong><span ><?php echo $row['cp_location']; ?></span> </p>
+
+      <p><strong>Ordre du jour:</strong></p>
+      <ul>
+        <?php 
+          $ordre_items = explode("\n", $row['cp_ordre']);
+          foreach ($ordre_items as $item) {
+            echo "<li><strong>$item</strong></li>";
+          }
         ?>
-        <div class="container card-4 round-xlarge" style="background-color:rgba(142, 190, 255, 0.8);margin-bottom:15px;">
-          <h4>Consulter le formulaire des délégués  <i class="fa fa-book" aria-hidden="true"></i></h4>
-          <?php
+      </ul>
+
+
+
+      <div class="container card-4 round-xlarge" style="background-color:rgba(142, 190, 255, 0.8);margin-bottom:15px;">
+        <h4>Consulter le formulaire des délégués <i class="fa fa-book" aria-hidden="true"></i></h4>
+
+        <?php
           $promid = $row['cp_prom_id'];
           $sql = "SELECT * FROM tbl_users INNER JOIN tbl_delegation ON tbl_users.user_id=tbl_delegation.delegation_del_id AND tbl_delegation.delegation_prom_id='$promid'";
           $resultDelegue = mysqli_query($con, $sql);
           $countresultDelegue = mysqli_num_rows($resultDelegue);
 
 
-          if ($countresultDelegue > 0) {
-            ?>
-            <ol>
-            <?php
-            while ($rowresultDelegue = mysqli_fetch_array($resultDelegue)) {
-              ?>
-              <form class="" action="get_submitted_data.php" method="post">
-                <input type="hidden" name="cp_id" value="<?php echo $row['cp_id']; ?>">
-                <input type="hidden" name="delid" value="<?php echo $rowresultDelegue['user_id']; ?>">
-                <li style="margin-bottom:10px"><?php echo $rowresultDelegue['user_name']; ?> <button class="button green padding-small hover-green round-large" name="consulter">Consulter <i class="fa fa-eye"></i> </button></li>
-              </form>
-              <?php
-            }
-            ?>
-            </ol>
+          if ($countresultDelegue > 0):?>
+        <ol>
+          <?php while ($rowresultDelegue = mysqli_fetch_array($resultDelegue)):?>
+          <form class="" action="get_submitted_data.php" method="post">
+            <input type="hidden" name="cp_id" value="<?php echo $row['cp_id']; ?>">
+            <input type="hidden" name="delid" value="<?php echo $rowresultDelegue['user_id']; ?>">
+            <li style="margin-bottom:10px">
+              <?php echo $rowresultDelegue['user_name']; ?> <button
+                class="button green padding-small hover-green round-large" name="consulter">Consulter <i
+                  class="fa fa-eye"></i> </button>
+            </li>
+          </form>
+          <?php endwhile;?>
+        </ol>
+        <?php else:  ?>
 
-            <?php
-          }else {
+        <?php endif;  ?>
 
-          }
-           ?>
-
-        </div>
-        <form  action="get_submitted_data.php" method="post">
-          <input type="hidden" name="cp_id" value="<?php echo $row['cp_id']; ?>">
-          <button name="btn_to_formulaire" class="button primary round-large right btn_frm" >Conslter le formulaire <i class="fa fa-angle-double-right"></i> </button>
-        </form>
       </div>
+      <form action="get_submitted_data.php" method="post">
+        <input type="hidden" name="cp_id" value="<?php echo $row['cp_id']; ?>">
+        <button name="btn_to_formulaire" class="button primary round-large right ">Conslter le formulaire <i
+            class="fa fa-angle-double-right"></i> </button>
+      </form>
+    </div>
 
 
-      <?php
+    <?php
     }
     ?>
 
@@ -128,25 +142,26 @@
 
 </div>
 
-  <?php include("includes/modals/modal_add_promotion.php"); ?>
-  <?php include("includes/modals/modal_add_module.php"); ?>
-  <?php include("includes/modals/modal_add_user.php"); ?>
-  <?php include("includes/modals/modal_delete_user.php") ?>
-  <?php include("../modal_deconnexion.php"); ?>
-  <?php include("includes/scripts.php"); ?>
+<?php include("includes/modals/modal_add_promotion.php"); ?>
+<?php include("includes/modals/modal_add_module.php"); ?>
+<?php include("includes/modals/modal_add_user.php"); ?>
+<?php include("includes/modals/modal_delete_user.php") ?>
+<?php include("../modal_deconnexion.php"); ?>
+<?php include("includes/scripts.php"); ?>
 
 
-  <script type="text/javascript">
-  $('#Arrier').click(function(){
+<script type="text/javascript">
+  $('#Arrier').click(function () {
     window.location.assign("consulter.php");
   });
-  </script>
+</script>
 
 
-  <?php
+<?php
     if (isset($_SESSION['message'])) {
       unset($_SESSION['message']);
     }
   ?>
-  </body>
+</body>
+
 </html>
