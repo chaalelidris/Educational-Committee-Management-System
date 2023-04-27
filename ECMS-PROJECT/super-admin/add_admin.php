@@ -1,5 +1,4 @@
 <?php
-// si super admine clicker Ajouter admin
 session_start();
 include("../control/config/dbcon.php");
 

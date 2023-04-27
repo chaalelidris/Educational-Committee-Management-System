@@ -8,48 +8,48 @@
     <i class="fa fa-remove"></i>
   </a>
   <h4 class="bar-item"><b>Menu</b></h4>
-  <a href="dashboard.php" class="bar-item button hover-primary round-large round-large ">Accueil</a>
+  <a href="dashboard.php" class="bar-item button hover-primary round-large round-large "><?= $translations['home']?></a>
 
      <?php if (isset($_GET["class"])):?>
-  <a id="sideacc" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-users" aria-hidden="true"></i> Gestion des utilisateurs <span class="tag red round right"></span></a>
+  <a id="sideacc" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;<?= $translations['manage_users']?><span class="tag red round right"></span></a>
   <div id="demoAcc" class="bar-block black <?php echo $_GET['class']; ?> " style="font-size: 16px;">
      <?php else :?>
-  <a id="sideacc" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-users" aria-hidden="true"></i> Gestion des utilisateurs <span class="tag red round right"></span></a>
+  <a id="sideacc" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;<?= $translations['manage_users']?><span class="tag red round right"></span></a>
   <div id="demoAcc" class="bar-block black hide" style="font-size: 16px;">
      <?php endif;?>
-    <a class="bar-item button hover-primary round-large acc_stl btn_add_user"><i class="fa fa-plus"> Ajouter utilisateur</i></a>
-    <a href="gst_responsable.php?class=show" class="bar-item button hover-primary round-large acc_stl">Résponsable de parcours</a>
-    <a href="gst_delegue.php?class=show" class="bar-item button hover-primary round-large acc_stl">Délégué</a>
-    <a href="gst_enseignant.php?class=show" class="bar-item button hover-primary round-large acc_stl">Enseignant</a>
+    <a class="bar-item button hover-primary round-large acc_stl btn_add_user"><i class="fa fa-plus">&nbsp;<?= $translations['add_user']?></i></a>
+    <a href="gst_responsable.php?class=show" class="bar-item button hover-primary round-large acc_stl">&nbsp;<?= $translations['managers']?></a>
+    <a href="gst_delegue.php?class=show" class="bar-item button hover-primary round-large acc_stl">&nbsp;<?= $translations['delegates']?></a>
+    <a href="gst_enseignant.php?class=show" class="bar-item button hover-primary round-large acc_stl">&nbsp;<?= $translations['teachers']?></a>
   </div>
 
 
   <?php if (isset($_GET["class_pr"])):?>
-    <a id="sideacc_pr" class="bar-item button hover-primary round-large greenn" href="#"><i class="fa fa-level-up" aria-hidden="true"></i> Gestion des promotions <span class="tag red round right"></span></a>
+    <a id="sideacc_pr" class="bar-item button hover-primary round-large greenn" href="#"><i class="fa fa-level-up" aria-hidden="true"></i>&nbsp;<?= $translations['manage_promos']?><span class="tag red round right"></span></a>
     <div id="demoAcc_pr" class="bar-block black <?php echo $_GET['class_pr']; ?> " style="font-size: 16px;">
   <?php else :?>
-    <a id="sideacc_pr" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-level-up" aria-hidden="true"></i> Gestion des promotions <span class="tag red round right"></span></a>
+    <a id="sideacc_pr" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-level-up" aria-hidden="true"></i>&nbsp; <?= $translations['manage_promos']?><span class="tag red round right"></span></a>
     <div id="demoAcc_pr" class="bar-block black hide" style="font-size: 16px;">
   <?php endif;?>
 
-    <a class="bar-item button hover-primary round-large acc_stl btn_add_promo"><i class="fa fa-plus"> Ajouter promotion</i></a>
-    <a href="gst_promos.php?class_pr=show" class="bar-item button hover-primary round-large acc_stl">Gérer les promotion</i></a>
+    <a class="bar-item button hover-primary round-large acc_stl btn_add_promo"><i class="fa fa-plus">&nbsp;<?= $translations['add_promotion']?></i></a>
+    <a href="gst_promos.php?class_pr=show" class="bar-item button hover-primary round-large acc_stl">&nbsp;<?= $translations['manage_promos']?></i></a>
   </div>
 
   <?php if (isset($_GET["class_md"])):?>
-    <a id="sideacc_md" class="bar-item button hover-primary round-large greenn" href="#"><i class="fa fa-book" aria-hidden="true"></i> Gestion des modules <span class="tag red round right"></span></a>
+    <a id="sideacc_md" class="bar-item button hover-primary round-large greenn" href="#"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;<?= $translations['manage_modules']?><span class="tag red round right"></span></a>
     <div id="demoAcc_md" class="bar-block black <?php echo $_GET['class_md']; ?> " style="font-size: 16px;">
   <?php else :?>
-    <a id="sideacc_md" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-book" aria-hidden="true"></i> Gestion des modules <span class="tag red round right"></span></a>
+    <a id="sideacc_md" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;<?= $translations['manage_modules']?><span class="tag red round right"></span></a>
     <div id="demoAcc_md" class="bar-block black hide" style="font-size: 16px;">
   <?php endif;?>
 
-    <a id="addmodule" href="#" class="bar-item button hover-primary round-large acc_stl"><i class="fa fa-plus"> Ajouter module</i></a>
-    <a href="gst_modules.php?class_md=show" class="bar-item button hover-primary round-large acc_stl">Gérer les modules</i></a>
+    <a id="addmodule" href="#" class="bar-item button hover-primary round-large acc_stl"><i class="fa fa-plus">&nbsp;<?= $translations['add_module']?></i></a>
+    <a href="gst_modules.php?class_md=show" class="bar-item button hover-primary round-large acc_stl">&nbsp;<?= $translations['manage_modules']?></i></a>
   </div>
 
-  <a href="consulter.php" class="bar-item button hover-primary round-large"><i class="fa fa-eye" aria-hidden="true"></i> Consulter tous les CP</a>
-  <a href="users_passwords.php" class="bar-item button hover-primary round-large"><i class="fa fa-key" aria-hidden="true"></i> Mot de passes</a>
+  <a href="consulter.php" class="bar-item button hover-primary round-large"><i class="fa fa-eye" aria-hidden="true">&nbsp;</i><?= $translations['view_cp']?></a>
+  <a href="users_passwords.php" class="bar-item button hover-primary round-large"><i class="fa fa-key" aria-hidden="true"></i> <?= $translations['manage_pass']?></a>
   <?php
   require_once("../control/config/dbcon.php");
 
@@ -72,7 +72,7 @@
      }
   }
    ?>
-  <a href="messagerie.php" class="bar-item button hover-primary round-large"><i class="fa fa-envelope" aria-hidden="true"></i> Messagerie
+  <a href="messagerie.php" class="bar-item button hover-primary round-large"><i class="fa fa-envelope" aria-hidden="true"></i><?= $translations['messages']?>
     <?php if ($count == 0) {
     ?>
     <span class="tag blue round right"><?php echo $count; ?>
@@ -89,8 +89,7 @@
 
 
 
-<!--                            Overlay effect when opening sidebar on small screens                                  -->
-
+<!--  Overlay effect when opening sidebar on small screens -->
 <div class="overlay hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 

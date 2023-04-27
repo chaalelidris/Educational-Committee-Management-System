@@ -41,7 +41,7 @@
 <div class="main ">
   <!-- Breadcrumb -->
   <ul class="breadcrumb round-large">
-    <li><a href="#">accueil</a></li>
+    <li><a href="#"><?=$translations['home']?></a></li>
   </ul>
   <hr class="rounded">
 
@@ -54,7 +54,7 @@
         <h3>
           <?php echo $num1; ?>
         </h3>
-        <p>enseignants</p>
+        <p><?=$translations['teachers']?></p>
       </div>
     </a>
 
@@ -65,7 +65,7 @@
         <h3>
           <?php echo $num2; ?>
         </h3>
-        <p>Résponsables</p>
+        <p><?=$translations['managers']?></p>
       </div>
     </a>
 
@@ -76,7 +76,7 @@
         <h3>
           <?php echo $num3; ?>
         </h3>
-        <p>Delegues</p>
+        <p><?=$translations['delegates']?></p>
       </div>
     </a>
   </div>
@@ -90,7 +90,7 @@
         <h3>
           <?php echo ""; ?>
         </h3>
-        <p>Gérer les promotion</p>
+        <p><?=$translations['manage_promos']?></p>
       </div>
     </a>
 
@@ -101,7 +101,7 @@
         <h3>
           <?php echo ""; ?>
         </h3>
-        <p>gérer les modules</p>
+        <p><?=$translations['manage_modules']?></p>
       </div>
     </a>
 
@@ -112,7 +112,7 @@
         <h3>
           <?php echo ""; ?>
         </h3>
-        <p>Consulter tous les les CPs Des promotion</p>
+        <p><?=$translations['view_cp']?></p>
       </div>
     </a>
   </div>

@@ -17,7 +17,7 @@
 <div class="main">
 
   <ul class="breadcrumb round-large">
-    <li><a href="enseignant.php">accueil</a></li>
+    <li><a href="enseignant.php"><?=$translations['home']?></a></li>
   </ul>
   <hr class="rounded">
 
@@ -77,29 +77,29 @@
           </h1>
 
           <?php if ($row['cp_status'] == 1): ?>
-          <p><strong> Etat : </strong><span class="tag green round-large">activé</span></p>
+          <p><strong> <?=$translations['status']?>: </strong><span class="tag green round-large"><?=$translations['activated']?></span></p>
           <?php else: ?>
-          <p><strong> Etat : </strong><span class="tag red round-large">disactivé</span></p>
+          <p><strong> <?=$translations['status']?>: </strong><span class="tag red round-large"><?=$translations['desactivated']?></span></p>
           <?php endif; ?>
 
-          <p><strong>Programmé le: </strong><span>
+          <p><strong><?=$translations['cp_datetime']?>: </strong><span>
               <?php echo $row['cp_datetime']; ?>
             </span></p>
-          <p><strong>Promotion: </strong><span>
+          <p><strong><?=$translations['promotion']?>: </strong><span>
               <?php echo $rowprom['prom_name']; ?>
             </span></p>
-          <p><strong>Nom de module: </strong><span>
+          <p><strong><?=$translations['module_name']?>: </strong><span>
               <?php echo $row['modl_name']; ?>
             </span></p>
-          <p><strong>Semestre N°: </strong><span>
+          <p><strong><?=$translations['semester_nb']?></strong><span>
               <?php echo $row['cp_semestre']; ?>
             </span></p>
 
-          <p><strong>Lieu: </strong><span>
+          <p><strong><?=$translations['cp_location']?>: </strong><span>
               <?php echo $row['cp_location']; ?>
             </span> </p>
 
-          <p><strong>Ordre du jour:</strong></p>
+          <p><strong><?=$translations['cp_agenda']?>:</strong></p>
           <ul>
             <?php foreach (explode("\n", $row['cp_ordre']) as $item): ?>
               <li><strong><?= $item ?></strong></li>
@@ -139,7 +139,7 @@
 
         <?php else:?>
         <div class="container light-grey card-4 round-xxlarge">
-          <h1 style="color:rgba(0, 0, 0, 0.53)"> il n'y a pas de CP activé Actuellement !</h1>
+          <h1 style="color:rgba(0, 0, 0, 0.53)"> il n'y a pas de CP <?=$translations['activated']?> Actuellement !</h1>
         </div>
         <?php endif; ?>
 
@@ -177,14 +177,14 @@
           $idens = $_SESSION['enseignant_user_id'];
           $query = mysqli_query($con, "SELECT * from tbl_module INNER JOIN  tbl_promo ON tbl_module.modl_promo_id=tbl_promo.prom_id AND tbl_module.modl_ens_id='$idens'") or die(mysqli_error($con));
         ?>
-        <p class="title"><strong style="color:rgb(252, 87, 87);">Enseignant de(s) module(s)</strong></p>
+        <p class="title"><strong style="color:rgb(252, 87, 87);"><?=$translations['teacher_of']?></strong></p>
         <?php while ($row = mysqli_fetch_assoc($query)): ?>
           <div class="border round-large">
-            <span class="text-gray"><strong>Nom:</strong> <?= $row['modl_name'] ?> |<strong> promotion: </strong>   <?=$row['prom_name'] ?> |<strong> semestre: </strong> <?=$row['modl_semestre']?> </span>
+            <span class="text-gray"><strong>Nom:</strong> <?= $row['modl_name'] ?> |<strong> promotion: </strong>   <?=$row['prom_name'] ?> |<strong> <?=$translations['semester']?>: </strong> <?=$row['modl_semestre']?> </span>
           </div>
           
           <?php endwhile; ?>
-        <p><button id="ChangePass" class="button_prf round-xlarge">Changer mot de passe</button></p>
+        <p><button id="ChangePass" class="button_prf round-xlarge"><?=$translations['change_pass']?></button></p>
       </div>
 
     </div>

@@ -1,5 +1,3 @@
-<!-- ===================================      modal Ajouter promotion      =================================-->
-
 <?php if (isset($_SESSION['show_modal_promo'])): ?>
   <div id="id06" class="modal-form show">
   <?php else: ?>
@@ -9,7 +7,7 @@
       <div class="container-form">
         <span id="bttn4" class="close-d" title="Fermer le Modal">&times;</span>
         <h1 style="color:#191923;">Ajouter une promotion</h1>
-        <p>Veuillez remplir ce formulaire pour créer une promotion.</p>
+        <p><?=$translations['fill_form_pls']?></p>
 
         <!--                                             alert                                                     -->
 
@@ -22,13 +20,13 @@
         <?php endif; ?>
 
         <hr>
-        <label for="name"><b>nom de promotion</b></label>
-        <input type="text" placeholder="Entrer le nom de promotion" name="name" title="veuillez remplir ce champ" required>
+        <label for="name"><b><?=$translations['promotion_name']?></b></label>
+        <input type="text" placeholder="<?=$translations['promotion_name']?>" name="name" title="veuillez remplir ce champ" required>
 
-        <label for="respid"><b>Sélectionner le responsable de la promotion :</b></label><br>
+        <label for="respid"><b><?=$translations['select_prom_resp']?> :</b></label><br>
         <select class="select border list_resp" name="respid" style="width:100%;" required>
 
-          <option value="" disabled selected>Choisir un responsable</option>
+          <option value="" disabled selected><?=$translations['select_prom_resp']?></option>
           <?php
           $stmt = $con->prepare("SELECT DISTINCT u.user_id, u.user_name 
                                   FROM tbl_users u
@@ -48,8 +46,8 @@
         </select><br><br>
 
 
-        <label for="department_id"><b>Département</b></label>
-        <select class="select border" name="department_id" title="Veuillez sélectionner" style="background-color:#f1f1f1; padding:15px 10px;" required>
+        <label for="department_id"><b><?=$translations['department']?></b></label>
+        <select class="select border" name="department_id" title="<?=$translations['please_select']?>" style="background-color:#f1f1f1; padding:15px 10px;" required>
             <?php
             $admin_department_id = $_SESSION['admin_department_id'];
             $sql = "SELECT * FROM tbl_department WHERE department_id = '$admin_department_id'";
@@ -64,7 +62,7 @@
 
         <div class="clearfix-form">
           <button id="bttn5" type="button"  class="mdl cancelbtn-form">Cancel</button>
-          <button type="submit" name="add_promotion" class="mdl signupbtn-form">Ajouter</button>
+          <button type="submit" name="add_promotion" class="mdl signupbtn-form"><?=$translations['add']?></button>
         </div>
       </div>
     </form>

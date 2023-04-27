@@ -19,7 +19,7 @@
 <div id="idfacp" class="main show">
   <!--                                                    breadcrumb                                                       -->
   <ul class="breadcrumb round-large">
-    <li><a href="responsable.php">accueil</a></li>
+    <li><a href="responsable.php"><?=$translations['home']?></a></li>
     <li>CPs
       <?php echo $_SESSION['responsable_prom_name'];?>
     </li>
@@ -50,16 +50,16 @@
     
       <h1><strong><?php echo $row['cp_title']; ?></strong></h1>
       
-      <p><strong>Etat :</strong><span class="tag <?php echo ($row['cp_status'] == 1) ? 'green' : 'red'; ?> round-large"><?php echo ($row['cp_status'] == 1) ? 'activé' : 'disactivé'; ?></span></p>
+      <p><strong><?=$translations['status']?> :</strong><span class="tag <?php echo ($row['cp_status'] == 1) ? 'green' : 'red'; ?> round-large"><?php echo ($row['cp_status'] == 1) ? $translations['activated'] : $translations['desactivated']; ?></span></p>
 
 
-      <p><strong>Programmé le: </strong><span ><?php echo $row['cp_datetime']; ?></span></p>
+      <p><strong><?=$translations['cp_datetime']?>: </strong><span ><?php echo $row['cp_datetime']; ?></span></p>
       
-      <p><strong>Semestre N°: </strong><span ><?php echo $row['cp_semestre']; ?></span></p>
+      <p><strong><?=$translations['semester_nb']?></strong><span ><?php echo $row['cp_semestre']; ?></span></p>
 
-      <p><strong>Lieu: </strong><span ><?php echo $row['cp_location']; ?></span></p>
+      <p><strong><?=$translations['cp_location']?>: </strong><span ><?php echo $row['cp_location']; ?></span></p>
 
-      <p><strong>Ordre du jour:</strong></p>
+      <p><strong><?=$translations['cp_agenda']?>:</strong></p>
       <ul>
         <?php foreach (explode("\n", $row['cp_ordre']) as $item): ?>
           <li><strong><?= $item ?></strong></li>
@@ -71,7 +71,7 @@
 
 
       <div class="container card-4 round-xlarge" style="background-color:rgba(142, 190, 255, 0.8);margin-bottom:15px;">
-        <h4><strong>Consulter le formulaire des délégués</strong> <i class="fa fa-book" aria-hidden="true"></i></h4>
+        <h4><strong><?=$translations['consult_delegates']?></strong> <i class="fa fa-book" aria-hidden="true"></i></h4>
         <?php
         $promid = $row['cp_prom_id'];
         $sql = "SELECT * FROM tbl_users 
@@ -90,7 +90,7 @@
                     <li style="margin-bottom:10px">
                         <?= $rowresultDelegue['user_name'] ?>
                         <button class="button green padding-small hover-green round-large" name="consulter">
-                            Consulter <i class="fa fa-eye"></i>
+                            <?=$translations['consult']?> <i class="fa fa-eye"></i>
                         </button>
                     </li>
                 </form>
@@ -107,8 +107,7 @@
 
       <form action="get_submitted_data.php" method="post">
         <input type="hidden" name="cp_id" value="<?php echo $row['cp_id']; ?>">
-        <button name="btn_to_formulaire" class="button green hover-amber round-large right ">Conslter le
-          formulaire <i class="fa fa-angle-double-right"></i> </button>
+        <button name="btn_to_formulaire" class="button green hover-amber round-large right "><?=$translations['consult']?> <i class="fa fa-angle-double-right"></i> </button>
       </form>
 
       

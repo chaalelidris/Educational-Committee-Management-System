@@ -26,7 +26,7 @@
   <div class="main " >
     <!--                                                    breadcrumb                                                       -->
     <ul class="breadcrumb round-large" >
-      <li><a href="dashboard.php">accueil</a></li>
+      <li><a href="dashboard.php"><?=$translations['home']?></a></li>
       <li>Mot de passes des utilisateurs</li>
     </ul>
     <hr class="rounded">
@@ -37,10 +37,10 @@
 
     <!--                                                        Tableau -->
     <div class="container">
-      <h2>Table de tous les utilisateurs</h2>
-      <p style="color:rgba(0, 0, 0, 0.78)">Cliquez sur les en-têtes pour trier le tableau.</p>
+      <h2><?=$translations['all_users_pass']?></h2>
+      <p style="color:rgba(0, 0, 0, 0.78)"><?=$translations['sort_table']?></p>
 
-      <input style="margin-bottom:0;" id="myInput_ch_pass" type="text" placeholder="Search..">
+      <input style="margin-bottom:0;" id="myInput_ch_pass" type="text" placeholder="<?=$translations['search']?>">
       <br><br>
 
       <?php
@@ -66,10 +66,10 @@
         <table class="table-all centered hoverable" id="myTable_ch_pass">
           <tr>
             <th class="pntr" onclick="sortTable(0)">ID</th>
-            <th class="pntr" onclick="sortTable(2)">Nom d'utilisateur</th>
+            <th class="pntr" onclick="sortTable(2)"><?=$translations['username']?></th>
             <th class="pntr" onclick="sortTable(2)">type d'utilisateur</th>
             <!-- <th class="pntr" onclick="sortTable(3)">Mot de pass</th> -->
-            <th colspan="1">opération</th>
+            <th colspan="1"><?=$translations['action']?></th>
           </tr>
 
           <?php
@@ -85,7 +85,7 @@
             }elseif ($row['user_type'] == 2) {
               echo'<td>enseignant</td>';
             }elseif ($row['user_type'] == 3) {
-              echo'<td>délégué</td>';
+              echo'<td>delege</td>';
             }elseif ($row['user_type'] == 'admin') {
               echo'<td>Administrateur</td>';
             }

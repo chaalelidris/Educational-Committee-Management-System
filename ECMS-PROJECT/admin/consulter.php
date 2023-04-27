@@ -26,7 +26,7 @@
   <div class="main " >
     <!--                                                    breadcrumb                                                       -->
     <ul class="breadcrumb round-large" >
-      <li><a href="#">accueil</a></li>
+      <li><a href="#"><?=$translations['home']?></a></li>
       <li>Liste des promotions</li>
     </ul>
     <hr class="rounded">
@@ -37,8 +37,7 @@
 
     <div class="container">
       <ul class="ul card-4 blue">
-        <li><h3>sélectionner une promotion</h3></li>
-        <!-- <button class=" btn green" name="button">Consulter</button> -->
+        <li><h3><?=$translations['select_promotion']?></h3></li>
         <?php
         $sql = "SELECT * FROM tbl_promo WHERE tbl_promo.department_id = '{$_SESSION['admin_department_id']}' order by prom_name";
         $result = mysqli_query($con, $sql);

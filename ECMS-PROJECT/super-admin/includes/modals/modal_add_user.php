@@ -22,17 +22,17 @@
 
       <hr>
 
-      <label for="name"><b>Nom complet</b> <span style="opacity:0.8;"> (nom.prénom)</span></label>
-      <input type="text" placeholder="Entrer le nom et prénom" name="name" title="Veuillez remplir ce champ" value="<?php echo isset($_SESSION['name']) ? $_SESSION['name'] : ''; ?>" required>
+      <label for="name"><b>Nom complet</b> </label>
+      <input type="text" placeholder="<?=$translations['full_name']?>" name="name" title="Veuillez remplir ce champ" value="<?php echo isset($_SESSION['name']) ? $_SESSION['name'] : ''; ?>" required>
 
-      <label for="username"><b>Nom d'utilisateur</b></label>
-      <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" title="Veuillez remplir ce champ" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>" required>
+      <label for="username"><b><?=$translations['username']?></b></label>
+      <input type="text" placeholder="<?=$translations['username']?>" name="username" title="Veuillez remplir ce champ" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>" required>
 
       <label for="email"><b>Email</b></label>
-      <input type="email" placeholder="Entrer l'email" name="email"  title="Veuillez remplir ce champ" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>">
+      <input type="email" placeholder="<?=$translations['email']?>" name="email"  title="Veuillez remplir ce champ" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>">
 
       <label for="option"><b>Sélectionner le type d'utilisateur</b></label>
-      <select class="select border" name="option" title="Veuillez sélectionner" style="background-color:#f1f1f1; padding:15px 10px;" required>
+      <select class="select border" name="option" title="<?=$translations['please_select']?>" style="background-color:#f1f1f1; padding:15px 10px;" required>
         <option value="" disabled selected>Choisissez votre option</option>
         <option value="admin" selected>Admin</option>
       </select> <br>
@@ -40,12 +40,12 @@
       <label for="password"><b>Mot de passe</b></label>
       <input type="password" placeholder="Entrer le mot de passe" name="password" title="Veuillez remplir ce champ" required>
 
-      <label for="password-repeat"><b>Répéter le mot de passe</b></label>
-      <input type="password" placeholder="Répéter le mot de passe" name="password_repeat" title="Veuillez remplir ce champ" required>
+      <label for="password-repeat"><b><?=$translations['confirm_password']?></b></label>
+      <input type="password" placeholder="<?=$translations['confirm_password']?>" name="password_repeat" title="Veuillez remplir ce champ" required>
 
       <div class="clearfix-form">
         <button id="bttn1" type="button"  class="mdl cancelbtn-form">Annuler</button>
-        <button type="submit" name="add_admin" class="mdl signupbtn-form">Ajouter</button>
+        <button type="submit" name="add_admin" class="mdl signupbtn-form"><?=$translations['add']?></button>
       </div>
     </div>
   </form>

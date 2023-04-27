@@ -16,17 +16,17 @@
 <div class="main">
   <!-- begin main -->
   <ul class="breadcrumb round-large" >
-    <li><a href="dashboard.php">accueil</a></li>
-    <li>Gestion des enseignants</li>
+    <li><a href="dashboard.php"><?=$translations['home']?></a></li>
+    <li><?=$translations['manage_teachers']?></li>
   </ul>
   <hr class="rounded">
 
   <!--                                                        Tableau -->
   <div class="container">
-    <h2>Table des utilisateurs enseignants</h2>
-    <p>Cliquez sur les en-têtes pour trier le tableau.</p>
+    <h2><?=$translations['teachers_table']?></h2>
+    <p><?=$translations['sort_table']?></p>
 
-    <input style="margin-bottom:0;" id="myInput_gst_ens" type="text" placeholder="Search..">
+    <input style="margin-bottom:0;" id="myInput_gst_ens" type="text" placeholder="<?=$translations['search']?>">
     <br><br>
 
     <?php
@@ -46,10 +46,10 @@
       <table class="table-all centered hoverable" id="myTable_ens">
         <tr>
           <th class="pntr" onclick="sortTable(0)">ID</th>
-          <th class="pntr" onclick="sortTable(1)">nom complet</th>
-          <th class="pntr" onclick="sortTable(2)">Nom d'utilisateur</th>
+          <th class="pntr" onclick="sortTable(1)"><?=$translations['full_name']?></th>
+          <th class="pntr" onclick="sortTable(2)"><?=$translations['username']?></th>
           <th class="pntr" onclick="sortTable(3)">Email</th>
-          <th colspan="2">opération</th>
+          <th colspan="2"><?=$translations['action']?></th>
         </tr>
 
       <?php
@@ -60,18 +60,18 @@
                 WHERE d.department_id = '{$_SESSION['admin_department_id']}'
                 AND u.user_type = 2";
         $result = mysqli_query($con, $sql);
-        while ($row = mysqli_fetch_array($result)) {
-          echo'<tr>';
-            echo'<td>'.$row['user_id'].'</td>';
-            echo'<td>'.$row['user_fullname'].'</td>';
-            echo'<td>'.$row['user_name'].'</td>';
-            echo'<td>'.$row['user_email'].'</td>';
+        
+        while ($row = mysqli_fetch_array($result)) :?>
+            <tr>
+                <td><?= $row['user_id'] ?></td>
+                <td><?= $row['user_fullname'] ?></td>
+                <td><?= $row['user_name'] ?></td>
+                <td><?= $row['user_email'] ?></td>
+                <td class="mod_bg "><a href="edit_user.php?edit=<?= $row['user_id'] ?>"><?= $translations['edit'] ?></a></td>
+                <td class="sup_bg suppr"><a href="#"><?=$translations['delete']?></a></td>
+            </tr>
+        <?php endwhile;?>
 
-            echo '<td class="mod_bg "><a  href="edit_user.php?edit='.$row['user_id'].'" >modifier</a></td>';
-            echo '<td class="sup_bg suppr"><a  href="#" >supprimer</a></td>';
-          echo'</tr>';
-        }
-        ?>
 
 
       </table>

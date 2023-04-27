@@ -26,8 +26,8 @@
 <div class="main ">
   <!--                                                    breadcrumb                                                       -->
   <ul class="breadcrumb round-large">
-    <li><a href="dashboard.php">accueil</a></li>
-    <li> <a href="messagerie.php">Messagerie</a> </li>
+    <li><a href="dashboard.php"><?=$translations['home']?></a></li>
+    <li> <a href="messagerie.php"><?=$translations['messages']?></a> </li>
     <li>envoyer message</li>
   </ul>
   <hr class="rounded">
@@ -47,7 +47,7 @@
     $rowuserdata = mysqli_fetch_array($result);
      ?>
 
-    <h3 class=" text-center">Messagerie</h3>
+    <h3 class=" text-center"><?=$translations['messages']?></h3>
     <div class="messaging ">
       <div class="inbox_msg">
         <div class="mesgs" style="margin:0;padding: 0;padding-top:10px;background-color:rgba(0, 0, 0, 0.08);width:100%">
@@ -62,13 +62,13 @@
               $resultPrmName = mysqli_query($con, $sql);
               $rowPromName = mysqli_fetch_array($resultPrmName);
               ?>
-              <label for="" style="color:rgba(0, 0, 0, 0.5)">responsable de promotion <?php echo $rowPromName['prom_name']; ?></label>
+              <label for="" style="color:rgba(0, 0, 0, 0.5)"><?=$translations['promotion_manager']?> <?php echo $rowPromName['prom_name']; ?></label>
               <?php
             }elseif ($rowuserdata['user_type'] == 2) {
               $idens = $rowuserdata['user_id'];
               $query=mysqli_query($con, "SELECT * from tbl_module INNER JOIN  tbl_promo ON tbl_module.modl_promo_id=tbl_promo.prom_id AND tbl_module.modl_ens_id='$idens'") or die(mysqli_error($con));
               ?>
-              <p style="margin-top:10px;"><strong style="color:rgb(252, 87, 87);">Enseignant de(s) module(s)</strong><br></p>
+              <p style="margin-top:10px;"><strong style="color:rgb(252, 87, 87);"><?=$translations['teacher_of']?></strong><br></p>
               <?php
 
               while ($row=mysqli_fetch_assoc($query)):?>
@@ -82,7 +82,7 @@
             $resultPrmName = mysqli_query($con, $sql);
             $rowPromName = mysqli_fetch_array($resultPrmName);
             ?>
-          <label for="" style="color:rgba(0, 0, 0, 0.5)">délégué de promotion <?php echo $rowPromName['prom_name']; ?></label>
+          <label for="" style="color:rgba(0, 0, 0, 0.5)"><?=$translations['delegates']?> de promotion <?php echo $rowPromName['prom_name']; ?></label>
             <?php
           }
 

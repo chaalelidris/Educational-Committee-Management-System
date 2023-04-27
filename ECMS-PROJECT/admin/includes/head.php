@@ -1,17 +1,20 @@
 <?php
-$title="ESPACE ADMINISTRATEUR";
 session_start();
+
+$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'en';
+require_once "../lang/$lang.php";
+
 if (empty($_SESSION['admin_user_id'])) {
     header('location:../index.php');
 }
 ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir=<?=$_SESSION['lang']=='ar'?'rtl':'ltr'?>>
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SYSTEM | <?php echo $title;?></title>
+  <title>SYSTEM | <?= $translations['title']?></title>
 
   <!-- =======================                   Style                        ======================= -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -61,9 +64,6 @@ if (empty($_SESSION['admin_user_id'])) {
     .bar a,
     .sidebar a {
       text-decoration: none;
-    }
-    html{
-      /* background-color: #f0f2f5; */
     }
   </style>
 </head>

@@ -18,12 +18,12 @@
 <div class="main">
   <!--                                                    breadcrumb                                                       -->
   <ul class="breadcrumb round-large">
-    <li><a href="responsable.php">accueil</a></li>
+    <li><a href="responsable.php"><?=$translations['home']?></a></li>
     <li> <a href="gnr_cp.php">CPs
         <?php echo $_SESSION['responsable_prom_name'];?>
       </a> 
     </li>
-    <li>Générer un Procès-VerbalP de la promotion
+    <li><?=$translations['generate_report']?>
       <?php echo $_SESSION['responsable_prom_name']; ?>
     </li>
   </ul>
@@ -49,7 +49,7 @@
     <div class="container cell">
       <button id="Arrier_cps" class="button green hover-green round-large ">
         <i class="	fa fa-chevron-left"></i>
-        Arrière
+        <?=$translations['back']?>
       </button>
     </div>
 
@@ -57,7 +57,7 @@
       <form action="pdf.php" method="post">
         <input type="hidden" name="cp_id" value="<?php echo $cp_id; ?>">
         <button type="submit" name="imprimer_rapport" class="button dark-gray round-large">
-          <strong>Imprimer PV <i class="fa fa-print"></i></strong>
+          <strong><?=$translations['printr']?> <i class="fa fa-print"></i></strong>
         </button>
       </form>
     </div>
@@ -99,7 +99,7 @@
         <?php endif; ?>
 
 
-        <h1>Module, <strong>
+        <h1><?=$translations['module']?>, <strong>
             <?php echo $row['modl_name'];?>
           </strong></h1>
         <?php
@@ -107,10 +107,10 @@
           $resultpromname = mysqli_query($con, $sql) or die(mysqli_error($con));
           $resultpromnamerow = mysqli_fetch_array($resultpromname);
            ?>
-        <p>Promotion >> <span>
+        <p><?=$translations['promotion']?> >> <span>
             <?php echo $resultpromnamerow['prom_name'];?>
           </span></p>
-        <p>Semestre N° <span>
+        <p><?=$translations['semester_nb']?> <span>
             <?php echo $row['modl_semestre'];?>
           </span></p>
         <?php
@@ -119,7 +119,7 @@
           $resultens = mysqli_query($con, $sql) or die(mysqli_error($con));
           $rowensname = mysqli_fetch_array($resultens);
            ?>
-        <p>Par : <strong style="color:rgba(0, 0, 0, 0.8)"> <i class="fa fa-user-circle-o"></i>
+        <p><?=$translations['by']?>: <strong style="color:rgba(0, 0, 0, 0.8)"> <i class="fa fa-user-circle-o"></i>
             <?php echo $rowensname['user_fullname']; ?>
           </strong> </p>
 
@@ -135,17 +135,17 @@
           <?php if ($countdata > 0): $row3 = mysqli_fetch_array($resultcount);?>
           <table class="table-all card-4">
             <tbody>
-              <tr><th rowspan="9" class="border" style="width:200px;">Etat d'avancement</th></tr>
+              <tr><th rowspan="9" class="border" style="width:200px;"><?=$translations['advancment']?></th></tr>
               <?php 
-              $labels = array(
-                'Avancement global', 
-                'Chapitres achevés / en cours', 
-                'Séances de cours faites',
-                'Séances de TD et TP faites', 
-                'Séances (Cours, TD, TP) non faites', 
-                'Exposés et micro-présentations', 
-                'Validation de TP', 
-                'Polycopies de cours');
+              $labels = array($translations['global_adv'], 
+                              $translations['nb_chap_done_progress'], 
+                              $translations['n_s_c_done'],
+                              $translations['n_s_td_tp_done'],
+                              $translations['n_s_ctdtp_not_done'],
+                              $translations['presentation_test'],
+                              $translations['tp_validation'],
+                              $translations['handout_course'],
+                              );
 
               $data = array(
                 'data_avncm_glob', 
@@ -170,17 +170,18 @@
           <?php else: ?>
             <table class="table-all card-4">
               <tr>
-                <td rowspan="9" class="border" style="width:200px;">etat avancement</td>
+                <td rowspan="9" class="border" style="width:200px;"><?=$translations['advancment']?></td>
               </tr>
               <?php 
-              $labels = array('Avancement globale', 
-                              'Nombre de chapitres achevés / En cours', 
-                              'Nombre de séances de cours faites', 
-                              'Nombre de séances de TD et TP faites',
-                              'Nombre de séances (Cours, TD, TP) non faites', 
-                              'Exposés + Micro', 
-                              'Validation de TP ', 
-                              'Polycopie de cours');
+              $labels = array($translations['global_adv'], 
+                              $translations['nb_chap_done_progress'], 
+                              $translations['n_s_c_done'],
+                              $translations['n_s_td_tp_done'],
+                              $translations['n_s_ctdtp_not_done'],
+                              $translations['presentation_test'],
+                              $translations['tp_validation'],
+                              $translations['handout_course'],
+                              );
               ?>
 
               <?php foreach ($labels as $i => $label): ?>
@@ -202,7 +203,7 @@
           <input type="hidden" name="mdlname" value="<?php echo $row['modl_name'];?>">
           <input type="hidden" name="dataid" value="<?php echo $row3['data_id']; ?>">
           <button name="btn_to_edit_data" class="button green right  round-large" style="margin-top:18px;">
-            Modifier les données <i class="fa fa-pencil"></i>
+            <?=$translations['edit']?> <i class="fa fa-pencil"></i>
           </button>
         </form>
         <?php else: ?>
@@ -220,7 +221,7 @@
       <form action="pdf.php" method="post">
         <input type="hidden" name="cp_id" value="<?php echo $cp_id; ?>">
         <button type="submit" name="imprimer_rapport" class="button right  round-large">
-          <strong>Imprimer PV <i class="fa fa-print"></i></strong>
+          <strong><?=$translations['printr']?> <i class="fa fa-print"></i></strong>
         </button>
       </form>
 

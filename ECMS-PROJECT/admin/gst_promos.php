@@ -19,17 +19,17 @@
   <!-- begin main -->
 
   <ul class="breadcrumb round-large">
-    <li><a href="dashboard.php">accueil</a></li>
-    <li>Gestion des promotions</li>
+    <li><a href="dashboard.php"><?=$translations['home']?></a></li>
+    <li><?=$translations['manage_promos']?></li>
   </ul>
   <hr class="rounded">
 
 
   <div class="container">
-    <h2>Table des promotions</h2>
-    <p>Cliquez sur les en-têtes pour trier le tableau.</p>
+    <h2><?=$translations['promotion_tables']?></h2>
+    <p><?=$translations['sort_table']?></p>
 
-    <input style="margin-bottom:0;" id="myInput_gst_prm" type="text" placeholder="Search..">
+    <input style="margin-bottom:0;" id="myInput_gst_prm" type="text" placeholder="<?=$translations['search']?>">
     <br><br>
 
     
@@ -48,9 +48,9 @@
       <table class="table-all centered hoverable" id="myTable_prom">
         <tr>
           <th class="pntr" onclick="sortTable(0)">ID</th>
-          <th class="pntr" onclick="sortTable(1)">nom promotion</th>
-          <th class="pntr" onclick="sortTable(2)">responsable de promotion</th>
-          <th colspan="2">Action</th>
+          <th class="pntr" onclick="sortTable(1)"><?=$translations['promotion_name']?></th>
+          <th class="pntr" onclick="sortTable(2)"><?=$translations['promotion_manager']?></th>
+          <th colspan="2"><?=$translations['action']?></th>
         </tr>
 
         <?php
@@ -70,8 +70,8 @@
             <?php echo $row['user_name'] ?>
           </td>
 
-          <td><a class="button green hover-green" href="edit_promo.php?edit=<?php echo $row['prom_id'] ?>">modifier</a></td>
-          <td><a class="button red hover-red suppr_pr">supprimer</a></td>
+          <td><a class="button green hover-green" href="edit_promo.php?edit=<?php echo $row['prom_id'] ?>"><?=$translations['edit']?></a></td>
+          <td><a class="button red hover-red suppr_pr"><?=$translations['delete']?></a></td>
         </tr>
         <?php endwhile; ?>
 

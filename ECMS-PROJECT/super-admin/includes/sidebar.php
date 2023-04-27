@@ -5,7 +5,7 @@
     <i class="fa fa-remove"></i>
   </a>
   <h4 class="bar-item"><b>Menu</b></h4>
-  <a href="dashboard.php" class="bar-item button hover-primary round-large">Accueil</a>
+  <a href="dashboard.php" class="bar-item button hover-primary round-large"><?=$translations['home']?></a>
 
   <?php if (isset($_GET["class"])):?>
   <a id="sideacc" class="bar-item button hover-primary round-large greenn" href="#"><i class="fa fa-users"
@@ -35,8 +35,7 @@
         <?php endif;?>
 
         <a id="add_department" href="#" class="bar-item button hover-primary round-large acc_stl"><i class="fa fa-plus">
-            Ajouter
-            departement</i></a>
+            Ajouter departement</i></a>
         <a href="manage_departments.php?" class="bar-item button hover-primary round-large acc_stl">Gérer les
           departement</i></a>
       </div>
@@ -71,7 +70,7 @@
    ?>
       <a href="messagerie.php" class="bar-item button hover-primary round-large"><i class="fa fa-envelope"
           aria-hidden="true"></i>
-        Messagerie
+        <?=$translations['messages']?>
         <?php if ($count == 0) {
     ?>
         <span class="tag blue round right">

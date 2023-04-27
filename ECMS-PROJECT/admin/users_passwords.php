@@ -23,7 +23,7 @@
   <div class="main " >
     <!--                                                    breadcrumb                                                       -->
     <ul class="breadcrumb round-large" >
-      <li><a href="dashboard.php">accueil</a></li>
+      <li><a href="dashboard.php"><?=$translations['home']?></a></li>
       <li>Mot de passes des utilisateurs</li>
     </ul>
     <hr class="rounded">
@@ -34,10 +34,10 @@
 
     <!--                                                        Tableau -->
     <div class="container">
-      <h2>Table de tous les utilisateurs</h2>
-      <p style="color:rgba(0, 0, 0, 0.78)">Cliquez sur les en-têtes pour trier le tableau.</p>
+      <h2><?=$translations['all_users_pass']?></h2>
+      <p style="color:rgba(0, 0, 0, 0.78)"><?=$translations['sort_table']?></p>
 
-      <input style="margin-bottom:0;" id="myInput_ch_pass" type="text" placeholder="Search..">
+      <input style="margin-bottom:0;" id="myInput_ch_pass" type="text" placeholder="<?=$translations['search']?>">
       <br><br>
 
       <?php
@@ -72,10 +72,10 @@
         <table class="table-all centered hoverable" id="myTable_ch_pass">
           <tr>
             <th class="pntr" onclick="sortTable(0)">ID</th>
-            <th class="pntr" onclick="sortTable(2)">Nom d'utilisateur</th>
+            <th class="pntr" onclick="sortTable(2)"><?=$translations['username']?></th>
             <th class="pntr" onclick="sortTable(2)">type d'utilisateur</th>
             <!-- <th class="pntr" onclick="sortTable(3)">Mot de pass</th> -->
-            <th colspan="1">opération</th>
+            <th colspan="1"><?=$translations['action']?></th>
           </tr>
 
           <?php
@@ -90,31 +90,27 @@
                 DESC";
         
         $result = mysqli_query($con, $sql);
-        while ($row = mysqli_fetch_array($result)) {
-          echo'<tr>';
-            echo'<td>'.$row['user_id'].'</td>';
-            echo'<td>'.$row['user_name'].'</td>';
+        while ($row = mysqli_fetch_array($result)) :?>
+          <tr>
+            <td><?= $row['user_id']?></td>
+            <td><?= $row['user_name']?></td>
 
-            if ($row['user_type'] == 1) {
-              echo'<td>responsable</td>';
-            }elseif ($row['user_type'] == 2) {
-              echo'<td>enseignant</td>';
-            }elseif ($row['user_type'] == 3) {
-              echo'<td>délégué</td>';
-            }elseif ($row['user_type'] == 'admin') {
-              echo'<td>Administrateur</td>';
-            }elseif ($row['user_type'] == 'super_admin') {
-              echo'<td>Super Administrateur</td>';
-            }
+            <?php if ($row['user_type'] == 1) :?>
+              <td><?=$translations['managers']?></td>
+            <?php elseif ($row['user_type'] == 2): ?>
+              <td><?=$translations['teachers']?></td>
+            <?php elseif ($row['user_type'] == 3): ?>
+              <td><?=$translations['delegates']?></td>
+            <?php elseif ($row['user_type'] == 'admin'): ?>
+              <td><?=$translations['admin']?></td>
+            <?php elseif ($row['user_type'] == 'super_admin'): ?>
+              <td><?=$translations['superadmin']?></td>
+            <?php endif; ?>
 
-            // $pass = mysqli_real_escape_string($con, $row['user_pass']);
-            // echo'<td>'.$pass.'</td>';
+            <td class="mod_bg changepass"><a  href="#" >Changer</a></td>
 
-            echo '<td class="mod_bg changepass"><a  href="#" >Changer</a></td>';
-
-          echo'</tr>';
-        }
-        ?>
+          </tr>
+        <?php endwhile; ?>
 
         </table>
       </div>

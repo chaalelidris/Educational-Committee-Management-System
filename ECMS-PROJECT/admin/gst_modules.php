@@ -18,7 +18,7 @@
   <!-- begin main -->
 
   <ul class="breadcrumb round-large" >
-    <li><a href="dashboard.php">accueil</a></li>
+    <li><a href="dashboard.php"><?=$translations['home']?></a></li>
     <li>Gestion des modules</li>
   </ul>
   <hr class="rounded">
@@ -26,9 +26,9 @@
 
   <div class="container">
     <h2>Table des modules</h2>
-    <p>Cliquez sur les en-têtes pour trier le tableau.</p>
+    <p><?=$translations['sort_table']?></p>
 
-    <input style="margin-bottom:0;" id="myInput_gst_mdl" type="text" placeholder="Rechercher..">
+    <input style="margin-bottom:0;" id="myInput_gst_mdl" type="text" placeholder="<?=$translations['search']?>">
       <br><br>
 
     <?php
@@ -49,39 +49,35 @@
         <tr>
           <th class="pntr" onclick="sortTable(0)">ID</th>
           <th class="pntr" onclick="sortTable(1)">Nom module</th>
-          <th class="pntr" onclick="sortTable(2)">Abbreviation </th>
-          <th class="pntr" onclick="sortTable(3)">Promotion</th>
-          <th class="pntr" onclick="sortTable(4)">Semestre</th>
-          <th class="pntr" onclick="sortTable(5)">Enseignant</th>
-          <th class="pntr" colspan="2">opération</th>
+          <th class="pntr" onclick="sortTable(2)"><?=$translations['abbr']?> </th>
+          <th class="pntr" onclick="sortTable(3)"><?=$translations['promotion']?></th>
+          <th class="pntr" onclick="sortTable(4)"><?=$translations['semester']?></th>
+          <th class="pntr" onclick="sortTable(5)"><?=$translations['teachers']?></th>
+          <th class="pntr" colspan="2"><?=$translations['action']?></th>
         </tr>
 
       <?php
         $sqll = "SELECT modl_id,modl_name,modl_abbr,prom_name,modl_semestre,user_name FROM tbl_promo INNER JOIN tbl_module ON tbl_module.modl_promo_id = tbl_promo.prom_id AND tbl_promo.department_id = '{$_SESSION['admin_department_id']}' INNER JOIN tbl_users ON tbl_module.modl_ens_id = tbl_users.user_id order by prom_name,modl_semestre";
         $result = mysqli_query($con, $sqll) or die(mysqli_error($con));
-        while ($row = mysqli_fetch_array($result)) {
-          echo'<tr>';
-            echo'<td>'.$row['modl_id'].'</td>';
-            echo'<td>'.$row['modl_name'].'</td>';
-            echo'<td>'.$row['modl_abbr'].'</td>';
-            echo'<td>'.$row['prom_name'].'</td>';
-            echo'<td>'.$row['modl_semestre'].'</td>';
-            echo'<td>'.$row['user_name'].'</td>';
+        while ($row = mysqli_fetch_array($result)) :?>
+          <tr>
+            <td><?=$row['modl_id']?></td>
+            <td><?=$row['modl_name']?></td>
+            <td><?=$row['modl_abbr']?></td>
+            <td><?=$row['prom_name']?></td>
+            <td><?=$row['modl_semestre']?></td>
+            <td><?=$row['user_name']?></td>
 
 
-
-            echo '<td class="mod_bg "><a  href="edit_module.php?edit='.$row['modl_id'].'" >modifier</a></td>';
-            echo '<td class="sup_bg suppr_md"><a  href="#" >supprimer</a></td>';
-          echo'</tr>';
-        }
-        ?>
+            <td class="mod_bg "><a  href="edit_module.php?edit=<?=$row['modl_id']?>" ><?=$translations['edit']?></a></td>
+            <td class="sup_bg suppr_md"><a  href="#" ><?=$translations['delete']?></a></td>
+          </tr>
+        <?php endwhile; ?>
 
 
       </table>
     </div>
   </div>
-
-
   <!-- END MAIN -->
 </div>
 

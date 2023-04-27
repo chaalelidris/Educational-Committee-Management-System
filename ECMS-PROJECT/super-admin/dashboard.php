@@ -20,7 +20,7 @@
 
   <!-- ===================================== BREADCUMBS ===================================== -->
   <ul class="breadcrumb round-large">
-    <li><a href="#">accueil</a></li>
+    <li><a href="#"><?=$translations['home']?></a></li>
   </ul>
 
   <hr class="rounded">

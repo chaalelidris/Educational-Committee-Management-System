@@ -25,8 +25,8 @@
       <?php endif; ?>
       <!--                                                    breadcrumb                                                       -->
       <ul class="breadcrumb round-large">
-        <li><a href="responsable.php">accueil</a></li>
-        <li>Programmation CP
+        <li><a href="responsable.php"><?=$translations['home']?></a></li>
+        <li>
           <?php echo $_SESSION['responsable_prom_name']; ?>
         </li>
       </ul>
@@ -35,7 +35,7 @@
 
       <div class="container">
         <h1>Table des Réunions programmé</h1>
-        <!-- <p>Cliquez sur les en-têtes pour trier le tableau.</p> -->
+        <!-- <p><?=$translations['sort_table']?></p> -->
 
         <?php if (empty($_SESSION['responsable_prom_id'])): ?>
         <div class="panel yellow round-large">
@@ -44,13 +44,13 @@
         </div>
           <p><button id="activer_cp" class="button green hover-green round-large" <?php
               if(empty($_SESSION['responsable_prom_id'])) { ?> disabled
-              <?php } ?> >Ajouter un CP <i class="fa fa-calendar"></i>
+              <?php } ?> ><?=$translations['add_cp']?> <i class="fa fa-calendar"></i>
             </button>
           </p>
         <?php else: ?>
         <div class="cell-row">
           <div class="container cell">
-            <p><button id="activer_cp" class="button green hover-green round-large">Ajouter un CP <i
+            <p><button id="activer_cp" class="button green hover-green round-large"><?=$translations['add_cp']?> <i
                   class="fa fa-calendar"></i>
               </button></p>
           </div>
@@ -78,13 +78,13 @@
               <th class="pntr" onclick="sortTable(0)">ID</th>
               <th class="pntr" onclick="sortTable(1)">Titre CP</th>
               <th class="pntr" onclick="sortTable(2)">Date et Heure</th>
-              <th class="pntr" onclick="sortTable(3)">Lieu</th>
+              <th class="pntr" onclick="sortTable(3)"><?=$translations['cp_location']?></th>
               <th class="pntr" onclick="sortTable(4)">Semestre</th>
-              <th class="pntr" onclick="sortTable(5)">Ordre du jour</th>
-              <th class="pntr" onclick="sortTable(5)">Détailes</th>
-              <th class="pntr" onclick="sortTable(5)">Interventions diverses.</th>
-              <th class="pntr" onclick="sortTable(5)">Etat.</th>
-              <th colspan="3">opération</th>
+              <th class="pntr" onclick="sortTable(5)"><?=$translations['cp_agenda']?></th>
+              <th class="pntr" onclick="sortTable(5)"><?=$translations['cp_details']?></th>
+              <th class="pntr" onclick="sortTable(5)"><?=$translations['extra_info']?></th>
+              <th class="pntr" onclick="sortTable(5)"><?=$translations['status']?>.</th>
+              <th colspan="3"><?=$translations['action']?></th>
             </tr>
 
             <?php
@@ -103,16 +103,17 @@
                     <td><?= htmlspecialchars($row['cp_ordre']) ?></td>
                     <td><?= htmlspecialchars($row['cp_detail']) ?></td>
                     <td><?= htmlspecialchars($row['cp_intervension']) ?></td>
-                    <td><?php echo $row['cp_status'] == '1' ? '<p class="green round-xxlarge">Activé</p>' : '<p class="red round-xxlarge">Désactivé</p>'; ?></td>
+                    
+                    <td><p class="round-xxlarge <?php echo $row['cp_status'] == '1' ? 'green' : 'red'; ?>"><?php echo $row['cp_status'] == '1' ? $translations['activated'] : $translations['desactivated']; ?></p></td>
                     <td>
                       <?php if ($row['cp_status'] == 1): ?>
-                        <a class="button yellow hover-yellow round-large margin-right" href="activer_cp.php?desactiv_cp=<?= htmlspecialchars($row['cp_id']) ?>"> Désactiver </a>
+                        <a class="button yellow hover-yellow round-large margin-right" href="activer_cp.php?desactiv_cp=<?= htmlspecialchars($row['cp_id']) ?>"> <?=$translations['desactivated']?> </a>
                       <?php elseif ($row['cp_status'] == 0): ?>
-                        <a class="button blue round-large margin-right" href="activer_cp.php?activer_cp=<?= htmlspecialchars($row['cp_id']) ?>"> Activer </a>
+                        <a class="button blue round-large margin-right" href="activer_cp.php?activer_cp=<?= htmlspecialchars($row['cp_id']) ?>"> <?=$translations['activated']?> </a>
                       <?php endif; ?>
                     </td>
-                    <td><a class="button green round-large" href="edit_cp.php?edit=<?= htmlspecialchars($row['cp_id']) ?>">modifier</a></td>
-                    <td><button class="button red round-large btn_delet_cp" type="button">supprimer</button></td>
+                    <td><a class="button green round-large" href="edit_cp.php?edit=<?= htmlspecialchars($row['cp_id']) ?>"><?=$translations['edit']?></a></td>
+                    <td><button class="button red round-large btn_delet_cp" type="button"><?=$translations['delete']?></button></td>
                   </tr>
                   
                   <tr><td colspan="9" style="height: 10px;"></td></tr>';

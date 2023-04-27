@@ -18,7 +18,7 @@
   <!-- begin main -->
 
   <ul class="breadcrumb round-large" >
-    <li><a href="dashboard.php">accueil</a></li>
+    <li><a href="dashboard.php"><?=$translations['home']?></a></li>
     <li>Gestion des departements</li>
   </ul>
   <hr class="rounded">
@@ -26,9 +26,9 @@
 
   <div class="container">
     <h2>Table des departements</h2>
-    <p>Cliquez sur les en-têtes pour trier le tableau.</p>
+    <p><?=$translations['sort_table']?></p>
 
-    <input style="margin-bottom:0;" id="myInput_gst_prm" type="text" placeholder="Search..">
+    <input style="margin-bottom:0;" id="myInput_gst_prm" type="text" placeholder="<?=$translations['search']?>">
       <br><br>
 
     <?php
@@ -51,7 +51,7 @@
                         <th class="pntr" onclick="sortTable(1)">Abreviation department</th>
                         <th class="pntr" onclick="sortTable(1)">Description</th>
                         <th class="pntr" onclick="sortTable(2)">admin de department</th>
-                        <th colspan="2">opération</th>
+                        <th colspan="2"><?=$translations['action']?></th>
                       </tr>
 
                       <?php
@@ -63,18 +63,18 @@
                                 ";
 
                         $result = mysqli_query($con, $sqll) or die(mysqli_error($con));
-                        while ($row = mysqli_fetch_array($result)) {
-                          echo '<tr>';
-                          echo '<td>'.$row['department_id'].'</td>';
-                          echo '<td>'.$row['department_name'].'</td>';
-                          echo '<td>'.$row['department_abbr'].'</td>';
-                          echo '<td>'.$row['department_description'].'</td>';
-                          echo '<td>'.$row['admin_name'].'</td>';
+                        while ($row = mysqli_fetch_array($result)):?>
+                          <tr>
+                          <td><?=$row['department_id']?></td>
+                          <td><?=$row['department_name']?></td>
+                          <td><?=$row['department_abbr']?></td>
+                          <td><?=$row['department_description']?></td>
+                          <td><?=$row['admin_name']?></td>
 
-                          echo '<td class="mod_bg "><a href="edit_department.php?edit='.$row['department_id'].'">modifier</a></td>';
-                          echo '<td class="sup_bg suppr_dp"><a href="#">supprimer</a></td>';
-                          echo '</tr>';
-                        }
+                          <td class="mod_bg "><a href="edit_department.php?edit=<?=$row['department_id']?>"><?=$translations['edit']?></a></td>
+                          <td class="sup_bg suppr_dp"><a href="#"><?=$translations['delete']?></a></td>
+                          </tr>';
+                        <?php endwhile; ?>
                       ?>
 
               </table>

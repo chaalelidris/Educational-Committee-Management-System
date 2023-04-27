@@ -1,34 +1,38 @@
+<?php
+  session_start();
+
+
+  $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'en';
+  require_once "lang/$lang.php";
+
+  $redirect_url = "";
+  $user_id = "";
+  if (!empty($_SESSION['super_admin_user_id'])) {
+    $redirect_url = "super-admin/dashboard.php";
+    $user_id = $_SESSION['super_admin_user_id'];
+  } else if (!empty($_SESSION['admin_user_id'])) {
+    $redirect_url = "admin/dashboard.php";
+    $user_id = $_SESSION['admin_user_id'];
+  } else if (!empty($_SESSION['responsable_user_id'])) {
+    $redirect_url = "responsable/responsable.php";
+    $user_id = $_SESSION['responsable_user_id'];
+  } else if (!empty($_SESSION['enseignant_user_id'])) {
+    $redirect_url = "enseignant/enseignant.php";
+    $user_id = $_SESSION['enseignant_user_id'];
+  } else if (!empty($_SESSION['delegue_user_id'])) {
+    $redirect_url = "delegue/delegue.php";
+    $user_id = $_SESSION['delegue_user_id'];
+  }
+  
+  if (!empty($redirect_url)) {
+    header("location: " . $redirect_url);
+    exit;
+  }
+  ?>
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" dir=<?=$_SESSION['lang']=='ar'?'rtl':'ltr'?>>
 
 <head>
-  <?php
-    session_start();
-    // require_once("control/auth_login.php");
-    $redirect_url = "";
-    $user_id = "";
-    if (!empty($_SESSION['super_admin_user_id'])) {
-      $redirect_url = "super-admin/dashboard.php";
-      $user_id = $_SESSION['super_admin_user_id'];
-    } else if (!empty($_SESSION['admin_user_id'])) {
-      $redirect_url = "admin/dashboard.php";
-      $user_id = $_SESSION['admin_user_id'];
-    } else if (!empty($_SESSION['responsable_user_id'])) {
-      $redirect_url = "responsable/responsable.php";
-      $user_id = $_SESSION['responsable_user_id'];
-    } else if (!empty($_SESSION['enseignant_user_id'])) {
-      $redirect_url = "enseignant/enseignant.php";
-      $user_id = $_SESSION['enseignant_user_id'];
-    } else if (!empty($_SESSION['delegue_user_id'])) {
-      $redirect_url = "delegue/delegue.php";
-      $user_id = $_SESSION['delegue_user_id'];
-    }
-    
-    if (!empty($redirect_url)) {
-      header("location: " . $redirect_url);
-      exit;
-    }
-    ?>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -52,18 +56,17 @@
 </head>
 
 <?php error_reporting(0); ?>
-<!-- linear-gradient(90deg, rgb(0, 184, 252),rgb(0, 83, 194)) -->
 
 <body style="background:#f0f2f5 ;">
 
   <div class="container mt-lg-5 mt-sm-0" style="background: #fff;box-shadow: 0 0 0.9rem 0.2rem #bdbdbd ; ">
     <div class="row ">
       <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12" style="background: #191923; ">
-        <h1 style="color:white; padding:10px; text-align: center;">GESTION DES COMITE PIDAGOGIQUE</h1>
+        <h1 style="color:white; padding:10px; text-align: center;"><?=$translations['index_header'];?></h1>
       </div>
     </div>
 
-    <div class="row mt-0" style="">
+    <div class="row mt-0" >
       <div class="col-lg-9 col-xl-9 col-md-8 col-sm-12 col-xs-12 " style="padding:0">
         <strong style="color:rgba(0, 0, 0, 0.4)"><img src="images/committee-image.jpg" alt="GCP"
             style="max-width: 100%; height: auto;">
@@ -71,7 +74,7 @@
       </div>
 
       <div style="background:#191923; " class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12 ">
-
+      
         <?php
       if (isset($_GET['errorm']) && isset($_GET['erroru'])) {
           echo '<div class="alert with-close alert-danger alert-dismissible fade show" style="color:#fff;background-color: #BF1363;border:0px;">';
@@ -100,41 +103,46 @@
 
         <form method="POST" action="control\auth_login.php" autocomplete="on">
           <div class="form-group">
-            <label style="color:#fff"><strong>Nom D'utilisateur</strong></label>
-            <input type="text" class="form-control" placeholder="Pseudo" style="" name="username"
+            <label style="color:#fff"><strong><?=$translations['username'];?></strong></label>
+            <input type="text" class="form-control" placeholder="Username"  name="username"
               value="<?php echo $_GET['username']?>">
           </div>
 
           <div class="form-group">
-            <label style="color:#fff"><strong>Mot de passe</strong></label>
-            <input type="password" class="form-control" placeholder="Mot De Passe" name="password">
+            <label style="color:#fff"><strong><?=$translations['password'];?></strong></label>
+            <input type="password" class="form-control" placeholder="Password" name="password">
           </div>
 
           <div class="checkbox">
             <label class="">
-              <a href="#forgot" data-toggle="modal" style="color:dodgerblue">Mot de passe oublié?</a>
+              <a href="#forgot" data-toggle="modal" style="color:dodgerblue"><?=$translations['fpass'];?></a>
             </label>
           </div>
           <!-- class="btn btn-success btn-flat btn-block " -->
-          <button id="conn" style="" title="Cliquez ici pour vous connecter" type="submit" name="user_submit"
-            class="btn-s"><strong>Connection</strong></button>
+          <button id="conn"  title="Cliquez ici pour vous connecter" type="submit" name="user_submit"
+            class="btn-s"><strong><?=$translations['login'];?></strong></button>
         </form>
         <!-- </div> -->
       </div>
     </div>
     <footer class="row mt-0" style="background: #191923; padding:10px;">
       <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 text-center" style="color:#868e96;">
-        <div>Copyright &copy;2023 Université 8 mai 1945, Département d'informatique</div>
-        <div>EQUIPE DE DEVELOPEMENT <strong>sous Encadrement de</strong> DR Halimi khaled</div>
+        <div>Copyright &copy;2023 <?=$translations['copy_text'];?></div>
+        <div><?=$translations['dev_team'];?> <strong></strong><?=$translations['khaled']?></div>
 
-        <div>Chaalel idris (2020 - 2023)</div>
-        <div>Khebizi hamed (2020)</div>
+        <div><?=$translations['idris']?> (2020 - 2023)</div>
+        <div><?=$translations['hamed']?> (2020)</div>
         <div class="btn-group">
           <button class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
-            <i class="fa fa-info-circle" aria-hidden="true"></i> Info
+            <i class="fa fa-info-circle" aria-hidden="true"></i> <?=$translations['informations'];?>
           </button>
         </div>
 
+        <select class="btn btn-info" id="language-select">
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="ar">العربية</option>
+        </select>
 
       </div>
     </footer>
@@ -147,22 +155,21 @@
       <div class="modal-content" style="border-radius:0px;">
         <button type="button" class="close" data-dismiss="modal"
           style="display:inline;text-align:right;margin:5px 15px;">&times;</button>
-        <h3 style="margin-left:1em;">GESTION DES COMITES PIDAGOGIQUES</h3>
+        <h3 style="margin-left:1em;"><?=$translations['index_header'];?></h3>
         <div class="modal-body">
-          <p style="text-align: justify;text-justify: inter-word; margin:0 1em 0 1em">
-            Le système permet d'une
-            part à l'administration de bien gérer et de bien contrôler les membres qui ont pour rôle de
-            concrétiser les différentes actions à caractères pédagogiques, de fixer les dates de réunion,
-            l’envoi des invitations, etc. Et d'une autre part, il permet aux acteurs (responsables de parcours,
-            Enseignants et Etudiants) de suivre les opérations pédagogiques au sein du département
-            à savoir : le suivi d’avancement des cours, l’achèvement des chapitres, la programmation des
-            contrôles continus etc... </p>
+          <p style="text-align: justify;text-justify: inter-word; margin:0 1em 0 1em"><?=$translations['info_text'];?></p>
         </div>
       </div>
     </div>
   </div>
 
 
+  <script>
+    document.getElementById("language-select").addEventListener("change", function() {
+      var lang = this.value;
+      window.location.href = "lang/change_language.php?lang=" + lang; // change_language.php is the file that changes the language
+    });
+  </script>
 
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

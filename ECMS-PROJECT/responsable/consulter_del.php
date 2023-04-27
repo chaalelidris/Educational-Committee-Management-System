@@ -18,9 +18,9 @@
 <div class="main">
   <!--                                                    breadcrumb                                                       -->
   <ul class="breadcrumb round-large">
-    <li><a href="responsable.php">accueil</a></li>
+    <li><a href="responsable.php"><?=$translations['home']?></a></li>
     <li> <a href="#">CPs <?php echo $_SESSION['responsable_prom_name'];?></a> </li>
-    <li>Consulter formulaire de délégué</li>
+    <li><?=$translations['consult_delegates']?></li>
   </ul>
   <hr class="rounded">
 
@@ -36,8 +36,8 @@
     $rowcptitle=mysqli_fetch_assoc($result); //tableau
     $cptitle = $rowcptitle['cp_title'];
      ?>
-    <h2>Consulter CP <span style="color:rgba(56, 148, 255, 1)">( <?php echo $cptitle; ?> )</span></h2>
-    <!-- <p>Cliquez sur les en-têtes pour trier le tableau.</p> -->
+    <h2><?=$translations['consult']?> CP <span style="color:rgba(56, 148, 255, 1)">( <?php echo $cptitle; ?> )</span></h2>
+    <!-- <p><?=$translations['sort_table']?></p> -->
 
     <?php
       require_once("../control/config/dbcon.php");
@@ -45,7 +45,7 @@
 
     <div class="cell-row">
       <div class="container cell">
-        <p><button id="Arrier_cps"class="button green hover-green round-large"> <i class="	fa fa-chevron-left"></i> Arrière</button></p>
+        <p><button id="Arrier_cps"class="button green hover-green round-large"> <i class="	fa fa-chevron-left"></i> <?=$translations['back']?></button></p>
       </div>
       <div class="container  cell">
       </div>
@@ -82,21 +82,21 @@
           <?php endif; ?>
 
 
-          <h1>Module, <strong><?php echo $row['modl_name'];?></strong></h1>
+          <h1><?=$translations['module']?>, <strong><?php echo $row['modl_name'];?></strong></h1>
           <?php
           $sql = "SELECT prom_name FROM tbl_promo WHERE prom_id=$promid";
           $resultpromname = mysqli_query($con, $sql) or die(mysqli_error($con));
           $resultpromnamerow = mysqli_fetch_array($resultpromname);
            ?>
-          <p>Promotion >> <span><?php echo $resultpromnamerow['prom_name'];?></span></p>
-          <p>Semestre N° <span><?php echo $row['modl_semestre'];?></span></p>
+          <p><?=$translations['promotion']?> >> <span><?php echo $resultpromnamerow['prom_name'];?></span></p>
+          <p><?=$translations['semester_nb']?> <span><?php echo $row['modl_semestre'];?></span></p>
           <?php
           $delid =$_SESSION['del_id'];
           $sql = "SELECT user_fullname FROM tbl_users WHERE user_id='$delid'";
           $resultens = mysqli_query($con, $sql) or die(mysqli_error($con));
           $rowensname = mysqli_fetch_array($resultens);
            ?>
-          <p>Par : <strong style="color:rgba(0, 0, 0, 0.8)"> <i class="fa fa-user-circle-o"></i> <?php echo $rowensname['user_fullname']; ?></strong> </p>
+          <p><?=$translations['by']?>: <strong style="color:rgba(0, 0, 0, 0.8)"> <i class="fa fa-user-circle-o"></i> <?php echo $rowensname['user_fullname']; ?></strong> </p>
 
           <div class="responsive">
             <?php
@@ -110,18 +110,18 @@
                 ?>
                 <table class="table-all card-4">
                   <tr >
-                    <td  rowspan="9" class="border" style="width:200px;">etat avancement</td>
+                    <td  rowspan="9" class="border" style="width:200px;"><?=$translations['advancment']?></td>
                   </tr>
                   <tr>
-                    <td>Avancement globale</td>
+                    <td><?=$translations['global_adv']?></td>
                     <td><?php echo $row3['data_avncm_glob']; ?></td>
                   </tr>
                   <tr>
-                    <td>Nombre de chapitres achevés / En cours</td>
+                    <td><?=$translations['nb_chap_done_progress']?></td>
                     <td><?php echo $row3['data_nbr_chap']; ?></td>
                   </tr>
                   <tr>
-                    <td>Nombre de séances de cours faites</td>
+                    <td><?=$translations['n_s_c_done']?></td>
                     <td><?php echo $row3['data_nbr_cours']; ?></td>
                   </tr>
                   <tr>
@@ -151,18 +151,18 @@
                 ?>
                 <table class="table-all card-4">
                   <tr >
-                    <td  rowspan="9" class="border" style="width:200px;">etat avancement</td>
+                    <td  rowspan="9" class="border" style="width:200px;"><?=$translations['advancment']?></td>
                   </tr>
                   <tr>
-                    <td>Avancement globale</td>
+                    <td><?=$translations['global_adv']?></td>
                     <td>aucun donnés</td>
                   </tr>
                   <tr>
-                    <td>Nombre de chapitres achevés / En cours</td>
+                    <td><?=$translations['nb_chap_done_progress']?></td>
                     <td>aucun donnés</td>
                   </tr>
                   <tr>
-                    <td>Nombre de séances de cours faites</td>
+                    <td><?=$translations['n_s_c_done']?></td>
                     <td>aucun donnés</td>
                   </tr>
                   <tr>

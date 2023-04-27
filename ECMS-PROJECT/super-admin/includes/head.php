@@ -1,12 +1,16 @@
 <?php
 $title="ESPACE ADMINISTRATEUR";
 session_start();
+
+$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'en';
+require_once "../lang/$lang.php";
+
 if (empty($_SESSION['super_admin_user_id'])) {
     header('location:../index.php');
 }
 ?>
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir=<?=$_SESSION['lang']=='ar'?'rtl':'ltr'?>>
 
 <head>
   <meta charset="utf-8">

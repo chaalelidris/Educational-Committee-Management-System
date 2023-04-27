@@ -21,7 +21,7 @@
 <div class="main ">
   <!-- breadcrumb -->
   <ul class="breadcrumb round-large">
-    <li><a href="#">accueil</a></li>
+    <li><a href="#"><?=$translations['home']?></a></li>
   </ul>
 
   <hr class="rounded">
@@ -58,7 +58,7 @@
 
 
       <div class="card_prf theme-light padding round-xxlarge" >
-        <h3 style="text-align:center">Utilisateur, <span class="text-gray">
+        <h3 style="text-align:center"><?=$translations['username']?>, <span class="text-gray">
             <?php echo htmlspecialchars($_SESSION['responsable_user_name'], ENT_QUOTES); ?>
           </span></h3>
         <h1>
@@ -81,7 +81,7 @@
             style="color:rgba(0, 0, 0, 0.9)">
             <?php echo htmlspecialchars($_SESSION['responsable_prom_name'], ENT_QUOTES); ?>
           </p></p>
-        <p><button id="ChangePass" class="button_prf round-xlarge">Changer mot de passe</button></p>
+        <p><button id="ChangePass" class="button_prf round-xlarge"><?=$translations['change_pass']?></button></p>
       </div>
 
 

@@ -10,11 +10,11 @@ if (isset($_SESSION['switch_facp'])) {
 <div id="idfacp" class="<?php echo $divClass; ?>">
   <!-- breadcrumb -->
   <ul class="breadcrumb round-large">
-    <li><a href="responsable.php">accueil</a></li>
-    <li><a href="#">Programmation CP
+    <li><a href="responsable.php"><?=$translations['home']?></a></li>
+    <li><a href="#">
         <?php echo $_SESSION['responsable_prom_name']; ?>
       </a></li>
-    <li>Activer un CP
+    <li>
       <?php echo $_SESSION['responsable_prom_name']; ?>
     </li>
   </ul>
@@ -27,7 +27,7 @@ if (isset($_SESSION['switch_facp'])) {
     <div class="container">
       <p>
         <button id="programmer_cp" class="button green hover-green round-large">
-          <i class="fa fa-chevron-left"></i> Gérer les CP
+          <i class="fa fa-chevron-left"></i> <?=$translations['manage_cps']?>
         </button>
       </p>
     </div>
@@ -53,16 +53,16 @@ if (isset($_SESSION['switch_facp'])) {
 
         <div class="row">
           <div class="col-25">
-            <label class="label_actcp" for="titre">Titre complet du CP</label>
+            <label class="label_actcp" for="titre"><?=$translations['cp_title']?></label>
           </div>
           <div class="col-75">
-            <input class="input_form_actcp" type="text" name="titre" placeholder="Le titre..">
+            <input class="input_form_actcp" type="text" name="titre" placeholder="<?=$translations['cp_title']?>..">
           </div>
         </div>
 
         <div class="row" style="margin-bottom:16px;">
           <div class="col-25">
-            <label class="label_actcp" for="datetime">Date et Heure du CP</label>
+            <label class="label_actcp" for="datetime"><?=$translations['cp_datetime']?></label>
           </div>
           <div class="col-75">
             <input class="input_form_actcp" type="datetime-local" name="datetime" placeholder="La date et l'heure..">
@@ -71,23 +71,23 @@ if (isset($_SESSION['switch_facp'])) {
 
         <div class="row">
           <div class="col-25">
-            <label class="label_actcp" for="lieu">Lieu du CP</label>
+            <label class="label_actcp" for="lieu"><?=$translations['cp_location']?></label>
           </div>
           <div class="col-75">
-            <input class="input_form_actcp" type="text" name="lieu" placeholder="Le lieu..">
+            <input class="input_form_actcp" type="text" name="lieu" placeholder="<?=$translations['cp_location']?>">
           </div>
         </div>
 
         <div class="row">
           <div class="col-25">
-            <label for="semestre">sélectionner le semestre</label>
+            <label for="semestre"><?=$translations['semester']?></label>
           </div>
           <div class="col-75">
             <select class="select border" name="semestre" title="veuillez sélectionner"
               style="background-color:#f1f1f1; padding:15px 10px;" required>
               <option value="" disabled selected>Choisissez votre option</option>
-              <option value="1">semestre N°1</option>
-              <option value="2">semestre N°2</option>
+              <option value="1"><?=$translations['semester']?> N°1</option>
+              <option value="2"><?=$translations['semester']?> N°2</option>
             </select>
           </div>
         </div>
@@ -97,7 +97,7 @@ if (isset($_SESSION['switch_facp'])) {
 
         <div class="row">
           <div class="col-25">
-            <label class="label_actcp" for="ordre">Ordre du jour</label>
+            <label class="label_actcp" for="ordre"><?=$translations['cp_agenda']?></label>
           </div>
           <div class="col-75">
             <textarea class="input_form_actcp" name="ordre" placeholder="Entrer lordre du joure..
@@ -111,7 +111,7 @@ if (isset($_SESSION['switch_facp'])) {
 
         <div class="row">
           <div class="col-25">
-            <label class="label_actcp" for="detail">Détailes</label>
+            <label class="label_actcp" for="detail"><?=$translations['cp_details']?></label>
           </div>
           <div class="col-75">
             <textarea class="input_form_actcp" name="detail" placeholder="Entrer les détailes..
@@ -128,7 +128,7 @@ retenu ce qui suit :</textarea>
 
         <div class="row">
           <div class="col-25">
-            <label class="label_actcp" for="intervension">Interventions diverses.</label>
+            <label class="label_actcp" for="intervension"><?=$translations['extra_info']?></label>
           </div>
           <div class="col-75">
             <textarea class="input_form_actcp" name="intervension" placeholder="Entrer les détailes..

@@ -8,9 +8,9 @@
     <i class="fa fa-remove"></i>
   </a>
   <h4 class="bar-item"><b>Menu</b></h4>
-  <a href="responsable.php" class="bar-item button hover-primary round-large">Accueil</a>
-  <a href="gst_cp.php" class="bar-item button hover-primary round-large">Programmer un CP</a>
-  <a href="gnr_cp.php" class="bar-item button hover-primary round-large">Générer le rapport</a>
+  <a href="responsable.php" class="bar-item button hover-primary round-large"><?=$translations['home']?></a>
+  <a href="gst_cp.php" class="bar-item button hover-primary round-large"><?=$translations['manage_cps']?></a>
+  <a href="gnr_cp.php" class="bar-item button hover-primary round-large"><?=$translations['generate_report']?></a>
 
 
     <!-- messagerie + notification -->
@@ -83,7 +83,7 @@
 
 
      ?>
-    <a href="messagerie.php" class="bar-item button hover-primary round-large"><i class="fa fa-envelope" aria-hidden="true"></i> Messagerie
+    <a href="messagerie.php" class="bar-item button hover-primary round-large"><i class="fa fa-envelope" aria-hidden="true"></i> <?=$translations['messages']?>
       <?php if ($count == 0) {
       ?>
       <span class="tag blue round right"><?php echo $count; ?>

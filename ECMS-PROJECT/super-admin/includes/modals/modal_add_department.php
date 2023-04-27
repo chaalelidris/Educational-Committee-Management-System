@@ -1,4 +1,3 @@
-<!-- ===================================      modal Ajouter departement      =================================-->
 <?php if (isset($_SESSION['show_modal_add_department'])): ?>
 <div id="id06" class="modal-form show">
   <?php else: ?>
@@ -24,20 +23,23 @@
         <hr>
         <label for="department_name"><b>Nom du département</b></label>
         <input class="round-large" type="text" placeholder="Entrer le nom du département" name="department_name"
-          title="veuillez remplir ce champ" value="<?php echo isset($_SESSION['department_name']) ? $_SESSION['department_name'] : ''; ?>" required>
+          title="veuillez remplir ce champ"
+          value="<?php echo isset($_SESSION['department_name']) ? $_SESSION['department_name'] : ''; ?>" required>
 
         <label for="department_abbr"><b>Abbréviation du département</b></label>
         <input class="round-large" type="text" placeholder="Entrer l'abbréviation du département" name="department_abbr"
-          title="veuillez remplir ce champ" value="<?php echo isset($_SESSION['department_abbr']) ? $_SESSION['department_abbr'] : ''; ?>" required>
+          title="veuillez remplir ce champ"
+          value="<?php echo isset($_SESSION['department_abbr']) ? $_SESSION['department_abbr'] : ''; ?>" required>
 
         <label for="department_description"><b>Description de département</b></label>
         <textarea class="input margin-bottom round-large" style="background-color: #f1f1f1;"
           placeholder="Entrer la description de département" name="department_description"
-          title="veuillez remplir ce champ" required><?php echo isset($_SESSION['department_description']) ? $_SESSION['department_description'] : 'No description'; ?></textarea>
+          title="veuillez remplir ce champ"
+          required><?php echo isset($_SESSION['department_description']) ? $_SESSION['department_description'] : 'No description'; ?></textarea>
 
         <label for="admin_id"><b>Sélectionner l'administrateur du département</b></label> <br>
-        <select class="select border list_resp" name="admin_id" style="width:100%;" >
-        <?php
+        <select class="select border list_resp" name="admin_id" style="width:100%;">
+          <?php
           $sql = "SELECT * FROM tbl_users WHERE user_type= 'admin'";
           $result = mysqli_query($con, $sql);
           echo '<option value="" selected>aucun</option>';
@@ -50,12 +52,11 @@
           }
         ?>
         </select>
-
-<br><br>
+        <br><br>
 
         <div class="clearfix-form">
           <button id="bttn5" type="button" class="mdl cancelbtn-form">Cancel</button>
-          <button type="submit" name="add_department" class="mdl signupbtn-form">Ajouter</button>
+          <button type="submit" name="add_department" class="mdl signupbtn-form"><?=$translations['add']?></button>
         </div>
       </div>
     </form>

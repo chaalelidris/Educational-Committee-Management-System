@@ -1,4 +1,4 @@
-<!-- ===================================      modal modifier utilisateur       =================================-->
+<!-- ===================================      modal <?=$translations['edit']?> utilisateur       =================================-->
 <?php if (isset($_SESSION['show_modal_edit_department'])): ?>
   <div id="id05" class="modal-form show">
   <?php else: ?>

@@ -1,4 +1,3 @@
-<!-- ===================================      modal Ajouter utilisateur       =================================-->
 
 <?php if (isset($_SESSION['show_modal_add_del'])): ?>
   <div id="id11" class="modal-form show">
@@ -8,7 +7,7 @@
     <form class="modal-content animate-zoom" action="../control/saveusers.php" method="post">
       <div class="container-form">
         <span class="close-d btn_cancel_add_delegue" title="Fermer le Modal">&times;</span>
-        <h1 style="color:#191923;">Ajouter un délégué</h1>
+        <h1 style="color:#191923;"><?=$translations['add_delegate']?></h1>
         <p>Veuillez remplir ce formulaire pour créer un compte.</p>
 
         <!--                                             alert                                                     -->
@@ -23,16 +22,16 @@
 
 
         <hr>
-        <label for="name"><b>nom complet</b> <span style="opacity:0.8;"> (nom.prénom)</span></label>
-        <input type="text" placeholder="Entrer le nom et prénom" name="name" title="veuillez remplir ce champ" required>
+        <label for="name"><b><?=$translations['full_name']?></b> </label>
+        <input type="text" placeholder="<?=$translations['full_name']?>" name="name" title="veuillez remplir ce champ" required>
 
-        <label for="username"><b>Nom d'utilisateur</b></label>
-        <input type="text" placeholder="Entrer le nom d'utilisateur" name="username" title="veuillez remplir ce champ" required>
+        <label for="username"><b><?=$translations['username']?></b></label>
+        <input type="text" placeholder="<?=$translations['username']?>" name="username" title="veuillez remplir ce champ" required>
 
-        <label for="email"><b>Email</b><span style="opacity:0.8;color:rgb(244, 121, 132);">  ( pas obligatoire )</span></label>
-        <input type="email" placeholder="Entrer l'email" name="email"  title="veuillez remplir ce champ" >
+        <label for="email"><b>Email</b><span style="opacity:0.8;color:rgb(244, 121, 132);">  ( <?=$translations['not_required']?> )</span></label>
+        <input type="email" placeholder="<?=$translations['email']?>" name="email"  title="veuillez remplir ce champ" >
 
-        <label for="promid"><b>Séléctionner la promotion</b></label> <br>
+        <label for="promid"><b><?=$translations['select_promotion']?></b></label> <br>
         <select class="select border list_resp" name="promid" style="width:100%;" required>
           <?php
             $sql = "SELECT * FROM tbl_promo ";
@@ -43,8 +42,8 @@
           ?>
         </select> <br> <br>
 
-        <label for="department_id"><b>Département</b></label>
-        <select class="select border" name="department_id" title="Veuillez sélectionner" style="background-color:#f1f1f1; padding:15px 10px;" required>
+        <label for="department_id"><b><?=$translations['department']?></b></label>
+        <select class="select border" name="department_id" title="<?=$translations['please_select']?>" style="background-color:#f1f1f1; padding:15px 10px;" required>
             <?php
             $admin_department_id = $_SESSION['admin_department_id'];
             $sql = "SELECT * FROM tbl_department WHERE department_id = '$admin_department_id'";
@@ -60,19 +59,14 @@
         <label for="password"><b>Mot de passe</b></label>
         <input type="password" placeholder="Entrer le mot de passe" name="password" title="veuillez remplir ce champ" required>
 
-        <label for="password-repeat"><b>Répéter le mot de passe</b></label>
-        <input type="password" placeholder="Répéter le mot de passe" name="password_repeat" title="veuillez remplir ce champ" required>
+        <label for="password-repeat"><b><?=$translations['confirm_password']?></b></label>
+        <input type="password" placeholder="<?=$translations['confirm_password']?>" name="password_repeat" title="veuillez remplir ce champ" required>
 
         <div class="clearfix-form">
           <button  type="button"  class="mdl cancelbtn-form btn_cancel_add_delegue">Cancel</button>
-          <button type="submit" name="Ajouter_utilisateur_del" class="mdl signupbtn-form">Ajouter</button>
+          <button type="submit" name="Ajouter_utilisateur_del" class="mdl signupbtn-form"><?=$translations['add']?></button>
         </div>
       </div>
     </form>
   </div>
 
-
-
-
-
-  <!-- =====================================  Modal Ajouter utilisateur scripts  ==================== -->

@@ -17,8 +17,8 @@
 
 <div class="main ">
   <ul class="breadcrumb round-large">
-    <li><a href="dashboard.php">accueil</a></li>
-    <li>Messagerie</li>
+    <li><a href="dashboard.php"><?=$translations['home']?></a></li>
+    <li><?=$translations['messages']?></li>
   </ul>
 
   <hr class="rounded">
@@ -28,20 +28,20 @@
 
 
   <div class="container">
-    <h3 class=" text-center">Messagerie</h3>
+    <h3 class=" text-center"><?=$translations['messages']?></h3>
     <div class="messaging">
       <div class="inbox_msg">
         <div class="inbox_people" style="width:100%">
           <div class="headind_srch">
-            <div class="recent_heading" style="">
+            <div class="recent_heading" >
               <h5><i class="fa fa-info-circle " aria-hidden="true" style="color:blue;font-size:2em;"></i></h5>
               <ol>
-                <li style="opacity:0.8">Recherche par nom d'utilisateur.</li>
-                <li style="opacity:0.8">Taper le mot <strong>message</strong> pour voire les messages non lus.</li>
+                <li style="opacity:0.8"><?=$translations['sbun']?></li>
+                <li style="opacity:0.8"><?=$translations['msg_info2']?></li>
               </ol>
             </div>
 
-            <input style="margin-bottom:0;" id="myInput_search" type="text" placeholder="Rechercher..">
+            <input style="margin-bottom:0;" id="myInput_search" type="text" placeholder="<?=$translations['search']?>">
             <br><br>
           </div>
           <div class="inbox_chat" id="myContacts">
@@ -112,7 +112,7 @@
                       $resultPrmName = mysqli_query($con, $sql);
                       $rowPromName = mysqli_fetch_array($resultPrmName);
                       ?>
-                  <p>responsable de promotion
+                  <p><?=$translations['promotion_manager']?>
                     <?php echo $rowPromName['prom_name']; ?>
                   </p>
                   <?php
@@ -120,7 +120,7 @@
                       $idens = $row['user_id'];
                       $query=mysqli_query($con, "SELECT * from tbl_module INNER JOIN  tbl_promo ON tbl_module.modl_promo_id=tbl_promo.prom_id AND tbl_module.modl_ens_id='$idens'") or die(mysqli_error($con));
                       ?>
-                  <p><strong style="color:rgb(252, 87, 87);">Enseignant de(s) module(s)</strong><br></p>
+                  <p><strong style="color:rgb(252, 87, 87);"><?=$translations['teacher_of']?></strong><br></p>
                   <?php
 
                       while ($row=mysqli_fetch_assoc($query)):?>
@@ -218,7 +218,7 @@
                       $resultPrmName = mysqli_query($con, $sql);
                       $rowPromName = mysqli_fetch_array($resultPrmName);
                       ?>
-                  <p>responsable de promotion
+                  <p><?=$translations['promotion_manager']?>
                     <?php echo $rowPromName['prom_name']; ?>
                   </p>
                   <?php
@@ -226,7 +226,7 @@
                       $idens = $row['user_id'];
                       $query=mysqli_query($con, "SELECT * from tbl_module INNER JOIN  tbl_promo ON tbl_module.modl_promo_id=tbl_promo.prom_id AND tbl_module.modl_ens_id='$idens'") or die(mysqli_error($con));
                       ?>
-                  <p><strong style="color:rgb(252, 87, 87);">Enseignant de(s) module(s)</strong><br></p>
+                  <p><strong style="color:rgb(252, 87, 87);"><?=$translations['teacher_of']?></strong><br></p>
                   <?php
 
                       while ($row=mysqli_fetch_assoc($query)):?>
@@ -320,7 +320,7 @@
                       $resultPrmName = mysqli_query($con, $sql);
                       $rowPromName = mysqli_fetch_array($resultPrmName);
                       ?>
-                  <p>responsable de promotion
+                  <p><?=$translations['promotion_manager']?>
                     <?php echo $rowPromName['prom_name']; ?>
                   </p>
                   <?php
@@ -328,7 +328,7 @@
                       $idens = $row['user_id'];
                       $query=mysqli_query($con, "SELECT * from tbl_module INNER JOIN  tbl_promo ON tbl_module.modl_promo_id=tbl_promo.prom_id AND tbl_module.modl_ens_id='$idens'") or die(mysqli_error($con));
                       ?>
-                  <p><strong style="color:rgb(252, 87, 87);">Enseignant de(s) module(s)</strong><br></p>
+                  <p><strong style="color:rgb(252, 87, 87);"><?=$translations['teacher_of']?></strong><br></p>
                   <?php
 
                       while ($row=mysqli_fetch_assoc($query)):?>

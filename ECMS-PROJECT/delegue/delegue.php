@@ -26,7 +26,7 @@
   <div class="main " >
     <!--                                                    breadcrumb                                                       -->
     <ul class="breadcrumb round-large" >
-      <li><a href="#">accueil</a></li>
+      <li><a href="#"><?=$translations['home']?></a></li>
     </ul>
     <hr class="rounded">
 
@@ -56,19 +56,18 @@
 
               <div class="container light-grey card-4 round-xxlarge" >
                 <h1><?php echo $row['cp_title']; ?> </h1>
-                <span>Programmé le <span ><?php echo $row['cp_datetime']; ?></span></span>
-                <p> Promotion <span ><?php echo $row['prom_name']; ?></span></p>
-                <p> Semestre N° <span ><?php echo $row['cp_semestre']; ?></span></p>
+                <span><?=$translations['cp_datetime']?> <span ><?php echo $row['cp_datetime']; ?></span></span>
+                <p> <?=$translations['promotion']?> <span ><?php echo $row['prom_name']; ?></span></p>
+                <p> <?=$translations['semester_nb']?> <span ><?php echo $row['cp_semestre']; ?></span></p>
 
                 <p>Le lieu : <span ><?php echo $row['cp_location']; ?> </span> </p>
-                <p> <strong>Ordre du jour :</strong> <?php echo $row['cp_ordre']; ?></p>
+                <p> <strong><?=$translations['cp_agenda']?> :</strong> <?php echo $row['cp_ordre']; ?></p>
 
-                <!-- <button class="button dark-grey right" onclick="ReadMore()" >Lire la suite</button> -->
                 <?php
                 if ($row['cp_status'] == 1) {
-                  ?><h5>Etat : <span style="color:green;">activé</span> </h5><?php
+                  ?><h5><?=$translations['status']?>: <span style="color:green;"><?=$translations['activated']?></span> </h5><?php
                 }else {
-                  ?><h5>Etat : <span style="color:red">disactivé</span> </h5><?php
+                  ?><h5><?=$translations['status']?>: <span style="color:red"><?=$translations['desactivated']?></span> </h5><?php
                 }
                 ?>
                 <form  action="get_submitted_data.php" method="post">
@@ -86,7 +85,7 @@
 
           ?>
           <div class="container light-grey card-4 round-xxlarge" >
-            <h1 style="color:rgba(0, 0, 0, 0.53)"> il n'y a pas de CP activé Actuellement !</h1>
+            <h1 style="color:rgba(0, 0, 0, 0.53)"> il n'y a pas de CP <?=$translations['activated']?> Actuellement !</h1>
           </div>
           <?php
 
@@ -129,7 +128,7 @@
           $rowprmid=mysqli_fetch_assoc($query); //tableau
            ?>
           <p class="title">Délégue du promotion <?php echo $rowprmid['prom_name']; ?></p>
-          <p><button id="ChangePass" class="button_prf round-xlarge">Changer mot de passe</button></p>
+          <p><button id="ChangePass" class="button_prf round-xlarge"><?=$translations['change_pass']?></button></p>
         </div>
 
       </div>

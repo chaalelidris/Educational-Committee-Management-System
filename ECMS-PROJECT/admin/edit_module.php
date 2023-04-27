@@ -4,7 +4,7 @@
     if (isset($_GET['edit'])) {
       $_SESSION['show_modal_edit_module'] = " show";
       $id = $_GET['edit'];
-      $result = mysqli_query($con, "SELECT * FROM tbl_module WHERE modl_id=$id") or die (mysqli_error($con));
+      $result = mysqli_query($con, "SELECT * FROM tbl_module WHERE modl_id='$id'") or die (mysqli_error($con));
       $row=mysqli_fetch_array($result);
       $num=mysqli_num_rows($result);
       if($num>0){

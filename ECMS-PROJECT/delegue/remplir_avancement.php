@@ -27,7 +27,7 @@
   <div class="main show" >
     <!--                                                    breadcrumb                                                       -->
     <ul class="breadcrumb round-large" >
-      <li><a href="enseignant.php">accueil</a></li>
+      <li><a href="enseignant.php"><?=$translations['home']?></a></li>
       <li><a href="modules.php">Liste des modules</a></li>
       <li>Remplir l'état d'avancement de module</li>
     </ul>
@@ -39,7 +39,7 @@
 
     <div class="cell-row">
       <div class="container cell">
-        <p><button id="back_return" class="button green hover-green round-large"> <i class="	fa fa-chevron-left"></i> Arrière</button></p>
+        <p><button id="back_return" class="button green hover-green round-large"> <i class="	fa fa-chevron-left"></i> <?=$translations['back']?></button></p>
       </div>
       <div class="container  cell">
       </div>
@@ -50,17 +50,17 @@
       <form id="regForm_form_ms" action="insert_del_data.php" method="post" class="">
 
         <h1 class="h1_form_ms">Remplir les champ SVP:</h1>
-        <h2 for="">Module <?php echo $_SESSION['mdl_name']; ?></h2>
+        <h2 for=""><?=$translations['module']?> <?php echo $_SESSION['mdl_name']; ?></h2>
 
         <!-- One "tab" for each step in the form: -->
-        <div class="tab_form_ms">Avancement globale:
-          <p><input name="avancement" class="input_form_ms" placeholder="Avancement globale..." ></p>
-          Nombre de chapitres achevés / En cours
-          <p><input name="nbr_chap" class="input_form_ms" placeholder="Nombre de chapitres achevés / En cours..." ></p>
+        <div class="tab_form_ms"><?=$translations['global_adv']?>:
+          <p><input name="avancement" class="input_form_ms" placeholder="<?=$translations['global_adv']?>..." ></p>
+          <?=$translations['nb_chap_done_progress']?>
+          <p><input name="nbr_chap" class="input_form_ms" placeholder="<?=$translations['nb_chap_done_progress']?>..." ></p>
         </div>
 
-        <div class="tab_form_ms">Nombre de séances de cours faites:
-          <p><input name="nbr_seances" class="input_form_ms" placeholder="Nombre de séances de cours faites..." ></p>
+        <div class="tab_form_ms"><?=$translations['n_s_c_done']?>:
+          <p><input name="nbr_seances" class="input_form_ms" placeholder="<?=$translations['n_s_c_done']?>..." ></p>
           Nombre de séances de TD et TP faites:
           <p><input name="nbr_seances_tdtp" class="input_form_ms" placeholder="Nombre de séances de TD et TP faites..." ></p>
           Nombre de séances (Cours, TD, TP) non faites:
@@ -85,8 +85,8 @@
 
         <div style="overflow:auto;">
           <div style="float:right;">
-            <button class="button_form_ms" type="button" id="#prevBtn_form_ms" onclick="nextPrev(-1)">Précédent</button>
-            <button name="insert_modl_data" class="button_form_ms" type="button" id="nextBtn" onclick="nextPrev(1)">Suivant</button>
+            <button class="button_form_ms" type="button" id="#prevBtn_form_ms" onclick="nextPrev(-1)"><?=$translations['previous']?></button>
+            <button name="insert_modl_data" class="button_form_ms" type="button" id="nextBtn" onclick="nextPrev(1)"><?=$translations['next']?></button>
           </div>
         </div>
 
@@ -133,7 +133,7 @@
       if (n == (x.length - 1)) {
         document.getElementById("nextBtn").innerHTML = "Soumettre";
       } else {
-        document.getElementById("nextBtn").innerHTML = "Suivant";
+        document.getElementById("nextBtn").innerHTML = "<?=$translations['next']?>";
       }
       // ... and run a function that displays the correct step indicator:
       fixStepIndicator(n)

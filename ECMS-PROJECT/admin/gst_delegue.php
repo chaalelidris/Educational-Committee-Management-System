@@ -22,28 +22,25 @@
   <div class="main">
     <!--                                                    breadcrumb                                                       -->
     <ul class="breadcrumb round-large" >
-      <li><a href="dashboard.php">accueil</a></li>
-      <li>Gestion des délégué</li>
+      <li><a href="dashboard.php"><?=$translations['home']?></a></li>
+      <li><?=$translations['delegates']?></li>
     </ul>
     <hr class="rounded">
 
 
     <!--                                                        Tableau -->
     <div class="container">
-      <h2>Table des utilisateurs délégués</h2>
-      <p>Cliquez sur les en-têtes pour trier le tableau.</p>
+      <h2><?=$translations['delegates']?></h2>
+      <p><?=$translations['sort_table']?></p>
 
-      <!-- <input style="margin-bottom:0;" id="myInput_gst_del" type="text" placeholder="Search.."> -->
-      <!-- <br><br> -->
 
-      <!-- <button id="add_del" class="btn_btn success_btn">Ajouter un délégué</button> -->
 
       <div class="row-padding">
         <div class="half">
-          <button id="add_del" class="btn_btn success_btn">Ajouter un délégué</button>
+          <button id="add_del" class="btn_btn success_btn"><?=$translations['add_delegate']?></button>
         </div>
         <div class="half">
-          <input id="myInput_gst_del" class="input" type="text" placeholder="Rechercher..">
+          <input id="myInput_gst_del" class="input" type="text" placeholder="<?=$translations['search']?>">
         </div>
       </div>
 
@@ -64,11 +61,11 @@
         <table class="table-all centered hoverable" id="myTable_del">
           <tr>
             <th class="pntr" onclick="sortTable(0)">ID</th>
-            <th class="pntr" onclick="sortTable(1)">nom complet</th>
-            <th class="pntr" onclick="sortTable(2)">Nom d'utilisateur</th>
-            <th class="pntr" onclick="sortTable(3)">Promotion</th>
+            <th class="pntr" onclick="sortTable(1)"><?=$translations['full_name']?></th>
+            <th class="pntr" onclick="sortTable(2)"><?=$translations['username']?></th>
+            <th class="pntr" onclick="sortTable(3)"><?=$translations['promotion']?></th>
             <th class="pntr" onclick="sortTable(4)">Email</th>
-            <th colspan="2">opération</th>
+            <th colspan="2"><?=$translations['action']?></th>
           </tr>
 
           <?php
@@ -82,19 +79,19 @@
                     WHERE d.department_id = '{$_SESSION['admin_department_id']}'";
 
             $result = mysqli_query($con, $sql);
-            while ($row = mysqli_fetch_array($result)) {
-              echo'<tr>';
-                echo'<td>'.$row['user_id'].'</td>';
-                echo'<td>'.$row['user_fullname'].'</td>';
-                echo'<td>'.$row['user_name'].'</td>';
-                echo'<td>'.$row['prom_name'].'</td>';
-                echo'<td>'.$row['user_email'].'</td>';
-
-                echo '<td class="mod_bg "><a  href="edit_delegue.php?edit='.$row['user_id'].'" >modifier</a></td>';
-                echo '<td class="sup_bg suppr"><a  href="#" >supprimer</a></td>';
-              echo'</tr>';
-            }
-            ?>
+            while ($row = mysqli_fetch_array($result)): ?>
+              <tr>
+                <td><?= $row['user_id'] ?></td>
+                <td><?= $row['user_fullname'] ?></td>
+                <td><?= $row['user_name'] ?></td>
+                <td><?= $row['prom_name'] ?></td>
+                <td><?= $row['user_email'] ?></td>
+            
+                <td class="mod_bg "><a href="edit_delegue.php?edit=<?= $row['user_id'] ?>"><?= $translations['edit'] ?></a></td>
+                <td class="sup_bg suppr"><a href="#"><?=$translations['delete']?></a></td>
+              </tr>
+            <?php endwhile; ?>
+            
 
         </table>
       </div>

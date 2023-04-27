@@ -1,4 +1,4 @@
-<!-- ===================================      modal modifier utilisateur       =================================-->
+<!-- ===================================      modal <?=$translations['edit']?> utilisateur       =================================-->
 <?php if (isset($_SESSION['show_modal_edit_promo'])): ?>
 <div id="id05" class="modal-form show">
   <?php else: ?>
@@ -8,7 +8,7 @@
       <div class="container-form">
         <span class="close-d btn_cancel_modif_promo" title="Fermer le Modal">&times;</span>
         <h1 style="color:#5dd08a;">modifier cette promotion</h1>
-        <p>Veuillez modifier ce formulaire.</p>
+        <p><?=$translations['edit_form_pls']?></p>
 
         <input type="hidden" name="id" value="<?php echo $_SESSION['id_edit']; ?>">
 
@@ -46,8 +46,8 @@
         </select>
 
 
-        <label for="department_id"><b>Département</b></label>
-        <select class="select border" name="department_id" title="Veuillez sélectionner"
+        <label for="department_id"><b><?=$translations['department']?></b></label>
+        <select class="select border" name="department_id" title="<?=$translations['please_select']?>"
           style="background-color:#f1f1f1; padding:15px 10px;" required>
           <?php
             $admin_department_id = $_SESSION['admin_department_id'];
@@ -63,7 +63,7 @@
 
         <div class="clearfix-form">
           <button type="button" class="mdl cancelbtn-form btn_cancel_modif_promo">Cancel</button>
-          <button type="submit" name="modifier_promotion" class="mdl signupbtn-form">modifier</button>
+          <button type="submit" name="modifier_promotion" class="mdl signupbtn-form"><?=$translations['edit']?></button>
         </div>
       </div>
     </form>

@@ -26,7 +26,7 @@
   <div class="main " >
     <!--                                                    breadcrumb                                                       -->
     <ul class="breadcrumb round-large" >
-      <li><a href="delegue.php">accueil</a></li>
+      <li><a href="delegue.php"><?=$translations['home']?></a></li>
       <li>Liste des modules</li>
     </ul>
     <hr class="rounded">
@@ -38,7 +38,7 @@
 
     <div class="cell-row">
       <div class="container cell">
-        <p><button id="accueil_return" class="button green hover-green round-large"> <i class="	fa fa-chevron-left"></i> Arrière</button></p>
+        <p><button id="accueil_return" class="button green hover-green round-large"> <i class="	fa fa-chevron-left"></i> <?=$translations['back']?></button></p>
       </div>
       <div class="container  cell">
       </div>
@@ -93,24 +93,24 @@
             <div class="container" style="background-color:rgba(142, 190, 255, 0.8);margin-bottom:15px;">
               <h3 style="color:rgb(0, 109, 252)">Détails sur le CP <i class="fa fa-book" style="font-size:24px"></i></h3>
               <p>Titre: <?php echo $row['cp_title']; ?></p>
-              <span>Programmé le <span ><?php echo $row['cp_datetime']; ?></span></span>
+              <span><?=$translations['cp_datetime']?> <span ><?php echo $row['cp_datetime']; ?></span></span>
               <?php
               $promid = $_SESSION['delegue_promotion_id'];
               $sql = "SELECT prom_name FROM tbl_promo WHERE prom_id='$promid'";
               $resultPromName = mysqli_query($con, $sql);
               $resultPromName = mysqli_fetch_array($resultPromName);
               ?>
-              <p> Promotion <span ><?php echo $resultPromName['prom_name']; ?></span></p>
-              <p> Semestre N° <span ><?php echo $row['cp_semestre']; ?></span></p>
+              <p> <?=$translations['promotion']?> <span ><?php echo $resultPromName['prom_name']; ?></span></p>
+              <p> <?=$translations['semester_nb']?> <span ><?php echo $row['cp_semestre']; ?></span></p>
 
               <p>Le lieu : <span ><?php echo $row['cp_location']; ?> </span> </p>
-              <p> <strong>Ordre du jour :</strong> <?php echo $row['cp_ordre']; ?></p>
+              <p> <strong><?=$translations['cp_agenda']?> :</strong> <?php echo $row['cp_ordre']; ?></p>
               <!-- <button class="button dark-grey right" onclick="ReadMore()" >Lire la suite</button> -->
               <?php
               if ($row['cp_status'] == 1) {
-                ?><h5>Etat : <span style="color:green;">activé</span> </h5><?php
+                ?><h5><?=$translations['status']?>: <span style="color:green;"><?=$translations['activated']?></span> </h5><?php
               }else {
-                ?><h5>Etat : <span style="color:red">disactivé</span> </h5><?php
+                ?><h5><?=$translations['status']?>: <span style="color:red"><?=$translations['desactivated']?></span> </h5><?php
               }
               ?>
             </div>
