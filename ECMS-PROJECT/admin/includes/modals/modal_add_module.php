@@ -90,7 +90,7 @@
 
 
         <div class="clearfix-form">
-          <button  type="button"  class="mdl cancelbtn-form btn_cancel_add_module">Cancel</button>
+          <button  type="button"  class="mdl cancelbtn-form btn_cancel_add_module"><?=$translations['cancel']?></button>
           <button type="submit" name="Ajouter_module" class="mdl signupbtn-form"><?=$translations['add']?></button>
         </div>
       </div>

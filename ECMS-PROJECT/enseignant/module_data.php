@@ -173,7 +173,7 @@
           <button name="btn_to_modifier_formulaire" class="button green right margin round-large"><?=$translations['edit']?> <i
               class="fa fa-pencil"></i> </button>
           <?php else: ?>
-          <button type="button" id="btn_cp_info" class="button green margin right round-large"><?=$translations['edit']?> <i
+          <button type="button" class="button green margin right round-large btn_cp_info"><?=$translations['edit']?> <i
               class="fa fa-pencil"></i> </button>
           <?php endif; ?>
 
@@ -195,7 +195,7 @@
     window.location.assign("enseignant.php");
   });
 
-  $('#btn_cp_info').click(function () {
+  $('.btn_cp_info').click(function () {
     modalCpInfo.style.display = "block";
   });
 

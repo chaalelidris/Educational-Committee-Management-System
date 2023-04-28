@@ -63,7 +63,7 @@
         <input type="password" placeholder="<?=$translations['confirm_password']?>" name="password_repeat" title="veuillez remplir ce champ" required>
 
         <div class="clearfix-form">
-          <button  type="button"  class="mdl cancelbtn-form btn_cancel_add_delegue">Cancel</button>
+          <button  type="button"  class="mdl cancelbtn-form btn_cancel_add_delegue"><?=$translations['cancel']?></button>
           <button type="submit" name="Ajouter_utilisateur_del" class="mdl signupbtn-form"><?=$translations['add']?></button>
         </div>
       </div>

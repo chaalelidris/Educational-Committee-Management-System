@@ -123,10 +123,10 @@
             <?php else: ?>
 
               <?php if ($row['cp_status'] == 1): ?>
-                <button type="submit" name="btn_to_formulaire" class="button blue right round-large">REMPLIR AVANCEMENT <i
+                <button type="submit" name="btn_to_formulaire" class="button blue right round-large"><?=$translations['add_learning_data']?> <i
                     class="fa fa-angle-double-right"></i> </button>
                 <?php else:?>
-                <button type="button" id="btn_cp_info" class="button blue right round-large">REMPLIR AVANCEMENT <i
+                <button type="button" class="button blue right round-large btn_cp_info"><?=$translations['add_learning_data']?> <i
                     class="fa fa-angle-double-right"></i> </button>
               <?php endif; ?>
 

@@ -2,7 +2,7 @@
 $title="ESPACE ENSEIGNANT";
 session_start();
 
-$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'en';
+$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $_SESSION['lang'] = 'en';
 require_once "../lang/$lang.php";
 
 if (empty($_SESSION['enseignant_user_id'])) {

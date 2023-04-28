@@ -26,8 +26,8 @@
 
 
 <script>
-    document.getElementById("language-select").addEventListener("change", function() {
-      var lang = this.value;
-      window.location.href = "lang/change_language.php?lang=" + lang; // change_language.php is the file that changes the language
-    });
-  </script>
+  document.getElementById("language-select").addEventListener("change", function() {
+    var lang = this.value;
+    window.location.href = "../lang/change_language.php?lang=" + lang; // change_language.php is the file that changes the language
+  });
+</script>

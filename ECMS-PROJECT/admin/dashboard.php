@@ -59,7 +59,7 @@
     </a>
 
     <!-- Card for managing responsible users -->
-    <a href="gst_responsable.php">
+    <a href="gst_responsable.php?class=show">
       <div class="column_sc card_sc round-large margin hover-primary">
         <p><i class="fa fa-group fa_sc"></i></p>
         <h3>

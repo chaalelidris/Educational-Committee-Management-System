@@ -55,7 +55,7 @@
         </select> <br>
 
         <div class="clearfix-form">
-          <button type="button"  class="mdl cancelbtn-form close_modal_edit_delegue">Cancel</button>
+          <button type="button"  class="mdl cancelbtn-form close_modal_edit_delegue"><?=$translations['cancel']?></button>
           <button type="submit" name="modifier_delegue" class="mdl signupbtn-form"><?=$translations['edit']?></button>
         </div>
       </div>

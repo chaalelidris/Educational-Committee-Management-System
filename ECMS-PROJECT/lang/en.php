@@ -2,6 +2,7 @@
 
 $translations = [
     /* INDEX TRRANSLATIONS */
+    'index_title' => 'Educational Committees Management | University 8 May 1945 Guelma',
     'index_header' => 'PIDAGOGICAL COMMITTEE MANAGEMENT',
     'username' => 'Username',
     'password' => 'Password',
@@ -170,6 +171,7 @@ $translations = [
     'please_fill_the_fields' => 'please fill in the fields with the appropriate informations',
 
     'no_data' => 'No data available',
+        
 
     
     // etc.

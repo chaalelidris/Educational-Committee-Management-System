@@ -2,7 +2,7 @@
 $title="ESPACE ADMINISTRATEUR";
 session_start();
 
-$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'en';
+$lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $_SESSION['lang'] = 'en';
 require_once "../lang/$lang.php";
 
 if (empty($_SESSION['super_admin_user_id'])) {

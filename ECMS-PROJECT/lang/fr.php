@@ -1,135 +1,169 @@
 <?php
 
 $translations = [
-    /* INDEX TRRANSLATIONS */
-    'index_header' => 'PIDAGOGICAL COMMITTEE MANAGEMENT',
-    'username' => 'Username',
-    'password' => 'Password',
-    'login' => 'Login',
-    'fpass' => 'Forgot your password?',
-    'change_pass' => 'Change your password',
-    'current_pass' => 'Current password',
-    'informations' => 'informations',
-    'info_text' => 'On the one hand, the system allows the administration to properly manage and control the members whose role is to carry out the various educational actions, to set meeting dates, to send out invitations, etc. And on the other hand, it allows the actors (heads of courses, Teachers and Students) to follow the pedagogical operations within the department, namely: the follow-up of the progress of the courses, the completion of the chapters, the programming of the controls continue etc.',
-    'informations' => 'informations',
-    'copy_text' => 'University 8 Mai 1945, Department of Computer Science',
-    'dev_team' => 'Development team <strong> under the supervision of </strong>',
-    'khaled' => 'Dr Khaled HALIMI',
-    'idris' => 'Idris CHAALEL </strong>',
-    'hamed' => 'Hamed KHEBIZI</strong>',
-    
-    /* ADMIN TRRANSLATIONS */
-    
+    /* Index translation */
+    'index_title' => 'Gestion Des CPs | Université 8 Mai 1945 Guelma',
+    'index_header' => 'GESTION DES DOMITES PIDAGOGIQUES',
+    'username' => 'Nom d\'utilisateur',
+    'password' => 'Mot de passe',
+    'login' => 'Connexion',
+    'fpass' => 'Mot de passe oublié ?',
+    'change_pass' => 'Changer le mot de passe',
+    'current_pass' => 'Mot de passe actuel',
+    'informations' => 'Informations',
+    'info_text' => 'Le système permet d\'administrer et de surveiller les membres qui exécutent de nombreuses activités éducatives, de régler les dates des réunions, d\'envoyer des invitations, etc. D\'autre part, il permet aux représentants (chefs de départements, enseignants et étudiants) de suivre les processus éducatifs au sein du département, notamment : suivre la progression des cours, terminer les sessions, programmer les surveillances continues, etc.',
+    'copy_text' => 'Université 8 mai 1945, Département d\'informatique',
+    'dev_team' => 'Équipe de développement <strong>sous la supervision de</strong>',
+    'khaled' => 'Dr Khaled Halimi',
+    'idris' => 'Idris Chaalel</strong>',
+    'hamed' => 'Hamed Khebizi</strong>',
+
+
     /* DASHBOARD */
-    'title' => 'Administrator',
-    'home' => 'Home',
+    'title' => 'Directeur',
+    'home' => 'Accueil',
     'menu' => 'Menu',
-    
+
     /* SIDEBAR */
-    'manage_users' => 'Manage users',
-    'add_user' => 'Add user',
-    'managers' => 'Courses managers',
-    'delegates' => 'Delegates',
-    'teachers' => 'Teachers',
-    'admin' => 'Administrator',
-    'superadmin' => 'Super administrator',
-    
+    'manage_users' => 'Gestion des utilisateurs',
+    'add_user' => 'Ajouter un utilisateur',
+    'managers' => 'Chefs de départements',
+    'delegates' => 'Délégués',
+    'teachers' => 'Enseignants',
+    'admin' => 'Administrateur',
+    'superadmin' => 'Super administrateur',
+
     /* TEACHERS */
-    'manage_teachers' => 'Manage teachers',
-    'teachers_table' => 'Teachers data table.',
-    'manage_promos' => 'Manage promotions',
-    'add_promotion' => 'Add promotion',
-    'manage_modules' => 'Manage modules',
-    'view_cp' => 'Consult All CPs',
-    'consult_all_cp' => 'Consult all modules data for (pedagogical committee)',
-    'consult_modules_data' => 'Consult modules data',
-    'manage_pass' => 'Manage Passwords',
+    'manage_teachers' => 'Gestion des enseignants',
+    'teachers_table' => 'Tableau des enseignants',
+    'manage_promos' => 'Gestion des spécialités',
+    'add_promotion' => 'Ajouter une spécialité',
+    'manage_modules' => 'Gestion des unités d\'enseignement',
+    'view_cp' => 'Afficher tous les comités pédagogiques',
+    'consult_all_cp' => 'Afficher toutes les données des comités pédagogiques',
+    'consult_modules_data' => 'Afficher les données des unités d\'enseignement',
+    'manage_pass' => 'Gestion des mots de passe',
     'messages' => 'Messages',
-    
-    
-    'sort_table' => 'Cliquez sur les en-têtes du tableau pour trier.',
-    'search' => 'Recherche',
-    'sbun' => 'Recherche par nom d\'utilisateur',
-    'msg_info2' => 'Tapez le mot <strong>message</strong> dans la barre de recherche pour voir les messages non lus.',
-    'all_users_pass' => 'Gérer les mots de passe de tous les utilisateurs',
 
-    'not_required' => 'Not required',
-    'edit_user' => 'Edit user',
-    'edit_form_pls' => 'Please edit the form below.',
-    'fill_form_pls' => 'Please fill in the form below.',
 
-    
+    'sort_table' => 'Cliquez sur les entêtes des colonnes pour trier',
+    'search' => 'Rechercher',
+    'sbun' => 'Rechercher par nom d\'utilisateur',
+    'msg_info2' => 'Tapez le mot-clé <strong>Message</strong> dans la barre de recherche pour voir les messages non lus.',
+    'all_users_pass' => 'Gestion des mots de passe de tous les utilisateurs',
+    /* CRUD */
+    'edit' => 'Modifier',
+    'delete' => 'Supprimer',
+
+    /* RESPONSABLES */
+    'managers_table' => 'Tableau des responsables de spécialités de formation',
+    'add_manager' => 'Ajouter un responsable de parcours',
+
+    /* DELEGATES */
+    'add_delegate' => 'Ajouter un délégué',
+
+    /* TEACHER */
+    'teacher_of' => 'Enseignant de ',
+
+    /* PROMOTION */
+    'promotion_tables' => 'Tableaux de promotion',
+    'promotion_name' => 'Nom de la promotion',
+    'promotion_manager' => 'Responsable de la promotion',
+    'select_prom_resp' => 'Sélectionner le responsable de la promotion',
+    'select_promotion' => 'Sélectionner la promotion',
+    'promotion' => 'Promotion',
+    'semester' => 'Semestre',
+    'semester_nb' => 'Numéro du semestre: ',
+    'action' => 'Action',
+    'by' => 'Par',
+
+    'not_required' => 'Non requis',
+    'edit_user' => 'Modifier l\'utilisateur',
+    'edit_form_pls' => 'Veuillez modifier le formulaire ci-dessous.',
+    'fill_form_pls' => 'Veuillez remplir le formulaire ci-dessous.',
+
     /* MODULES */
-    'add_module' => 'Add module',
-    'module_name' => 'Module name',
+    'add_module' => 'Ajouter un module',
+    'module_name' => 'Nom du module',
     'module' => 'Module',
-    'select_mod_prom' => 'Select module promotion',
-    'select_mod_teach' => 'Select module teacher',
+    'select_mod_prom' => 'Sélectionnez la spécialité du module',
+    'select_mod_teach' => 'Sélectionnez l\'enseignant du module',
 
-    'abbr' => 'Abbreviation',
-    'advancment' => 'Advancement status',
+    'abbr' => 'Abréviation',
+    'advancment' => 'Avancement',
 
-    'global_adv' => 'Global advancement',
-    'nb_chap_done_progress'=>'Number of chapters completed / In progress',
-    'n_s_c_done'=>'Number of course sessions completed',
-    'n_s_td_tp_done'=>'Number of TD and TP sessions done',
-    'p_m'=>'Presentations + Microphone',
-    'n_s_ctdtp_not_done'=>'Number of sessions (Course, TD, TP) not done',
-    'presentation_test'=>'Presentations + Tests',
-    'tp_validation'=>'TP Validation',
-    'handout_course'=>'Handout of course',
+    'global_adv' => 'Pourcentage d\'avancement des leçons',
+    'nb_chap_done_progress'=>'Nombre de chapitres terminés/en cours',
+    'n_s_c_done'=>'Nombre de leçons théoriques terminées',
+    'n_s_td_tp_done'=>'Nombre de leçons (travaux pratiques et travaux dirigés) effectuées',
+    'n_s_ctdtp_not_done' => 'Nombre de leçons (travaux pratiques, travaux dirigés et leçons théoriques) non effectuées',
+    'p_m'=>'Présentations + Tests',
+    'presentation_test'=>'Présentations + Tests',
+    'tp_validation'=>'Évaluation des travaux pratiques',
+    'handout_course'=>'Leçons et cours théoriques présentés',
 
-    
-    /* DASHBOARD */
-    'teachers' => 'Teachers',
-    'managers' => 'Courses managers',
-    'delegates' => 'Delegates',
-    
-    /* LOGOUT */
-    'logout' => 'Logout',
-    'logout_message' => 'Are you sure you want to log out?',
-    'cancel' =>'Cancel',
-    'yes' =>'Yes',
+    /* TABLEAU DE BORD */
+    'teachers' => 'Enseignants',
+    'managers' => 'Résponsable de parcours',
+    'delegates' => 'Délégués',
+    /* DÉCONNEXION */
+    'logout' => 'Déconnexion',
+    'logout_message' => 'Êtes-vous sûr de vouloir vous déconnecter?',
+    'cancel' =>'Annuler',
+    'yes' =>'Oui',
 
-    'previous' =>'Previous',
-    'next' =>'Next',
-    'add' =>'Add',
+    'previous' =>'Précédent',
+    'next' =>'Suivant',
+    'add' =>'Ajouter',
 
 
-    /* MODAL ADD USER */
-    'add_user_text' =>'Please fill out this form to create an account.',
-    'full_name' =>'Full name (Firstname Lastname)',
+
+    /* MODAL AJOUTER UN UTILISATEUR */
+    'add_user_text' =>'Veuillez remplir ce formulaire pour créer un compte.',
+    'full_name' =>'Nom complet (Nom prénom)',
     'email' =>'Email',
-    'department' => 'Department',
-    'please_select' => 'Please select',
-    'select_user_type' => 'Please select user type.',
-    'confirm_password'=> 'Confirm password',
-    'fill_the_field' =>'Please fillout this field.',
+    'department' => 'Département',
+    'please_select' => 'Veuillez sélectionner',
+    'select_user_type' => 'Veuillez sélectionner le type d\'utilisateur.',
+    'confirm_password'=> 'Confirmez le mot de passe',
+    'fill_the_field' =>'Veuillez remplir ce champ.',
 
 
-    /* MANAGER SPACE */
-    'add_cp' => 'Schedule CP',
-    'manage_cps' => 'Manage CPs', 
-    'cp_title' => 'CP title', 
-    'cp_datetime' => 'CP date and time', 
-    'cp_location' => 'CP location', 
-    'cp_agenda' => 'CP agenda', 
-    'cp_details' => 'CP details', 
-    'generate_report' => 'Generate report', 
-    'consult' => 'Consult', 
-    'consult_delegates' => 'Consult delegates form', 
 
+    /* ESPACE CHEF DE DÉPARTEMENT */
+    'add_cp' => 'Planifier un CP',
+    'manage_cps' => 'Gérer les CPs',
+    'cp_title' => 'Titre du CP',
+    'cp_datetime' => 'Date et heure du CP',
+    'cp_location' => 'Lieu du CP',
+    'cp_agenda' => 'Ordre du jour du CP',
+    'cp_details' => 'Détails du CP',
+    'generate_report' => 'Générer un rapport',
+    'consult' => 'Consulter',
+    'consult_delegates' => 'Consulter le formulaire des délégués',
 
     /* CP */
-    'status' =>'Status',
-    'desactivated' =>'Desactivated',
-    'activated' =>'Activated',
-    'back' =>'Back',
-    'printr' =>'Print report',
-    'extra_info' =>'Extra informtions',
-    'cp_delete' =>'Are you sure you want to delete this cp?',
-    
-    // etc.
+    'status' =>'Statut',
+    'desactivated' =>'Désactivé',
+    'activated' =>'Activé',
+    'desactivate' =>'Désactiver',
+    'activate' =>'Activer',
+    'back' =>'Retour',
+    'printr' =>'Imprimer le rapport',
+    'extra_info' =>'Informations supplémentaires',
+    'cp_delete' =>'Êtes-vous sûr de vouloir supprimer cette réunion?',
+    'cp_desactivated' => 'Désactivé',
+    'cp_desactivated_msg' => 'La réunion des comités pidagogiques a été désactivée, veuillez contacter le resposable de parcours de cet promotion',
+    'delete_module' => 'Êtes-vous sûr de vouloir supprimer cette unité?',
+    'btn_desplay_mdl_data' => 'Afficher et modifier les données de l\'unité',
+    'completed' => 'Terminé',
+    'not_completed' => 'Non terminé',
+    'please_fill_the_fields' => 'Veuillez remplir les champs avec les informations appropriées',
+
+    'no_data' => 'Aucune donnée disponible',
+    'add_learning_data' => 'Ajouter les données d\'avvancement',
+
+
 ];
 
 ?>

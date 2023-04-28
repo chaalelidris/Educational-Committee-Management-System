@@ -27,7 +27,7 @@
     <!--                                                    breadcrumb                                                       -->
     <ul class="breadcrumb round-large" >
       <li><a href="#"><?=$translations['home']?></a></li>
-      <li>Liste des promotions</li>
+      <li><?=$translations['select_promotion']?></li>
     </ul>
     <hr class="rounded">
 

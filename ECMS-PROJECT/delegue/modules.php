@@ -128,16 +128,11 @@
 
               <?php if($countrowremplis > 0): ?>
 
-                <?php if ($row['cp_status'] == 1) {
-                  ?>
+                <?php if ($row['cp_status'] == 1) :?>
                   <button name="btn_to_mydata_formulaire" class="button green right " >DONNÉS DE MODULE <i class="fa fa-angle-double-right"></i> </button>
-                  <?php
-                }else{
-                  ?>
+                <?php else: ?>
                   <button type="button" class="button green right  btn_cp_info" >DONNÉS DE MODULE <i class="fa fa-angle-double-right"></i> </button>
-
-                  <?php
-                } ?>
+                <?php endif; ?>
 
               <?php else: ?>
                 <?php if ($row['cp_status'] == 1) {

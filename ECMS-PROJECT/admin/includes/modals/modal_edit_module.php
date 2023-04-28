@@ -144,7 +144,7 @@
         </select>
 
         <div class="clearfix-form">
-          <button type="button" class="mdl cancelbtn-form btn_cancel_modif_module">Cancel</button>
+          <button type="button" class="mdl cancelbtn-form btn_cancel_modif_module"><?=$translations['cancel']?></button>
           <button type="submit" name="Modifier_module" class="mdl signupbtn-form">Modifier</button>
         </div>
       </div>

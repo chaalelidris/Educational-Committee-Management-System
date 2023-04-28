@@ -9,17 +9,18 @@
   var modalCpInfo = document.getElementById('idinfo');
 
   // show disconnect modal
-  document.querySelector('#disscon').addEventListener('click', function() {
+  $('#disscon').on('click', function() {
     modal.style.display = "block";
   });
 
-  document.querySelector('#ChangePass').addEventListener('click', function() {
+  $('#ChangePass').on('click', function() {
     modalChangePass.style.display = "block";
   });
 
-  document.querySelector('#btn_cp_info').addEventListener('click', function() {
+  $('.btn_cp_info').on('click', function() {
     modalCpInfo.style.display = "block";
   });
+
 
 
   window.onclick = function(event) {

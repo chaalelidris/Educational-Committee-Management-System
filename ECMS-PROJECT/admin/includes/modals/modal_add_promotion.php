@@ -61,7 +61,7 @@
         </select> <br>
 
         <div class="clearfix-form">
-          <button id="bttn5" type="button"  class="mdl cancelbtn-form">Cancel</button>
+          <button id="bttn5" type="button"  class="mdl cancelbtn-form"><?=$translations['cancel']?></button>
           <button type="submit" name="add_promotion" class="mdl signupbtn-form"><?=$translations['add']?></button>
         </div>
       </div>

@@ -24,16 +24,16 @@ if (isset($_GET['edit'])) {
     $redirect_url = '';
     switch ($_SESSION['current_session']) {
       case 'admin':
-        $redirect_url = '../admin/dashboard.php';
+        $redirect_url = '../admin/dashboard.php?class=show';
         break;
       case 'delegue':
-        $redirect_url = '../admin/gst_delegue.php';
+        $redirect_url = '../admin/gst_delegue.php?class=show';
         break;
       case 'enseignant':
-        $redirect_url = '../admin/gst_enseignant.php';
+        $redirect_url = '../admin/gst_enseignant.php?class=show';
         break;
       case 'responsable':
-        $redirect_url = '../admin/gst_responsable.php';
+        $redirect_url = '../admin/gst_responsable.php?class=show';
         break;
       default:
         // handle error if current session is not recognized
@@ -83,7 +83,7 @@ if (isset($_POST['modifier_utilisateur'])) {
     $_SESSION['show_modal_edit'] = true;
 
     // Redirect back to the appropriate page based on the user type
-    $redirect_url = "gst_{$_SESSION['current_session']}.php";
+    $redirect_url = "gst_{$_SESSION['current_session']}.php?class=show";
     header("location: ../admin/$redirect_url");
     exit();
   } else {
@@ -103,13 +103,12 @@ if (isset($_POST['modifier_utilisateur'])) {
     $_SESSION['email_edit'] = $email;
     $_SESSION['type_edit'] = $type;
     $_SESSION['department_id_edit'] = $department_id;
-
     // Set session variables for displaying success message
     $_SESSION['message_edit_success'] = "L'utilisateur a été modifié avec succès";
     $_SESSION['message_type'] = "green";
 
     // Redirect back to the appropriate page based on the user type
-    $redirect_url = "gst_{$_SESSION['current_session']}.php";
+    $redirect_url = "gst_{$_SESSION['current_session']}.php?class=show";
     header("location: ../admin/$redirect_url");
     exit();
   }

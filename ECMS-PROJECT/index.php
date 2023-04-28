@@ -2,7 +2,7 @@
   session_start();
 
 
-  $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'en';
+  $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : $_SESSION['lang'] = 'en';
   require_once "lang/$lang.php";
 
   $redirect_url = "";
@@ -36,7 +36,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Gestion Des CPs | Université 8 Mai 1945 Guelma</title>
+  <title><?=$translations['index_title']?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <meta name="description" content="Le système de gestion de comité éducatif 
@@ -139,9 +139,9 @@
         </div>
 
         <select class="btn btn-info" id="language-select">
-          <option value="en">English</option>
-          <option value="fr">Français</option>
-          <option value="ar">العربية</option>
+          <option value="en" <?php echo ($_SESSION['lang']=='en' ) ? 'selected' : '' ; ?>>English</option>
+          <option value="fr" <?php echo ($_SESSION['lang']=='fr' ) ? 'selected' : '' ; ?>>Français</option>
+          <option value="ar" <?php echo ($_SESSION['lang']=='ar' ) ? 'selected' : '' ; ?>>العربية</option>
         </select>
 
       </div>
