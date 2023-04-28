@@ -37,7 +37,7 @@
         <label for="username"><b><?=$translations['username']?></b></label>
         <input type="text" value="<?php echo $_SESSION['username_edit']; ?>" placeholder="<?=$translations['username']?>" name="username" id="username" title="veuillez remplir ce champ" required>
 
-        <label for="email"><b>Email</b></label>
+        <label for="email"><b><?=$translations['email']?></b></label>
         <input type="email" value="<?php echo isset($_SESSION['email_edit']) ? $_SESSION['email_edit'] : ''; ?>"  placeholder="<?=$translations['email']?>" name="email" id="email" title="veuillez remplir ce champ" >
 
         <label for="type"><b><?=$translations['select_user_type']?></b></label>
@@ -73,7 +73,7 @@
 
 
         <div class="clearfix-form">
-          <button id="bttn3" type="button"  class="mdl cancelbtn-form">Annuler</button>
+          <button id="bttn3" type="button"  class="mdl cancelbtn-form"><?=$translations['cancel']?></button>
           <button type="submit" name="modifier_utilisateur" class="mdl signupbtn-form"><?=$translations['edit']?></button>
         </div>
       </div>

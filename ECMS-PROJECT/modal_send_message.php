@@ -21,7 +21,7 @@
         <textarea class="input border margin-bottom" name="message" rows="8" cols="80" placeholder="Message" required></textarea>
 
         <div class="section">
-          <a class="button red" onclick="document.getElementById('idSendMessage').style.display='none'">Annuler</i></a>
+          <a class="button red" onclick="document.getElementById('idSendMessage').style.display='none'"><?=$translations['cancel']?></i></a>
           <button class="button blue right"  name="send_message">Envoyer <i class="fa fa-paper-plane"></i></button>
         </div>
       </form>

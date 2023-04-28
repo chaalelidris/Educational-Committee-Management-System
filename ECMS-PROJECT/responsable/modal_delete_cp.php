@@ -11,7 +11,7 @@
       <p><?=$translations['cp_delete']?></p>
         <input type="hidden" name="delete_cp_id" id="delete_cp_id">
         <div class="clearfix-d">
-          <button onclick="document.getElementById('iddcp').style.display='none'" type="button" class="mdl cancelbtn-d">Annuler</button>
+          <button onclick="document.getElementById('iddcp').style.display='none'" type="button" class="mdl cancelbtn-d"><?=$translations['cancel']?></button>
           <button type="submit" name="btn_delete_cp" class="mdl deletebtn-d">Oui</button>
         </div>
     </div>

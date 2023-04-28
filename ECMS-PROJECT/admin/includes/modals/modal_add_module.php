@@ -21,7 +21,7 @@
 
         <hr>
         <label for="name"><b><?=$translations['module_name']?></b></label>
-        <input type="text" placeholder="Entrer le nom de module" name="name" title="veuillez remplir ce champ" required>
+        <input type="text" placeholder="Entrer le <?=$translations['module_name']?>" name="name" title="veuillez remplir ce champ" required>
 
         <label for="abbr"><b><?=$translations['abbr']?></b></label>
         <input type="text" placeholder="Abbreviation   EX: BDD" name="abbr" title="veuillez remplir ce champ" required>

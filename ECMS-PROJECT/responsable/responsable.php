@@ -77,7 +77,7 @@
         ?>
 
 
-        <p class="title"><strong style="color:rgb(255, 68, 68)">Responsable de la promotion </strong> <p
+        <p class="title"><strong style="color:rgb(255, 68, 68)"><?=$translations['promotion_manager']?> </strong> <p
             style="color:rgba(0, 0, 0, 0.9)">
             <?php echo htmlspecialchars($_SESSION['responsable_prom_name'], ENT_QUOTES); ?>
           </p></p>

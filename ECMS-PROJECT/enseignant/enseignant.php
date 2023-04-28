@@ -68,8 +68,8 @@
 
         <div
           class="container light-grey card-4 round-xxlarge padding-large margin-bottom <?php echo $countrowremplis > 0 ? 'pale-green' : 'pale-red'; ?>">
-          <p class="right">Statut: <span class="tag <?php echo $countrowremplis > 0 ? 'green' : 'red'; ?> round-large">
-              <?php echo $countrowremplis > 0 ? 'Terminé' : 'Pas Terminé'; ?>
+          <p class="right"><?=$translations['status']?>: <span class="tag <?php echo $countrowremplis > 0 ? 'green' : 'red'; ?> round-large">
+              <?php echo $countrowremplis > 0 ? $translations['completed'] : $translations['not_completed'] ?>
             </span></p>
 
           <h1>
@@ -119,8 +119,7 @@
             <input type="hidden" name="promname" value="<?php echo $rowprom['prom_name']; ?>">
 
             <?php if($countrowremplis > 0): ?>
-              <button name="btn_to_mydata_formulaire" class="button green right round-large">AFFICHER ET MODIFIER LES DONNÉS
-                DE MON MODULE <i class="fa fa-angle-double-right"></i> </button>
+              <button name="btn_to_mydata_formulaire" class="button green right round-large"><?=$translations['btn_desplay_mdl_data']?> <i class="fa fa-angle-double-right"></i> </button>
             <?php else: ?>
 
               <?php if ($row['cp_status'] == 1): ?>
@@ -171,7 +170,7 @@
 
       <!-- PROFILE -->
       <div class="card_prf theme-light padding round-xxlarge">
-        <h3 class="center">Nom D'utilisateur : <span class="text-gray"><?= $_SESSION['enseignant_user_name'] ?></span></h3>
+        <h3 class="center"><?=$translations['username']?> : <span class="text-gray"><?= $_SESSION['enseignant_user_name'] ?></span></h3>
         <h3><?= $_SESSION['enseignant_user_fullname'] ?></h3>
         <?php
           $idens = $_SESSION['enseignant_user_id'];
@@ -180,7 +179,7 @@
         <p class="title"><strong style="color:rgb(252, 87, 87);"><?=$translations['teacher_of']?></strong></p>
         <?php while ($row = mysqli_fetch_assoc($query)): ?>
           <div class="border round-large">
-            <span class="text-gray"><strong>Nom:</strong> <?= $row['modl_name'] ?> |<strong> promotion: </strong>   <?=$row['prom_name'] ?> |<strong> <?=$translations['semester']?>: </strong> <?=$row['modl_semestre']?> </span>
+            <span class="text-gray"><strong><?=$translations['module_name']?>:</strong> <?= $row['modl_name'] ?> |<strong> <?=$translations['promotion_name']?>: </strong>   <?=$row['prom_name'] ?> |<strong> <?=$translations['semester']?>: </strong> <?=$row['modl_semestre']?> </span>
           </div>
           
           <?php endwhile; ?>

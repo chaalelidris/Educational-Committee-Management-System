@@ -11,7 +11,7 @@
       <input type="hidden" name="change_password" id="change_password">
 
       <label for="password"><b>Mot de passe</b></label>
-      <input type="password" placeholder="Entrer le mot de passe" name="password" title="veuillez remplir ce champ"
+      <input type="password" placeholder="<?=$translations['password']?>" name="password" title="veuillez remplir ce champ"
         required>
 
       <label for="password-repeat"><b><?=$translations['confirm_password']?></b></label>
@@ -20,8 +20,8 @@
 
       <div class="clearfix-form">
         <button onclick="document.getElementById('id13').style.display='none'" type="button"
-          class="mdl cancelbtn-form">Annuler</button>
-        <button type="submit" name="edit_pass" class="mdl signupbtn-form">Changer</button>
+          class="mdl cancelbtn-form"><?=$translations['cancel']?></button>
+        <button type="submit" name="edit_pass" class="mdl signupbtn-form"><?=$translations['edit']?></button>
       </div>
     </div>
   </form>

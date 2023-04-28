@@ -19,7 +19,7 @@
         <label for="username"><b><?=$translations['username']?></b></label>
         <input type="text" value="<?php echo $_SESSION['username_edit']; ?>" placeholder="<?=$translations['username']?>" name="username" id="username" title="veuillez remplir ce champ" required>
 
-        <label for="email"><b>Email</b></label>
+        <label for="email"><b><?=$translations['email']?></b></label>
         <input type="email" value="<?php echo $_SESSION['email_edit']; ?>" placeholder="<?=$translations['email']?>" name="email" id="email" title="veuillez remplir ce champ" >
 
         <label for="promid"><b>promotion</b></label> <br>

@@ -187,7 +187,7 @@
               <?php foreach ($labels as $i => $label): ?>
                 <tr>
                   <td><?php echo $label; ?></td>
-                  <td>aucun donnés</td>
+                  <td><?=$translations['no_data']?></td>
                 </tr>
               <?php endforeach; ?>
 

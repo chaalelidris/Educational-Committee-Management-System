@@ -148,7 +148,7 @@
           </div>
 
           <div class="row">
-            <input class="input_submit_actcp" name="modifier_cp" type="submit" value="Soumettre">
+            <input class="input_submit_actcp" name="modifier_cp" type="submit" value="save">
           </div>
         </form>
       </div>

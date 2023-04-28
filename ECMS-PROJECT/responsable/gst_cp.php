@@ -76,10 +76,10 @@
           <table class="table-all hoverable" id="myTable_del">
             <tr>
               <th class="pntr" onclick="sortTable(0)">ID</th>
-              <th class="pntr" onclick="sortTable(1)">Titre CP</th>
-              <th class="pntr" onclick="sortTable(2)">Date et Heure</th>
+              <th class="pntr" onclick="sortTable(1)"><?=$translations['cp_title']?></th>
+              <th class="pntr" onclick="sortTable(2)"><?=$translations['cp_datetime']?></th>
               <th class="pntr" onclick="sortTable(3)"><?=$translations['cp_location']?></th>
-              <th class="pntr" onclick="sortTable(4)">Semestre</th>
+              <th class="pntr" onclick="sortTable(4)"><?=$translations['semester']?></th>
               <th class="pntr" onclick="sortTable(5)"><?=$translations['cp_agenda']?></th>
               <th class="pntr" onclick="sortTable(5)"><?=$translations['cp_details']?></th>
               <th class="pntr" onclick="sortTable(5)"><?=$translations['extra_info']?></th>
@@ -107,9 +107,9 @@
                     <td><p class="round-xxlarge <?php echo $row['cp_status'] == '1' ? 'green' : 'red'; ?>"><?php echo $row['cp_status'] == '1' ? $translations['activated'] : $translations['desactivated']; ?></p></td>
                     <td>
                       <?php if ($row['cp_status'] == 1): ?>
-                        <a class="button yellow hover-yellow round-large margin-right" href="activer_cp.php?desactiv_cp=<?= htmlspecialchars($row['cp_id']) ?>"> <?=$translations['desactivated']?> </a>
+                        <a class="button yellow hover-yellow round-large margin-right" href="activer_cp.php?desactiv_cp=<?= htmlspecialchars($row['cp_id']) ?>"> <?=$translations['desactivate']?> </a>
                       <?php elseif ($row['cp_status'] == 0): ?>
-                        <a class="button blue round-large margin-right" href="activer_cp.php?activer_cp=<?= htmlspecialchars($row['cp_id']) ?>"> <?=$translations['activated']?> </a>
+                        <a class="button blue round-large margin-right" href="activer_cp.php?activer_cp=<?= htmlspecialchars($row['cp_id']) ?>"> <?=$translations['activate']?> </a>
                       <?php endif; ?>
                     </td>
                     <td><a class="button green round-large" href="edit_cp.php?edit=<?= htmlspecialchars($row['cp_id']) ?>"><?=$translations['edit']?></a></td>

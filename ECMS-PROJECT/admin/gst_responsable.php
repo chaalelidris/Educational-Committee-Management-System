@@ -51,7 +51,7 @@
             <th class="pntr" onclick="sortTable(0)">ID</th>
             <th class="pntr" onclick="sortTable(1)"><?=$translations['full_name']?></th>
             <th class="pntr" onclick="sortTable(2)"><?=$translations['username']?></th>
-            <th class="pntr" onclick="sortTable(3)">Email</th>
+            <th class="pntr" onclick="sortTable(3)"><?=$translations['email']?></th>
             <th colspan="2"><?=$translations['action']?></th>
           </tr>
 

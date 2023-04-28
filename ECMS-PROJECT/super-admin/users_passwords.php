@@ -75,29 +75,25 @@
           <?php
         $sql = "SELECT * FROM tbl_users WHERE user_type='admin' order by user_type desc";
         $result = mysqli_query($con, $sql);
-        while ($row = mysqli_fetch_array($result)) {
-          echo'<tr>';
-            echo'<td>'.$row['user_id'].'</td>';
-            echo'<td>'.$row['user_name'].'</td>';
+        while ($row = mysqli_fetch_array($result)): ?>
+          <tr>';
+            <td><?=$row['user_id']?> </td>';
+            <td><?=$row['user_name']?> </td>';
 
-            if ($row['user_type'] == 1) {
-              echo'<td>responsable</td>';
-            }elseif ($row['user_type'] == 2) {
-              echo'<td>enseignant</td>';
-            }elseif ($row['user_type'] == 3) {
-              echo'<td>delege</td>';
-            }elseif ($row['user_type'] == 'admin') {
-              echo'<td>Administrateur</td>';
-            }
+            <?php if ($row['user_type'] == 1):?> 
+              <td><?=$translations['managers']?> </td>
+            <?php elseif ($row['user_type'] == 2):?> 
+              <td><?=$translations['teachers']?></td>
+            <?php elseif ($row['user_type'] == 3):?> 
+              <td><?=$translations['delegates']?></td>
+            <?php elseif ($row['user_type'] == 'admin'):?> 
+              <td><?=$translations['admin']?></td>
+            <?php endif;?> 
 
-            // $pass = mysqli_real_escape_string($con, $row['user_pass']);
-            // echo'<td>'.$pass.'</td>';
+            echo '<td class="mod_bg changepass"><ahref="#" ><?=$translations['edit']?></a></td>';
 
-            echo '<td class="mod_bg changepass"><a  href="#" >Changer</a></td>';
-
-          echo'</tr>';
-        }
-        ?>
+          </tr>';
+        <?php endwhile;?>
 
         </table>
       </div>

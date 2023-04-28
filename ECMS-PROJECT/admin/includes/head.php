@@ -9,7 +9,7 @@ if (empty($_SESSION['admin_user_id'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en" dir=<?=$_SESSION['lang']=='ar'?'rtl':'ltr'?>>
+<html lang="en" >
 
 <head>
   <meta charset="utf-8">

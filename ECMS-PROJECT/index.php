@@ -30,7 +30,7 @@
   }
   ?>
 <!doctype html>
-<html class="no-js" dir=<?=$_SESSION['lang']=='ar'?'rtl':'ltr'?>>
+<html class="no-js" >
 
 <head>
   <meta charset="utf-8">

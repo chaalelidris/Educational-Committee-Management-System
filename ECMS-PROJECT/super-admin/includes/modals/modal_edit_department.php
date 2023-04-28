@@ -53,7 +53,7 @@
         </select>
 
         <div class="clearfix-form">
-          <button type="button" class="mdl cancelbtn-form btn_cancel_modif_departement">Annuler</button>
+          <button type="button" class="mdl cancelbtn-form btn_cancel_modif_departement"><?=$translations['cancel']?></button>
           <button type="submit" name="edit_department" class="mdl signupbtn-form">Modifier</button>
         </div>
       </div>

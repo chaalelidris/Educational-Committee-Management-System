@@ -60,18 +60,18 @@
 
         <div class="tab_form_ms"><?=$translations['n_s_c_done']?>:
           <p><input name="nbr_seances" class="input_form_ms" placeholder="<?=$translations['n_s_c_done']?>..." ></p>
-          Nombre de séances de TD et TP faites:
-          <p><input name="nbr_seances_tdtp" class="input_form_ms" placeholder="Nombre de séances de TD et TP faites..." ></p>
-          Nombre de séances (Cours, TD, TP) non faites:
-          <p><input name="nbr_ceances_ctdtp_no" class="input_form_ms" placeholder="Nombre de séances (Cours, TD, TP) non faites..." ></p>
+          <?=$translations['n_s_td_tp_done']?>:
+          <p><input name="nbr_seances_tdtp" class="input_form_ms" placeholder="<?=$translations['n_s_td_tp_done']?>..." ></p>
+          <?=$translations['n_s_ctdtp_not_done']?>:
+          <p><input name="nbr_ceances_ctdtp_no" class="input_form_ms" placeholder="<?=$translations['n_s_ctdtp_not_done']?>..." ></p>
         </div>
 
-        <div class="tab_form_ms">Exposés + Micro:
-          <p><input name="exps_micro" class="input_form_ms" placeholder="Exposés + Micro..." ></p>
-          Validation de TP:
-          <p><input name="valid_tp" class="input_form_ms" placeholder="Validation de TP..." ></p>
-          Polycopie de cours:
-          <p><input name="Polycopie_cours" class="input_form_ms" placeholder="Polycopie de cours..." ></p>
+        <div class="tab_form_ms"><?=$translations['p_m']?>:
+          <p><input name="exps_micro" class="input_form_ms" placeholder="<?=$translations['p_m']?>..." ></p>
+          <?=$translations['tp_validation']?>:
+          <p><input name="valid_tp" class="input_form_ms" placeholder="<?=$translations['tp_validation']?>..." ></p>
+          <?=$translations['handout_course']?>:
+          <p><input name="Polycopie_cours" class="input_form_ms" placeholder="<?=$translations['handout_course']?>..." ></p>
         </div>
 
         <!-- <div class="tab_form_ms">Login Info:
@@ -130,7 +130,7 @@
         document.getElementById("#prevBtn_form_ms").style.display = "inline";
       }
       if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").innerHTML = "Soumettre";
+        document.getElementById("nextBtn").innerHTML = "save";
       } else {
         document.getElementById("nextBtn").innerHTML = "<?=$translations['next']?>";
       }

@@ -48,7 +48,7 @@
       <table class="table-all centered hoverable " id="myTable">
         <tr>
           <th class="pntr" onclick="sortTable(0)">ID</th>
-          <th class="pntr" onclick="sortTable(1)">Nom module</th>
+          <th class="pntr" onclick="sortTable(1)"><?=$translations['module_name']?></th>
           <th class="pntr" onclick="sortTable(2)"><?=$translations['abbr']?> </th>
           <th class="pntr" onclick="sortTable(3)"><?=$translations['promotion']?></th>
           <th class="pntr" onclick="sortTable(4)"><?=$translations['semester']?></th>

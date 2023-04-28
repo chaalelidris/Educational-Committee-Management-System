@@ -100,11 +100,11 @@ $translations = [
     'nb_chap_done_progress'=>'Number of chapters completed / In progress',
     'n_s_c_done'=>'Number of course sessions completed',
     'n_s_td_tp_done'=>'Number of TD and TP sessions done',
-    'p_m'=>'Presentations + Microphone',
     'n_s_ctdtp_not_done'=>'Number of sessions (Course, TD, TP) not done',
+    'p_m'=>'Presentations + Tests',
     'presentation_test'=>'Presentations + Tests',
     'tp_validation'=>'TP Validation',
-    'handout_course'=>'Handout of course',
+    'handout_course'=>'Provided courses and lessons',
 
     
     
@@ -154,10 +154,23 @@ $translations = [
     'status' =>'Status',
     'desactivated' =>'Desactivated',
     'activated' =>'Activated',
+    'desactivate' =>'Desactivate',
+    'activate' =>'Activate',
     'back' =>'Back',
     'printr' =>'Print report',
     'extra_info' =>'Extra informtions',
     'cp_delete' =>'Are you sure you want to delete this cp?',
+    'cp_desactivated' =>'CP desactivated',
+    'cp_desactivated_msg' =>'This CP is desactivated plase contact courses manager !',
+
+    'delete_module' => 'Are you sure you want to delete this module?',
+    'btn_desplay_mdl_data' => 'Show and edit module data',
+    'completed' => 'completed',
+    'not_completed' => 'not completed',
+    'please_fill_the_fields' => 'please fill in the fields with the appropriate informations',
+
+    'no_data' => 'No data available',
+
     
     // etc.
 ];

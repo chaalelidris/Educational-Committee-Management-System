@@ -167,31 +167,31 @@
               </td>
             </tr>
             <tr>
-              <td>Nombre de séances de TD et TP faites</td>
+              <td><?=$translations['n_s_td_tp_done']?></td>
               <td>
                 <?php echo $row3['data_nbr_tdtp']; ?>
               </td>
             </tr>
             <tr>
-              <td>Nombre de séances (Cours, TD, TP) non faites</td>
+              <td><?=$translations['n_s_ctdtp_not_done']?></td>
               <td>
                 <?php echo $row3['data_nbr_crtdtp']; ?>
               </td>
             </tr>
             <tr>
-              <td>Exposés + Micro</td>
+              <td><?=$translations['p_m']?></td>
               <td>
                 <?php echo $row3['data_exps_micro']; ?>
               </td>
             </tr>
             <tr>
-              <td>Validation de TP </td>
+              <td><?=$translations['tp_validation']?> </td>
               <td>
                 <?php echo $row3['data_valid_tp']; ?>
               </td>
             </tr>
             <tr>
-              <td>Polycopie de cours </td>
+              <td><?=$translations['handout_course']?> </td>
               <td>
                 <?php echo $row3['data_polycp_cour']; ?>
               </td>
@@ -207,35 +207,35 @@
             </tr>
             <tr>
               <td><?=$translations['global_adv']?></td>
-              <td>aucun donnés</td>
+              <td><?=$translations['no_data']?></td>
             </tr>
             <tr>
               <td><?=$translations['nb_chap_done_progress']?></td>
-              <td>aucun donnés</td>
+              <td><?=$translations['no_data']?></td>
             </tr>
             <tr>
               <td><?=$translations['n_s_c_done']?></td>
-              <td>aucun donnés</td>
+              <td><?=$translations['no_data']?></td>
             </tr>
             <tr>
-              <td>Nombre de séances de TD et TP faites</td>
-              <td>aucun donnés</td>
+              <td><?=$translations['n_s_td_tp_done']?></td>
+              <td><?=$translations['no_data']?></td>
             </tr>
             <tr>
-              <td>Nombre de séances (Cours, TD, TP) non faites</td>
-              <td>aucun donnés</td>
+              <td><?=$translations['n_s_ctdtp_not_done']?></td>
+              <td><?=$translations['no_data']?></td>
             </tr>
             <tr>
-              <td>Exposés + Micro</td>
-              <td>aucun donnés</td>
+              <td><?=$translations['p_m']?></td>
+              <td><?=$translations['no_data']?></td>
             </tr>
             <tr>
-              <td>Validation de TP </td>
-              <td>aucun donnés</td>
+              <td><?=$translations['tp_validation']?> </td>
+              <td><?=$translations['no_data']?></td>
             </tr>
             <tr>
-              <td>Polycopie de cours </td>
-              <td>aucun donnés</td>
+              <td><?=$translations['handout_course']?> </td>
+              <td><?=$translations['no_data']?></td>
             </tr>
             <!-- end rowspan -->
           </table>

@@ -15,7 +15,7 @@
 
         <input type="hidden" name="delete_user_id" id="delete_user_id">
         <div class="clearfix-d">
-          <button onclick="document.getElementById('id03').style.display='none'" type="button" class="mdl cancelbtn-d">Annuler</button>
+          <button onclick="document.getElementById('id03').style.display='none'" type="button" class="mdl cancelbtn-d"><?=$translations['cancel']?></button>
           <button type="submit" name="btn_delete" class="mdl deletebtn-d">Oui</button>
         </div>
     </div>

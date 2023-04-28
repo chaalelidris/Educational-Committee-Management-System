@@ -132,31 +132,31 @@
               </td>
             </tr>
             <tr>
-              <td>Nombre de séances de TD et TP faites</td>
+              <td><?=$translations['n_s_td_tp_done']?></td>
               <td>
                 <?php echo $row['data_nbr_tdtp']; ?>
               </td>
             </tr>
             <tr>
-              <td>Nombre de séances (Cours, TD, TP) non faites</td>
+              <td><?=$translations['n_s_ctdtp_not_done']?></td>
               <td>
                 <?php echo $row['data_nbr_crtdtp']; ?>
               </td>
             </tr>
             <tr>
-              <td>Exposés + Micro</td>
+              <td><?=$translations['p_m']?></td>
               <td>
                 <?php echo $row['data_exps_micro']; ?>
               </td>
             </tr>
             <tr>
-              <td>Validation de TP </td>
+              <td><?=$translations['tp_validation']?> </td>
               <td>
                 <?php echo $row['data_valid_tp']; ?>
               </td>
             </tr>
             <tr>
-              <td>Polycopie de cours </td>
+              <td><?=$translations['handout_course']?> </td>
               <td>
                 <?php echo $row['data_polycp_cour']; ?>
               </td>
@@ -170,10 +170,10 @@
           <input type="hidden" name="mdlname" value="<?php echo $rowMdlData['modl_name']; ?>">
 
           <?php if ($rowcp_TS['cp_status'] == 1): ?>
-          <button name="btn_to_modifier_formulaire" class="button green right margin round-large">MODIFIER LES DONNÉS <i
+          <button name="btn_to_modifier_formulaire" class="button green right margin round-large"><?=$translations['edit']?> <i
               class="fa fa-pencil"></i> </button>
           <?php else: ?>
-          <button type="button" id="btn_cp_info" class="button green margin right round-large">MODIFIER LES DONNÉS <i
+          <button type="button" id="btn_cp_info" class="button green margin right round-large"><?=$translations['edit']?> <i
               class="fa fa-pencil"></i> </button>
           <?php endif; ?>
 

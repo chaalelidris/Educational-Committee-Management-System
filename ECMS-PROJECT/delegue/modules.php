@@ -83,7 +83,7 @@
 
           <?php if($countrowremplis > 0): ?>
           <div class="container " style="padding-bottom:20px;margin-bottom:20px;background-color:rgba(54, 245, 102, 0.38)">
-          <p class="right">Statut: <span class="tag" style="background-color:rgba(0, 218, 94, 0.86)">Terminé</span></p>
+          <p class="right"><?=$translations['status']?>: <span class="tag" style="background-color:rgba(0, 218, 94, 0.86)"><?=$translations['completed']?></span></p>
           <?php else: ?>
             <div class="container" style="padding-bottom:20px;margin-bottom:20px;background-color:rgba(255, 80, 80, 0.3)">
           <?php endif; ?>

@@ -107,7 +107,7 @@
               <td><?=$translations['superadmin']?></td>
             <?php endif; ?>
 
-            <td class="mod_bg changepass"><a  href="#" >Changer</a></td>
+            <td class="mod_bg changepass"><a  href="#" ><?=$translations['edit']?></a></td>
 
           </tr>
         <?php endwhile; ?>

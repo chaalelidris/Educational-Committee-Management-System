@@ -83,7 +83,7 @@
         <label for="password"><b>
             <?=$translations['password']?>
           </b></label>
-        <input type="password" placeholder="Entrer le mot de passe" name="password"
+        <input type="password" placeholder="<?=$translations['password']?>" name="password"
           title="<?=$translations['fill_the_field']?>" required>
 
         <label for="password-repeat"><b>

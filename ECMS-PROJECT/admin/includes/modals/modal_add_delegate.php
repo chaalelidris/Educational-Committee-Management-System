@@ -28,7 +28,7 @@
         <label for="username"><b><?=$translations['username']?></b></label>
         <input type="text" placeholder="<?=$translations['username']?>" name="username" title="veuillez remplir ce champ" required>
 
-        <label for="email"><b>Email</b><span style="opacity:0.8;color:rgb(244, 121, 132);">  ( <?=$translations['not_required']?> )</span></label>
+        <label for="email"><b><?=$translations['email']?></b><span style="opacity:0.8;color:rgb(244, 121, 132);">  ( <?=$translations['not_required']?> )</span></label>
         <input type="email" placeholder="<?=$translations['email']?>" name="email"  title="veuillez remplir ce champ" >
 
         <label for="promid"><b><?=$translations['select_promotion']?></b></label> <br>
@@ -57,7 +57,7 @@
         </select> <br>
 
         <label for="password"><b>Mot de passe</b></label>
-        <input type="password" placeholder="Entrer le mot de passe" name="password" title="veuillez remplir ce champ" required>
+        <input type="password" placeholder="<?=$translations['password']?>" name="password" title="veuillez remplir ce champ" required>
 
         <label for="password-repeat"><b><?=$translations['confirm_password']?></b></label>
         <input type="password" placeholder="<?=$translations['confirm_password']?>" name="password_repeat" title="veuillez remplir ce champ" required>

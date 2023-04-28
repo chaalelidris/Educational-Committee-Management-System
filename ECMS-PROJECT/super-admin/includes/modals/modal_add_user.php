@@ -28,7 +28,7 @@
       <label for="username"><b><?=$translations['username']?></b></label>
       <input type="text" placeholder="<?=$translations['username']?>" name="username" title="Veuillez remplir ce champ" value="<?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>" required>
 
-      <label for="email"><b>Email</b></label>
+      <label for="email"><b><?=$translations['email']?></b></label>
       <input type="email" placeholder="<?=$translations['email']?>" name="email"  title="Veuillez remplir ce champ" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>">
 
       <label for="option"><b>Sélectionner le type d'utilisateur</b></label>
@@ -38,13 +38,13 @@
       </select> <br>
 
       <label for="password"><b>Mot de passe</b></label>
-      <input type="password" placeholder="Entrer le mot de passe" name="password" title="Veuillez remplir ce champ" required>
+      <input type="password" placeholder="<?=$translations['password']?>" name="password" title="Veuillez remplir ce champ" required>
 
       <label for="password-repeat"><b><?=$translations['confirm_password']?></b></label>
       <input type="password" placeholder="<?=$translations['confirm_password']?>" name="password_repeat" title="Veuillez remplir ce champ" required>
 
       <div class="clearfix-form">
-        <button id="bttn1" type="button"  class="mdl cancelbtn-form">Annuler</button>
+        <button id="bttn1" type="button"  class="mdl cancelbtn-form"><?=$translations['cancel']?></button>
         <button type="submit" name="add_admin" class="mdl signupbtn-form"><?=$translations['add']?></button>
       </div>
     </div>

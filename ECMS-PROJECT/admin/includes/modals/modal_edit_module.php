@@ -36,8 +36,8 @@
         <input type="hidden" name="id" value="<?php echo $_SESSION['id_edit']; ?>">
 
         <hr>
-        <label for="name"><b>nom de module</b></label>
-        <input type="text" placeholder="Entrer le nom de module" name="name"
+        <label for="name"><b><?=$translations['module_name']?></b></label>
+        <input type="text" placeholder="Entrer le <?=$translations['module_name']?>" name="name"
           value="<?php echo $_SESSION['name_edit']; ?>" title="veuillez remplir ce champ" required>
 
         <label for="abbr"><b>
@@ -46,7 +46,7 @@
         <input type="text" placeholder="Abbreviation EX: BDD" name="abbr" value="<?= $_SESSION['abbr_edit']; ?>"
           title="veuillez remplir ce champ" required>
 
-        <label for="promid"><b>Promotion de la module</b></label> <br>
+        <label for="promid"><b><?=$translations['select_mod_prom']?></b></label> <br>
         <select class="select border list_resp" name="promid" style="width:100%;" required>
 
           <?php

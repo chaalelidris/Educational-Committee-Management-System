@@ -59,7 +59,7 @@
 
       <form id="regForm_form_ms" action="edit_data.php" method="post" class="">
 
-        <h1 class="h1_form_ms">Veuillez modifier les champs s'il vous plaît.</h1>
+        <h1 class="h1_form_ms"><?=$translations['please_fill_the_fields']?></h1>
         <h2 for=""><?=$translations['module']?> <?php echo $_SESSION['mdl_mdlname']; ?></h2>
 
         <!-- One "tab" for each step in the form: -->
@@ -71,18 +71,18 @@
 
         <div class="tab_form_ms"><?=$translations['n_s_c_done']?>:
           <p><input value="<?php echo $_SESSION['sess_data6']; ?>" name="nbr_seances" class="input_form_ms" placeholder="<?=$translations['n_s_c_done']?>..." ></p>
-          Nombre de séances de TD et TP faites:
-          <p><input value="<?php echo $_SESSION['sess_data5']; ?>" name="nbr_seances_tdtp" class="input_form_ms" placeholder="Nombre de séances de TD et TP faites..." ></p>
-          Nombre de séances (Cours, TD, TP) non faites:
-          <p><input value="<?php echo $_SESSION['sess_data4']; ?>" name="nbr_ceances_ctdtp_no" class="input_form_ms" placeholder="Nombre de séances (Cours, TD, TP) non faites..." ></p>
+          <?=$translations['n_s_td_tp_done']?>:
+          <p><input value="<?php echo $_SESSION['sess_data5']; ?>" name="nbr_seances_tdtp" class="input_form_ms" placeholder="<?=$translations['n_s_td_tp_done']?>..." ></p>
+          <?=$translations['n_s_ctdtp_not_done']?>:
+          <p><input value="<?php echo $_SESSION['sess_data4']; ?>" name="nbr_ceances_ctdtp_no" class="input_form_ms" placeholder="<?=$translations['n_s_ctdtp_not_done']?>..." ></p>
         </div>
 
-        <div class="tab_form_ms">Exposés + Micro:
-          <p><input value="<?php echo $_SESSION['sess_data3']; ?>" name="exps_micro" class="input_form_ms" placeholder="Exposés + Micro..." ></p>
-          Validation de TP:
-          <p><input value="<?php echo $_SESSION['sess_data2']; ?>" name="valid_tp" class="input_form_ms" placeholder="Validation de TP..." ></p>
-          Polycopie de cours:
-          <p><input value="<?php echo $_SESSION['sess_data1']; ?>" name="Polycopie_cours" class="input_form_ms" placeholder="Polycopie de cours..." ></p>
+        <div class="tab_form_ms"><?=$translations['p_m']?>:
+          <p><input value="<?php echo $_SESSION['sess_data3']; ?>" name="exps_micro" class="input_form_ms" placeholder="<?=$translations['p_m']?>..." ></p>
+          <?=$translations['tp_validation']?>:
+          <p><input value="<?php echo $_SESSION['sess_data2']; ?>" name="valid_tp" class="input_form_ms" placeholder="<?=$translations['tp_validation']?>..." ></p>
+          <?=$translations['handout_course']?>:
+          <p><input value="<?php echo $_SESSION['sess_data1']; ?>" name="Polycopie_cours" class="input_form_ms" placeholder="<?=$translations['handout_course']?>..." ></p>
         </div>
 
         <!-- <div class="tab_form_ms">Login Info:
@@ -142,7 +142,7 @@
         document.getElementById("#prevBtn_form_ms").style.display = "inline";
       }
       if (n == (x.length - 1)) {
-        document.getElementById("nextBtn").innerHTML = "Soumettre";
+        document.getElementById("nextBtn").innerHTML = "save";
       } else {
         document.getElementById("nextBtn").innerHTML = "<?=$translations['next']?>";
       }
