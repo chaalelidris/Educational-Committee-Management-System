@@ -6,8 +6,8 @@
     <form class="modal-content animate-zoom" action="add_department.php" method="post">
       <div class="container-form">
         <span id="bttn4" class="close-d" title="Fermer le Modal">&times;</span>
-        <h1 style="color:#191923;">Ajouter un département</h1>
-        <p>Veuillez remplir ce formulaire pour créer un département.</p>
+        <h1 style="color:#191923;"><?=$translations['add_dep']?></h1>
+        <p><?=$translations['fill_form_pls']?></p>
 
         <!-- alert -->
         <?php if (isset($_SESSION['message'])): ?>
@@ -21,23 +21,23 @@
         <?php endif; ?>
 
         <hr>
-        <label for="department_name"><b>Nom du département</b></label>
+        <label for="department_name"><b><?=$translations['dep_name']?></b></label>
         <input class="round-large" type="text" placeholder="Entrer le nom du département" name="department_name"
           title="veuillez remplir ce champ"
           value="<?php echo isset($_SESSION['department_name']) ? $_SESSION['department_name'] : ''; ?>" required>
 
-        <label for="department_abbr"><b>Abbréviation du département</b></label>
+        <label for="department_abbr"><b><?=$translations['abbr']?></b></label>
         <input class="round-large" type="text" placeholder="Entrer l'abbréviation du département" name="department_abbr"
           title="veuillez remplir ce champ"
           value="<?php echo isset($_SESSION['department_abbr']) ? $_SESSION['department_abbr'] : ''; ?>" required>
 
-        <label for="department_description"><b>Description de département</b></label>
+        <label for="department_description"><b><?=$translations['dep_desc']?></b></label>
         <textarea class="input margin-bottom round-large" style="background-color: #f1f1f1;"
           placeholder="Entrer la description de département" name="department_description"
           title="veuillez remplir ce champ"
           required><?php echo isset($_SESSION['department_description']) ? $_SESSION['department_description'] : 'No description'; ?></textarea>
 
-        <label for="admin_id"><b>Sélectionner l'administrateur du département</b></label> <br>
+        <label for="admin_id"><b><?=$translations['dep_admin']?></b></label> <br>
         <select class="select border list_resp" name="admin_id" style="width:100%;">
           <?php
           $sql = "SELECT * FROM tbl_users WHERE user_type= 'admin'";

@@ -10,12 +10,10 @@
   <?php if (isset($_GET["class"])):?>
   <a id="sideacc" class="bar-item button hover-primary round-large greenn" href="#"><i class="fa fa-users"
       aria-hidden="true"></i>
-    Gestion des admins <span class="tag red round right"></span></a>
+      <?=$translations['manage_admins']?> <span class="tag red round right"></span></a>
   <div id="demoAcc" class="bar-block <?php echo $_GET['class']; ?> " style="font-size: 16px;">
     <?php else :?>
-    <a id="sideacc" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-users"
-        aria-hidden="true"></i> Gestion
-      des administrateurs <span class="tag red round right"></span></a>
+    <a id="sideacc" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-users" aria-hidden="true"></i><?=$translations['manage_admins']?><span class="tag red round right"></span></a>
     <div id="demoAcc" class="bar-block m-2 hide" style="font-size: 16px;">
       <?php endif;?>
       <a class="bar-item button text-white mb-2 hover-primary round-large acc_stl btn_add_user"><i class="fa fa-plus"> Ajouter  administrateur</i></a>
@@ -25,26 +23,23 @@
 
     <?php if (isset($_GET["class_pr"])):?>
     <a id="sideacc_pr" class="bar-item button hover-primary round-large greenn" href="#"><i class="fa fa-level-up"
-        aria-hidden="true"></i> Gestion des departements <span class="tag red round right"></span></a>
+        aria-hidden="true"></i> <?=$translations['manage_departments']?> <span class="tag red round right"></span></a>
     <div id="demoAcc_pr" class="bar-block white <?php echo $_GET['class_pr']; ?> " style="font-size: 16px;">
       <?php else :?>
       <a id="sideacc_pr" class="bar-item button hover-primary round-large " href="#"><i class="fa fa-level-up"
-          aria-hidden="true"></i>
-        Gestion des departements <span class="tag red round right"></span></a>
+          aria-hidden="true"></i><?=$translations['manage_departments']?><span class="tag red round right"></span></a>
       <div id="demoAcc_pr" class="bar-block white hide" style="font-size: 16px;">
         <?php endif;?>
 
         <a id="add_department" href="#" class="bar-item button hover-primary round-large acc_stl"><i class="fa fa-plus">
-            Ajouter departement</i></a>
-        <a href="manage_departments.php?" class="bar-item button hover-primary round-large acc_stl">Gérer les
-          departement</i></a>
+        <?=$translations['add_dep']?> </i></a>
+        <a href="manage_departments.php?" class="bar-item button hover-primary round-large acc_stl"><?=$translations['manage_dep']?></i></a>
       </div>
 
 
 
       <a href="users_passwords.php" class="bar-item button hover-primary round-large"><i class="fa fa-key"
-          aria-hidden="true"></i> Mot
-        de passes</a>
+          aria-hidden="true"></i><?=$translations['manage_pass']?></a>
       <?php
 
     require_once("../control/config/dbcon.php");

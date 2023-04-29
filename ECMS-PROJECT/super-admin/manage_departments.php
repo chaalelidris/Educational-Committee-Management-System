@@ -19,13 +19,13 @@
 
   <ul class="breadcrumb round-large" >
     <li><a href="dashboard.php"><?=$translations['home']?></a></li>
-    <li>Gestion des departements</li>
+    <li><?=$translations['manage_dep']?></li>
   </ul>
   <hr class="rounded">
 
 
   <div class="container">
-    <h2>Table des departements</h2>
+    <h2><?=$translations['manage_dep']?></h2>
     <p><?=$translations['sort_table']?></p>
 
     <input style="margin-bottom:0;" id="myInput_gst_prm" type="text" placeholder="<?=$translations['search']?>">
@@ -47,10 +47,10 @@
               <table class="table-all centered hoverable" id="myTable_prom">
                       <tr>
                         <th class="pntr" onclick="sortTable(0)">ID</th>
-                        <th class="pntr" onclick="sortTable(1)">Nom department</th>
-                        <th class="pntr" onclick="sortTable(1)">Abreviation department</th>
-                        <th class="pntr" onclick="sortTable(1)">Description</th>
-                        <th class="pntr" onclick="sortTable(2)">admin de department</th>
+                        <th class="pntr" onclick="sortTable(1)"><?=$translations['dep_name']?></th>
+                        <th class="pntr" onclick="sortTable(1)"><?=$translations['abbr']?></th>
+                        <th class="pntr" onclick="sortTable(1)"><?=$translations['dep_desc']?></th>
+                        <th class="pntr" onclick="sortTable(2)"><?=$translations['dep_admin']?></th>
                         <th colspan="2"><?=$translations['action']?></th>
                       </tr>
 
@@ -59,10 +59,10 @@
                                   FROM tbl_department 
                                   LEFT JOIN tbl_users 
                                   ON tbl_department.admin_id = tbl_users.user_id 
-                                  WHERE tbl_users.user_type = 'admin'; 
-                                ";
+                                  WHERE tbl_users.user_type = 'admin'";
 
                         $result = mysqli_query($con, $sqll) or die(mysqli_error($con));
+
                         while ($row = mysqli_fetch_array($result)):?>
                           <tr>
                           <td><?=$row['department_id']?></td>
@@ -73,9 +73,9 @@
 
                           <td class="mod_bg "><a href="edit_department.php?edit=<?=$row['department_id']?>"><?=$translations['edit']?></a></td>
                           <td class="sup_bg suppr_dp"><a href="#"><?=$translations['delete']?></a></td>
-                          </tr>';
+                          </tr>
                         <?php endwhile; ?>
-                      ?>
+                      
 
               </table>
         </div>

@@ -4,13 +4,13 @@
       <span onclick="document.getElementById('id13').style.display='none'" class="close-d"
         title="Close Modal">&times;</span>
       <h1 style="color:#191923;"><?=$translations['change_pass']?></h1>
-      <p>Veuillez entrer le neveaux mot de passe.</p>
+      <p><?=$translations['change_pass_txt']?></p>
 
       <hr>
       
       <input type="hidden" name="change_password" id="change_password">
 
-      <label for="password"><b>Mot de passe</b></label>
+      <label for="password"><b><?=$translations['password']?></b></label>
       <input type="password" placeholder="<?=$translations['password']?>" name="password" title="veuillez remplir ce champ"
         required>
 

@@ -1,17 +1,15 @@
 <?php
-  include '../root.php';
+  require_once("../control/config/dbcon.php");
 
   include("includes/head.php");
+  include "includes/navbar.php";
+  include("includes/sidebar.php");
 
   if (isset($_SESSION["current_session"])) {
     unset($_SESSION["current_session"]);
-    $_SESSION["current_session"] = "super_admin";
-  }else {
-    $_SESSION["current_session"] = "super_admin";
   }
+  $_SESSION["current_session"] = "super_admin";
 
-  include "includes/navbar.php";
-  include("includes/sidebar.php");
  ?>
 
 
@@ -25,9 +23,6 @@
 
   <hr class="rounded">
 
-  <?php
-    require_once("../control/config/dbcon.php");
-    ?>
 
   <!-- ===================================== USERS CARDS ===================================== -->
   <div class="row_sc " style="margin: 0 auto;">
@@ -43,7 +38,7 @@
         <h3>
           <?php echo $num1; ?>
         </h3>
-        <p>enseignants</p>
+        <p><?=$translations['teachers']?></p>
       </div>
     </div>
 
@@ -60,7 +55,7 @@
         <h3>
           <?php echo $num2; ?>
         </h3>
-        <p>Résponsables</p>
+        <p><?=$translations['managers']?></p>
       </div>
     </div>
 
@@ -77,7 +72,7 @@
         <h3>
           <?php echo $num3; ?>
         </h3>
-        <p>Delegues</p>
+        <p><?=$translations['delegates']?></p>
       </div>
     </div>
 
@@ -94,7 +89,7 @@
         <h3>
           <?php echo $num3; ?>
         </h3>
-        <p>Admins</p>
+        <p><?=$translations['admin']?></p>
       </div>
     </a>
 

@@ -9,6 +9,7 @@ $translations = [
     'login' => 'Connexion',
     'fpass' => 'Mot de passe oublié ?',
     'change_pass' => 'Changer le mot de passe',
+    'change_pass_txt' => 'Veuillez entrer votre nouveau mot de passe',
     'current_pass' => 'Mot de passe actuel',
     'informations' => 'Informations',
     'info_text' => 'Le système permet d\'administrer et de surveiller les membres qui exécutent de nombreuses activités éducatives, de régler les dates des réunions, d\'envoyer des invitations, etc. D\'autre part, il permet aux représentants (chefs de départements, enseignants et étudiants) de suivre les processus éducatifs au sein du département, notamment : suivre la progression des cours, terminer les sessions, programmer les surveillances continues, etc.',
@@ -135,6 +136,8 @@ $translations = [
     'select_user_type' => 'Veuillez sélectionner le type d\'utilisateur.',
     'confirm_password'=> 'Confirmez le mot de passe',
     'fill_the_field' =>'Veuillez remplir ce champ.',
+    'user_type' =>'Type d\'utilisateur.',
+
 
 
 
@@ -172,6 +175,21 @@ $translations = [
     'no_data' => 'Aucune donnée disponible',
     'add_learning_data' => 'Ajouter les données d\'avvancement',
     'no_cp_found' => 'Aucune réunion de comité n\'a été trouvée pour le moment !',
+
+    'manage_admins' => 'Gérer les administrateurs',
+    'manage_departments' => 'Gérer les départements',
+
+    /* DEPARTMENT */
+    
+    'dep_name'=>'Nom du département',
+    'dep_desc'=>'Description du département',
+    'dep_admin'=>'Administrateur du département',
+
+    'add_dep'=>'Ajouter un département',
+    'manage_dep'=>'Gérer les départements',
+    'select_dep_admin'=>'Sélectionner un administrateur de département',
+
+
 
 
 ];

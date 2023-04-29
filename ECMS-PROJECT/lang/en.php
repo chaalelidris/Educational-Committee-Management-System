@@ -9,6 +9,7 @@ $translations = [
     'login' => 'Login',
     'fpass' => 'Forgot your password?',
     'change_pass' => 'Change your password',
+    'change_pass_txt' => 'Please enter your new password',
     'current_pass' => 'Current password',
     'informations' => 'informations',
     'info_text' => 'On the one hand, the system allows the administration to properly manage and control the members whose role is to carry out the various educational actions, to set meeting dates, to send out invitations, etc. And on the other hand, it allows the actors (heads of courses, Teachers and Students) to follow the pedagogical operations within the department, namely: the follow-up of the progress of the courses, the completion of the chapters, the programming of the controls continue etc.',
@@ -143,6 +144,7 @@ $translations = [
     'select_user_type' => 'Please select user type.',
     'confirm_password'=> 'Confirm password',
     'fill_the_field' =>'Please fillout this field.',
+    'user_type' =>'User type.',
 
 
 
@@ -182,8 +184,21 @@ $translations = [
     'no_data' => 'No data available',
     'add_learning_data' => 'Add learning progress data',
     'no_cp_found' => 'No commitee meeting found currently!',
-        
+    
+    /* SUPERADMIN */
+    'manage_admins' => 'Manage admins',
+    'manage_departments' => 'Manage departments',
 
+    /* DEPARTMENT */
+    'dep_name'=>'Department name',
+    'dep_desc'=>'Department description',
+    'dep_admin'=>'Department admin',
+
+    'add_dep'=>'Add department',
+    'manage_dep'=>'Manage dep',
+    'select_dep_admin'=>'Select department admin',
+
+    
     
     // etc.
 ];

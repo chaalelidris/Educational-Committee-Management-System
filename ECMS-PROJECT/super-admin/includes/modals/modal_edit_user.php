@@ -31,7 +31,7 @@
         <input type="email" value="<?php echo $_SESSION['email_edit']; ?>" placeholder="<?=$translations['email']?>" name="email" id="email" title="veuillez remplir ce champ" >
 
         
-        <label for="option"><b>Choisir le type d'utilisateur</b></label>
+        <label for="option"><b><?=$translations['user_type']?></b></label>
         <select class="select border" name="option" title="<?=$translations['please_select']?>" style="background-color:#f1f1f1; padding:15px 10px;" required>
           <?php if ($_SESSION['option_edit'] == "admin"): ?>
             <option value="admin" selected>Admin </option>

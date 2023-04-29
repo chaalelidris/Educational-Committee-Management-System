@@ -56,7 +56,7 @@
             ?>
         </select> <br>
 
-        <label for="password"><b>Mot de passe</b></label>
+        <label for="password"><b><?=$translations['password']?></b></label>
         <input type="password" placeholder="<?=$translations['password']?>" name="password" title="veuillez remplir ce champ" required>
 
         <label for="password-repeat"><b><?=$translations['confirm_password']?></b></label>

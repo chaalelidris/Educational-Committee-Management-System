@@ -22,7 +22,7 @@
 
       <hr>
 
-      <label for="name"><b>Nom complet</b> </label>
+      <label for="name"><b><?=$translations['full_name']?></b> </label>
       <input type="text" placeholder="<?=$translations['full_name']?>" name="name" title="Veuillez remplir ce champ" value="<?php echo isset($_SESSION['name']) ? $_SESSION['name'] : ''; ?>" required>
 
       <label for="username"><b><?=$translations['username']?></b></label>
@@ -31,13 +31,13 @@
       <label for="email"><b><?=$translations['email']?></b></label>
       <input type="email" placeholder="<?=$translations['email']?>" name="email"  title="Veuillez remplir ce champ" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>">
 
-      <label for="option"><b>Sélectionner le type d'utilisateur</b></label>
+      <label for="option"><b><?=$translations['select_user_type']?></b></label>
       <select class="select border" name="option" title="<?=$translations['please_select']?>" style="background-color:#f1f1f1; padding:15px 10px;" required>
         <option value="" disabled selected>Choisissez votre option</option>
         <option value="admin" selected>Admin</option>
       </select> <br>
 
-      <label for="password"><b>Mot de passe</b></label>
+      <label for="password"><b><?=$translations['password']?></b></label>
       <input type="password" placeholder="<?=$translations['password']?>" name="password" title="Veuillez remplir ce champ" required>
 
       <label for="password-repeat"><b><?=$translations['confirm_password']?></b></label>

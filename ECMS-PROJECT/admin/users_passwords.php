@@ -24,7 +24,7 @@
     <!--                                                    breadcrumb                                                       -->
     <ul class="breadcrumb round-large" >
       <li><a href="dashboard.php"><?=$translations['home']?></a></li>
-      <li>Mot de passes des utilisateurs</li>
+      <li><?=$translations['all_users_pass']?></li>
     </ul>
     <hr class="rounded">
 
@@ -73,7 +73,7 @@
           <tr>
             <th class="pntr" onclick="sortTable(0)">ID</th>
             <th class="pntr" onclick="sortTable(2)"><?=$translations['username']?></th>
-            <th class="pntr" onclick="sortTable(2)">type d'utilisateur</th>
+            <th class="pntr" onclick="sortTable(2)"><?=$translations['user_type']?></th>
             <!-- <th class="pntr" onclick="sortTable(3)">Mot de pass</th> -->
             <th colspan="1"><?=$translations['action']?></th>
           </tr>

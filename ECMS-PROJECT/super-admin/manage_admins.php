@@ -22,7 +22,7 @@
   <div class="main">
     <ul class="breadcrumb round-large" >
       <li><a href="admin.php"><?=$translations['home']?></a></li>
-      <li>Gestion des Administrateurs</li>
+      <li><?=$translations['manage_admins']?></li>
     </ul>
     <hr class="rounded">
 
@@ -30,7 +30,7 @@
 
     <!--  TABLE -->
     <div class="container">
-      <h2>Table des utilisateurs administrateurs</h2>
+      <h2><?=$translations['manage_admins']?></h2>
       <p><?=$translations['sort_table']?></p>
 
       <input style="margin-bottom:0;" id="myInput_gst_res" type="text" placeholder="<?=$translations['search']?>">

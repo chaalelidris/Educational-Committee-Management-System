@@ -4,7 +4,7 @@
       <div class="container-d">
         <span onclick="document.getElementById('idChPass').style.display='none'" class="close-d" title="Close Modal">&times;</span>
         <h1 style="color:#191923;"><?=$translations['change_pass']?></h1>
-        <p>Veuillez entrer le neveaux mot de passe.</p>
+        <p><?=$translations['change_pass_txt']?></p>
 
         <hr>
         <input value="<?php echo $_SESSION['enseignant_user_id']; ?>" type="hidden" name="change_password">
