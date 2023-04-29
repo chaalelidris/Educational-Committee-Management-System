@@ -13,7 +13,7 @@ $translations = [
     'informations' => 'informations',
     'info_text' => 'On the one hand, the system allows the administration to properly manage and control the members whose role is to carry out the various educational actions, to set meeting dates, to send out invitations, etc. And on the other hand, it allows the actors (heads of courses, Teachers and Students) to follow the pedagogical operations within the department, namely: the follow-up of the progress of the courses, the completion of the chapters, the programming of the controls continue etc.',
     'informations' => 'informations',
-    'copy_text' => 'University 8 Mai 1945, Department of Computer Science',
+    'copy_text' => 'Copyright &copy; 2023 University 8 Mai 1945, Department of Computer Science',
     'dev_team' => 'Development team <strong> under the supervision of </strong>',
     'khaled' => 'Dr Khaled HALIMI',
     'idris' => 'Idris CHAALEL </strong>',
@@ -64,6 +64,7 @@ $translations = [
 
     /* DELEGATES */
     'add_delegate' => 'Add delegate',
+    'delegate_of' => 'Delegate of',
 
     /* TEACHER */
     'teacher_of' => 'Teacher of ',
@@ -93,6 +94,10 @@ $translations = [
     'module' => 'Module',
     'select_mod_prom' => 'Select module promotion',
     'select_mod_teach' => 'Select module teacher',
+    'mdl_list' => 'Modules list for my level',
+
+    'view_mdl' => 'View modules',
+    
 
     'abbr' => 'Abbreviation',
     'advancment' => 'Advancement status',
@@ -106,6 +111,7 @@ $translations = [
     'presentation_test'=>'Presentations + Tests',
     'tp_validation'=>'TP Validation',
     'handout_course'=>'Provided courses and lessons',
+    'avis_ens'=>'Teacher\'s feedback',
 
     
     
@@ -149,6 +155,7 @@ $translations = [
     'generate_report' => 'Generate report', 
     'consult' => 'Consult', 
     'consult_delegates' => 'Consult delegates form', 
+    'cp_list' => 'List of Pedagogical Committees Meetings',
 
 
     /* CP */
@@ -171,6 +178,8 @@ $translations = [
     'please_fill_the_fields' => 'please fill in the fields with the appropriate informations',
 
     'no_data' => 'No data available',
+    'add_learning_data' => 'Add learning progress data',
+    'no_cp_found' => 'No commitee meeting found currently!',
         
 
     

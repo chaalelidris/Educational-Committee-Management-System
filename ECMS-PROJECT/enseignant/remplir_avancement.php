@@ -14,14 +14,7 @@
  ?>
 
 
-
-
-
   <!-- =====================================                  contenus               ======================================= -->
-
-
-
-
 
 
   <div class="main show" >
@@ -48,7 +41,7 @@
 
       <form id="regForm_form_ms" action="insert_data.php" method="post" class="">
 
-        <h1 class="h1_form_ms">Remplir les champ SVP:</h1>
+        <h1 class="h1_form_ms"><?=$translations['please_fill_the_fields']?></h1>
         <h2 for=""><?=$translations['module']?> <?php echo $_SESSION['mdl_mdlname']; ?></h2>
 
         <!-- One "tab" for each step in the form: -->
@@ -72,11 +65,10 @@
           <p><input name="valid_tp" class="input_form_ms" placeholder="<?=$translations['tp_validation']?>..." ></p>
           <?=$translations['handout_course']?>:
           <p><input name="Polycopie_cours" class="input_form_ms" placeholder="<?=$translations['handout_course']?>..." ></p>
+          <?=$translations['avis_ens']?>
+          <p><input name="avis_ens" class="input_form_ms" placeholder="<?=$translations['avis_ens']?>" ></p>
         </div>
 
-        <!-- <div class="tab_form_ms">Login Info:
-          <p><input class="input_form_ms" placeholder="Password..." ></p>
-        </div> -->
 
         <input  type="hidden" name="cp_id" value="<?php echo $_SESSION['cp_id']; ?>">
         <input  type="hidden" name="mdlid" value="<?php echo $_SESSION['mdl_id']; ?>">

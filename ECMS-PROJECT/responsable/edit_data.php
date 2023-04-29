@@ -13,6 +13,7 @@
       $exps_micro = mysqli_real_escape_string($con,$exps_micro);
       $valid_tp = mysqli_real_escape_string($con,$valid_tp);
       $Polycopie_cours = mysqli_real_escape_string($con,$Polycopie_cours);
+      $avis_ens = mysqli_real_escape_string($con,$avis_ens);
       $respid = $_SESSION['responsable_user_id'];
       $mdlid = mysqli_real_escape_string($con,$mdlid);
       $cp_id = mysqli_real_escape_string($con,$cp_id);
@@ -20,7 +21,7 @@
 
 
       // edit data responsable
-      $sql =  "UPDATE tbl_data SET data_avncm_glob = '$avancement', data_nbr_chap = '$nbr_chap', data_nbr_cours = '$nbr_seances', data_nbr_tdtp = '$nbr_seances_tdtp' ,data_nbr_crtdtp = '$nbr_ceances_ctdtp_no' ,data_exps_micro = '$exps_micro',data_valid_tp = '$valid_tp',data_polycp_cour = '$Polycopie_cours' WHERE data_id='$dataid'";
+      $sql =  "UPDATE tbl_data SET data_avncm_glob = '$avancement', data_nbr_chap = '$nbr_chap', data_nbr_cours = '$nbr_seances', data_nbr_tdtp = '$nbr_seances_tdtp' ,data_nbr_crtdtp = '$nbr_ceances_ctdtp_no' ,data_exps_micro = '$exps_micro',data_valid_tp = '$valid_tp',data_polycp_cour = '$Polycopie_cours',avis_ens = '$avis_ens' WHERE data_id='$dataid'";
       $result = mysqli_query($con,$sql) or die ("La connexion a échoué: 2" . mysqli_error($con));
 
 
@@ -32,6 +33,7 @@
       $_SESSION['cp_id']= $dataResult['data_cp_id'];
       $_SESSION['mdl_id']= $dataResult['data_modl_id'];
       $_SESSION['user_id']= $dataResult['data_usr_id'];
+      $_SESSION['sess_data0']= $dataResult['avis_ens'];
       $_SESSION['sess_data1']= $dataResult['data_polycp_cour'];
       $_SESSION['sess_data2']= $dataResult['data_valid_tp'];
       $_SESSION['sess_data3']= $dataResult['data_exps_micro'];

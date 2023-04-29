@@ -127,22 +127,23 @@
     </div>
     <footer class="row mt-0" style="background: #191923; padding:10px;">
       <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 text-center" style="color:#868e96;">
-        <div>Copyright &copy;2023 <?=$translations['copy_text'];?></div>
+        <div><?=$translations['copy_text'];?></div>
         <div><?=$translations['dev_team'];?> <strong></strong><?=$translations['khaled']?></div>
 
-        <div><?=$translations['idris']?> (2020 - 2023)</div>
-        <div><?=$translations['hamed']?> (2020)</div>
-        <div class="btn-group">
+        <div>-- <?=$translations['idris']?> (2020 - 2023) --</div>
+        <div>-- <?=$translations['hamed']?> (2020) --</div>
+          
+        <div class="btn-group mt-2">
           <button class="btn btn-secondary" data-toggle="modal" data-target="#myModal">
             <i class="fa fa-info-circle" aria-hidden="true"></i> <?=$translations['informations'];?>
           </button>
+          <select class="btn btn-info " id="language-select">
+            <option value="en" <?php echo ($_SESSION['lang']=='en' ) ? 'selected' : '' ; ?>>English</option>
+            <option value="fr" <?php echo ($_SESSION['lang']=='fr' ) ? 'selected' : '' ; ?>>Français</option>
+            <option value="ar" <?php echo ($_SESSION['lang']=='ar' ) ? 'selected' : '' ; ?>>العربية</option>
+          </select>
         </div>
 
-        <select class="btn btn-info" id="language-select">
-          <option value="en" <?php echo ($_SESSION['lang']=='en' ) ? 'selected' : '' ; ?>>English</option>
-          <option value="fr" <?php echo ($_SESSION['lang']=='fr' ) ? 'selected' : '' ; ?>>Français</option>
-          <option value="ar" <?php echo ($_SESSION['lang']=='ar' ) ? 'selected' : '' ; ?>>العربية</option>
-        </select>
 
       </div>
     </footer>

@@ -68,9 +68,11 @@
 
         <div
           class="container light-grey card-4 round-xxlarge padding-large margin-bottom <?php echo $countrowremplis > 0 ? 'pale-green' : 'pale-red'; ?>">
-          <p class="right"><?=$translations['status']?>: <span class="tag <?php echo $countrowremplis > 0 ? 'green' : 'red'; ?> round-large">
+          <p class="right"><?=$translations['status']?>: 
+            <span class="tag <?php echo $countrowremplis > 0 ? 'green' : 'red'; ?> round-large">
               <?php echo $countrowremplis > 0 ? $translations['completed'] : $translations['not_completed'] ?>
-            </span></p>
+            </span>
+          </p>
 
           <h1>
             <?php echo $row['cp_title']; ?>

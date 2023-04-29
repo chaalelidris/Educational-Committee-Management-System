@@ -25,6 +25,7 @@ if (isset($_POST['btn_to_edit_data'])) {
   $_SESSION['cp_id']= $dataResult['data_cp_id'];
   $_SESSION['mdl_id']= $dataResult['data_modl_id'];
   $_SESSION['user_id']= $dataResult['data_usr_id'];
+  $_SESSION['sess_data0']= $dataResult['avis_ens'];
   $_SESSION['sess_data1']= $dataResult['data_polycp_cour'];
   $_SESSION['sess_data2']= $dataResult['data_valid_tp'];
   $_SESSION['sess_data3']= $dataResult['data_exps_micro'];

@@ -1,28 +1,15 @@
 
 <?php
   include("includes/head.php");
+  include("includes/navbar.php");
+  include("includes/sidebar.php");
 
   if (isset($_SESSION["current_session"])) {
     unset($_SESSION["current_session"]);
-    $_SESSION["current_session"] = "enseignant";
-  }else {
-    $_SESSION["current_session"] = "enseignant";
   }
+  $_SESSION["current_session"] = "enseignant";
 
-  include("includes/navbar.php");
-  include("includes/sidebar.php");
  ?>
-
-
-
-
-
-  <!-- =====================================                  contenus               ======================================= -->
-
-
-
-
-
 
   <div class="main show" >
     <!--                                                    breadcrumb                                                       -->
@@ -83,6 +70,8 @@
           <p><input value="<?php echo $_SESSION['sess_data2']; ?>" name="valid_tp" class="input_form_ms" placeholder="<?=$translations['tp_validation']?>..." ></p>
           <?=$translations['handout_course']?>:
           <p><input value="<?php echo $_SESSION['sess_data1']; ?>" name="Polycopie_cours" class="input_form_ms" placeholder="<?=$translations['handout_course']?>..." ></p>
+          <?=$translations['avis_ens']?>
+          <p><input value="<?php echo $_SESSION['sess_data0']; ?>" name="avis_ens" class="input_form_ms" placeholder="<?=$translations['avis_ens']?>" ></p>
         </div>
 
         <!-- <div class="tab_form_ms">Login Info:

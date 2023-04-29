@@ -12,7 +12,7 @@ $translations = [
     'current_pass' => 'Mot de passe actuel',
     'informations' => 'Informations',
     'info_text' => 'Le système permet d\'administrer et de surveiller les membres qui exécutent de nombreuses activités éducatives, de régler les dates des réunions, d\'envoyer des invitations, etc. D\'autre part, il permet aux représentants (chefs de départements, enseignants et étudiants) de suivre les processus éducatifs au sein du département, notamment : suivre la progression des cours, terminer les sessions, programmer les surveillances continues, etc.',
-    'copy_text' => 'Université 8 mai 1945, Département d\'informatique',
+    'copy_text' => 'Tous droits réservés &copy; 2023 Université 8 Mai 1945, Département d\'Informatique',
     'dev_team' => 'Équipe de développement <strong>sous la supervision de</strong>',
     'khaled' => 'Dr Khaled Halimi',
     'idris' => 'Idris Chaalel</strong>',
@@ -61,6 +61,8 @@ $translations = [
 
     /* DELEGATES */
     'add_delegate' => 'Ajouter un délégué',
+    'delegate_of' => 'Délégué(e) de',
+
 
     /* TEACHER */
     'teacher_of' => 'Enseignant de ',
@@ -88,6 +90,9 @@ $translations = [
     'module' => 'Module',
     'select_mod_prom' => 'Sélectionnez la spécialité du module',
     'select_mod_teach' => 'Sélectionnez l\'enseignant du module',
+    'mdl_list' => 'Liste des modules pour mon niveau',
+    
+    'view_mdl' => 'Afficher les modules',
 
     'abbr' => 'Abréviation',
     'advancment' => 'Avancement',
@@ -100,7 +105,8 @@ $translations = [
     'p_m'=>'Présentations + Tests',
     'presentation_test'=>'Présentations + Tests',
     'tp_validation'=>'Évaluation des travaux pratiques',
-    'handout_course'=>'Leçons et cours théoriques présentés',
+    'handout_course'=>'Cours théoriques fait',
+    'avis_ens'=>'Avis de l\'enseignant',
 
     /* TABLEAU DE BORD */
     'teachers' => 'Enseignants',
@@ -141,6 +147,7 @@ $translations = [
     'generate_report' => 'Générer un rapport',
     'consult' => 'Consulter',
     'consult_delegates' => 'Consulter le formulaire des délégués',
+    'cp_list' => 'Liste des réunions des comités pédagogiques',
 
     /* CP */
     'status' =>'Statut',
@@ -162,6 +169,7 @@ $translations = [
 
     'no_data' => 'Aucune donnée disponible',
     'add_learning_data' => 'Ajouter les données d\'avvancement',
+    'no_cp_found' => 'Aucune réunion de comité n\'a été trouvée pour le moment !',
 
 
 ];

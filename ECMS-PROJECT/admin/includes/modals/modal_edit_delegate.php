@@ -1,4 +1,4 @@
-<!-- ===================================      modal <?=$translations['edit']?> utilisateur       =================================-->
+
 <?php if (isset($_SESSION['show_modal_edit_delegue'])): ?>
   <div id="id12" class="modal-form show">
   <?php else: ?>

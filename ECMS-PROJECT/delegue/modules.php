@@ -48,7 +48,7 @@
 
     <div class="container">
 
-      <h1><strong style="color:#191923">Liste des Modules </strong></h1>
+      <h1><strong style="color:#191923"><?=$translations['mdl_list']?></strong></h1>
 
 
       <?php if (isset($_SESSION['message_success'])): ?>
@@ -77,42 +77,58 @@
           $usrid = $_SESSION['delegue_user_id'];
           $modlid = $row['modl_id'];
           $cp_id = $row['cp_id'];
-          $querydata=mysqli_query($con, "SELECT data_id,data_usr_id,data_modl_id,data_cp_id from tbl_data WHERE data_usr_id='$usrid' AND data_modl_id='$modlid' AND data_cp_id='$cp_id'") or die (mysqli_error($con));
+          $querydata=mysqli_query($con, "SELECT data_id,data_usr_id,data_modl_id,data_cp_id 
+                                          FROM tbl_data 
+                                          WHERE data_usr_id='$usrid' 
+                                          AND data_modl_id='$modlid' 
+                                          AND data_cp_id='$cp_id'") or die (mysqli_error($con));
+                                          
           $countrowremplis = mysqli_num_rows($querydata);
           ?>
 
           <?php if($countrowremplis > 0): ?>
-          <div class="container " style="padding-bottom:20px;margin-bottom:20px;background-color:rgba(54, 245, 102, 0.38)">
-          <p class="right"><?=$translations['status']?>: <span class="tag" style="background-color:rgba(0, 218, 94, 0.86)"><?=$translations['completed']?></span></p>
+          <div class="container card-4 round-xxlarge margin-bottom padding-16 pale-green" >
+          <p class="right"><?=$translations['status']?>: <span class="tag green"><?=$translations['completed']?></span></p>
           <?php else: ?>
-            <div class="container" style="padding-bottom:20px;margin-bottom:20px;background-color:rgba(255, 80, 80, 0.3)">
+            <div class="container card-4 round-xxlarge margin-bottom padding-16 pale-red" >
+            <p class="right"><?=$translations['status']?>: <span class="tag red"><?=$translations['not_completed']?></span></p>
           <?php endif; ?>
 
 
             <h1><?php echo $row['modl_name']; ?></h1>
-            <div class="container" style="background-color:rgba(142, 190, 255, 0.8);margin-bottom:15px;">
+            <div class="container card-4 cyan round-xxlarge" >
               <h3 style="color:rgb(0, 109, 252)">Détails sur le CP <i class="fa fa-book" style="font-size:24px"></i></h3>
-              <p>Titre: <?php echo $row['cp_title']; ?></p>
-              <span><?=$translations['cp_datetime']?> <span ><?php echo $row['cp_datetime']; ?></span></span>
+              <h3>
+                <?php echo $row['cp_title']; ?>
+              </h3>
+
+              <?php if ($row['cp_status'] == 1): ?>
+              <p><strong> <?=$translations['status']?>: </strong><span class="tag green round-large"><?=$translations['activated']?></span></p>
+              <?php else: ?>
+              <p><strong> <?=$translations['status']?>: </strong><span class="tag red round-large"><?=$translations['desactivated']?></span></p>
+              <?php endif; ?>
+
+              <p><strong><?=$translations['cp_datetime']?>: </strong><span> <?php echo $row['cp_datetime']; ?> </span></p>
+
               <?php
               $promid = $_SESSION['delegue_promotion_id'];
               $sql = "SELECT prom_name FROM tbl_promo WHERE prom_id='$promid'";
               $resultPromName = mysqli_query($con, $sql);
               $resultPromName = mysqli_fetch_array($resultPromName);
               ?>
-              <p> <?=$translations['promotion']?> <span ><?php echo $resultPromName['prom_name']; ?></span></p>
-              <p> <?=$translations['semester_nb']?> <span ><?php echo $row['cp_semestre']; ?></span></p>
 
-              <p>Le lieu : <span ><?php echo $row['cp_location']; ?> </span> </p>
-              <p> <strong><?=$translations['cp_agenda']?> :</strong> <?php echo $row['cp_ordre']; ?></p>
-              <!-- <button class="button dark-grey right" onclick="ReadMore()" >Lire la suite</button> -->
-              <?php
-              if ($row['cp_status'] == 1) {
-                ?><h5><?=$translations['status']?>: <span style="color:green;"><?=$translations['activated']?></span> </h5><?php
-              }else {
-                ?><h5><?=$translations['status']?>: <span style="color:red"><?=$translations['desactivated']?></span> </h5><?php
-              }
-              ?>
+              <p><strong><?=$translations['promotion']?>: </strong><span><?php echo $resultPromName['prom_name']; ?></span></p>
+              
+              <p><strong><?=$translations['semester_nb']?></strong><span> <?php echo $row['cp_semestre']; ?></span></p>
+
+              <p><strong><?=$translations['cp_location']?>: </strong><span> <?php echo $row['cp_location']; ?> </span> </p>
+
+              <p><strong><?=$translations['cp_agenda']?>:</strong></p>
+              <ul>
+                <?php foreach (explode("\n", $row['cp_ordre']) as $item): ?>
+                  <li><strong><?= $item ?></strong></li>
+                <?php endforeach; ?>
+              </ul>
             </div>
 
 
@@ -129,22 +145,17 @@
               <?php if($countrowremplis > 0): ?>
 
                 <?php if ($row['cp_status'] == 1) :?>
-                  <button name="btn_to_mydata_formulaire" class="button green right " >DONNÉS DE MODULE <i class="fa fa-angle-double-right"></i> </button>
+                  <button name="btn_to_mydata_formulaire" class="button green right round-large" ><?=$translations['edit']?>  <i class="fa fa-edit"></i> </button>
                 <?php else: ?>
-                  <button type="button" class="button green right  btn_cp_info" >DONNÉS DE MODULE <i class="fa fa-angle-double-right"></i> </button>
+                  <button type="button" class="button green right round-large btn_cp_info" ><?=$translations['edit']?>  <i class="fa fa-edit"></i></i> </button>
                 <?php endif; ?>
 
               <?php else: ?>
-                <?php if ($row['cp_status'] == 1) {
-                  ?>
-                  <button name="btn_to_addmdl_data" class="button dark-grey right " >REMPLIR FORMULAIRE <i class="fa fa-angle-double-right"></i> </button>
 
-                  <?php
-                }else{
-                  ?>
-                  <button type="button" class="button dark-grey right  btn_cp_info" >REMPLIR FORMULAIRE <i class="fa fa-angle-double-right"></i> </button>
-                  <?php
-                } ?>
+                <button <?= $row['cp_status'] == 1 ? 'name="btn_to_addmdl_data" class="button dark-grey right round-large"' : 'type="button" class="button dark-grey right round-large btn_cp_info"' ?>>
+                  <?=$translations['add_learning_data']?> <i class="fa fa-angle-double-right"></i>
+                </button>
+
               <?php endif; ?>
 
             </form>
@@ -154,16 +165,14 @@
           <?php
         }
 
-      }else {
+      }else{?>
 
-        ?>
         <div class="container light-grey card-4 round-xxlarge" >
           <h1 style="color:rgba(0, 0, 0, 0.53)"> aucun module !</h1>
         </div>
         <?php
 
-      }
-      ?>
+      }?>
 
 
     </div>

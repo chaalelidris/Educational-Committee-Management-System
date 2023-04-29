@@ -1,25 +1,16 @@
 
 <?php
+  require_once("../control/config/dbcon.php");
   include("includes/head.php");
+  include("includes/navbar.php");
+  include("includes/sidebar.php");
 
   if (isset($_SESSION["current_session"])) {
     unset($_SESSION["current_session"]);
-    $_SESSION["current_session"] = "delegue";
-  }else {
-    $_SESSION["current_session"] = "delegue";
   }
+  $_SESSION["current_session"] = "delegue";
 
-  include("includes/navbar.php");
-  include("includes/sidebar.php");
  ?>
-
-
-
-
-
-  <!-- =====================================                  contenus               ======================================= -->
-
-
 
 
 
@@ -30,11 +21,6 @@
     </ul>
     <hr class="rounded">
 
-    <?php
-    require_once("../control/config/dbcon.php");
-    ?>
-
-
 
 
 
@@ -42,37 +28,54 @@
       <div class="twothird container">
 
         <div class="container">
-          <h1><strong style="color:#191923">Liste des CP </strong></h1>
+          <h1><strong><?=$translations['cp_list']?> </strong></h1>
           <?php
           $id = $_SESSION['delegue_user_id'];
-          $sql = "SELECT * FROM tbl_cp INNER JOIN tbl_promo on tbl_cp.cp_prom_id = tbl_promo.prom_id order by cp_datetime desc";
+          $promotion_id = $_SESSION['delegue_promotion_id'];
+          $sql = "SELECT * 
+                  FROM tbl_cp 
+                  INNER JOIN tbl_promo 
+                  ON tbl_cp.cp_prom_id = tbl_promo.prom_id 
+                  WHERE tbl_promo.prom_id = '$promotion_id'
+                  ORDER BY cp_datetime 
+                  DESC";
+
           $result = mysqli_query($con, $sql);
           $countresult = mysqli_num_rows($result);
 
           if ($countresult > 0) {
 
-            while ($row = mysqli_fetch_array($result)) {
-              ?>
+            while ($row = mysqli_fetch_array($result)) {?>
 
-              <div class="container light-grey card-4 round-xxlarge" >
+              <div class="container light-grey card-4 round-xxlarge padding-large margin-bottom <?php echo $row['cp_status'] == '1' ? 'pale-green' : 'pale-red'; ?>"class="container light-grey card-4 round-xxlarge padding-large margin-bottom <?php echo $row['cp_status'] == '1' ? 'pale-green' : 'pale-red'; ?>" >
                 <h1><?php echo $row['cp_title']; ?> </h1>
-                <span><?=$translations['cp_datetime']?> <span ><?php echo $row['cp_datetime']; ?></span></span>
-                <p> <?=$translations['promotion']?> <span ><?php echo $row['prom_name']; ?></span></p>
-                <p> <?=$translations['semester_nb']?> <span ><?php echo $row['cp_semestre']; ?></span></p>
 
-                <p>Le lieu : <span ><?php echo $row['cp_location']; ?> </span> </p>
-                <p> <strong><?=$translations['cp_agenda']?> :</strong> <?php echo $row['cp_ordre']; ?></p>
+                <?php if ($row['cp_status'] == 1): ?>
+                <p><strong> <?=$translations['status']?>: </strong><span class="tag green round-large"><?=$translations['activated']?></span></p>
+                <?php else: ?>
+                <p><strong> <?=$translations['status']?>: </strong><span class="tag red round-large"><?=$translations['desactivated']?></span></p>
+                <?php endif; ?>
 
-                <?php
-                if ($row['cp_status'] == 1) {
-                  ?><h5><?=$translations['status']?>: <span style="color:green;"><?=$translations['activated']?></span> </h5><?php
-                }else {
-                  ?><h5><?=$translations['status']?>: <span style="color:red"><?=$translations['desactivated']?></span> </h5><?php
-                }
-                ?>
+                <p><strong><?=$translations['cp_datetime']?>: </strong><span class="text-gray"> <?php echo $row['cp_datetime']; ?></span></p>
+                <p><strong> <?=$translations['promotion']?> </strong><span ><?php echo $row['prom_name']; ?></span></p>
+                <p><strong><?=$translations['semester_nb']?></strong><span ><?php echo $row['cp_semestre']; ?></span></p>
+
+                <p><strong><?=$translations['cp_location']?>: </strong><span ><?php echo $row['cp_location']; ?></span> </p>
+
+                <p><strong><?=$translations['cp_agenda']?>:</strong></p>
+                <ul>
+                  <?php 
+                    $ordre_items = explode("\n", $row['cp_ordre']);
+                    foreach ($ordre_items as $item) {
+                      echo "<li><strong>$item</strong></li>";
+                    }
+                  ?>
+                </ul>
+
+
                 <form  action="get_submitted_data.php" method="post">
                   <input type="hidden" name="cp_id" value="<?php echo $row['cp_id']; ?>">
-                  <button name="btn_to_modules" class="button dark-grey right " >VOIRE LES MODULES <i class="fa fa-angle-double-right"></i> </button>
+                  <button name="btn_to_modules" class="button blue right round-large " ><?=$translations['view_mdl']?> <i class="fa fa-angle-double-right"></i> </button>
                 </form>
               </div>
 
@@ -85,7 +88,7 @@
 
           ?>
           <div class="container light-grey card-4 round-xxlarge" >
-            <h1 style="color:rgba(0, 0, 0, 0.53)"> il n'y a pas de CP <?=$translations['activated']?> Actuellement !</h1>
+            <h1 style="color:rgba(0, 0, 0, 0.53)"><?=$translations['no_cp_found']?></h1>
           </div>
           <?php
 
@@ -127,7 +130,7 @@
           $query=mysqli_query($con, "SELECT * from tbl_promo where prom_id='$idprm' LIMIT 1 ");
           $rowprmid=mysqli_fetch_assoc($query); //tableau
            ?>
-          <p class="title">Délégue du promotion <?php echo $rowprmid['prom_name']; ?></p>
+          <p class="title"><?=$translations['delegate_of']?> <?php echo $rowprmid['prom_name']; ?></p>
           <p><button id="ChangePass" class="button_prf round-xlarge"><?=$translations['change_pass']?></button></p>
         </div>
 

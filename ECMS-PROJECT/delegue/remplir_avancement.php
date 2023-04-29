@@ -49,7 +49,7 @@
 
       <form id="regForm_form_ms" action="insert_del_data.php" method="post" class="">
 
-        <h1 class="h1_form_ms">Remplir les champ SVP:</h1>
+        <h1 class="h1_form_ms"><?=$translations['please_fill_the_fields']?></h1>
         <h2 for=""><?=$translations['module']?> <?php echo $_SESSION['mdl_name']; ?></h2>
 
         <!-- One "tab" for each step in the form: -->

@@ -80,6 +80,8 @@
           <p><input value="<?php echo $_SESSION['sess_data2']; ?>" name="valid_tp" class="input_form_ms round-large" placeholder="<?=$translations['tp_validation']?>..." ></p>
           <?=$translations['handout_course']?>:
           <p><input value="<?php echo $_SESSION['sess_data1']; ?>" name="Polycopie_cours" class="input_form_ms round-large" placeholder="<?=$translations['handout_course']?>..." ></p>
+          <?=$translations['avis_ens']?>
+          <p><input value="<?php echo $_SESSION['sess_data0']; ?>" name="avis_ens" class="input_form_ms" placeholder="<?=$translations['avis_ens']?>" ></p>
         </div>
 
         <!-- <div class="tab_form_ms">Login Info:
