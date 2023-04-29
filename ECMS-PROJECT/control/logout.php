@@ -11,7 +11,11 @@ $srow=mysqli_fetch_array($squery);
 $user_id=$srow['user_id'];
 
 $details=$srow['user_name']." est déconnecté.";
+$lang = $_SESSION['lang'];
 
 session_destroy();
+
+session_start();
+$_SESSION['lang'] = $lang;
 header('location:../index.php');
 ?>

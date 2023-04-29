@@ -3,8 +3,8 @@
   <form class="modal-content-d round-large animate-zoom" action="delete_promo.php" method="post">
     <div class="container-d">
       <span onclick="document.getElementById('id07').style.display='none'" class="close-d" title="Close Modal">&times;</span>
-      <h1>Supprimer la promotion</h1>
-      <p>Voulez-vous vraiment vous supprimer cette promotion ?</p>
+      <h1><?=$translations['delete']?></h1>
+      <p><?=$translations['delete_promo']?></p>
         <input type="hidden" name="delete_promo_id" id="delete_promo_id">
         <div class="clearfix-d">
           <button onclick="document.getElementById('id07').style.display='none'" type="button" class="mdl cancelbtn-d"><?=$translations['cancel']?></button>

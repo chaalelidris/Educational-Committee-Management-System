@@ -85,25 +85,21 @@
           $result = mysqli_query($con, $sql) or die(mysqli_error($con));
           $rowMdlData = mysqli_fetch_assoc($result);
          ?>
-        <h1><?=$translations['module']?>, <strong>
-            <?php echo $rowMdlData['modl_name'];?>
-          </strong></h1>
+        <h1><?=$translations['module_name']?>, <strong><?= $rowMdlData['modl_name'];?> </strong></h1>
         <?php
             $promname = $_SESSION['prom_name'];
             ?>
-        <p><?=$translations['promotion']?> >> <span>
-            <?php echo $promname;?>
-          </span></p>
-        <p><?=$translations['semester_nb']?> <span>
-            <?php echo $rowMdlData['modl_semestre'];?>
-          </span></p>
+
+        <p> <strong><?=$translations['promotion']?> :</strong>  <span> <?= $promname;?></span></p>
+
+        <p><strong><?=$translations['semester_nb']?> </strong>  <span><?= $rowMdlData['modl_semestre'];?> </span></p>
         <?php
             $ensid = $_SESSION['enseignant_user_id'];
             $sql = "SELECT user_fullname FROM tbl_users WHERE user_id='$ensid'";
             $resultens = mysqli_query($con, $sql) or die(mysqli_error($con));
             $rowensname = mysqli_fetch_array($resultens);
             ?>
-        <p><?=$translations['by']?>: <strong style="color:rgba(0, 0, 0, 0.8)"> <i class="fa fa-user-circle-o"></i>
+        <p><strong><?=$translations['by']?> :</strong>  <strong style="color:rgba(0, 0, 0, 0.8)"> <i class="fa fa-user-circle-o"></i>
             <?php echo $rowensname['user_fullname']; ?>
           </strong> </p>
 
@@ -162,6 +158,17 @@
               </td>
             </tr>
             <!-- end rowspan -->
+          </table>
+
+          <table class="table-all">
+              <tr>
+                <td rowspan="9" class="border" style="width:200px;"><?=$translations['avis_ens']?></td>
+              </tr>
+
+              
+              <tr class="">
+                <td class="center"><?= $row['avis_ens']; ?></td>
+              </tr>
           </table>
         </div>
 

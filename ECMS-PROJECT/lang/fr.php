@@ -79,6 +79,8 @@ $translations = [
     'action' => 'Action',
     'by' => 'Par',
 
+    'delete_promo' => 'Êtes-vous sûr de vouloir supprimer cette spécialité ?',
+
     'not_required' => 'Non requis',
     'edit_user' => 'Modifier l\'utilisateur',
     'edit_form_pls' => 'Veuillez modifier le formulaire ci-dessous.',

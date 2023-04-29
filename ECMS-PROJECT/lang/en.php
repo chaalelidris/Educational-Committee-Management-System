@@ -81,6 +81,8 @@ $translations = [
     'action' => 'Action.',
     'by' => 'By',
 
+    'delete_promo' => 'Are you sure you want to delete this spetiality ?',
+
 
     'not_required' => 'Not required',
     'edit_user' => 'Edit user',

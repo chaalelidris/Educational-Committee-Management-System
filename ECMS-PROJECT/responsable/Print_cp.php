@@ -12,11 +12,8 @@
   include("includes/sidebar.php");
  ?>
 
-<!-- =====================================                  contenus               ======================================= -->
-
-
+<!-- CONTENT -->
 <div class="main">
-  <!--                                                    breadcrumb                                                       -->
   <ul class="breadcrumb round-large">
     <li><a href="responsable.php"><?=$translations['home']?></a></li>
     <li> <a href="gnr_cp.php">CPs
@@ -27,6 +24,7 @@
       <?php echo $_SESSION['responsable_prom_name']; ?>
     </li>
   </ul>
+
   <hr class="rounded">
 
   <?php
@@ -167,13 +165,25 @@
 
             </tbody>
           </table>
+
+          <table class="table-all">
+              <tr>
+                <td rowspan="9" class="border" style="width:200px;"><?=$translations['avis_ens']?></td>
+              </tr>
+
+              
+              <tr class="">
+                <td class="center"><?= $row3['avis_ens']; ?></td>
+              </tr>
+          </table>
+          
           <?php else: ?>
             <table class="table-all card-4">
               <tr>
                 <td rowspan="9" class="border" style="width:200px;"><?=$translations['advancment']?></td>
               </tr>
-              <?php 
-              $labels = array($translations['global_adv'], 
+
+              <?php $labels = array($translations['global_adv'], 
                               $translations['nb_chap_done_progress'], 
                               $translations['n_s_c_done'],
                               $translations['n_s_td_tp_done'],
@@ -181,8 +191,7 @@
                               $translations['presentation_test'],
                               $translations['tp_validation'],
                               $translations['handout_course'],
-                              );
-              ?>
+                              ); ?>
 
               <?php foreach ($labels as $i => $label): ?>
                 <tr>
@@ -194,7 +203,8 @@
               <!-- end rowspan -->
             </table>
           <?php endif; ?>
-
+          
+          
         </div>
 
 

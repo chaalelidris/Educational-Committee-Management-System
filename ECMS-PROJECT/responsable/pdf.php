@@ -275,7 +275,7 @@ while ($row=mysqli_fetch_array($all_modl_result)) {
 
     $pdf->SetXY($xpos+25,$ypos);
     $pdf->SetFont('Arial','B',10);
-    $pdf->Multicell(0,10,"R.A.S",1,'C');
+    $pdf->Multicell(0,10,mb_convert_encoding($rowResultData['avis_ens'],"ISO-8859-1","UTF-8"),1,'C');
 
     //                                              end table module data
   

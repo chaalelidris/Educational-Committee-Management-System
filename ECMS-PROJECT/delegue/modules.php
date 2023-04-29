@@ -96,7 +96,7 @@
 
 
             <h1><?php echo $row['modl_name']; ?></h1>
-            <div class="container card-4 cyan round-xxlarge" >
+            <div class="container card-4 cyan round-xxlarge margin-bottom" >
               <h3 style="color:rgb(0, 109, 252)">Détails sur le CP <i class="fa fa-book" style="font-size:24px"></i></h3>
               <h3>
                 <?php echo $row['cp_title']; ?>

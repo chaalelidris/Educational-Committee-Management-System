@@ -139,9 +139,9 @@
         <?php endwhile; ?>
 
         <?php else:?>
-        <div class="container light-grey card-4 round-xxlarge">
-          <h1 style="color:rgba(0, 0, 0, 0.53)"> il n'y a pas de CP <?=$translations['activated']?> Actuellement !</h1>
-        </div>
+          <div class="container lime card-4 round-xxlarge margin-bottom">
+            <h1><?=$translations['no_cp_found']?> </h1>
+          </div>
         <?php endif; ?>
 
       </div>

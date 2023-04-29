@@ -43,9 +43,9 @@
           $result = mysqli_query($con, $sql);
           $countresult = mysqli_num_rows($result);
 
-          if ($countresult > 0) {
+          if ($countresult > 0) :?>
 
-            while ($row = mysqli_fetch_array($result)) {?>
+            <?php while ($row = mysqli_fetch_array($result)): ?>
 
               <div class="container light-grey card-4 round-xxlarge padding-large margin-bottom <?php echo $row['cp_status'] == '1' ? 'pale-green' : 'pale-red'; ?>"class="container light-grey card-4 round-xxlarge padding-large margin-bottom <?php echo $row['cp_status'] == '1' ? 'pale-green' : 'pale-red'; ?>" >
                 <h1><?php echo $row['cp_title']; ?> </h1>
@@ -80,20 +80,13 @@
               </div>
 
 
-              <?php
-            }
-            ?>
-      <?php
-        }else {
+            <?php endwhile; ?>
 
-          ?>
-          <div class="container light-grey card-4 round-xxlarge" >
-            <h1 style="color:rgba(0, 0, 0, 0.53)"><?=$translations['no_cp_found']?></h1>
-          </div>
-          <?php
-
-          }
-      ?>
+          <?php else: ?>
+            <div class="container lime card-4 round-xxlarge margin-bottom">
+              <h1><?=$translations['no_cp_found']?> </h1>
+            </div>
+          <?php endif; ?>
 
 
         </div>
@@ -122,7 +115,7 @@
 
 
         <div class="card_prf theme-light padding round-xxlarge" >
-          <h2 style="text-align:center">Profile de <?php echo $_SESSION['delegue_user_name']; ?></h2>
+          <h2 style="text-align:center"><?=$translations['username']?> <?php echo $_SESSION['delegue_user_name']; ?></h2>
           <h1><?php echo $_SESSION['delegue_user_fullname']; ?></h1>
 
           <?php
