@@ -14,7 +14,6 @@
         unset($_SESSION["current_session"]);
     }
     
-    // Set the current session variable to "admin"
     $_SESSION["current_session"] = "admin";
 
     // SQL query to select distinct user IDs based on the current admin's department ID
@@ -41,11 +40,19 @@
 <div class="main ">
   <!-- Breadcrumb -->
   <ul class="breadcrumb round-large">
-    <li><a href="#"><?=$translations['home']?></a></li>
+    <li><a href="#">
+        <?=$translations['home']?>
+      </a></li>
   </ul>
   <hr class="rounded">
 
-  <div class="row_sc " style="margin: 0 auto;">
+  
+  
+  <div class="row_sc" style="margin: 0 auto;">
+  <div class="column_sc right margin-right">
+
+    <?php include("includes/admin_profile.php"); ?>
+  </div>
 
     <!-- Card for managing teachers -->
     <a href="gst_enseignant.php">
@@ -54,7 +61,9 @@
         <h3>
           <?php echo $num1; ?>
         </h3>
-        <p><?=$translations['teachers']?></p>
+        <p>
+          <?=$translations['teachers']?>
+        </p>
       </div>
     </a>
 
@@ -65,7 +74,9 @@
         <h3>
           <?php echo $num2; ?>
         </h3>
-        <p><?=$translations['managers']?></p>
+        <p>
+          <?=$translations['managers']?>
+        </p>
       </div>
     </a>
 
@@ -76,7 +87,9 @@
         <h3>
           <?php echo $num3; ?>
         </h3>
-        <p><?=$translations['delegates']?></p>
+        <p>
+          <?=$translations['delegates']?>
+        </p>
       </div>
     </a>
   </div>
@@ -90,29 +103,35 @@
         <h3>
           <?php echo ""; ?>
         </h3>
-        <p><?=$translations['manage_promos']?></p>
+        <p>
+          <?=$translations['manage_promos']?>
+        </p>
       </div>
     </a>
 
     <!-- Card for managing responsible users -->
-    <a href="gst_modules.php" >
+    <a href="gst_modules.php">
       <div class="column_sc card_sc round-large margin hover-primary">
         <p><i class="fa fa-flask fa_sc"></i></p>
         <h3>
           <?php echo ""; ?>
         </h3>
-        <p><?=$translations['manage_modules']?></p>
+        <p>
+          <?=$translations['manage_modules']?>
+        </p>
       </div>
     </a>
 
     <!-- Card for managing delegate users -->
-    <a href="consulter.php" >
+    <a href="consulter.php">
       <div class="column_sc card_sc round-large hover-primary margin">
         <p><i class="fa fa-calendar fa_sc"></i></p>
         <h3>
           <?php echo ""; ?>
         </h3>
-        <p><?=$translations['view_cp']?></p>
+        <p>
+          <?=$translations['view_cp']?>
+        </p>
       </div>
     </a>
   </div>
@@ -123,6 +142,7 @@
 <?php include("includes/modals/modal_add_user.php"); ?>
 <?php include("includes/modals/modal_add_promotion.php"); ?>
 <?php include("includes/modals/modal_add_module.php"); ?>
+<?php include("includes/modals/modal_change_admin_pass.php"); ?>
 
 <?php include("../modal_deconnexion.php"); ?>
 

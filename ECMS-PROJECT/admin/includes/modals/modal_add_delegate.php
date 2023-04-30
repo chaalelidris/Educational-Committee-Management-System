@@ -31,16 +31,7 @@
         <label for="email"><b><?=$translations['email']?></b><span style="opacity:0.8;color:rgb(244, 121, 132);">  ( <?=$translations['not_required']?> )</span></label>
         <input type="email" placeholder="<?=$translations['email']?>" name="email"  title="veuillez remplir ce champ" >
 
-        <label for="promid"><b><?=$translations['select_promotion']?></b></label> <br>
-        <select class="select border list_resp" name="promid" style="width:100%;" required>
-          <?php
-            $sql = "SELECT * FROM tbl_promo ";
-            $result = mysqli_query($con, $sql);
-            while ($row = mysqli_fetch_array($result)) {
-              echo'<option value="'.$row['prom_id'].'">'.$row['prom_name'].'</option>';
-            }
-          ?>
-        </select> <br> <br>
+       
 
         <label for="department_id"><b><?=$translations['department']?></b></label>
         <select class="select border" name="department_id" title="<?=$translations['please_select']?>" style="background-color:#f1f1f1; padding:15px 10px;" required>
@@ -55,6 +46,20 @@
             }
             ?>
         </select> <br>
+
+        <label for="promid"><b><?=$translations['select_promotion']?></b></label> <br>
+        <select class="select border list_resp" name="promid" style="width:100%;" required>
+          <?php
+            $sql = "SELECT * 
+                    FROM tbl_promo p
+                    WHERE p.department_id = '$admin_department_id'";
+
+            $result = mysqli_query($con, $sql);
+            while ($row = mysqli_fetch_array($result)) {
+              echo'<option value="'.$row['prom_id'].'">'.$row['prom_name'].'</option>';
+            }
+          ?>
+        </select> <br> <br>
 
         <label for="password"><b><?=$translations['password']?></b></label>
         <input type="password" placeholder="<?=$translations['password']?>" name="password" title="veuillez remplir ce champ" required>

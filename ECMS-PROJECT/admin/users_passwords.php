@@ -18,8 +18,6 @@
 
 
   <!-- =====================================                  contenus               ======================================= -->
-
-
   <div class="main " >
     <!--                                                    breadcrumb                                                       -->
     <ul class="breadcrumb round-large" >
@@ -40,8 +38,7 @@
       <input style="margin-bottom:0;" id="myInput_ch_pass" type="text" placeholder="<?=$translations['search']?>">
       <br><br>
 
-      <?php
-      if (isset($_SESSION['message_edit_pass_succ'])):
+      <?php if (isset($_SESSION['message_edit_pass_succ'])):
           $message_type = $_SESSION['message_type'];
           $success_message = $_SESSION['message_edit_pass_succ'];
           unset($_SESSION['message_edit_pass_succ']);
@@ -90,6 +87,7 @@
                 DESC";
         
         $result = mysqli_query($con, $sql);
+        
         while ($row = mysqli_fetch_array($result)) :?>
           <tr>
             <td><?= $row['user_id']?></td>

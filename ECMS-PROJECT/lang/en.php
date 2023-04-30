@@ -195,7 +195,7 @@ $translations = [
     'dep_admin'=>'Department admin',
 
     'add_dep'=>'Add department',
-    'manage_dep'=>'Manage dep',
+    'manage_dep'=>'Manage department',
     'select_dep_admin'=>'Select department admin',
 
     

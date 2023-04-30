@@ -37,13 +37,14 @@
   // Get the modal modifier  delegue
   var modal12 = document.getElementById('id12');   //modal Ajouter délégué
 
-  // Get the modal modifier  delegue
-  var modal13 = document.getElementById('id13');   //modal Ajouter délégué
+  // Get the modal change pass
+  var modal13 = document.getElementById('id13');   
+
+  // Get the modal change pass
+  var modal_change_admin_pass = document.getElementById('change_admin_pass');   
 
 
-  // if (modal1.className.indexOf(" show") == -1 & modal1.className.indexOf(" hide") == -1) {
-  //   modal1.className += " hide";
-  // }
+ 
 
   // show Ajouter utilisateur modal
   $('.btn_add_user').click(function () {
@@ -217,6 +218,9 @@
 
     });
 
+    $('#changeadminpass').click(function () {
+      modal_change_admin_pass.style.display = "block";
+    });
     // clicker sur supprimer promotion
 
     $(".suppr_pr").click(function () {

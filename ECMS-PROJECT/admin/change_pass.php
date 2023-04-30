@@ -5,7 +5,7 @@ require_once("../control/config/dbcon.php");
   if (isset($_POST['edit_pass'])) {
     extract($_POST);
     $id = $change_password;
-    echo $change_password;
+
     $password = mysqli_real_escape_string($con, $password);
     $password_repeat = mysqli_real_escape_string($con, $password_repeat);
 
@@ -21,7 +21,12 @@ require_once("../control/config/dbcon.php");
       $_SESSION["message_edit_pass_succ"]="le mot pass a été changer avec succes";
       $_SESSION["message_type"]="green";
 
-      header('location: users_passwords.php');
+      if(isset($_SESSION["current_session"]) && $_SESSION["current_session"] == "admin"){
+        header('location: dashboard.php');
+      }else{
+        header('location: users_passwords.php');
+      }
+
       exit();
     }
 

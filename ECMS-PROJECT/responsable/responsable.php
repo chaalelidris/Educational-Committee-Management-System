@@ -6,10 +6,8 @@
 
   if (isset($_SESSION["current_session"])) {
     unset($_SESSION["current_session"]);
-    $_SESSION["current_session"] = "responsable";
-  }else {
-    $_SESSION["current_session"] = "responsable";
   }
+  $_SESSION["current_session"] = "responsable";
 
  ?>
 
