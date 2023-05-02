@@ -1,22 +1,20 @@
 <?php
+  require_once("../control/config/dbcon.php");
   include("includes/head.php");
+  include("includes/navbar.php");
+  include("includes/sidebar.php");
 
   if (isset($_SESSION["current_session"])) {
     unset($_SESSION["current_session"]);
-    $_SESSION["current_session"] = "delegue";
-  }else {
-    $_SESSION["current_session"] = "delegue";
   }
 
+  $_SESSION["current_session"] = "delegue";
 
-  include("includes/navbar.php");
-  include("includes/sidebar.php");
+
  ?>
 
 
   <!-- =====================================                  contenus               ======================================= -->
-
-
 
   <!--                                  Main content: shift it to the right by 310 pixels                                    -->
   <div class="main">
@@ -44,9 +42,6 @@
         </div>
       </div>
 
-      <?php
-      require_once("../control/config/dbcon.php");
-       ?>
 
        <?php if (isset($_SESSION['message_success'])): ?>
        <div class="panel <?php echo $_SESSION["message_type"]; ?> display-container round-large ">
@@ -109,6 +104,7 @@
   <?php include("includes/modals/modal_add_promotion.php"); ?>
   <?php include("includes/modals/modal_add_module.php"); ?>
   <?php include("includes/modals/modal_add_user.php"); ?>
+
   <?php include("../modal_deconnexion.php"); ?>
   <?php include("includes/scripts.php"); ?>
 
@@ -129,12 +125,7 @@
   ?>
 
 
-  <script type="text/javascript">
-    // show Ajouter délégué modal
-    document.querySelector('#add_del').addEventListener('click', function() {
-      modal11.className = modal11.className.replace(" hide", " show");
-    });
-  </script>
+ 
 
 
   </body>

@@ -2,7 +2,19 @@
 session_start();
 require_once("../control/config/dbcon.php");
 
+// Don't uncomment thsi script
+// get all user IDs from the users table
+//$user_ids = array_column(mysqli_fetch_all(mysqli_query($con, "SELECT user_id FROM tbl_users")), 0);
+
+
+// loop through all user IDs + loop through all department IDs
+/* foreach ($user_ids as $user_id) {
+  mysqli_query($con, "INSERT INTO tbl_user_department (user_id, department_id) VALUES ($user_id, 1)");
+}  */
+
 if (isset($_GET['edit'])) {
+
+
   $_SESSION['show_modal_edit_department'] = " show";
   $id = $_GET['edit'];
   $result = mysqli_query($con, "SELECT * FROM tbl_department WHERE department_id=$id") or die(mysqli_error($con));

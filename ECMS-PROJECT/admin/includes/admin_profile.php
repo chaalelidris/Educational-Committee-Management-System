@@ -14,6 +14,20 @@
       </p>
     </div>
     <?php endif; ?>
+    
+    <?php if (isset($_SESSION['message_edit_pass_err'])):
+            $message_type = $_SESSION['message_type'];
+            $success_message = $_SESSION['message_edit_pass_err'];
+            unset($_SESSION['message_edit_pass_err']);
+        ?>
+    <div class="panel <?php echo $message_type; ?> display-container round-large">
+      <span class="button large display-topright" onclick="this.parentElement.style.display='none'">&times;</span>
+      <br>
+      <p>
+        <?php echo $success_message; ?>
+      </p>
+    </div>
+    <?php endif; ?>
 
 
     <h3>

@@ -31,8 +31,8 @@
   // Get the modal modifier  module
   var modal10 = document.getElementById('id10');   //modal supprimer module
 
-  // Get the modal modifier  module
-  var modal11 = document.getElementById('id11');   //modal Ajouter délégué
+  //modal Ajouter délégué
+  var modal11 = document.getElementById('id11');   
 
   // Get the modal modifier  delegue
   var modal12 = document.getElementById('id12');   //modal Ajouter délégué
@@ -65,6 +65,12 @@
   document.querySelector('#addmodule').addEventListener('click', function () {
     modal8.className = modal8.className.replace(" hide", " show");
   });
+  
+  // show Ajouter délégué modal
+  $('#add_del').on('click', function() {
+    modal11.className = modal11.className.replace(" hide", " show");
+  });
+  
 
 
 
